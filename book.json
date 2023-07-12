@@ -3,7 +3,8 @@
     "mermaid-gb3",
     "chapter-fold",
     "insert-logo",
-    "anchor-navigation-ex"
+    "anchor-navigation-ex",
+    "-lunr"
   ],
   "pluginsConfig": {
     "insert-logo": {

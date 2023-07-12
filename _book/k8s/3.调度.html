@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3. Scheduling · GitBook</title>
+        <title>3. 调度 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,7 +77,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="4.Resource Requirements and Limits.html" />
+    <link rel="next" href="4.设定资源.html" />
     
     
     <link rel="prev" href="2.命令式和声明式.html" />
@@ -408,12 +408,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../cli/2.SSH配置及连接.html">
+        <li class="chapter " data-level="1.4.2" data-path="../cli/2.ssh配置及连接.html">
             
-                <a href="../cli/2.SSH配置及连接.html">
+                <a href="../cli/2.ssh配置及连接.html">
             
                     
-                    2. SSH配置及连接
+                    2. ssh 配置及连接
             
                 </a>
             
@@ -421,12 +421,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../cli/3.Terminal常用快捷键.html">
+        <li class="chapter " data-level="1.4.3" data-path="../cli/3.terminal常用快捷键.html">
             
-                <a href="../cli/3.Terminal常用快捷键.html">
+                <a href="../cli/3.terminal常用快捷键.html">
             
                     
-                    3. Terminal常用快捷键
+                    3. terminal 常用快捷键
             
                 </a>
             
@@ -447,12 +447,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../cli/5.常用Powershell命令.html">
+        <li class="chapter " data-level="1.4.5" data-path="../cli/5.常用PowerShell命令.html">
             
-                <a href="../cli/5.常用Powershell命令.html">
+                <a href="../cli/5.常用PowerShell命令.html">
             
                     
-                    5. 常用 Powershell 命令
+                    5. 常用 PowerShell 命令
             
                 </a>
             
@@ -518,12 +518,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.3" data-path="3.Scheduling.html">
+        <li class="chapter active" data-level="1.5.3" data-path="3.调度.html">
             
-                <a href="3.Scheduling.html">
+                <a href="3.调度.html">
             
                     
-                    3. Scheduling
+                    3. 调度
             
                 </a>
             
@@ -531,12 +531,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="4.Resource Requirements and Limits.html">
+        <li class="chapter " data-level="1.5.4" data-path="4.设定资源.html">
             
-                <a href="4.Resource Requirements and Limits.html">
+                <a href="4.设定资源.html">
             
                     
-                    4. Resource Requirements and Limits
+                    4. 设定资源
             
                 </a>
             
@@ -1052,7 +1052,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3. Scheduling</a>
+        <a href=".." >3. 调度</a>
     </h1>
 </div>
 
@@ -1067,14 +1067,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#node-selectors--affinity"><b></b>Node Selectors &amp; Affinity</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><ul>
-<li>Scheduling</li>
-</ul>
-<p>&#x672A;&#x547D;&#x540D;&#x9690;&#x85CF;&#x5B57;&#x6BB5;<code>nodeName</code>&#x7684;pod&#x5C06;&#x4F5C;&#x4E3A;&#x5019;&#x9009;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x7ED1;&#x5B9A;-pod"><b></b>1. &#x7ED1;&#x5B9A; Pod</a></li><li><span class="title-icon "></span><a href="#2-labels"><b></b>2. Labels</a></li><li><span class="title-icon "></span><a href="#3-taints---node"><b></b>3. Taints - Node</a></li><li><span class="title-icon "></span><a href="#4-tolerations---pods"><b></b>4. Tolerations - Pods</a></li><li><span class="title-icon "></span><a href="#5-node-selectors"><b></b>5. Node Selectors</a></li><li><span class="title-icon "></span><a href="#6-node-affinity"><b></b>6. Node Affinity</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x7ED1;&#x5B9A;-pod"><a name="1-&#x7ED1;&#x5B9A;-pod" class="anchor-navigation-ex-anchor" href="#1-&#x7ED1;&#x5B9A;-pod"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7ED1;&#x5B9A; Pod</h3>
+<p>&#x672A;&#x547D;&#x540D;&#x9690;&#x85CF;&#x5B57;&#x6BB5;<code>nodeName</code>&#x7684; pod &#x5C06;&#x4F5C;&#x4E3A;&#x5019;&#x9009;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;</p>
 <pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
 <span class="hljs-attr">  nodeName:</span> node02
 </code></pre>
-<p>&#x4F46;&#x5BF9;&#x4E8E;&#x5DF2;&#x521B;&#x5EFA;&#x7684;pod&#xFF0C;<code>pod-definition.yaml</code>&#x4E2D;&#x7684;<code>nodeName</code>&#x5B57;&#x6BB5;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;Node&#x5206;&#x914D;&#x7ED9;pod&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5411;pod&#x7ED1;&#x5B9A;API&#x53D1;&#x9001;post&#x8BF7;&#x6C42;&#xFF1A;</p>
+<p>&#x4F46;&#x5BF9;&#x4E8E;&#x5DF2;&#x521B;&#x5EFA;&#x7684; pod&#xFF0C;<code>pod-definition.yaml</code>&#x4E2D;&#x7684;<code>nodeName</code>&#x5B57;&#x6BB5;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;Node&#x5206;&#x914D;&#x7ED9; pod &#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5411; pod &#x7ED1;&#x5B9A; API &#x53D1;&#x9001; post &#x8BF7;&#x6C42;&#xFF1A;</p>
 <p><code>Pod-bind-definition.yaml</code></p>
 <pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
 <span class="hljs-attr">kind:</span> Binding
@@ -1085,25 +1083,19 @@
 <span class="hljs-attr">  kind:</span> Node
 <span class="hljs-attr">  name:</span> node02
 </code></pre>
-<p>&#x628A;yaml&#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210;Json&#x683C;&#x5F0F;</p>
+<p>&#x628A; yaml &#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210; Json &#x683C;&#x5F0F;</p>
 <pre><code class="lang-bash">curl --header <span class="hljs-string">&quot;Content-Type:application/json&quot;</span> --request POST --data <span class="hljs-string">&apos;{&quot;apiVersion&quot;:&quot;v1&quot;, &quot;kind&quot;: &quot;Binding&quot;, ...}&apos;</span> http://<span class="hljs-variable">$SERVER</span>/api/v1/namespaces/default/pods/<span class="hljs-variable">$PODNAME</span>/binding
 </code></pre>
-<ul>
-<li>Labels and Selectors</li>
-</ul>
+<h3 id="2-labels"><a name="2-labels" class="anchor-navigation-ex-anchor" href="#2-labels"><i class="fa fa-link" aria-hidden="true"></i></a>2. Labels</h3>
 <p><code>kubectl get all</code></p>
 <p><code>kubectl get pods -l env=dev | wc -l</code> : &#x5217;&#x51FA;env=dev&#x7684;pod&#x4E2A;&#x6570;&#xFF08;&#x5305;&#x542B;header&#xFF09;&#xFF0C;<code>-l</code> short for <code>--selector</code></p>
 <p><code>kubectl get pods -l env=dev --no-headers | wc -l</code> : &#x5217;&#x51FA;env=dev&#x7684;pod&#x4E2A;&#x6570;&#xFF08;&#x4E0D;&#x5305;&#x542B;header&#xFF09;</p>
 <p><code>kubectl label node node01 color=blue</code> : &#x6DFB;&#x52A0;Label</p>
-<ul>
-<li>Taints - Node :</li>
-</ul>
+<h3 id="3-taints---node"><a name="3-taints---node" class="anchor-navigation-ex-anchor" href="#3-taints---node"><i class="fa fa-link" aria-hidden="true"></i></a>3. Taints - Node</h3>
 <p><code>kubectl taint nodes node-name key=value:taint-effect</code></p>
 <p>taint-effect : NoSchedule | PreferNoSchedule | NoExecute</p>
 <p>NoExecute : &#x65B0;Pod&#x4E0D;&#x4F1A;&#x90E8;&#x7F72;&#xFF0C;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8282;&#x70B9;&#x4E5F;&#x4F1A;&#x7EC8;&#x6B62;</p>
-<ul>
-<li>Tolerations - Pods :</li>
-</ul>
+<h3 id="4-tolerations---pods"><a name="4-tolerations---pods" class="anchor-navigation-ex-anchor" href="#4-tolerations---pods"><i class="fa fa-link" aria-hidden="true"></i></a>4. Tolerations - Pods</h3>
 <p><code>pod-definition.yml</code></p>
 <pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
 <span class="hljs-attr">  tolerations:</span>
@@ -1114,19 +1106,14 @@
 </code></pre>
 <p><code>kubectl describe node kubemaster | grep Taint</code> : &#x67E5;&#x770B;master node&#x7684;Taint</p>
 <p><code>kubectl taint node node-name key=value:NoSchedule-</code> : &#x6E05;&#x9664;taint</p>
-<h3 id="node-selectors--affinity"><a name="node-selectors--affinity" class="anchor-navigation-ex-anchor" href="#node-selectors--affinity"><i class="fa fa-link" aria-hidden="true"></i></a>Node Selectors &amp; Affinity</h3>
-<ul>
-<li>Node Selectors</li>
-</ul>
+<h3 id="5-node-selectors"><a name="5-node-selectors" class="anchor-navigation-ex-anchor" href="#5-node-selectors"><i class="fa fa-link" aria-hidden="true"></i></a>5. Node Selectors</h3>
 <p><code>pod-definition.yml</code></p>
 <pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
 <span class="hljs-attr">  nodeSelector:</span>
 <span class="hljs-attr">    size:</span> Large  <span class="hljs-comment">##&#x751F;&#x6548;&#x524D;&#x9700;&#x8981;&#x5148;&#x6807;&#x8BB0; node</span>
 </code></pre>
 <p><code>kubectl label nodes &lt;node-name&gt; &lt;label-key&gt;=&lt;label-value&gt;</code> : &#x6807;&#x8BB0;node</p>
-<ul>
-<li>Node Affinity</li>
-</ul>
+<h3 id="6-node-affinity"><a name="6-node-affinity" class="anchor-navigation-ex-anchor" href="#6-node-affinity"><i class="fa fa-link" aria-hidden="true"></i></a>6. Node Affinity</h3>
 <p><code>pod-definition.yml</code></p>
 <pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
 <span class="hljs-attr">  affinity:</span>
@@ -1149,7 +1136,7 @@
 <ul>
 <li>requiredDuringSchedulingrequiredDuringExecution</li>
 </ul>
-<p>DuringScheduling : Pod&#x4E0D;&#x5B58;&#x5728;&#x4E14;&#x662F;&#x9996;&#x6B21;&#x521B;&#x5EFA;</p>
+<p>DuringScheduling&#xFF1A;Pod&#x4E0D;&#x5B58;&#x5728;&#x4E14;&#x662F;&#x9996;&#x6B21;&#x521B;&#x5EFA;</p>
 <table>
 <thead>
 <tr>
@@ -1208,7 +1195,7 @@
                 </a>
                 
                 
-                <a href="4.Resource Requirements and Limits.html" class="navigation navigation-next " aria-label="Next page: 4. Resource Requirements and Limits">
+                <a href="4.设定资源.html" class="navigation navigation-next " aria-label="Next page: 4. 设定资源">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1219,7 +1206,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. Scheduling","level":"1.5.3","depth":2,"next":{"title":"4. Resource Requirements and Limits","level":"1.5.4","depth":2,"path":"k8s/4.Resource Requirements and Limits.md","ref":"k8s/4.Resource Requirements and Limits.md","articles":[]},"previous":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/3.Scheduling.md","mtime":"2023-07-12T07:33:59.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T08:12:31.115Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 调度","level":"1.5.3","depth":2,"next":{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},"previous":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/3.调度.md","mtime":"2023-07-12T12:01:47.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T12:07:06.229Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1251,14 +1238,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
         
