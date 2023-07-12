@@ -1,0 +1,93 @@
+### ctl (control)
+
+在Java中，线程池（Thread Pool）是一种用于管理和复用线程的机制。在Java的线程池实现中，ctl是一个表示线程池状态和线程数量的变量。
+
+具体来说，ctl是一个32位的整数，其中高3位表示线程池的状态，低29位表示线程池中的线程数量。这样的设计可以同时表示线程池的状态和线程数量，提供了一种紧凑的表示方式。
+
+通过对ctl的操作，可以实现对线程池状态和线程数量的管理，包括增加或减少线程数量、判断线程池是否在运行等功能。这样的设计可以更好地控制线程池的行为和资源利用，提高多线程编程的效率和可靠性。
+### 线程池的5种状态
+
+| 状态       | 行为                                                         |
+| :--------- | :----------------------------------------------------------- |
+| RUNNING    | **会**接收新任务并且**会**处理队列中的任务                   |
+| SHUTDOWN   | **不会**接收新任务并且**会**处理队列中的任务，任务处理完后会中断所有线程 |
+| STOP       | **不会**接收新任务并且**不会**处理队列中的任务，并且会直接中断 |
+| TIDYING    | 所有线程所有线程都停止了之后，线程池的状态就会转为TIDYING，一旦达到此状态，就会调用线程池的terminated() |
+| TERMINATED | terminated()执行完之后就会转变为TERMINATED                   |
+
+### 线程池状态的转换情况
+
+|  转变前  |   转变后   |                           转变条件                           |
+| :------: | :--------: | :----------------------------------------------------------: |
+| RUNNING  |  SHUTDOWN  | 手动调用shutdown()触发，或者线程池对象GC时会调用finalize()从而调用shutdown() |
+| RUNNING  |    STOP    |                  手动调用shutdownNow()触发                   |
+| SHUTDOWN |    STOP    |        手动先调用shutdown()紧着调用shutdownNow()触发         |
+| SHUTDOWN |  TIDYING   |                线程池所有线程都停止后自动触发                |
+|   STOP   |  TIDYING   |                线程池所有线程都停止后自动触发                |
+| TIDYING  | TERMINATED |               线程池自动调用terminated()后触发               |
+
+### 线程池中提交一个任务的流程
+
+1. 在使用execute方法提交一个Runnable对象时
+2. 会先判断当前线程池中的线程数是否小于corePoolSize
+3. 如果小于，则创建新线程并执行Runnable
+4. 如果大于等于，则尝试将Runnable加入到workQueue中
+5. 如果workQueue没满，则将Runnable正常入队，等待执行
+6. 如果workQueue满了，则会入队失败，那么会尝试继续增加线程
+7. 如果当前线程池中的线程数是否小于maximumPoolSize
+8. 如果小于，则创建新线程并执行任务
+9. 如果大于等于，则执行拒绝策略，拒绝此Runnable
+
+### 三大方法
+
+```java
+Executors.newSingleThreadExecutor(); // 单个线程
+Executors.newFixedThreadPool(5); // 固定的线程池大小
+Executors.newCachedThreadPool(); // 可伸缩的
+```
+
+以上底层都是由 ThreadPoolExecutor 实现
+
+> 阿里开发手册：线程池不允许使用 Executors 去创建， 而是通过 ThreadPoolExecutor 的方式， 这样的处理方式让写的同学更加明确线程池的运行规则， 规避资源耗尽的风险。
+> Executors 返回的线程池对象的弊端如下：
+>
+> - FixedThreadPool 和 SingleThreadPool：允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM。
+> - CachedThreadPool：允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM。
+> - ScheduledThreadPool：允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM。  
+
+### 七大参数
+
+```java
+public ThreadPoolExecutor(
+	int corePoolSize,
+	int maximumPoolSize,
+	long keepAliveTime,
+	TimeUnit unit,	// TimeUnit.SECONDS
+	BlockingQueue<Runnable> workQueue,	// new LinkedBlockingDeque<>(3)
+	ThreadFactory threadFactory,	// Executors.defaultThreadFactory()
+	RejectedExecutionHandler handler // new ThreadPoolExecutor.AbortPolicy()
+)	
+```
+
+### 四种策略
+
+- AbortPolicy 如果线程池拒绝了任务，直接报错
+- CallerRunsPolicy 线程池让调用者去执行
+
+```java
+public static class CallerRunsPolicy implements RejectedExecutionHandler {
+	public CallerRunsPolicy() { }
+    public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+		if (!e.isShutdown()) {
+			r.run(); // 可以看见源码逻辑为，先判断线程池还未关闭，然后直接r.run运行了任务。
+		}
+	}
+}
+```
+
+- DiscardPolicy 如果线程池拒绝了任务，直接丢弃
+- DiscardOldestPolicy 如果线程池拒绝了任务，直接将线程池中最旧的，未运行的任务丢弃，将新任务入队
+
+### Spring ApplicationContext 和 BeanFactory 的区别
+
+BeanFactory是Spring中非常核心的组件，表示Bean工厂可以生成Bean，维护Bean，而ApplicationContext继承了BeanFactory，所以ApplicationContext拥有BeanFactory所有的特点，也是一个BeanI厂，但是ApplicationContext除开继承了BeanFactoy之外，还继承了诸EnvironmentCapable（获取环境变量、properties等）、MesageSoure（国际化）、ApplicationEventPublisher等接口，从而ApplicationContext还有获取系统环境变量、国际化、事件发布等功能，这是BeanFactory所不具备的。
