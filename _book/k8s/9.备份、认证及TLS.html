@@ -77,7 +77,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="10.KubeConfig, RBAC & Service Accounts.html" />
+    <link rel="next" href="10.RBAC.html" />
     
     
     <link rel="prev" href="8.升级和版本.html" />
@@ -206,7 +206,7 @@
                 <a href="../saa/6.EBS.html">
             
                     
-                    6. EBS, AMI, EFS
+                    6. EBS, AMI & EFS
             
                 </a>
             
@@ -240,12 +240,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="../saa/9.Route 53 & Classic Solutions Architecture.html">
+        <li class="chapter " data-level="1.2.9" data-path="../saa/9.路由.html">
             
-                <a href="../saa/9.Route 53 & Classic Solutions Architecture.html">
+                <a href="../saa/9.路由.html">
             
                     
-                    9. Route 53 & Classic Solutions Architecture
+                    9. 路由
             
                 </a>
             
@@ -544,12 +544,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+        <li class="chapter " data-level="1.5.5" data-path="5.守护进程、静态Pod、多调度器.html">
             
-                <a href="5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+                <a href="5.守护进程、静态Pod、多调度器.html">
             
                     
-                    5. Daemon Sets, Static Pods & Multiple Schedulers
+                    5. 守护进程、静态Pod、多调度器 
             
                 </a>
             
@@ -557,9 +557,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+        <li class="chapter " data-level="1.5.6" data-path="6.监控、滚动升级、回滚及参数配置.html">
             
-                <a href="6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+                <a href="6.监控、滚动升级、回滚及参数配置.html">
             
                     
                     6. 监控、滚动升级、回滚及参数配置
@@ -609,12 +609,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.10" data-path="10.KubeConfig, RBAC & Service Accounts.html">
+        <li class="chapter " data-level="1.5.10" data-path="10.RBAC.html">
             
-                <a href="10.KubeConfig, RBAC & Service Accounts.html">
+                <a href="10.RBAC.html">
             
                     
-                    10. KubeConfig, RBAC & Service Accounts
+                    10. RBAC
             
                 </a>
             
@@ -622,12 +622,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.11" data-path="11.Network Policy, Storage & Container Storage Interface.html">
+        <li class="chapter " data-level="1.5.11" data-path="11.网络策略和存储.html">
             
-                <a href="11.Network Policy, Storage & Container Storage Interface.html">
+                <a href="11.网络策略和存储.html">
             
                     
-                    11. Network Policy, Storage & Container Storage Interface
+                    11. 网络策略和存储
             
                 </a>
             
@@ -635,12 +635,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="12.Volumes, Persistent Volumes & Storage Class.html">
+        <li class="chapter " data-level="1.5.12" data-path="12.硬盘和路由.html">
             
-                <a href="12.Volumes, Persistent Volumes & Storage Class.html">
+                <a href="12.硬盘和路由.html">
             
                     
-                    12. Volumes, Persistent Volumes & Storage Class
+                    12. 硬盘和路由
             
                 </a>
             
@@ -648,12 +648,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.13" data-path="13.Network Namespaces.html">
+        <li class="chapter " data-level="1.5.13" data-path="13.网络空间.html">
             
-                <a href="13.Network Namespaces.html">
+                <a href="13.网络空间.html">
             
                     
-                    13. Network Namespaces
+                    13. 网络空间
             
                 </a>
             
@@ -674,12 +674,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.15" data-path="15.Certification Tips及问题定位.html">
+        <li class="chapter " data-level="1.5.15" data-path="15.资料及经验分享.html">
             
-                <a href="15.Certification Tips及问题定位.html">
+                <a href="15.资料及经验分享.html">
             
                     
-                    15. Certification Tips 及问题定位
+                    15. 资料及经验分享
             
                 </a>
             
@@ -1067,7 +1067,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#authentication"><b></b>Authentication</a></li><li><span class="title-icon "></span><a href="#static-password-file-&#xFF1A;"><b></b>Static Password File &#xFF1A;</a></li><li><span class="title-icon "></span><a href="#tls"><b></b>TLS</a></li><li><span class="title-icon "></span><a href="#certificate"><b></b>Certificate</a></li><li><span class="title-icon "></span><a href="#certificates-api"><b></b>Certificates API</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p><code>kubectl get all --all-namespaces -o yaml &gt; all-deploy-services.yaml</code></p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x5907;&#x4EFD;"><b></b>1. &#x5907;&#x4EFD;</a></li><li><span class="title-icon "></span><a href="#2-&#x8FD8;&#x539F;"><b></b>2. &#x8FD8;&#x539F;</a></li><li><span class="title-icon "></span><a href="#3-authentication"><b></b>3. Authentication</a></li><li><span class="title-icon "></span><a href="#4-static-password-file"><b></b>4. Static Password File</a></li><li><span class="title-icon "></span><a href="#5-tls"><b></b>5. TLS</a></li><li><span class="title-icon "></span><a href="#6-certificate"><b></b>6. Certificate</a></li><li><span class="title-icon "></span><a href="#7-certificates-api"><b></b>7. Certificates API</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x5907;&#x4EFD;"><a name="1-&#x5907;&#x4EFD;" class="anchor-navigation-ex-anchor" href="#1-&#x5907;&#x4EFD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5907;&#x4EFD;</h3>
+<p><code>kubectl get all --all-namespaces -o yaml &gt; all-deploy-services.yaml</code></p>
 <p>&#x4E0E;&#x5176;&#x5907;&#x4EFD;&#x5355;&#x4E2A;&#x8D44;&#x6E90;&#xFF0C;&#x4E0D;&#x5982;&#x5907;&#x4EFD;ETCD&#xFF1A;</p>
 <p><code>etcd.service</code></p>
 <pre><code class="lang-yaml"><span class="hljs-bullet">  -</span>-data-dir=/var/lib/etcd
@@ -1077,6 +1078,7 @@
     snapshot save snapshot.db
     snapshot status snapshot.db  ##&#x67E5;&#x770B;&#x5907;&#x4EFD;&#x72B6;&#x6001;
 </code></pre>
+<h3 id="2-&#x8FD8;&#x539F;"><a name="2-&#x8FD8;&#x539F;" class="anchor-navigation-ex-anchor" href="#2-&#x8FD8;&#x539F;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x8FD8;&#x539F;</h3>
 <p>Restore&#xFF1A;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x65B0;&#x7684;&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#xFF0C;&#x5C06;etcd&#x914D;&#x7F6E;&#x4E3A;&#x65B0;&#x6210;&#x5458;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x65B0;&#x6210;&#x5458;&#x52A0;&#x5165;&#x73B0;&#x6709;&#x96C6;&#x7FA4;</p>
 <pre><code class="lang-shell">ETCDCTL_API=3 etcdctl \
 service kube-apiserver stop
@@ -1115,9 +1117,9 @@ kubectl config get-clusters
  --key=/etc/etcd/pki/etcd-key.pem \
   member list
 </code></pre>
-<p>&#x8DE8;node&#x590D;&#x5236;&#x6587;&#x4EF6;&#xFF1A;<code>scp cluster1-controlplane:/opt/cluster1.db /opt/cluster1.db</code></p>
-<p>&#x5982;&#x679C;&#x662F;&#x5916;&#x90E8;&#x7684;etcd&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539; <code>/etc/systemd/system/etcd.service</code>&#x4E2D;&#x7684; <code>data-dir</code>&#xFF0C;&#x6DFB;&#x52A0;&#x65B0;&#x8DEF;&#x5F84;&#x7684;etcd&#x6743;&#x9650; <code>chown -R etcd:etcd /var/lib/etcd-data-new</code>&#xFF0C;&#x6700;&#x540E;&#x91CD;&#x542F;&#x670D;&#x52A1; <code>systemctl daemon-reload</code>, <code>systemctl restart etcd</code></p>
-<h3 id="authentication"><a name="authentication" class="anchor-navigation-ex-anchor" href="#authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Authentication</h3>
+<p>&#x8DE8; node &#x590D;&#x5236;&#x6587;&#x4EF6;&#xFF1A;<code>scp cluster1-controlplane:/opt/cluster1.db /opt/cluster1.db</code></p>
+<p>&#x5982;&#x679C;&#x662F;&#x5916;&#x90E8;&#x7684; etcd&#xFF0C;&#x9700;&#x8981;&#x4FEE;&#x6539; <code>/etc/systemd/system/etcd.service</code>&#x4E2D;&#x7684; <code>data-dir</code>&#xFF0C;&#x6DFB;&#x52A0;&#x65B0;&#x8DEF;&#x5F84;&#x7684; etcd &#x6743;&#x9650; <code>chown -R etcd:etcd /var/lib/etcd-data-new</code>&#xFF0C;&#x6700;&#x540E;&#x91CD;&#x542F;&#x670D;&#x52A1; <code>systemctl daemon-reload</code>, <code>systemctl restart etcd</code>&#x3002;</p>
+<h3 id="3-authentication"><a name="3-authentication" class="anchor-navigation-ex-anchor" href="#3-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>3. Authentication</h3>
 <ul>
 <li>&#x7981;&#x7528;&#x57FA;&#x4E8E;&#x5BC6;&#x7801;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;</li>
 <li>&#x4EC5;&#x63D0;&#x4F9B;&#x57FA;&#x4E8E;SSH&#x5BC6;&#x94A5;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;</li>
@@ -1146,7 +1148,7 @@ kubectl config get-clusters
 <li>Certificates</li>
 <li>Identity Services&#xFF0C;&#x7B2C;&#x4E09;&#x65B9;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x534F;&#x8BAE;&#xFF0C;&#x5982;LDAP&#x3001;Kerberos&#x7B49;</li>
 </ul>
-<h3 id="static-password-file-&#xFF1A;"><a name="static-password-file-&#xFF1A;" class="anchor-navigation-ex-anchor" href="#static-password-file-&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>Static Password File &#xFF1A;</h3>
+<h3 id="4-static-password-file"><a name="4-static-password-file" class="anchor-navigation-ex-anchor" href="#4-static-password-file"><i class="fa fa-link" aria-hidden="true"></i></a>4. Static Password File</h3>
 <p><code>user-details.csv</code> :</p>
 <pre><code>password,username,userid(,groupname optional)
 ...
@@ -1191,10 +1193,10 @@ kubectl config get-clusters
 <li>Consider volume mount while providing the auth file in a kubeadm setup</li>
 <li>Setup Role Based Authorization for the new users</li>
 </ul>
-<h3 id="tls"><a name="tls" class="anchor-navigation-ex-anchor" href="#tls"><i class="fa fa-link" aria-hidden="true"></i></a>TLS</h3>
-<p>&#x67E5;&#x770B;Common Name (CN)&#xFF1A;<code>openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text</code></p>
+<h3 id="5-tls"><a name="5-tls" class="anchor-navigation-ex-anchor" href="#5-tls"><i class="fa fa-link" aria-hidden="true"></i></a>5. TLS</h3>
+<p>&#x67E5;&#x770B; Common Name (CN)&#xFF1A;<code>openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text</code></p>
 <p>Symmetric Encryption&#xFF1A;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#xFF0C;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5BC6;&#x94A5;&#x6765;&#x52A0;&#x5BC6;&#x548C;&#x89E3;&#x5BC6;&#x6570;&#x636E;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x53D1;&#x9001;&#x65B9;&#x548C;&#x63A5;&#x6536;&#x65B9;&#x4E4B;&#x95F4;&#x4EA4;&#x6362;&#xFF0C;&#x56E0;&#x6B64;&#x5B58;&#x5728;&#x98CE;&#x9669;</p>
-<p>Asymmetric Encryption&#xFF1A;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#xFF0C;Private Key&#x548C;Public Lock</p>
+<p>Asymmetric Encryption&#xFF1A;&#x975E;&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;&#xFF0C;Private Key &#x548C; Public Lock</p>
 <p><code>ssh-keygen</code> &#x751F;&#x6210;&#x79C1;&#x94A5; <code>id_rsa</code> &#x548C;&#x516C;&#x94A5; <code>id_rsa.pub</code></p>
 <p>&#x6DFB;&#x52A0;&#x516C;&#x94A5;&#xFF1A;&#x901A;&#x5E38;&#x662F;&#x5728;&#x670D;&#x52A1;&#x5668;SSH&#x6388;&#x6743;&#x7684;&#x4E0B;&#x5212;&#x7EBF;&#x5BC6;&#x94A5;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x516C;&#x94A5;&#x7684;&#x6761;&#x76EE;&#x6765;&#x5B8C;&#x6210;&#x7684; <code>cat ~/.ssh/authorized_keys</code></p>
 <pre><code>ssh-rsa AAAAB3Nza... user1
@@ -1226,7 +1228,8 @@ openssl rsa -in my-bank.key -pubout &gt; mybank.pem  <span class="hljs-comment">
 </ul>
 <p>CA&#x5408;&#x6CD5;&#x6027;&#x7684;&#x9A8C;&#x8BC1;&#xFF1A;&#x7B7E;&#x540D;&#x7528;&#x79C1;&#x94A5;&#xFF0C;&#x6240;&#x6709;CA&#x7684;&#x516C;&#x94A5;&#x90FD;&#x5B58;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;</p>
 <p>&#x79C1;&#x6709;CA&#xFF1A;&#x4E00;&#x6837;&#x7684;&#x8FD0;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x4E3A;&#x7EC4;&#x7EC7;&#x5185;&#x6240;&#x6709;&#x6D4F;&#x89C8;&#x5668;&#x5B89;&#x88C5;&#x79C1;&#x6709;CA&#x7684;&#x516C;&#x94A5;</p>
-<p><img src="https://img2022.cnblogs.com/blog/2122768/202208/2122768-20220828202435126-1276433229.png" alt=""></p>
+<center><img src="tls.png" style="zoom:70%"></center>
+
 <p>Kubernetes&#x8981;&#x6C42;&#x96C6;&#x7FA4;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x8BC1;&#x4E66;&#x9881;&#x53D1;&#x673A;&#x6784;CA&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;</p>
 <h4 id="&#x4E4B;&#x524D;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x767B;&#x9646;&#x8BC1;&#x4E66;&#x8FC7;&#x671F;&#x7684;https&#x5931;&#x8D25;"><a name="&#x4E4B;&#x524D;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x767B;&#x9646;&#x8BC1;&#x4E66;&#x8FC7;&#x671F;&#x7684;https&#x5931;&#x8D25;" class="anchor-navigation-ex-anchor" href="#&#x4E4B;&#x524D;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x767B;&#x9646;&#x8BC1;&#x4E66;&#x8FC7;&#x671F;&#x7684;https&#x5931;&#x8D25;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E4B;&#x524D;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x767B;&#x9646;&#x8BC1;&#x4E66;&#x8FC7;&#x671F;&#x7684;https&#x5931;&#x8D25;</h4>
 <pre><code class="lang-shell">openssl x509 -inform der -in \*.thoughtworks.cn.cer -out certificate.pem
@@ -1238,8 +1241,8 @@ openssl rsa -in my-bank.key -pubout &gt; mybank.pem  <span class="hljs-comment">
 <pre><code class="lang-bash">sudo vim /etc/hosts
 </code></pre>
 <p>&#x5982;&#x679C;api-server&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x7528;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x9891;&#x7E41;&#x9000;&#x51FA;&#x7684;container&#x7684;id <code>crictl ps -a | grep kube-apiserver</code>&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x65E5;&#x5FD7; <code>crictl logs --tail=2 1fb242055cff8</code>&#x627E;&#x51FA;&#x539F;&#x56E0; - Container Runtime Interface (CRI)</p>
-<h3 id="certificate"><a name="certificate" class="anchor-navigation-ex-anchor" href="#certificate"><i class="fa fa-link" aria-hidden="true"></i></a>Certificate</h3>
-<h4 id="&#x8BC1;&#x4E66;&#x521B;&#x5EFA;"><a name="&#x8BC1;&#x4E66;&#x521B;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#&#x8BC1;&#x4E66;&#x521B;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BC1;&#x4E66;&#x521B;&#x5EFA;</h4>
+<h3 id="6-certificate"><a name="6-certificate" class="anchor-navigation-ex-anchor" href="#6-certificate"><i class="fa fa-link" aria-hidden="true"></i></a>6. Certificate</h3>
+<h4 id="61-&#x8BC1;&#x4E66;&#x521B;&#x5EFA;"><a name="61-&#x8BC1;&#x4E66;&#x521B;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#61-&#x8BC1;&#x4E66;&#x521B;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>6.1 &#x8BC1;&#x4E66;&#x521B;&#x5EFA;</h4>
 <p>&#x8BC1;&#x4E66;&#x751F;&#x6210;&#x5DE5;&#x5177;&#xFF1A;easyrsa&#x3001;openssl&#x3001;cfssl</p>
 <p>&#x751F;&#x6210;CA certificate&#x6B65;&#x9AA4;&#xFF1A;</p>
 <ul>
@@ -1271,7 +1274,7 @@ openssl rsa -in my-bank.key -pubout &gt; mybank.pem  <span class="hljs-comment">
 <p>kube-api &#x6DFB;&#x52A0;&#x522B;&#x540D;&#x65B9;&#x5F0F;&#xFF1A;</p>
 <pre><code class="lang-bash">openssl req -new -key apiserver.key -subj <span class="hljs-string">&quot;/CN=kube-apiserver&quot;</span> -out apiserver.csr -config openssl.cnf
 </code></pre>
-<p>openssl.cnf</p>
+<p><code>openssl.cnf</code>&#xFF1A;</p>
 <pre><code class="lang-yaml">[alt_names]
 DNS<span class="hljs-number">.1</span> = kubernetes
 DNS<span class="hljs-number">.2</span> = kubernetes.default
@@ -1280,13 +1283,13 @@ DNS<span class="hljs-number">.4</span> = kubernetes.default.svc.cluster.local
 IP<span class="hljs-number">.1</span> = <span class="hljs-number">10.96</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
 IP<span class="hljs-number">.2</span> = <span class="hljs-number">1720.17</span><span class="hljs-number">.0</span><span class="hljs-number">.87</span>
 </code></pre>
-<h4 id="&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;"><a name="&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;</h4>
+<h4 id="62-&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;"><a name="62-&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;" class="anchor-navigation-ex-anchor" href="#62-&#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;"><i class="fa fa-link" aria-hidden="true"></i></a>6.2 &#x67E5;&#x770B;&#x8BC1;&#x4E66;&#x7EC6;&#x8282;</h4>
 <p>x509&#x89E3;&#x7801;&#x8BC1;&#x4E66;&#x4EE5;&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF1A;</p>
 <pre><code class="lang-bash">openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
 </code></pre>
 <p>&#x5982;&#x679C;&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;&#xFF08;&#x5982;kubernetes api-server&#x6216;etcd-server&#x5173;&#x95ED;&#xFF09;&#xFF0C;kubectl&#x547D;&#x4EE4;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;docker&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x65E5;&#x5FD7;</p>
 <p>Kubernetes Certificate Health Check Spreadsheet : <a href="https://github.com/mmumshad/kubernetes-the-hard-way/tree/master/tools" target="_blank">https://github.com/mmumshad/kubernetes-the-hard-way/tree/master/tools</a></p>
-<h3 id="certificates-api"><a name="certificates-api" class="anchor-navigation-ex-anchor" href="#certificates-api"><i class="fa fa-link" aria-hidden="true"></i></a>Certificates API</h3>
+<h3 id="7-certificates-api"><a name="7-certificates-api" class="anchor-navigation-ex-anchor" href="#7-certificates-api"><i class="fa fa-link" aria-hidden="true"></i></a>7. Certificates API</h3>
 <p>&#x7528;&#x6237;&#x521B;&#x5EFA;key&#xFF1A;</p>
 <pre><code class="lang-bash">openssl genrsa -out jane.key 2048
 </code></pre>
@@ -1351,7 +1354,7 @@ IP<span class="hljs-number">.2</span> = <span class="hljs-number">1720.17</span>
                 </a>
                 
                 
-                <a href="10.KubeConfig, RBAC & Service Accounts.html" class="navigation navigation-next " aria-label="Next page: 10. KubeConfig, RBAC & Service Accounts">
+                <a href="10.RBAC.html" class="navigation navigation-next " aria-label="Next page: 10. RBAC">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1362,7 +1365,7 @@ IP<span class="hljs-number">.2</span> = <span class="hljs-number">1720.17</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"next":{"title":"10. KubeConfig, RBAC & Service Accounts","level":"1.5.10","depth":2,"path":"k8s/10.KubeConfig, RBAC & Service Accounts.md","ref":"k8s/10.KubeConfig, RBAC & Service Accounts.md","articles":[]},"previous":{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/9.备份、认证及TLS.md","mtime":"2023-07-12T10:45:54.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T12:07:06.229Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"next":{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},"previous":{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/9.备份、认证及TLS.md","mtime":"2023-07-12T12:24:28.443Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T13:59:35.405Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

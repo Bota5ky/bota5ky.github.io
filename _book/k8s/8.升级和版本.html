@@ -206,7 +206,7 @@
                 <a href="../saa/6.EBS.html">
             
                     
-                    6. EBS, AMI, EFS
+                    6. EBS, AMI & EFS
             
                 </a>
             
@@ -240,12 +240,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="../saa/9.Route 53 & Classic Solutions Architecture.html">
+        <li class="chapter " data-level="1.2.9" data-path="../saa/9.路由.html">
             
-                <a href="../saa/9.Route 53 & Classic Solutions Architecture.html">
+                <a href="../saa/9.路由.html">
             
                     
-                    9. Route 53 & Classic Solutions Architecture
+                    9. 路由
             
                 </a>
             
@@ -544,12 +544,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+        <li class="chapter " data-level="1.5.5" data-path="5.守护进程、静态Pod、多调度器.html">
             
-                <a href="5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+                <a href="5.守护进程、静态Pod、多调度器.html">
             
                     
-                    5. Daemon Sets, Static Pods & Multiple Schedulers
+                    5. 守护进程、静态Pod、多调度器 
             
                 </a>
             
@@ -557,9 +557,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+        <li class="chapter " data-level="1.5.6" data-path="6.监控、滚动升级、回滚及参数配置.html">
             
-                <a href="6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+                <a href="6.监控、滚动升级、回滚及参数配置.html">
             
                     
                     6. 监控、滚动升级、回滚及参数配置
@@ -609,12 +609,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.10" data-path="10.KubeConfig, RBAC & Service Accounts.html">
+        <li class="chapter " data-level="1.5.10" data-path="10.RBAC.html">
             
-                <a href="10.KubeConfig, RBAC & Service Accounts.html">
+                <a href="10.RBAC.html">
             
                     
-                    10. KubeConfig, RBAC & Service Accounts
+                    10. RBAC
             
                 </a>
             
@@ -622,12 +622,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.11" data-path="11.Network Policy, Storage & Container Storage Interface.html">
+        <li class="chapter " data-level="1.5.11" data-path="11.网络策略和存储.html">
             
-                <a href="11.Network Policy, Storage & Container Storage Interface.html">
+                <a href="11.网络策略和存储.html">
             
                     
-                    11. Network Policy, Storage & Container Storage Interface
+                    11. 网络策略和存储
             
                 </a>
             
@@ -635,12 +635,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="12.Volumes, Persistent Volumes & Storage Class.html">
+        <li class="chapter " data-level="1.5.12" data-path="12.硬盘和路由.html">
             
-                <a href="12.Volumes, Persistent Volumes & Storage Class.html">
+                <a href="12.硬盘和路由.html">
             
                     
-                    12. Volumes, Persistent Volumes & Storage Class
+                    12. 硬盘和路由
             
                 </a>
             
@@ -648,12 +648,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.13" data-path="13.Network Namespaces.html">
+        <li class="chapter " data-level="1.5.13" data-path="13.网络空间.html">
             
-                <a href="13.Network Namespaces.html">
+                <a href="13.网络空间.html">
             
                     
-                    13. Network Namespaces
+                    13. 网络空间
             
                 </a>
             
@@ -674,12 +674,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.15" data-path="15.Certification Tips及问题定位.html">
+        <li class="chapter " data-level="1.5.15" data-path="15.资料及经验分享.html">
             
-                <a href="15.Certification Tips及问题定位.html">
+                <a href="15.资料及经验分享.html">
             
                     
-                    15. Certification Tips 及问题定位
+                    15. 资料及经验分享
             
                 </a>
             
@@ -1067,9 +1067,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#upgrades"><b></b>Upgrades</a></li><li><span class="title-icon "></span><a href="#releases"><b></b>Releases</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="upgrades"><a name="upgrades" class="anchor-navigation-ex-anchor" href="#upgrades"><i class="fa fa-link" aria-hidden="true"></i></a>Upgrades</h3>
-<p>&#x9ED8;&#x8BA4;pod&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;5&#x5206;&#x949F;&#xFF1A;<code>kube-controller-manager --pod-eviction-timeout=5m0s</code></p>
-<p>&#x7CFB;&#x7EDF;&#x5347;&#x7EA7;&#x65F6;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;<code>kubectl drain node-1</code>&#xFF0C;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x8C03;&#x5EA6;&#xFF0C;&#x4F1A;&#x6E05;&#x9664;pod&#xFF0C;&#x4F46;&#x5F53;pod&#x4E0D;&#x5C5E;&#x4E8E;replicaSet&#x65F6;&#xFF0C;drain&#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A; <code>--force</code>&#xFF0C;&#x8FD9;&#x4E2A;pod&#x5C31;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x5728;&#x5176;&#x4ED6;node&#x4E0A;&#x88AB;&#x521B;&#x5EFA;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-upgrades"><b></b>1. Upgrades</a></li><li><span class="title-icon "></span><a href="#2-releases"><b></b>2. Releases</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-upgrades"><a name="1-upgrades" class="anchor-navigation-ex-anchor" href="#1-upgrades"><i class="fa fa-link" aria-hidden="true"></i></a>1. Upgrades</h3>
+<p>&#x9ED8;&#x8BA4; pod &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;5&#x5206;&#x949F;&#xFF1A;<code>kube-controller-manager --pod-eviction-timeout=5m0s</code></p>
+<p>&#x7CFB;&#x7EDF;&#x5347;&#x7EA7;&#x65F6;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;<code>kubectl drain node-1</code>&#xFF0C;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x8C03;&#x5EA6;&#xFF0C;&#x4F1A;&#x6E05;&#x9664; pod&#xFF0C;&#x4F46;&#x5F53; pod &#x4E0D;&#x5C5E;&#x4E8E; replicaSet &#x65F6;&#xFF0C;drain &#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A; <code>--force</code>&#xFF0C;&#x8FD9;&#x4E2A; pod &#x5C31;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x5728;&#x5176;&#x4ED6;node &#x4E0A;&#x88AB;&#x521B;&#x5EFA;</p>
 <p>&#x5347;&#x7EA7;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF1A;<code>kubectl uncordon node-1</code></p>
 <p><code>kubectl cordon node-2</code>&#x4E0D;&#x4F1A;&#x6E05;&#x9664;pod</p>
 <p>&#x4F7F;&#x7528; <code>kubectl get nodes</code> &#x53EF;&#x4EE5;&#x5728; VERSION &#x5217;&#x67E5;&#x770B;&#x7248;&#x672C;</p>
@@ -1082,17 +1082,17 @@
 <li><p>PATCH : Bug Fixes</p>
 </li>
 </ul>
-<p>ETCD&#x3001;CoreDNS&#x7684;&#x7248;&#x672C;&#x72EC;&#x7ACB;&#xFF0C;kube-apiserver&#x7684;&#x7248;&#x672C;&#x4E00;&#x822C;&#x6BD4;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x66F4;&#x9AD8;&#xFF0C;kubectl&#x7684;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x4F1A;&#x9AD8;&#x6216;&#x8005;&#x4F4E;1&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5176;&#x4ED6;Controller-manager&#x3001;kube-scheduler&#x3001;kubelet&#x3001;kube-proxy&#x7248;&#x672C;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</p>
-<p>Kubernetes&#x53EA;&#x652F;&#x6301;&#x6700;&#x8FD1;&#x7684;3&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x7684;k8s&#x7248;&#x672C;&#x4E0D;&#x518D;&#x652F;&#x6301;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E00;&#x6B21;&#x53EA;&#x5347;&#x7EA7;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p>
-<p>&#x4F7F;&#x7528;kubeadm&#x5347;&#x7EA7;&#xFF1A;</p>
+<p>ETCD&#x3001;CoreDNS &#x7684;&#x7248;&#x672C;&#x72EC;&#x7ACB;&#xFF0C;kube-apiserver &#x7684;&#x7248;&#x672C;&#x4E00;&#x822C;&#x6BD4;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x66F4;&#x9AD8;&#xFF0C;kubectl &#x7684;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x4F1A;&#x9AD8;&#x6216;&#x8005;&#x4F4E;1&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5176;&#x4ED6; Controller-manager&#x3001;kube-scheduler&#x3001;kubelet&#x3001;kube-proxy &#x7248;&#x672C;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</p>
+<p>Kubernetes &#x53EA;&#x652F;&#x6301;&#x6700;&#x8FD1;&#x7684;3&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x7684; k8s &#x7248;&#x672C;&#x4E0D;&#x518D;&#x652F;&#x6301;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E00;&#x6B21;&#x53EA;&#x5347;&#x7EA7;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x4F7F;&#x7528; kubeadm &#x5347;&#x7EA7;&#xFF1A;</p>
 <ul>
 <li><p><code>kubeadm upgrade plan</code> &#x67E5;&#x770B;&#x6700;&#x8FD1;&#x7A33;&#x5B9A;&#x53EF;&#x7528;&#x7684;&#x7248;&#x672C;</p>
 </li>
 <li><p><code>kubeadm upgrade apply</code></p>
 </li>
 </ul>
-<p>&#x5148;&#x5347;&#x7EA7;master node&#xFF0C;&#x518D;&#x5347;&#x7EA7;work node</p>
-<h3 id="releases"><a name="releases" class="anchor-navigation-ex-anchor" href="#releases"><i class="fa fa-link" aria-hidden="true"></i></a>Releases</h3>
+<p>&#x5148;&#x5347;&#x7EA7; master node&#xFF0C;&#x518D;&#x5347;&#x7EA7; work node</p>
+<h3 id="2-releases"><a name="2-releases" class="anchor-navigation-ex-anchor" href="#2-releases"><i class="fa fa-link" aria-hidden="true"></i></a>2. Releases</h3>
 <ul>
 <li>&#x5347;&#x7EA7;master node&#xFF1A;</li>
 </ul>
@@ -1111,7 +1111,7 @@
 <p><code>kubectl uncordon node-1</code></p>
 <p>&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#xFF1A;<code>cat /etc/*release*</code></p>
 <ul>
-<li>Ubuntu&#x5347;&#x7EA7;master node&#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7;node&#x7528; <code>upgrade apply &#x7248;&#x672C;</code></li>
+<li>Ubuntu &#x5347;&#x7EA7; master node &#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7; node &#x7528; <code>upgrade apply &#x7248;&#x672C;</code></li>
 </ul>
 <p>On the controlplane node, run the command run the following commands: </p>
 <p><code>apt update</code> : This will update the package lists from the software repository.</p>
@@ -1120,7 +1120,7 @@
 <p><code>apt install kubelet=1.20.0-00</code> : This will update the kubelet with the version 1.20.</p>
 <p>You may need to restart kubelet after it has been upgraded. Run: <code>systemctl daemon-reload</code>, <code>systemctl restart kubelet</code></p>
 <ul>
-<li>Ubuntu&#x5347;&#x7EA7;work node&#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7;node&#x7528; <code>upgrade node</code></li>
+<li>Ubuntu &#x5347;&#x7EA7; work node &#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7; node &#x7528; <code>upgrade node</code></li>
 </ul>
 <p>If you are on the master node, run <code>ssh node01</code> to go to node01</p>
 <p><code>apt update</code> : This will update the package lists from the software repository.</p>
@@ -1129,7 +1129,7 @@
 <p><code>apt install kubelet=1.20.0-00</code> : This will update the kubelet with the version 1.20.</p>
 <p>You may need to restart kubelet after it has been upgraded. Run: <code>systemctl daemon-reload</code>, <code>systemctl restart kubelet</code></p>
 <p>Type <code>exit</code> or enter <code>CTL + d</code> to go back to the controlplane node.</p>
-<p>uncordon work node &#x9700;&#x8981;&#x5207;&#x6362;&#x5230;master node</p>
+<p>uncordon work node &#x9700;&#x8981;&#x5207;&#x6362;&#x5230; master node</p>
 <p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/" target="_blank">https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a></p>
 
                                 
@@ -1174,7 +1174,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8. 升级和版本","level":"1.5.8","depth":2,"next":{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},"previous":{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/8.升级和版本.md","mtime":"2023-07-12T10:45:54.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T12:07:06.229Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8. 升级和版本","level":"1.5.8","depth":2,"next":{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},"previous":{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/8.升级和版本.md","mtime":"2023-07-12T12:20:27.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T13:59:35.405Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

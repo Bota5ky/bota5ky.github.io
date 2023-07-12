@@ -206,7 +206,7 @@
                 <a href="6.EBS.html">
             
                     
-                    6. EBS, AMI, EFS
+                    6. EBS, AMI & EFS
             
                 </a>
             
@@ -240,12 +240,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.9" data-path="9.Route 53 & Classic Solutions Architecture.html">
+        <li class="chapter " data-level="1.2.9" data-path="9.路由.html">
             
-                <a href="9.Route 53 & Classic Solutions Architecture.html">
+                <a href="9.路由.html">
             
                     
-                    9. Route 53 & Classic Solutions Architecture
+                    9. 路由
             
                 </a>
             
@@ -544,12 +544,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+        <li class="chapter " data-level="1.5.5" data-path="../k8s/5.守护进程、静态Pod、多调度器.html">
             
-                <a href="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+                <a href="../k8s/5.守护进程、静态Pod、多调度器.html">
             
                     
-                    5. Daemon Sets, Static Pods & Multiple Schedulers
+                    5. 守护进程、静态Pod、多调度器 
             
                 </a>
             
@@ -557,9 +557,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+        <li class="chapter " data-level="1.5.6" data-path="../k8s/6.监控、滚动升级、回滚及参数配置.html">
             
-                <a href="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+                <a href="../k8s/6.监控、滚动升级、回滚及参数配置.html">
             
                     
                     6. 监控、滚动升级、回滚及参数配置
@@ -609,12 +609,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.10" data-path="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+        <li class="chapter " data-level="1.5.10" data-path="../k8s/10.RBAC.html">
             
-                <a href="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+                <a href="../k8s/10.RBAC.html">
             
                     
-                    10. KubeConfig, RBAC & Service Accounts
+                    10. RBAC
             
                 </a>
             
@@ -622,12 +622,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.11" data-path="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+        <li class="chapter " data-level="1.5.11" data-path="../k8s/11.网络策略和存储.html">
             
-                <a href="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+                <a href="../k8s/11.网络策略和存储.html">
             
                     
-                    11. Network Policy, Storage & Container Storage Interface
+                    11. 网络策略和存储
             
                 </a>
             
@@ -635,12 +635,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+        <li class="chapter " data-level="1.5.12" data-path="../k8s/12.硬盘和路由.html">
             
-                <a href="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+                <a href="../k8s/12.硬盘和路由.html">
             
                     
-                    12. Volumes, Persistent Volumes & Storage Class
+                    12. 硬盘和路由
             
                 </a>
             
@@ -648,12 +648,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.13" data-path="../k8s/13.Network Namespaces.html">
+        <li class="chapter " data-level="1.5.13" data-path="../k8s/13.网络空间.html">
             
-                <a href="../k8s/13.Network Namespaces.html">
+                <a href="../k8s/13.网络空间.html">
             
                     
-                    13. Network Namespaces
+                    13. 网络空间
             
                 </a>
             
@@ -674,12 +674,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.15" data-path="../k8s/15.Certification Tips及问题定位.html">
+        <li class="chapter " data-level="1.5.15" data-path="../k8s/15.资料及经验分享.html">
             
-                <a href="../k8s/15.Certification Tips及问题定位.html">
+                <a href="../k8s/15.资料及经验分享.html">
             
                     
-                    15. Certification Tips 及问题定位
+                    15. 资料及经验分享
             
                 </a>
             
@@ -1081,8 +1081,9 @@
 </ul>
 <h3 id="2-placement-groups"><a name="2-placement-groups" class="anchor-navigation-ex-anchor" href="#2-placement-groups"><i class="fa fa-link" aria-hidden="true"></i></a>2. Placement Groups</h3>
 <ul>
-<li><p><strong>Cluster</strong> - clusters instances into a low-latency group in a single Availability Zone
-<img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416194038001-142220980.png" style="zoom:60%"></p>
+<li><p><strong>Cluster</strong> - clusters instances into a low-latency group in a single Availability Zone</p>
+<center><img src="pg.png" style="zoom:60%"></center>
+
 <ul>
 <li>Pros: Great network (10 Gbps bandwidth between instances with Enhanced Networking enabled - recommended)</li>
 <li>Cons: If the rack fails, all instances fails at the same time</li>
@@ -1104,7 +1105,7 @@
 <li>Cons: Limited to 7 instances per AZ per placement group</li>
 <li>Use case:<ul>
 <li>Application that needs to maximize high availability</li>
-<li>Critical Applications where each instance must be isolated from failure from each other<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416194547530-1230680583.png" style="zoom:57%"></div>
+<li>Critical Applications where each instance must be isolated from failure from each other<center><img src="partition.png" style="zoom:57%"></center>
 </li>
 </ul>
 </li>
@@ -1118,14 +1119,14 @@
 <li>The instances in a partition do not share racks with the instances in the other partitions</li>
 <li>A partition failure can affect many EC2 but won&#x2019;t affect other partitions</li>
 <li>EC2 instances get access to the partition information as metadata</li>
-<li>Use cases: HDFS, HBase, Cassandra, Kafka<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416195248099-64332566.png" style="zoom:58%"></div>
+<li>Use cases: HDFS, HBase, Cassandra, Kafka<center><img src="partition2.png" style="zoom:58%"></center>
 
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="3-elastic-network-interfaces-eni"><a name="3-elastic-network-interfaces-eni" class="anchor-navigation-ex-anchor" href="#3-elastic-network-interfaces-eni"><i class="fa fa-link" aria-hidden="true"></i></a>3. Elastic Network Interfaces (ENI)</h3>
-<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416200752882-1929200770.png" style="zoom:57%"></div>
+<center><img src="eni.png" style="zoom:57%"></center>
 
 <ul>
 <li>Logical component in a VPC that represents a <strong>virtual network card</strong></li>
@@ -1206,7 +1207,7 @@ Use cases:</p>
                 </a>
                 
                 
-                <a href="6.EBS.html" class="navigation navigation-next " aria-label="Next page: 6. EBS, AMI, EFS">
+                <a href="6.EBS.html" class="navigation navigation-next " aria-label="Next page: 6. EBS, AMI & EFS">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1217,7 +1218,7 @@ Use cases:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. Elastic IPs 及 EC2相关","level":"1.2.5","depth":2,"next":{"title":"6. EBS, AMI, EFS","level":"1.2.6","depth":2,"path":"saa/6.EBS.md","ref":"saa/6.EBS.md","articles":[]},"previous":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"path":"saa/4.EC2.md","ref":"saa/4.EC2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saa/5.ElasticIPs.md","mtime":"2023-07-12T10:45:57.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T12:07:06.229Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. Elastic IPs 及 EC2相关","level":"1.2.5","depth":2,"next":{"title":"6. EBS, AMI & EFS","level":"1.2.6","depth":2,"path":"saa/6.EBS.md","ref":"saa/6.EBS.md","articles":[]},"previous":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"path":"saa/4.EC2.md","ref":"saa/4.EC2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saa/5.ElasticIPs.md","mtime":"2023-07-12T13:31:43.397Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T13:59:35.405Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
