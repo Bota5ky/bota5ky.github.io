@@ -1,5 +1,17 @@
 {
   "plugins": [
-    "mermaid-gb3"
-  ]
+    "mermaid-gb3",
+    "chapter-fold",
+    "insert-logo",
+    "anchor-navigation-ex"
+  ],
+  "pluginsConfig": {
+    "insert-logo": {
+      "url": "/icon.png",
+      "style": "background: none; max-height: 160px; min-height: 160px"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false
+    }
+  }
 }

@@ -1,0 +1,589 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4. EC2 & Security Groups · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="5.ElasticIPs.html" />
+    
+    
+    <link rel="prev" href="3.IAM.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    AWS学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="EBS.md">
+            
+                <span>
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../cli/git常用命令.html">
+            
+                <a href="../cli/git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4. EC2 & Security Groups</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-amazon-ec2-elastic-compute-cloud"><b></b>1. Amazon EC2 (Elastic Compute Cloud)</a></li><li><span class="title-icon "></span><a href="#2-ec2-instance-types---overview"><b></b>2. EC2 Instance Types - Overview</a></li><li><span class="title-icon "></span><a href="#3-introduction-to-security-groups"><b></b>3. Introduction to Security Groups</a></li><li><span class="title-icon "></span><a href="#4-security-groups-good-to-know"><b></b>4. Security Groups Good to know</a></li><li><span class="title-icon "></span><a href="#5-classic-ports-to-know"><b></b>5. Classic Ports to know</a></li><li><span class="title-icon "></span><a href="#6-ssh-summary-table"><b></b>6. SSH Summary Table</a></li><li><span class="title-icon "></span><a href="#7-ec2-instances-purchasing-options"><b></b>7. EC2 Instances Purchasing Options</a></li><li><span class="title-icon "></span><a href="#8-differences-between-options"><b></b>8. Differences between options</a></li><li><span class="title-icon "></span><a href="#9-how-to-terminate-spot-instances"><b></b>9. How to terminate Spot Instances?</a></li><li><span class="title-icon "></span><a href="#10-spot-fleets"><b></b>10. Spot Fleets</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-amazon-ec2-elastic-compute-cloud"><a name="1-amazon-ec2-elastic-compute-cloud" class="anchor-navigation-ex-anchor" href="#1-amazon-ec2-elastic-compute-cloud"><i class="fa fa-link" aria-hidden="true"></i></a>1. Amazon EC2 (Elastic Compute Cloud)</h3>
+<p>It mainly consists in the capability of :</p>
+<ul>
+<li>Renting virtual machines (EC2)</li>
+<li>Storing data on virtual drives (EBS)</li>
+<li>Distributing load across machines (ELB)</li>
+<li>Scaling the services using an auto-scaling group (ASG)</li>
+</ul>
+<h3 id="2-ec2-instance-types---overview"><a name="2-ec2-instance-types---overview" class="anchor-navigation-ex-anchor" href="#2-ec2-instance-types---overview"><i class="fa fa-link" aria-hidden="true"></i></a>2. EC2 Instance Types - Overview</h3>
+<p>m5.2xlarge</p>
+<ul>
+<li>m: instance class</li>
+<li>5: generation (AWS improves them over time)</li>
+<li>2xlarge: size within the instance class</li>
+</ul>
+<h3 id="3-introduction-to-security-groups"><a name="3-introduction-to-security-groups" class="anchor-navigation-ex-anchor" href="#3-introduction-to-security-groups"><i class="fa fa-link" aria-hidden="true"></i></a>3. Introduction to Security Groups</h3>
+<ul>
+<li>Security groups only contain <strong>allow</strong> rules</li>
+<li>Security groups rules can reference by IP or by security group</li>
+</ul>
+<h3 id="4-security-groups-good-to-know"><a name="4-security-groups-good-to-know" class="anchor-navigation-ex-anchor" href="#4-security-groups-good-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>4. Security Groups Good to know</h3>
+<ul>
+<li>Can be attached to multiple instances</li>
+<li>Locked down to a region / VPC combination</li>
+<li>Does live &quot;outside&quot; the EC2 &#x2013; if traffic is blocked the EC2 instance won&apos;t see it</li>
+<li><font color="blue">It&apos;s good to maintain one separate security group for SSH access</font></li>
+<li>If your application is not accessible (time out), then it&apos;s a security group issue</li>
+<li>If your application gives a &quot;connection refused&quot; error, then it&apos;s an application error or it&apos;s not launched</li>
+<li>All inbound traffic is <font color="red">blocked</font> by default</li>
+<li>All outbound traffic is <font color="green">authorised</font> by default</li>
+</ul>
+<h3 id="5-classic-ports-to-know"><a name="5-classic-ports-to-know" class="anchor-navigation-ex-anchor" href="#5-classic-ports-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>5. Classic Ports to know</h3>
+<ul>
+<li>22 = SSH (Secure Shell) - log into a Linux instance</li>
+<li>21 = FTP (File Transfer Protocol) &#x2013; upload files into a file share</li>
+<li>22 = SFTP (Secure File Transfer Protocol) &#x2013; upload files using SSH</li>
+<li>80 = HTTP &#x2013; access unsecured websites</li>
+<li>443 = HTTPS &#x2013; access secured websites</li>
+<li>3389 = RDP (Remote Desktop Protocol) &#x2013; log into a Windows instance</li>
+</ul>
+<h3 id="6-ssh-summary-table"><a name="6-ssh-summary-table" class="anchor-navigation-ex-anchor" href="#6-ssh-summary-table"><i class="fa fa-link" aria-hidden="true"></i></a>6. SSH Summary Table</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">SSH</th>
+<th style="text-align:center">Putty</th>
+<th style="text-align:center">EC2 Instance Connect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Mac</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows &lt; 10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows &gt; 10</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-ec2-instances-purchasing-options"><a name="7-ec2-instances-purchasing-options" class="anchor-navigation-ex-anchor" href="#7-ec2-instances-purchasing-options"><i class="fa fa-link" aria-hidden="true"></i></a>7. EC2 Instances Purchasing Options</h3>
+<ul>
+<li><strong>On-Demand Instances</strong>: short workload, predictable pricing</li>
+<li><strong>Reserved</strong>: (MINIMUM 1 year)<ul>
+<li><strong>Reserved Instances</strong>: long workloads</li>
+<li><strong>Convertible Reserved Instances</strong>: long workloads with flexible instances</li>
+<li><strong>Scheduled Reserved Instances</strong>: example &#x2013; every Thursday between 3 and 6 pm</li>
+</ul>
+</li>
+<li><strong>Spot Instances</strong>: short workloads, cheap, can lose instances (less reliable)<ul>
+<li>Useful for workloads that are resilient to failure: Batch jobs, Data analysis, Image processing, Any distributed workloads, Workloads with a flexible start and end time</li>
+<li>&#x5982;&#x679C;&#x4E3B;&#x52A8;&#x7EC8;&#x6B62;&#x4E00;&#x4E2A;&#x7ADE;&#x4EF7;&#x5B9E;&#x4F8B;&#xFF0C;&#x9700;&#x8981;&#x4E3A;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;&#x5B8C;&#x6574;&#x5C0F;&#x65F6;&#x4ED8;&#x8D39;</li>
+<li>&#x5982;&#x679C;&#x56E0;&#x4E3A;&#x4EF7;&#x683C;&#x4E0A;&#x6DA8;&#xFF0C;AWS&#x7EC8;&#x6B62;&#x4E86;&#x4F60;&#x7684;&#x7ADE;&#x4EF7;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x5C0F;&#x65F6;&#x7684;&#x8D39;&#x7528;&#x4F1A;&#x88AB;&#x514D;&#x9664;</li>
+</ul>
+</li>
+<li><strong>Dedicated Hosts</strong>: book an entire physical server, control instance placement<ul>
+<li>Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses</li>
+</ul>
+</li>
+<li><strong>Dedicated Instances</strong>: no other customers will share your hardware<ul>
+<li>May share hardware with other instances in same account</li>
+<li>No control over instance placement (can move hardware after Stop / Start)</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-differences-between-options"><a name="8-differences-between-options" class="anchor-navigation-ex-anchor" href="#8-differences-between-options"><i class="fa fa-link" aria-hidden="true"></i></a>8. Differences between options</h3>
+<center><img src="diff.png" style="zoom:70%"></center>
+
+<p>*note: </p>
+<ul>
+<li>the % discounts are different from the video as AWS change them over time &#x2013; the exact numbers are not needed for the exam. This is just for illustrative purposes</li>
+<li>Spot Instances: <strong>Spot blocks</strong> during a specified time frame (1 to 6 hours) without interruptions (no longer available from 01/7/2021, support until 31/12/2022)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Discount</th>
+<th style="text-align:center">Reservation Period</th>
+<th style="text-align:center">Upfront Payment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">On Demand</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Up to 72%</td>
+<td style="text-align:center">1 year/ 3 years</td>
+<td style="text-align:center">No / Partial / All</td>
+</tr>
+<tr>
+<td style="text-align:center">Convertible Reserved</td>
+<td style="text-align:center">Up to 66%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Scheduled Reserved</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">1 year only</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Spot</td>
+<td style="text-align:center">Up to 90%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Dedicated Hosts</td>
+<td style="text-align:center">More expensive</td>
+<td style="text-align:center">3 years</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Dedicated Instances</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-how-to-terminate-spot-instances"><a name="9-how-to-terminate-spot-instances" class="anchor-navigation-ex-anchor" href="#9-how-to-terminate-spot-instances"><i class="fa fa-link" aria-hidden="true"></i></a>9. How to terminate Spot Instances?</h3>
+<p><img src="terminate.png" style="zoom:32%"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416181336519-800274421.png" style="zoom:32%"></p>
+<p>You can only cancel Spot Instance requests that are open, active, or disabled.
+Cancelling a Spot Request does not terminate instances
+You must first cancel a Spot Request, and then terminate the associated Spot Instances</p>
+<h3 id="10-spot-fleets"><a name="10-spot-fleets" class="anchor-navigation-ex-anchor" href="#10-spot-fleets"><i class="fa fa-link" aria-hidden="true"></i></a>10. Spot Fleets</h3>
+<ul>
+<li>Spot Fleets = set of Spot Instances + (optional) On-Demand Instances</li>
+<li>The Spot Fleet will try to meet the target capacity with price constraints<ul>
+<li>Define possible launch pools: instance type (m5.large), OS, Availability Zone</li>
+<li>Can have multiple launch pools, so that the fleet can choose</li>
+<li>Spot Fleet stops launching instances when reaching capacity or max cost</li>
+</ul>
+</li>
+<li>Strategies to allocate Spot Instances:<ul>
+<li><strong>lowestPrice</strong>: from the pool with the lowest price (cost optimization, short workload)</li>
+<li><strong>diversified</strong>: distributed across all pools (great for availability, long workloads)</li>
+<li><strong>capacityOptimized</strong>: pool with the optimal capacity for the number of instances</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.IAM.html" class="navigation navigation-prev " aria-label="Previous page: 3. IAM">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="5.ElasticIPs.html" class="navigation navigation-next " aria-label="Next page: 5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"next":{"title":"5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations","level":"1.2.5","depth":2,"path":"aws/5.ElasticIPs.md","ref":"aws/5.ElasticIPs.md","articles":[]},"previous":{"title":"3. IAM","level":"1.2.3","depth":2,"path":"aws/3.IAM.md","ref":"aws/3.IAM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aws/4.EC2.md","mtime":"2023-07-12T03:44:10.036Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T04:19:48.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

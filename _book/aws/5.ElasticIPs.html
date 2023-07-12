@@ -1,0 +1,512 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="EBS.md" />
+    
+    
+    <link rel="prev" href="4.EC2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    AWS学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="EBS.md">
+            
+                <span>
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../cli/git常用命令.html">
+            
+                <a href="../cli/git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-elastic-ips---have-a-fixed-public-ip-for-your-instance"><b></b>1. Elastic IPs - have a fixed public IP for your instance</a></li><li><span class="title-icon "></span><a href="#2-placement-groups"><b></b>2. Placement Groups</a></li><li><span class="title-icon "></span><a href="#3-elastic-network-interfaces-eni"><b></b>3. Elastic Network Interfaces (ENI)</a></li><li><span class="title-icon "></span><a href="#4-ec2-hibernate"><b></b>4. EC2 Hibernate</a></li><li><span class="title-icon "></span><a href="#5-ec2-hibernate-&#x2013;-good-to-know"><b></b>5. EC2 Hibernate &#x2013; Good to know</a></li><li><span class="title-icon "></span><a href="#6-ec2-nitro"><b></b>6. EC2 Nitro</a></li><li><span class="title-icon "></span><a href="#7-ec2-&#x2013;-capacity-reservations"><b></b>7. EC2 &#x2013; Capacity Reservations</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><p>Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations</p>
+<p>IPv4 allows for 3.7 billion different addresses in the public space</p>
+<h3 id="1-elastic-ips---have-a-fixed-public-ip-for-your-instance"><a name="1-elastic-ips---have-a-fixed-public-ip-for-your-instance" class="anchor-navigation-ex-anchor" href="#1-elastic-ips---have-a-fixed-public-ip-for-your-instance"><i class="fa fa-link" aria-hidden="true"></i></a>1. Elastic IPs - have a fixed public IP for your instance</h3>
+<ul>
+<li>With an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account.</li>
+<li>You can only have 5 Elastic IP in your account (you can ask AWS to increase that).</li>
+<li>Overall, <font color="blue">try to avoid using Elastic IP</font>:<ul>
+<li>They often reflect poor architectural decisions</li>
+<li>Instead, use a random public IP and register a DNS name to it</li>
+<li>Or, as we&apos;ll see later, use a Load Balancer and don&apos;t use a public IP</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-placement-groups"><a name="2-placement-groups" class="anchor-navigation-ex-anchor" href="#2-placement-groups"><i class="fa fa-link" aria-hidden="true"></i></a>2. Placement Groups</h3>
+<ul>
+<li><p><strong>Cluster</strong> - clusters instances into a low-latency group in a single Availability Zone
+<img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416194038001-142220980.png" style="zoom:60%"></p>
+<ul>
+<li>Pros: Great network (10 Gbps bandwidth between instances with Enhanced Networking enabled - recommended)</li>
+<li>Cons: If the rack fails, all instances fails at the same time</li>
+<li>Use case:<ul>
+<li>Big Data job that needs to complete fast</li>
+<li>Application that needs extremely low latency and high network throughput</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Spread</strong> - spreads instances across underlying hardware (max 7 instances per group per AZ)</p>
+<ul>
+<li>Pros:<ul>
+<li>Can span across Availability Zones (AZ)</li>
+<li>Reduced risk is simultaneous failure</li>
+<li>EC2 Instances are on different physical hardware</li>
+</ul>
+</li>
+<li>Cons: Limited to 7 instances per AZ per placement group</li>
+<li>Use case:<ul>
+<li>Application that needs to maximize high availability</li>
+<li>Critical Applications where each instance must be isolated from failure from each other<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416194547530-1230680583.png" style="zoom:57%"></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Partition</strong> - spreads instances across many different partitions (which rely on different sets of racks) within an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka)</p>
+<ul>
+<li>Up to 7 partitions per AZ</li>
+<li>Can span across multiple AZs in the same region</li>
+<li>Up to 100s of EC2 instances</li>
+<li>The instances in a partition do not share racks with the instances in the other partitions</li>
+<li>A partition failure can affect many EC2 but won&#x2019;t affect other partitions</li>
+<li>EC2 instances get access to the partition information as metadata</li>
+<li>Use cases: HDFS, HBase, Cassandra, Kafka<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416195248099-64332566.png" style="zoom:58%"></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-elastic-network-interfaces-eni"><a name="3-elastic-network-interfaces-eni" class="anchor-navigation-ex-anchor" href="#3-elastic-network-interfaces-eni"><i class="fa fa-link" aria-hidden="true"></i></a>3. Elastic Network Interfaces (ENI)</h3>
+<div align="center"><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220416200752882-1929200770.png" style="zoom:57%"></div>
+
+<ul>
+<li>Logical component in a VPC that represents a <strong>virtual network card</strong></li>
+<li>The ENI can have the following attributes:<ul>
+<li>Primary private IPv4, one or more secondary IPv4</li>
+<li>One Elastic IP (IPv4) per private IPv4</li>
+<li>One Public IPv4</li>
+<li>One or more security groups</li>
+<li>A MAC address</li>
+</ul>
+</li>
+<li>You can create ENI independently and attach them on the fly (move them) on EC2 instances for failover</li>
+<li>Bound to a specific availability zone (AZ)</li>
+</ul>
+<h3 id="4-ec2-hibernate"><a name="4-ec2-hibernate" class="anchor-navigation-ex-anchor" href="#4-ec2-hibernate"><i class="fa fa-link" aria-hidden="true"></i></a>4. EC2 Hibernate</h3>
+<p>Under the hood: the RAM state is written to a file in the root EBS volume which must be encrypted
+Use cases:</p>
+<ul>
+<li>long-running processing</li>
+<li>saving the RAM state</li>
+<li>services that take time to initialize</li>
+</ul>
+<h3 id="5-ec2-hibernate-&#x2013;-good-to-know"><a name="5-ec2-hibernate-&#x2013;-good-to-know" class="anchor-navigation-ex-anchor" href="#5-ec2-hibernate-&#x2013;-good-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>5. EC2 Hibernate &#x2013; Good to know</h3>
+<ul>
+<li><strong>Supported instance families</strong> - C3, C4, C5, M3, M4, M5, R3, R4, and R5</li>
+<li><strong>Instance RAM size</strong> - must be less than 150 GB</li>
+<li><strong>Instance size</strong> - not supported for bare metal instances</li>
+<li><strong>AMI</strong>: Amazon Linux 2, Linux AMI, Ubuntu &amp; Windows&#x2026;</li>
+<li><strong>Root Volume</strong>: must be EBS, encrypted, not instance store, and large</li>
+<li>Available for On-Demand and Reserved Instances</li>
+<li>An instance cannot be hibernated more than 60 days</li>
+</ul>
+<h3 id="6-ec2-nitro"><a name="6-ec2-nitro" class="anchor-navigation-ex-anchor" href="#6-ec2-nitro"><i class="fa fa-link" aria-hidden="true"></i></a>6. EC2 Nitro</h3>
+<p>Underlying Platform for the next generation of EC2 instances, Higher Speed EBS (Nitro is necessary for 64,000 EBS IOPS &#x2013; max 32,000 on non-Nitro)</p>
+<h3 id="7-ec2-&#x2013;-capacity-reservations"><a name="7-ec2-&#x2013;-capacity-reservations" class="anchor-navigation-ex-anchor" href="#7-ec2-&#x2013;-capacity-reservations"><i class="fa fa-link" aria-hidden="true"></i></a>7. EC2 &#x2013; Capacity Reservations</h3>
+<ul>
+<li>Capacity Reservations ensure you have EC2 Capacity when needed</li>
+<li>Manual or planned end-date for the reservation</li>
+<li>No need for 1 or 3-year commitment</li>
+<li>Capacity access is immediate, you get billed as soon as it starts</li>
+<li>Specify:<ul>
+<li>The Availability Zone in which to reserve the capacity (only one)</li>
+<li>The number of instances for which to reserve capacity</li>
+<li>The instance attributes, including the instance type, tenancy, and platform/OS</li>
+<li>Combine with Reserved Instances and Savings Plans to do cost saving</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.EC2.html" class="navigation navigation-prev " aria-label="Previous page: 4. EC2 & Security Groups">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="EBS.md" class="navigation navigation-next " aria-label="Next page: 6. EBS, AMI, EFS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations","level":"1.2.5","depth":2,"next":{"title":"6. EBS, AMI, EFS","level":"1.2.6","depth":2,"path":"aws/EBS.md","ref":"aws/EBS.md","articles":[]},"previous":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"path":"aws/4.EC2.md","ref":"aws/4.EC2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aws/5.ElasticIPs.md","mtime":"2023-07-12T04:10:40.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T04:19:48.883Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
