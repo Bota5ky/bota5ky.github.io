@@ -1,0 +1,1273 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11. S3, Glacier & Athena · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="12.CloudFront, SQS, SNS & Kinesis.html" />
+    
+    
+    <link rel="prev" href="10.S3, FSx & Storage Gateway.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    AWS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="6.EBS.html">
+            
+                <a href="6.EBS.html">
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="7.LB&ASG.html">
+            
+                <a href="7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="9.Route 53 & Classic Solutions Architecture.html">
+            
+                <a href="9.Route 53 & Classic Solutions Architecture.html">
+            
+                    
+                    9. Route 53 & Classic Solutions Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="10.S3, FSx & Storage Gateway.html">
+            
+                <a href="10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.11" data-path="11.S3, Glacier & Athena.html">
+            
+                <a href="11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="14.ECS.html">
+            
+                <a href="14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="15.考前速记.html">
+            
+                <a href="15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="16.DBS基本概念及Security.html">
+            
+                <a href="16.DBS基本概念及Security.html">
+            
+                    
+                    16. DBS 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="17.RDS备份.html">
+            
+                <a href="17.RDS备份.html">
+            
+                    
+                    17. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../cli/1.git常用命令.html">
+            
+                <a href="../cli/1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../cli/2.SSH配置及连接.html">
+            
+                <a href="../cli/2.SSH配置及连接.html">
+            
+                    
+                    2. SSH配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../cli/3.Terminal常用快捷键.html">
+            
+                <a href="../cli/3.Terminal常用快捷键.html">
+            
+                    
+                    3. Terminal常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../cli/4.JSON Path.html">
+            
+                <a href="../cli/4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../cli/5.常用Powershell命令.html">
+            
+                <a href="../cli/5.常用Powershell命令.html">
+            
+                    
+                    5. 常用 Powershell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../cli/6.正则表达式.html">
+            
+                <a href="../cli/6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../k8s/3.Scheduling.html">
+            
+                <a href="../k8s/3.Scheduling.html">
+            
+                    
+                    3. Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../k8s/4.Resource Requirements and Limits.html">
+            
+                <a href="../k8s/4.Resource Requirements and Limits.html">
+            
+                    
+                    4. Resource Requirements and Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                <a href="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                    
+                    5. Daemon Sets, Static Pods & Multiple Schedulers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                <a href="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                <a href="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                    
+                    10. KubeConfig, RBAC & Service Accounts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                <a href="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                    
+                    11. Network Policy, Storage & Container Storage Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                <a href="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                    
+                    12. Volumes, Persistent Volumes & Storage Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../k8s/13.Network Namespaces.html">
+            
+                <a href="../k8s/13.Network Namespaces.html">
+            
+                    
+                    13. Network Namespaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.15" data-path="../k8s/15.Certification Tips及问题定位.html">
+            
+                <a href="../k8s/15.Certification Tips及问题定位.html">
+            
+                    
+                    15. Certification Tips 及问题定位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >11. S3, Glacier & Athena</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#s3-mfa-delete"><b></b>S3 MFA-Delete</a></li><li><span class="title-icon "></span><a href="#s3-replication-crr--srr"><b></b>S3 Replication (CRR &amp; SRR)</a></li><li><span class="title-icon "></span><a href="#s3-replication-&#x2013;-notes"><b></b>S3 Replication &#x2013; Notes</a></li><li><span class="title-icon "></span><a href="#s3-pre-signed-urls"><b></b>S3 Pre-Signed URLs</a></li><li><span class="title-icon "></span><a href="#amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><b></b>Amazon S3&#x5B58;&#x50A8;&#x7C7B;&#x522B;</a></li><li><span class="title-icon "></span><a href="#s3-&#x2013;-moving-between-storage-classes"><b></b>S3 &#x2013; Moving between storage classes</a></li><li><span class="title-icon "></span><a href="#s3-lifecycle-rules"><b></b>S3 Lifecycle Rules</a></li><li><span class="title-icon "></span><a href="#s3-analytics-&#x2013;-storage-class-analysis"><b></b>S3 Analytics &#x2013; Storage Class Analysis</a></li><li><span class="title-icon "></span><a href="#s3-&#x2013;-baseline-performance"><b></b>S3 &#x2013; Baseline Performance</a></li><li><span class="title-icon "></span><a href="#s3-performance"><b></b>S3 Performance</a></li><li><span class="title-icon "></span><a href="#athena"><b></b>Athena</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="s3-mfa-delete"><a name="s3-mfa-delete" class="anchor-navigation-ex-anchor" href="#s3-mfa-delete"><i class="fa fa-link" aria-hidden="true"></i></a>S3 MFA-Delete</h3>
+<ul>
+<li>MFA (multi factor authentication) forces user to generate a code on a device (usually a mobile phone or hardware) before doing important operations on S3</li>
+<li>To use MFA-Delete, enable Versioning on the S3 bucket</li>
+<li>You will need MFA to<ul>
+<li>permanently delete an object version</li>
+<li>suspend versioning on the bucket</li>
+</ul>
+</li>
+<li>You won&#x2019;t need MFA for<ul>
+<li>enabling versioning</li>
+<li>listing deleted versions</li>
+</ul>
+</li>
+<li><strong>Only the bucket owner (root account) can enable/disable MFA-Delete</strong></li>
+<li>MFA-Delete currently can only be enabled using the CLI</li>
+<li><strong>*Note:</strong> Bucket Policies are evaluated before &quot;default encryption&quot;</li>
+</ul>
+<h3 id="s3-replication-crr--srr"><a name="s3-replication-crr--srr" class="anchor-navigation-ex-anchor" href="#s3-replication-crr--srr"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Replication (CRR &amp; SRR)</h3>
+<ul>
+<li><strong>Must enable versioning</strong> in source and destination</li>
+<li>Cross Region Replication (CRR)</li>
+<li>Same Region Replication (SRR)</li>
+<li>Buckets can be in different accounts</li>
+<li>Copying is asynchronous</li>
+<li>Must give proper IAM permissions to S3</li>
+<li>CRR - Use cases: compliance, lower latency access, replication across accounts</li>
+<li>SRR &#x2013; Use cases: log aggregation, live replication between production and test accounts</li>
+</ul>
+<h3 id="s3-replication-&#x2013;-notes"><a name="s3-replication-&#x2013;-notes" class="anchor-navigation-ex-anchor" href="#s3-replication-&#x2013;-notes"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Replication &#x2013; Notes</h3>
+<ul>
+<li>After activating, only new objects are replicated (not retroactive)</li>
+<li>For DELETE operations:<ul>
+<li>Can replicate delete markers from source to target (optional setting)</li>
+<li>Deletions with a version ID are not replicated (to avoid malicious deletes)</li>
+</ul>
+</li>
+<li>There is no &quot;chaining&quot; of replication<ul>
+<li>If bucket 1 has replication into bucket 2, which has replication into bucket 3</li>
+<li>Then objects created in bucket 1 are not replicated to bucket 3</li>
+</ul>
+</li>
+</ul>
+<h3 id="s3-pre-signed-urls"><a name="s3-pre-signed-urls" class="anchor-navigation-ex-anchor" href="#s3-pre-signed-urls"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Pre-Signed URLs</h3>
+<ul>
+<li>Can generate pre-signed URLs using SDK or CLI<ul>
+<li>For downloads (easy, can use the CLI)</li>
+<li>For uploads (harder, must use the SDK)</li>
+</ul>
+</li>
+<li>Valid for a default of 3600 seconds, can change timeout with --expires-in [TIME_BY_SECONDS] argument</li>
+<li>Users given a pre-signed URL inherit the permissions of the person who generated the URL for GET / PUT</li>
+</ul>
+<h3 id="amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><a name="amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;" class="anchor-navigation-ex-anchor" href="#amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><i class="fa fa-link" aria-hidden="true"></i></a>Amazon S3&#x5B58;&#x50A8;&#x7C7B;&#x522B;</h3>
+<p><a href="https://aws.amazon.com/cn/s3/storage-classes/" target="_blank">S3 Storage Classes Comparison</a>
+<img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220420204807511-924591363.png" style="zoom:60%"></p>
+<h3 id="s3-&#x2013;-moving-between-storage-classes"><a name="s3-&#x2013;-moving-between-storage-classes" class="anchor-navigation-ex-anchor" href="#s3-&#x2013;-moving-between-storage-classes"><i class="fa fa-link" aria-hidden="true"></i></a>S3 &#x2013; Moving between storage classes</h3>
+<center><img src="https://img2022.cnblogs.com/blog/2122768/202204/2122768-20220420205726702-2012779652.png" style="zoom:65%"></center>
+
+<h3 id="s3-lifecycle-rules"><a name="s3-lifecycle-rules" class="anchor-navigation-ex-anchor" href="#s3-lifecycle-rules"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Lifecycle Rules</h3>
+<ul>
+<li><strong>Transition actions</strong>: It defines when objects are transitioned to another storage class.<ul>
+<li>Move objects to Standard IA class 60 days after creation</li>
+<li>Move to Glacier for archiving after 6 months</li>
+</ul>
+</li>
+<li><strong>Expiration actions</strong>: configure objects to expire (delete) after some time<ul>
+<li>Access log files can be set to delete after a 365 days</li>
+<li><strong>Can be used to delete old versions of files (if versioning is enabled)</strong></li>
+<li>Can be used to delete incomplete multi-part uploads</li>
+</ul>
+</li>
+<li>Rules can be created for a certain prefix (ex - s3://mybucket/mp3/*)</li>
+<li>Rules can be created for certain objects tags (ex - Department: Finance)</li>
+</ul>
+<h3 id="s3-analytics-&#x2013;-storage-class-analysis"><a name="s3-analytics-&#x2013;-storage-class-analysis" class="anchor-navigation-ex-anchor" href="#s3-analytics-&#x2013;-storage-class-analysis"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Analytics &#x2013; Storage Class Analysis</h3>
+<ul>
+<li>You can setup S3 Analytics to help determine when to transition objects from Standard to Standard_IA</li>
+<li>Does not work for ONEZONE_IA or GLACIER</li>
+<li>Report is updated daily</li>
+<li>Takes about 24h to 48h hours to first start</li>
+<li>Good first step to put together Lifecycle Rules (or improve them)!</li>
+</ul>
+<h3 id="s3-&#x2013;-baseline-performance"><a name="s3-&#x2013;-baseline-performance" class="anchor-navigation-ex-anchor" href="#s3-&#x2013;-baseline-performance"><i class="fa fa-link" aria-hidden="true"></i></a>S3 &#x2013; Baseline Performance</h3>
+<ul>
+<li>Amazon S3 automatically scales to high request rates, latency 100-200 ms</li>
+<li>Your application can achieve at least <strong>3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix in a bucket</strong></li>
+</ul>
+<h3 id="s3-performance"><a name="s3-performance" class="anchor-navigation-ex-anchor" href="#s3-performance"><i class="fa fa-link" aria-hidden="true"></i></a>S3 Performance</h3>
+<ul>
+<li><strong>Multi-Part upload:</strong><ul>
+<li>recommended for files &gt; 100MB, must use for files &gt; 5GB</li>
+<li>Can help parallelize uploads (speed up transfers)</li>
+</ul>
+</li>
+<li><strong>S3 Transfer Acceleration</strong><ul>
+<li>Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in the target region</li>
+<li>Compatible with multi-part upload</li>
+</ul>
+</li>
+</ul>
+<h3 id="athena"><a name="athena" class="anchor-navigation-ex-anchor" href="#athena"><i class="fa fa-link" aria-hidden="true"></i></a>Athena</h3>
+<p>one time SQL queries, serverless queries on S3, log analytics</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="10.S3, FSx & Storage Gateway.html" class="navigation navigation-prev " aria-label="Previous page: 10. S3, FSx & Storage Gateway">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="12.CloudFront, SQS, SNS & Kinesis.html" class="navigation navigation-next " aria-label="Next page: 12. CloudFront, SQS, SNS & Kinesis">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11. S3, Glacier & Athena","level":"2.1.11","depth":2,"next":{"title":"12. CloudFront, SQS, SNS & Kinesis","level":"2.1.12","depth":2,"path":"aws/12.CloudFront, SQS, SNS & Kinesis.md","ref":"aws/12.CloudFront, SQS, SNS & Kinesis.md","articles":[]},"previous":{"title":"10. S3, FSx & Storage Gateway","level":"2.1.10","depth":2,"path":"aws/10.S3, FSx & Storage Gateway.md","ref":"aws/10.S3, FSx & Storage Gateway.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aws/11.S3, Glacier & Athena.md","mtime":"2023-07-12T07:07:44.243Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T07:52:05.281Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

@@ -1,0 +1,1232 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3. RDB & AOF 持久化 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.订阅发布及主从复制.html" />
+    
+    
+    <link rel="prev" href="2.事务及Java集成.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../aws/">
+            
+                <a href="../aws/">
+            
+                    
+                    AWS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../aws/1.基本概念.html">
+            
+                <a href="../aws/1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../aws/2.考试概览.html">
+            
+                <a href="../aws/2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../aws/3.IAM.html">
+            
+                <a href="../aws/3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../aws/4.EC2.html">
+            
+                <a href="../aws/4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../aws/5.ElasticIPs.html">
+            
+                <a href="../aws/5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../aws/6.EBS.html">
+            
+                <a href="../aws/6.EBS.html">
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../aws/7.LB&ASG.html">
+            
+                <a href="../aws/7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../aws/8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="../aws/8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../aws/9.Route 53 & Classic Solutions Architecture.html">
+            
+                <a href="../aws/9.Route 53 & Classic Solutions Architecture.html">
+            
+                    
+                    9. Route 53 & Classic Solutions Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../aws/10.S3, FSx & Storage Gateway.html">
+            
+                <a href="../aws/10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../aws/11.S3, Glacier & Athena.html">
+            
+                <a href="../aws/11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../aws/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="../aws/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../aws/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="../aws/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../aws/14.ECS.html">
+            
+                <a href="../aws/14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../aws/15.考前速记.html">
+            
+                <a href="../aws/15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../aws/16.DBS基本概念及Security.html">
+            
+                <a href="../aws/16.DBS基本概念及Security.html">
+            
+                    
+                    16. DBS 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../aws/17.RDS备份.html">
+            
+                <a href="../aws/17.RDS备份.html">
+            
+                    
+                    17. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../cli/1.git常用命令.html">
+            
+                <a href="../cli/1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../cli/2.SSH配置及连接.html">
+            
+                <a href="../cli/2.SSH配置及连接.html">
+            
+                    
+                    2. SSH配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../cli/3.Terminal常用快捷键.html">
+            
+                <a href="../cli/3.Terminal常用快捷键.html">
+            
+                    
+                    3. Terminal常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../cli/4.JSON Path.html">
+            
+                <a href="../cli/4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../cli/5.常用Powershell命令.html">
+            
+                <a href="../cli/5.常用Powershell命令.html">
+            
+                    
+                    5. 常用 Powershell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../cli/6.正则表达式.html">
+            
+                <a href="../cli/6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../k8s/3.Scheduling.html">
+            
+                <a href="../k8s/3.Scheduling.html">
+            
+                    
+                    3. Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../k8s/4.Resource Requirements and Limits.html">
+            
+                <a href="../k8s/4.Resource Requirements and Limits.html">
+            
+                    
+                    4. Resource Requirements and Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                <a href="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                    
+                    5. Daemon Sets, Static Pods & Multiple Schedulers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                <a href="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                <a href="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                    
+                    10. KubeConfig, RBAC & Service Accounts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                <a href="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                    
+                    11. Network Policy, Storage & Container Storage Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                <a href="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                    
+                    12. Volumes, Persistent Volumes & Storage Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../k8s/13.Network Namespaces.html">
+            
+                <a href="../k8s/13.Network Namespaces.html">
+            
+                    
+                    13. Network Namespaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.15" data-path="../k8s/15.Certification Tips及问题定位.html">
+            
+                <a href="../k8s/15.Certification Tips及问题定位.html">
+            
+                    
+                    15. Certification Tips 及问题定位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="1.基础命令.html">
+            
+                <a href="1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="2.事务及Java集成.html">
+            
+                <a href="2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3.3" data-path="3.RDB&AOF持久化.html">
+            
+                <a href="3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="4.订阅发布及主从复制.html">
+            
+                <a href="4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3. RDB & AOF 持久化</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#rdb-redis-database"><b></b>RDB (Redis DataBase)</a></li><li><span class="title-icon "></span><a href="#aof-append-only-file"><b></b>AOF (Append Only File)</a></li><li><span class="title-icon "></span><a href="#&#x6269;&#x5C55;"><b></b>&#x6269;&#x5C55;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="rdb-redis-database"><a name="rdb-redis-database" class="anchor-navigation-ex-anchor" href="#rdb-redis-database"><i class="fa fa-link" aria-hidden="true"></i></a>RDB (Redis DataBase)</h3>
+<p>&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x5185;&#x5C06;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5FEB;&#x7167;&#x5199;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x884C;&#x8BDD;&#x8BB2;&#x7684;Snapshot&#x5FEB;&#x7167;&#xFF0C;&#x5B83;&#x6062;&#x590D;&#x65F6;&#x662F;&#x5C06;&#x5FEB;&#x7167;&#x6587;&#x4EF6;&#x76F4;&#x63A5;&#x8BFB;&#x5230;&#x5185;&#x5B58;&#x91CC;&#x3002;
+Redis&#x4F1A;&#x5355;&#x72EC;&#x521B;&#x5EFA;&#xFF08;fork&#xFF09;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x6765;&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x4F1A;&#x5148;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5F85;&#x6301;&#x4E45;&#x5316;&#x8FC7;&#x7A0B;&#x90FD;&#x7ED3;&#x675F;&#x4E86;&#xFF0C;&#x518D;&#x7528;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x66FF;&#x6362;&#x4E0A;&#x6B21;&#x6301;&#x4E45;&#x5316;&#x597D;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E3B;&#x8FDB;&#x7A0B;&#x662F;&#x4E0D;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;IO&#x64CD;&#x4F5C;&#x7684;&#x3002;&#x8FD9;&#x5C31;&#x786E;&#x4FDD;&#x4E86;&#x6781;&#x9AD8;&#x7684;&#x6027;&#x80FD;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5927;&#x89C4;&#x6A21;&#x6570;&#x636E;&#x7684;&#x6062;&#x590D;&#xFF0C;&#x4E14;&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x6062;&#x590D;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x654F;&#x611F;&#xFF0C;&#x90A3;RDB&#x65B9;&#x5F0F;&#x8981;&#x6BD4;AOF&#x65B9;&#x5F0F;&#x66F4;&#x52A0;&#x7684;&#x9AD8;&#x6548;&#x3002;RDB&#x7684;&#x7F3A;&#x70B9;&#x662F;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x6301;&#x4E45;&#x5316;&#x540E;&#x7684;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x6CD5;&#x5931;&#x3002;&#x6211;&#x4EEC;&#x9ED8;&#x8BA4;&#x7684;&#x5C31;&#x662F;RDB&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#xFF01;</p>
+<p>rdb&#x4FDD;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#x662F;<code>dump.rdb</code>&#xFF08;&#x5728;conf&#x4E2D;dbfilename&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x540D;&#xFF09;</p>
+<p>&#x5728;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x4E2D;&#xFF0C;rdb&#x5C31;&#x662F;&#x5907;&#x7528;&#xFF0C;&#x5728;&#x4ECE;&#x673A;&#x4E0A;&#x9762;&#x3002;</p>
+<h4 id="&#x89E6;&#x53D1;&#x751F;&#x6210;rdb&#x6587;&#x4EF6;&#x7684;&#x673A;&#x5236;&#xFF1A;"><a name="&#x89E6;&#x53D1;&#x751F;&#x6210;rdb&#x6587;&#x4EF6;&#x7684;&#x673A;&#x5236;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x89E6;&#x53D1;&#x751F;&#x6210;rdb&#x6587;&#x4EF6;&#x7684;&#x673A;&#x5236;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89E6;&#x53D1;&#x751F;&#x6210;rdb&#x6587;&#x4EF6;&#x7684;&#x673A;&#x5236;&#xFF1A;</h4>
+<ul>
+<li>save&#x7684;&#x89C4;&#x5219;&#x6EE1;&#x8DB3;</li>
+<li>&#x6267;&#x884C;<code>FLUSHALL</code></li>
+<li>&#x9000;&#x51FA;redis</li>
+</ul>
+<h4 id="&#x5982;&#x4F55;&#x6062;&#x590D;rdb&#x6587;&#x4EF6;-&#xFF1F;"><a name="&#x5982;&#x4F55;&#x6062;&#x590D;rdb&#x6587;&#x4EF6;-&#xFF1F;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x6062;&#x590D;rdb&#x6587;&#x4EF6;-&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x6062;&#x590D;rdb&#x6587;&#x4EF6; &#xFF1F;</h4>
+<p>&#x53EA;&#x9700;&#x8981;&#x5C06;rdb&#x6587;&#x4EF6;&#x653E;&#x5728;&#x6211;&#x4EEC;redis&#x542F;&#x52A8;&#x76EE;&#x5F55;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;redis&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x81EA;&#x52A8;&#x68C0;&#x67E5;dump.rdb &#x6062;&#x590D;&#x5176;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF01;
+&#x67E5;&#x770B;&#x9700;&#x8981;&#x5B58;&#x5728;&#x7684;&#x4F4D;&#x7F6E;</p>
+<pre><code class="lang-bash">&gt; config get dir
+1)<span class="hljs-string">&quot;dir&quot;</span>
+2)<span class="hljs-string">&quot;/usr/1ocal/bin&quot;</span> <span class="hljs-comment"># &#x5982;&#x679C;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x5B58;&#x5728; dump.rdb &#x6587;&#x4EF6;&#xFF0C;&#x542F;&#x52A8;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x5176;&#x4E2D;&#x7684;&#x6570;&#x636E;</span>
+</code></pre>
+<h4 id="&#x4F18;&#x70B9;"><a name="&#x4F18;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x4F18;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F18;&#x70B9;</h4>
+<p>1). &#x4E00;&#x65E6;&#x91C7;&#x7528;&#x8BE5;&#x65B9;&#x5F0F;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x7684;&#x6574;&#x4E2A;Redis&#x6570;&#x636E;&#x5E93;&#x5C06;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x6587;&#x4EF6;&#x5907;&#x4EFD;&#x800C;&#x8A00;&#x662F;&#x975E;&#x5E38;&#x5B8C;&#x7F8E;&#x7684;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x6253;&#x7B97;&#x6BCF;&#x4E2A;&#x5C0F;&#x65F6;&#x5F52;&#x6863;&#x4E00;&#x6B21;&#x6700;&#x8FD1;24&#x5C0F;&#x65F6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x8981;&#x6BCF;&#x5929;&#x5F52;&#x6863;&#x4E00;&#x6B21;&#x6700;&#x8FD1;30&#x5929;&#x7684;&#x6570;&#x636E;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x5907;&#x4EFD;&#x7B56;&#x7565;&#xFF0C;&#x4E00;&#x65E6;&#x7CFB;&#x7EDF;&#x51FA;&#x73B0;&#x707E;&#x96BE;&#x6027;&#x6545;&#x969C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7684;&#x8FDB;&#x884C;&#x6062;&#x590D;&#x3002;</p>
+<p>2). &#x5BF9;&#x4E8E;&#x707E;&#x96BE;&#x6062;&#x590D;&#x800C;&#x8A00;&#xFF0C;RDB&#x662F;&#x975E;&#x5E38;&#x4E0D;&#x9519;&#x7684;&#x9009;&#x62E9;&#x3002;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x8F7B;&#x677E;&#x7684;&#x5C06;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x540E;&#x518D;&#x8F6C;&#x79FB;&#x5230;&#x5176;&#x5B83;&#x5B58;&#x50A8;&#x4ECB;&#x8D28;&#x4E0A;&#x3002;</p>
+<p>3). &#x6027;&#x80FD;&#x6700;&#x5927;&#x5316;&#x3002;&#x5BF9;&#x4E8E;Redis&#x7684;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#x800C;&#x8A00;&#xFF0C;&#x5728;&#x5F00;&#x59CB;&#x6301;&#x4E45;&#x5316;&#x65F6;&#xFF0C;&#x5B83;&#x552F;&#x4E00;&#x9700;&#x8981;&#x505A;&#x7684;&#x53EA;&#x662F;fork&#x51FA;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x7531;&#x5B50;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x8FD9;&#x4E9B;&#x6301;&#x4E45;&#x5316;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x6781;&#x5927;&#x7684;&#x907F;&#x514D;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#x6267;&#x884C;IO&#x64CD;&#x4F5C;&#x4E86;&#x3002;</p>
+<p>4). &#x76F8;&#x6BD4;&#x4E8E;AOF&#x673A;&#x5236;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x96C6;&#x5F88;&#x5927;&#xFF0C;RDB&#x7684;&#x542F;&#x52A8;&#x6548;&#x7387;&#x4F1A;&#x66F4;&#x9AD8;&#x3002;</p>
+<h4 id="&#x7F3A;&#x70B9;"><a name="&#x7F3A;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x7F3A;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F3A;&#x70B9;</h4>
+<p>1). &#x5982;&#x679C;&#x4F60;&#x60F3;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x7684;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#xFF0C;&#x5373;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x7684;&#x907F;&#x514D;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF0C;&#x90A3;&#x4E48;RDB&#x5C06;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;&#x56E0;&#x4E3A;&#x7CFB;&#x7EDF;&#x4E00;&#x65E6;&#x5728;&#x5B9A;&#x65F6;&#x6301;&#x4E45;&#x5316;&#x4E4B;&#x524D;&#x51FA;&#x73B0;&#x5B95;&#x673A;&#x73B0;&#x8C61;&#xFF0C;&#x6B64;&#x524D;&#x6CA1;&#x6709;&#x6765;&#x5F97;&#x53CA;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x7684;&#x6570;&#x636E;&#x90FD;&#x5C06;&#x4E22;&#x5931;&#x3002;</p>
+<p>2). &#x7531;&#x4E8E;RDB&#x662F;&#x901A;&#x8FC7;fork&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x534F;&#x52A9;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x6570;&#x636E;&#x96C6;&#x8F83;&#x5927;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6574;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x505C;&#x6B62;&#x670D;&#x52A1;&#x51E0;&#x767E;&#x6BEB;&#x79D2;&#xFF0C;&#x751A;&#x81F3;&#x662F;1&#x79D2;&#x949F;&#x3002;</p>
+<h3 id="aof-append-only-file"><a name="aof-append-only-file" class="anchor-navigation-ex-anchor" href="#aof-append-only-file"><i class="fa fa-link" aria-hidden="true"></i></a>AOF (Append Only File)</h3>
+<p>&#x4EE5;&#x65E5;&#x5FD7;&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;Redis&#x6267;&#x884C;&#x8FC7;&#x7684;&#x6240;&#x6709;&#x6307;&#x4EE4;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF08;&#x8BFB;&#x64CD;&#x4F5C;&#x4E0D;&#x8BB0;&#x5F55;&#xFF09;&#xFF0C;&#x53EA;&#x8BB8;&#x52A0;&#x6587;&#x4EF6;&#x4F46;&#x4E0D;&#x53EF;&#x4EE5;&#x6539;&#x4E0E;&#x6587;&#x4EF6;&#xFF0C;redis&#x542F;&#x52A8;&#x4E4B;&#x521D;&#x4F1A;&#x8BFB;&#x53D6;&#x8BE5;&#x6587;&#x4EF6;&#x91CD;&#x65B0;&#x6784;&#x5EFA;&#x6570;&#x636E;&#xFF0C;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;redis&#x91CD;&#x542F;&#x7684;&#x8BDD;&#x5C31;&#x6839;&#x636E;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x5199;&#x6307;&#x4EE4;&#x4ECE;&#x524D;&#x5230;&#x540E;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x4EE5;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x7684;&#x6062;&#x590D;&#x5DE5;&#x4F5C;&#x3002;
+aof&#x4FDD;&#x5B58;&#x7684;&#x662F;<code>appendonly.aof</code>&#x6587;&#x4EF6;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x5F00;&#x542F;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x5F00;&#x542F;</p>
+<pre><code class="lang-bash">redis-check-aof --fix <span class="hljs-comment"># &#x4FEE;&#x590D;aof&#x6587;&#x4EF6;</span>
+</code></pre>
+<p>&#x91CD;&#x5199;&#x673A;&#x5236;&#xFF1A;</p>
+<pre><code>no-appendfsync-on-rewrite no # &#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x51B3;&#x5B9A;&#x91CD;&#x5199;&#x65F6;&#x673A;
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+</code></pre><h4 id="&#x4F18;&#x70B9;_1"><a name="&#x4F18;&#x70B9;_1" class="anchor-navigation-ex-anchor" href="#&#x4F18;&#x70B9;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F18;&#x70B9;</h4>
+<p>1). &#x8BE5;&#x673A;&#x5236;&#x53EF;&#x4EE5;&#x5E26;&#x6765;&#x66F4;&#x9AD8;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x6027;&#xFF0C;&#x5373;&#x6570;&#x636E;&#x6301;&#x4E45;&#x6027;&#x3002;Redis&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;3&#x4E2D;&#x540C;&#x6B65;&#x7B56;&#x7565;&#xFF0C;&#x5373;&#x6BCF;&#x79D2;&#x540C;&#x6B65;&#x3001;&#x6BCF;&#x4FEE;&#x6539;&#x540C;&#x6B65;&#x548C;&#x4E0D;&#x540C;&#x6B65;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6BCF;&#x79D2;&#x540C;&#x6B65;&#x4E5F;&#x662F;&#x5F02;&#x6B65;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x5176;&#x6548;&#x7387;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#xFF0C;&#x6240;&#x5DEE;&#x7684;&#x662F;&#x4E00;&#x65E6;&#x7CFB;&#x7EDF;&#x51FA;&#x73B0;&#x5B95;&#x673A;&#x73B0;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E00;&#x79D2;&#x949F;&#x4E4B;&#x5185;&#x4FEE;&#x6539;&#x7684;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x4E22;&#x5931;&#x3002;&#x800C;&#x6BCF;&#x4FEE;&#x6539;&#x540C;&#x6B65;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x540C;&#x6B65;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;&#x53D1;&#x751F;&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;&#x90FD;&#x4F1A;&#x88AB;&#x7ACB;&#x5373;&#x8BB0;&#x5F55;&#x5230;&#x78C1;&#x76D8;&#x4E2D;&#x3002;&#x53EF;&#x4EE5;&#x9884;&#x89C1;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x6548;&#x7387;&#x4E0A;&#x662F;&#x6700;&#x4F4E;&#x7684;&#x3002;&#x81F3;&#x4E8E;&#x65E0;&#x540C;&#x6B65;&#xFF0C;&#x65E0;&#x9700;&#x591A;&#x8A00;&#xFF0C;&#x6211;&#x60F3;&#x5927;&#x5BB6;&#x90FD;&#x80FD;&#x6B63;&#x786E;&#x7684;&#x7406;&#x89E3;&#x5B83;&#x3002;</p>
+<p>2). &#x7531;&#x4E8E;&#x8BE5;&#x673A;&#x5236;&#x5BF9;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x91C7;&#x7528;&#x7684;&#x662F;append&#x6A21;&#x5F0F;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5199;&#x5165;&#x8FC7;&#x7A0B;&#x4E2D;&#x5373;&#x4F7F;&#x51FA;&#x73B0;&#x5B95;&#x673A;&#x73B0;&#x8C61;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x7834;&#x574F;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x7136;&#x800C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x672C;&#x6B21;&#x64CD;&#x4F5C;&#x53EA;&#x662F;&#x5199;&#x5165;&#x4E86;&#x4E00;&#x534A;&#x6570;&#x636E;&#x5C31;&#x51FA;&#x73B0;&#x4E86;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x95EE;&#x9898;&#xFF0C;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#xFF0C;&#x5728;Redis&#x4E0B;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;redis-check-aof&#x5DE5;&#x5177;&#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x89E3;&#x51B3;&#x6570;&#x636E;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>3). &#x5982;&#x679C;&#x65E5;&#x5FD7;&#x8FC7;&#x5927;&#xFF0C;Redis&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x542F;&#x7528;rewrite&#x673A;&#x5236;&#x3002;&#x5373;Redis&#x4EE5;append&#x6A21;&#x5F0F;&#x4E0D;&#x65AD;&#x7684;&#x5C06;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;&#x8001;&#x7684;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;Redis&#x8FD8;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x6B64;&#x671F;&#x95F4;&#x6709;&#x54EA;&#x4E9B;&#x4FEE;&#x6539;&#x547D;&#x4EE4;&#x88AB;&#x6267;&#x884C;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x8FDB;&#x884C;rewrite&#x5207;&#x6362;&#x65F6;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x5B89;&#x5168;&#x6027;&#x3002;</p>
+<p>4). AOF&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x683C;&#x5F0F;&#x6E05;&#x6670;&#x3001;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x6240;&#x6709;&#x7684;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BE5;&#x6587;&#x4EF6;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x7684;&#x91CD;&#x5EFA;&#x3002;</p>
+<h4 id="&#x7F3A;&#x70B9;_1"><a name="&#x7F3A;&#x70B9;_1" class="anchor-navigation-ex-anchor" href="#&#x7F3A;&#x70B9;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F3A;&#x70B9;</h4>
+<p>1). &#x5BF9;&#x4E8E;&#x76F8;&#x540C;&#x6570;&#x91CF;&#x7684;&#x6570;&#x636E;&#x96C6;&#x800C;&#x8A00;&#xFF0C;AOF&#x6587;&#x4EF6;&#x901A;&#x5E38;&#x8981;&#x5927;&#x4E8E;RDB&#x6587;&#x4EF6;&#x3002;RDB &#x5728;&#x6062;&#x590D;&#x5927;&#x6570;&#x636E;&#x96C6;&#x65F6;&#x7684;&#x901F;&#x5EA6;&#x6BD4; AOF &#x7684;&#x6062;&#x590D;&#x901F;&#x5EA6;&#x8981;&#x5FEB;&#x3002;</p>
+<p>2). &#x6839;&#x636E;&#x540C;&#x6B65;&#x7B56;&#x7565;&#x7684;&#x4E0D;&#x540C;&#xFF0C;AOF&#x5728;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x4E0A;&#x5F80;&#x5F80;&#x4F1A;&#x6162;&#x4E8E;RDB&#x3002;&#x603B;&#x4E4B;&#xFF0C;&#x6BCF;&#x79D2;&#x540C;&#x6B65;&#x7B56;&#x7565;&#x7684;&#x6548;&#x7387;&#x662F;&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#xFF0C;&#x540C;&#x6B65;&#x7981;&#x7528;&#x7B56;&#x7565;&#x7684;&#x6548;&#x7387;&#x548C;RDB&#x4E00;&#x6837;&#x9AD8;&#x6548;&#x3002;</p>
+<p>&#x4E8C;&#x8005;&#x9009;&#x62E9;&#x7684;&#x6807;&#x51C6;&#xFF0C;&#x5C31;&#x662F;&#x770B;&#x7CFB;&#x7EDF;&#x662F;&#x613F;&#x610F;&#x727A;&#x7272;&#x4E00;&#x4E9B;&#x6027;&#x80FD;&#xFF0C;&#x6362;&#x53D6;&#x66F4;&#x9AD8;&#x7684;&#x7F13;&#x5B58;&#x4E00;&#x81F4;&#x6027;&#xFF08;aof&#xFF09;&#xFF0C;&#x8FD8;&#x662F;&#x613F;&#x610F;&#x5199;&#x64CD;&#x4F5C;&#x9891;&#x7E41;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x542F;&#x7528;&#x5907;&#x4EFD;&#x6765;&#x6362;&#x53D6;&#x66F4;&#x9AD8;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x5F85;&#x624B;&#x52A8;&#x8FD0;&#x884C;save&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x518D;&#x505A;&#x5907;&#x4EFD;&#xFF08;rdb&#xFF09;&#x3002;rdb&#x8FD9;&#x4E2A;&#x5C31;&#x66F4;&#x6709;&#x4E9B; eventually consistent &#x7684;&#x610F;&#x601D;&#x4E86;&#x3002;</p>
+<h3 id="&#x6269;&#x5C55;"><a name="&#x6269;&#x5C55;" class="anchor-navigation-ex-anchor" href="#&#x6269;&#x5C55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;</h3>
+<ul>
+<li>RDB &#x6301;&#x4E45;&#x5316;&#x65B9;&#x5F0F;&#x80FD;&#x591F;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x5185;&#x5BF9;&#x4F60;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5FEB;&#x7167;&#x5B58;&#x50A8;</li>
+<li>AOF &#x6301;&#x4E45;&#x5316;&#x65B9;&#x5F0F;&#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x5199;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x670D;&#x52A1;&#x5668;&#x91CD;&#x542F;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x6765;&#x6062;&#x590D;&#x539F;&#x59CB;&#x7684;&#x6570;&#x636E;&#xFF0C;AOF&#x547D;&#x4EE4;&#x4EE5;Redis &#x534F;&#x8BAE;&#x8FFD;&#x52A0;&#x4FDD;&#x5B58;&#x6BCF;&#x6B21;&#x5199;&#x7684;&#x64CD;&#x4F5C;&#x5230;&#x6587;&#x4EF6;&#x672B;&#x5C3E;&#xFF0C;Redis&#x8FD8;&#x80FD;&#x5BF9;AOF&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x540E;&#x53F0;&#x91CD;&#x5199;&#xFF0C;&#x4F7F;&#x5F97;AOF&#x6587;&#x4EF6;&#x7684;&#x4F53;&#x79EF;&#x4E0D;&#x81F3;&#x4E8E;&#x8FC7;&#x5927;</li>
+<li>&#x53EA;&#x505A;&#x7F13;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x53EA;&#x5E0C;&#x671B;&#x4F60;&#x7684;&#x6570;&#x636E;&#x5728;&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x5B58;&#x5728;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x6301;&#x4E45;&#x5316;</li>
+<li>&#x540C;&#x65F6;&#x5F00;&#x542F;&#x4E24;&#x79CD;&#x6301;&#x4E45;&#x5316;&#x65B9;&#x5F0F;<ul>
+<li>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;redis&#x91CD;&#x542F;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4F18;&#x5148;&#x8F7D;&#x5165;AOF&#x6587;&#x4EF6;&#x6765;&#x6062;&#x590D;&#x539F;&#x59CB;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;AOF&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x96C6;&#x8981;&#x6BD4;RDB&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x96C6;&#x8981;&#x5B8C;&#x6574;</li>
+<li>RDB &#x7684;&#x6570;&#x636E;&#x4E0D;&#x5B9E;&#x65F6;&#xFF0C;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x4E24;&#x8005;&#x65F6;&#x670D;&#x52A1;&#x5668;&#x91CD;&#x542F;&#x4E5F;&#x53EA;&#x4F1A;&#x627E;AOF&#x6587;&#x4EF6;&#xFF0C;&#x90A3;&#x8981;&#x4E0D;&#x8981;&#x53EA;&#x4F7F;&#x7528;AOF&#x5462;&#xFF1F;&#x4F5C;&#x8005;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;RDB&#x66F4;&#x9002;&#x5408;&#x7528;&#x4E8E;&#x5907;&#x4EFD;&#x6570;&#x636E;&#x5E93;&#xFF08;AOF&#x5728;&#x4E0D;&#x65AD;&#x53D8;&#x5316;&#x4E0D;&#x597D;&#x5907;&#x4EFD;&#xFF09;&#xFF0C;&#x5FEB;&#x901F;&#x91CD;&#x542F;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x4F1A;&#x6709;AOF&#x53EF;&#x80FD;&#x6F5C;&#x5728;&#x7684;Bug&#xFF0C;&#x7559;&#x7740;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x4E07;&#x4E00;&#x7684;&#x624B;&#x6BB5;</li>
+</ul>
+</li>
+<li>&#x6027;&#x80FD;&#x5EFA;&#x8BAE;<ul>
+<li>&#x56E0;&#x4E3A;RDB&#x6587;&#x4EF6;&#x53EA;&#x7528;&#x4F5C;&#x540E;&#x5907;&#x7528;&#x9014;&#xFF0C;&#x5EFA;&#x8BAE;&#x53EA;&#x5728;Slave&#x4E0A;&#x6301;&#x4E45;&#x5316;RDB&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x8981;15&#x5206;&#x949F;&#x5907;&#x4EFD;&#x4E00;&#x6B21;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x53EA;&#x4FDD;&#x7559; <code>save 900 1</code>&#x8FD9;&#x6761;&#x89C4;&#x5219;&#x3002;</li>
+<li>&#x5982;&#x679C;Enable AOF&#xFF0C;&#x597D;&#x5904;&#x662F;&#x5728;&#x6700;&#x6076;&#x52A3;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x53EA;&#x4F1A;&#x4E22;&#x5931;&#x4E0D;&#x8D85;&#x8FC7;&#x4E24;&#x79D2;&#x6570;&#x636E;&#xFF0C;&#x542F;&#x52A8;&#x811A;&#x672C;&#x8F83;&#x7B80;&#x5355;&#x53EA;load&#x81EA;&#x5DF1;&#x7684;AOF&#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4EE3;&#x4EF7;&#x4E00;&#x662F;&#x5E26;&#x6765;&#x4E86;&#x6301;&#x7EED;&#x7684;I0&#xFF0C;&#x4E8C;&#x662F;AOF rewrite &#x7684;&#x6700;&#x540E;&#x5C06; rewrite &#x8FC7;&#x7A0B;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x65B0;&#x6570;&#x636E;&#x5199;&#x5230;&#x65B0;&#x6587;&#x4EF6;&#x9020;&#x6210;&#x7684;&#x963B;&#x585E;&#x51E0;&#x4E4E;&#x662F;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x3002;&#x53EA;&#x8981;&#x786C;&#x76D8;&#x8BB8;&#x53EF;&#xFF0C;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;AOF rewrite &#x7684;&#x9891;&#x7387;&#xFF0C;AOF&#x91CD;&#x5199;&#x7684;&#x57FA;&#x7840;&#x5927;&#x5C0F;&#x9ED8;&#x8BA4;&#x503C;64M&#x592A;&#x5C0F;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x5230;5G&#x4EE5;&#x4E0A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8D85;&#x8FC7;&#x539F;&#x5927;&#x5C0F;100%&#x5927;&#x5C0F;&#x91CD;&#x5199;&#x53EF;&#x4EE5;&#x6539;&#x5230;&#x9002;&#x5F53;&#x7684;&#x6570;&#x503C;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E0D;Enable AOF&#xFF0C;&#x4EC5;&#x9760; Master-Slave Repllcation &#x5B9E;&#x73B0;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#xFF0C;&#x80FD;&#x7701;&#x6389;&#x4E00;&#x5927;&#x7B2C;10&#xFF0C;&#x4E5F;&#x51CF;&#x5C11;&#x4E86;rewrite&#x65F6;&#x5E26;&#x6765;&#x7684;&#x7CFB;&#x7EDF;&#x6CE2;&#x52A8;&#x3002;&#x4EE3;&#x4EF7;&#x662F;&#x5982;&#x679C;Master/Slave &#x540C;&#x65F6;&#x65AD;&#x7535;&#xFF0C;&#x4F1A;&#x4E22;&#x5931;&#x5341;&#x51E0;&#x5206;&#x949F;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x542F;&#x52A8;&#x811A;&#x672C;&#x4E5F;&#x8981;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A; Master/Slave &#x4E2D;&#x7684; RDB&#x6587;&#x4EF6;&#xFF0C;&#x8F7D;&#x5165;&#x8F83;&#x65B0;&#x7684;&#x90A3;&#x4E2A;&#xFF0C;&#x5FAE;&#x535A;&#x5C31;&#x662F;&#x8FD9;&#x79CD;&#x67B6;&#x6784;&#x3002;</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.事务及Java集成.html" class="navigation navigation-prev " aria-label="Previous page: 2. 事务及 Java 集成">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.订阅发布及主从复制.html" class="navigation navigation-next " aria-label="Next page: 4. 订阅发布及主从复制">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3. RDB & AOF 持久化","level":"4.3.3","depth":2,"next":{"title":"4. 订阅发布及主从复制","level":"4.3.4","depth":2,"path":"redis/4.订阅发布及主从复制.md","ref":"redis/4.订阅发布及主从复制.md","articles":[]},"previous":{"title":"2. 事务及 Java 集成","level":"4.3.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redis/3.RDB&AOF持久化.md","mtime":"2023-07-12T07:25:16.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T07:52:05.281Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

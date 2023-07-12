@@ -1,0 +1,1190 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5. 常用 Powershell 命令 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.正则表达式.html" />
+    
+    
+    <link rel="prev" href="4.JSON Path.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../aws/">
+            
+                <a href="../aws/">
+            
+                    
+                    AWS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../aws/1.基本概念.html">
+            
+                <a href="../aws/1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../aws/2.考试概览.html">
+            
+                <a href="../aws/2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../aws/3.IAM.html">
+            
+                <a href="../aws/3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../aws/4.EC2.html">
+            
+                <a href="../aws/4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../aws/5.ElasticIPs.html">
+            
+                <a href="../aws/5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../aws/6.EBS.html">
+            
+                <a href="../aws/6.EBS.html">
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../aws/7.LB&ASG.html">
+            
+                <a href="../aws/7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../aws/8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="../aws/8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../aws/9.Route 53 & Classic Solutions Architecture.html">
+            
+                <a href="../aws/9.Route 53 & Classic Solutions Architecture.html">
+            
+                    
+                    9. Route 53 & Classic Solutions Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../aws/10.S3, FSx & Storage Gateway.html">
+            
+                <a href="../aws/10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../aws/11.S3, Glacier & Athena.html">
+            
+                <a href="../aws/11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../aws/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="../aws/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../aws/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="../aws/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../aws/14.ECS.html">
+            
+                <a href="../aws/14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../aws/15.考前速记.html">
+            
+                <a href="../aws/15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../aws/16.DBS基本概念及Security.html">
+            
+                <a href="../aws/16.DBS基本概念及Security.html">
+            
+                    
+                    16. DBS 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="../aws/17.RDS备份.html">
+            
+                <a href="../aws/17.RDS备份.html">
+            
+                    
+                    17. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="1.git常用命令.html">
+            
+                <a href="1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="2.SSH配置及连接.html">
+            
+                <a href="2.SSH配置及连接.html">
+            
+                    
+                    2. SSH配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="3.Terminal常用快捷键.html">
+            
+                <a href="3.Terminal常用快捷键.html">
+            
+                    
+                    3. Terminal常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="4.JSON Path.html">
+            
+                <a href="4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.5" data-path="5.常用Powershell命令.html">
+            
+                <a href="5.常用Powershell命令.html">
+            
+                    
+                    5. 常用 Powershell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="6.正则表达式.html">
+            
+                <a href="6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../k8s/3.Scheduling.html">
+            
+                <a href="../k8s/3.Scheduling.html">
+            
+                    
+                    3. Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../k8s/4.Resource Requirements and Limits.html">
+            
+                <a href="../k8s/4.Resource Requirements and Limits.html">
+            
+                    
+                    4. Resource Requirements and Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                <a href="../k8s/5.Daemon Sets, Static Pods & Multiple Schedulers.html">
+            
+                    
+                    5. Daemon Sets, Static Pods & Multiple Schedulers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                <a href="../k8s/6.Monitoring, Rolling Updates, Rollbacks及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.10" data-path="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                <a href="../k8s/10.KubeConfig, RBAC & Service Accounts.html">
+            
+                    
+                    10. KubeConfig, RBAC & Service Accounts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.11" data-path="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                <a href="../k8s/11.Network Policy, Storage & Container Storage Interface.html">
+            
+                    
+                    11. Network Policy, Storage & Container Storage Interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.12" data-path="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                <a href="../k8s/12.Volumes, Persistent Volumes & Storage Class.html">
+            
+                    
+                    12. Volumes, Persistent Volumes & Storage Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.13" data-path="../k8s/13.Network Namespaces.html">
+            
+                <a href="../k8s/13.Network Namespaces.html">
+            
+                    
+                    13. Network Namespaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.15" data-path="../k8s/15.Certification Tips及问题定位.html">
+            
+                <a href="../k8s/15.Certification Tips及问题定位.html">
+            
+                    
+                    15. Certification Tips 及问题定位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5. 常用 Powershell 命令</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a href="https://stackoverflow.com/questions/32069265/how-do-you-set-powershells-default-directory" target="_blank">How do you set PowerShell&apos;s default directory?</a></p>
+<ul>
+<li>&#x5220;&#x9664;&#x6587;&#x4EF6;<pre><code class="lang-powershell"><span class="hljs-built_in">Remove-Item</span> -Path <span class="hljs-string">&quot;*&quot;</span> -Include <span class="hljs-string">&quot;*.txt&quot;</span> -Recurse -Force
+</code></pre>
+</li>
+<li>&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x4E2A;&#x6570;<pre><code class="lang-powershell"><span class="hljs-built_in">Get-ChildItem</span> &lt;path&gt; -Include *.dump -Recurse | select Name | <span class="hljs-built_in">Measure-Object</span>
+</code></pre>
+</li>
+<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;sqlserver&#x6570;&#x636E;&#x5E93;<pre><code class="lang-powershell"><span class="hljs-variable">$Databases</span> = Invoke-SQLcmd -ServerInstance <span class="hljs-variable">$ServerInstance</span> -Query (<span class="hljs-string">&quot;SELECT * FROM sys.databases WHERE NAME LIKE &apos;Sample%&apos;&quot;</span>)
+<span class="hljs-keyword">ForEach</span> (<span class="hljs-variable">$Database</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$Databases</span>){Invoke-SQLcmd -ServerInstance <span class="hljs-variable">$ServerInstance</span> -Query (<span class="hljs-string">&quot;DROP DATABASE [&quot;</span> + <span class="hljs-variable">$Database</span>.Name + <span class="hljs-string">&quot;]&quot;</span>)
+<span class="hljs-string">&quot;$(<span class="hljs-variable">$Database</span>.Name) is deleted.&quot;</span>}
+</code></pre>
+</li>
+<li>dump&#x6587;&#x4EF6;&#x8F6C;postgres<pre><code class="lang-powershell">psql -U postgres -d &lt;databaseName&gt; -f <span class="hljs-string">&apos;C:\xxxxxx.dump&apos;</span>
+</code></pre>
+</li>
+<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;postgres&#x6570;&#x636E;&#x5E93;<pre><code class="lang-powershell">psql -U postgres -t -A -c <span class="hljs-string">&quot;select datname from pg_database where datname ~ &apos;Sample\w*&apos;&quot;</span> | <span class="hljs-built_in">ForEach-Object</span> { dropdb --force --echo --username postgres <span class="hljs-string">&quot;<span class="hljs-variable">$_</span>&quot;</span> }
+</code></pre>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.JSON Path.html" class="navigation navigation-prev " aria-label="Previous page: 4. JSON Path">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.正则表达式.html" class="navigation navigation-next " aria-label="Next page: 6. 正则表达式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5. 常用 Powershell 命令","level":"3.1.5","depth":2,"next":{"title":"6. 正则表达式","level":"3.1.6","depth":2,"path":"cli/6.正则表达式.md","ref":"cli/6.正则表达式.md","articles":[]},"previous":{"title":"4. JSON Path","level":"3.1.4","depth":2,"path":"cli/4.JSON Path.md","ref":"cli/4.JSON Path.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/5.常用Powershell命令.md","mtime":"2023-07-12T06:46:48.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T07:52:05.281Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
