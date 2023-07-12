@@ -1,0 +1,556 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6. EBS, AMI, EFS · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../cli/" />
+    
+    
+    <link rel="prev" href="5.ElasticIPs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    AWS学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="6.EBS.html">
+            
+                <a href="6.EBS.html">
+            
+                    
+                    6. EBS, AMI, EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../cli/git常用命令.html">
+            
+                <a href="../cli/git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6. EBS, AMI, EFS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-whats-an-ebs-volume"><b></b>1. What&apos;s an EBS Volume?</a></li><li><span class="title-icon "></span><a href="#2-ebs-&#x2013;-delete-on-termination-attribute"><b></b>2. EBS &#x2013; Delete on Termination attribute</a></li><li><span class="title-icon "></span><a href="#3-ebs-snapshots"><b></b>3. EBS Snapshots</a></li><li><span class="title-icon "></span><a href="#4-ami-amazon-machine-image"><b></b>4. AMI (Amazon Machine Image)</a></li><li><span class="title-icon "></span><a href="#5-ami-process-from-an-ec2-instance"><b></b>5. AMI Process (from an EC2 instance)</a></li><li><span class="title-icon "></span><a href="#6-ebs-volume-types"><b></b>6. EBS Volume Types</a></li><li><span class="title-icon "></span><a href="#7-ebs-&#x2013;volume-types-summary"><b></b>7. EBS &#x2013;Volume Types Summary</a></li><li><span class="title-icon "></span><a href="#8-ebs-multi-attach-&#x2013;-io1io2-family"><b></b>8. EBS Multi-Attach &#x2013; io1/io2 family</a></li><li><span class="title-icon "></span><a href="#9-ebs-encryption"><b></b>9. EBS Encryption</a></li><li><span class="title-icon "></span><a href="#10-encryption-encrypt-an-unencrypted-ebs-volume"><b></b>10. Encryption: encrypt an unencrypted EBS volume</a></li><li><span class="title-icon "></span><a href="#11-efs-&#x2013;-elastic-file-system"><b></b>11. EFS &#x2013; Elastic File System</a></li><li><span class="title-icon "></span><a href="#12-efs-&#x2013;-performance--storage-classes"><b></b>12. EFS &#x2013; Performance &amp; Storage Classes</a></li><li><span class="title-icon "></span><a href="#13-ebs-vs-efs-&#x2013;-elastic-block-storage"><b></b>13. EBS vs EFS &#x2013; Elastic Block Storage</a></li><li><span class="title-icon "></span><a href="#14-ebs-vs-efs-&#x2013;-elastic-file-system"><b></b>14. EBS vs EFS &#x2013; Elastic File System</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-whats-an-ebs-volume"><a name="1-whats-an-ebs-volume" class="anchor-navigation-ex-anchor" href="#1-whats-an-ebs-volume"><i class="fa fa-link" aria-hidden="true"></i></a>1. What&apos;s an EBS Volume?</h3>
+<ul>
+<li><strong>They can only be mounted to one instance at a time</strong> (at the CCP level)</li>
+<li>They are bound to <strong>a specific availability zone</strong></li>
+</ul>
+<h3 id="2-ebs-&#x2013;-delete-on-termination-attribute"><a name="2-ebs-&#x2013;-delete-on-termination-attribute" class="anchor-navigation-ex-anchor" href="#2-ebs-&#x2013;-delete-on-termination-attribute"><i class="fa fa-link" aria-hidden="true"></i></a>2. EBS &#x2013; Delete on Termination attribute</h3>
+<ul>
+<li>Controls the EBS behaviour when an EC2 instance terminates<ul>
+<li>By default, the root EBS volume is deleted (attribute enabled)</li>
+<li>By default, any other attached EBS volume is not deleted (attribute disabled)</li>
+</ul>
+</li>
+<li>This can be controlled by the AWS console / AWS CLI</li>
+<li><strong>Use case: preserve root volume when instance is terminated</strong></li>
+</ul>
+<h3 id="3-ebs-snapshots"><a name="3-ebs-snapshots" class="anchor-navigation-ex-anchor" href="#3-ebs-snapshots"><i class="fa fa-link" aria-hidden="true"></i></a>3. EBS Snapshots</h3>
+<ul>
+<li>Make a backup (snapshot) of your EBS volume at a point in time</li>
+<li>Not necessary to detach volume to do snapshot, but recommended</li>
+<li>Can copy snapshots across AZ or Region</li>
+</ul>
+<h3 id="4-ami-amazon-machine-image"><a name="4-ami-amazon-machine-image" class="anchor-navigation-ex-anchor" href="#4-ami-amazon-machine-image"><i class="fa fa-link" aria-hidden="true"></i></a>4. AMI (Amazon Machine Image)</h3>
+<ul>
+<li>AMI are a <strong>customization</strong> of an EC2 instance<ul>
+<li>You add your own software, configuration, operating system, monitoring&#x2026;</li>
+<li>Faster boot / configuration time because all your software is pre-packaged</li>
+</ul>
+</li>
+<li>AMI are built for a <strong>specific region</strong> (and can be copied across regions)</li>
+<li>You can launch EC2 instances from:<ul>
+<li><strong>A Public AMI</strong>: AWS provided</li>
+<li><strong>Your own AMI</strong>: you make and maintain them yourself</li>
+<li><strong>An AWS Marketplace AMI</strong>: an AMI someone else made (and potentially sells)</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-ami-process-from-an-ec2-instance"><a name="5-ami-process-from-an-ec2-instance" class="anchor-navigation-ex-anchor" href="#5-ami-process-from-an-ec2-instance"><i class="fa fa-link" aria-hidden="true"></i></a>5. AMI Process (from an EC2 instance)</h3>
+<ul>
+<li>Start an EC2 instance and customize it</li>
+<li>Stop the instance (for data integrity)</li>
+<li>Build an AMI &#x2013; this will <strong>also create EBS snapshots</strong></li>
+<li>Launch instances from other AMIs</li>
+</ul>
+<h3 id="6-ebs-volume-types"><a name="6-ebs-volume-types" class="anchor-navigation-ex-anchor" href="#6-ebs-volume-types"><i class="fa fa-link" aria-hidden="true"></i></a>6. EBS Volume Types</h3>
+<ul>
+<li>EBS Volumes come in 6 types<ul>
+<li><font color="blue">gp2 / gp3 (SSD)</font>: General purpose SSD volume that balances price and performance for a wide variety of workloads</li>
+<li><font color="blue">io1 / io2 (SSD)</font>: Highest-performance SSD volume for mission-critical low-latency or high-throughput workloads</li>
+<li><font color="blue">st1 (HDD)</font>: Low cost HDD volume designed for frequently accessed, throughputintensive workloads</li>
+<li><font color="blue">sc1 (HDD)</font>: Lowest cost HDD volume designed for less frequently accessed workloads</li>
+</ul>
+</li>
+<li>EBS Volumes are characterized in Size | Throughput | IOPS (I/O Ops Per Sec)</li>
+<li>When in doubt always consult the AWS documentation &#x2013; it&apos;s good!</li>
+<li><strong>Only gp2/gp3 and io1/io2 can be used as boot volumes</strong></li>
+</ul>
+<h3 id="7-ebs-&#x2013;volume-types-summary"><a name="7-ebs-&#x2013;volume-types-summary" class="anchor-navigation-ex-anchor" href="#7-ebs-&#x2013;volume-types-summary"><i class="fa fa-link" aria-hidden="true"></i></a>7. EBS &#x2013;Volume Types Summary</h3>
+<p><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ebs-volume-types.html" target="_blank"><font color="blue">Amazon EBS&#x5377;&#x7C7B;&#x578B;</font></a></p>
+<h3 id="8-ebs-multi-attach-&#x2013;-io1io2-family"><a name="8-ebs-multi-attach-&#x2013;-io1io2-family" class="anchor-navigation-ex-anchor" href="#8-ebs-multi-attach-&#x2013;-io1io2-family"><i class="fa fa-link" aria-hidden="true"></i></a>8. EBS Multi-Attach &#x2013; io1/io2 family</h3>
+<ul>
+<li>Attach the same EBS volume to multiple EC2 instances in the same AZ</li>
+<li>Each instance has full read &amp; write permissions to the volume</li>
+<li>Use case:<ul>
+<li>Achieve <strong>higher application availability</strong> in clustered Linux applications (ex: Teradata)</li>
+<li>Applications must manage concurrent write operations</li>
+</ul>
+</li>
+<li>Must use a file system that&apos;s cluster-aware (not XFS, EX4, etc&#x2026;)</li>
+</ul>
+<h3 id="9-ebs-encryption"><a name="9-ebs-encryption" class="anchor-navigation-ex-anchor" href="#9-ebs-encryption"><i class="fa fa-link" aria-hidden="true"></i></a>9. EBS Encryption</h3>
+<ul>
+<li>When you create an encrypted EBS volume, you get the following:<ul>
+<li>Data at rest is encrypted inside the volume</li>
+<li>All the data in flight moving between the instance and the volume is encrypted</li>
+<li>All snapshots are encrypted</li>
+<li>All volumes created from the snapshot</li>
+</ul>
+</li>
+<li>Encryption and decryption are handled transparently (you have nothing to do)</li>
+<li>Encryption has a minimal impact on latency</li>
+<li>EBS Encryption leverages keys from KMS (AES-256)</li>
+<li>Copying an unencrypted snapshot allows encryption</li>
+<li>Snapshots of encrypted volumes are encrypted</li>
+</ul>
+<h3 id="10-encryption-encrypt-an-unencrypted-ebs-volume"><a name="10-encryption-encrypt-an-unencrypted-ebs-volume" class="anchor-navigation-ex-anchor" href="#10-encryption-encrypt-an-unencrypted-ebs-volume"><i class="fa fa-link" aria-hidden="true"></i></a>10. Encryption: encrypt an unencrypted EBS volume</h3>
+<ul>
+<li>Create an EBS snapshot of the volume</li>
+<li>Encrypt the EBS snapshot (using copy)</li>
+<li>Create new ebs volume from the snapshot (the volume will also be encrypted)</li>
+<li>Now you can attach the encrypted volume to the original instance</li>
+</ul>
+<h3 id="11-efs-&#x2013;-elastic-file-system"><a name="11-efs-&#x2013;-elastic-file-system" class="anchor-navigation-ex-anchor" href="#11-efs-&#x2013;-elastic-file-system"><i class="fa fa-link" aria-hidden="true"></i></a>11. EFS &#x2013; Elastic File System</h3>
+<ul>
+<li>Managed NFS (network file system) that can be mounted on many EC2</li>
+<li>EFS works with EC2 instances in multi-AZ</li>
+<li>Highly available, scalable, expensive (3x gp2), pay per use</li>
+<li>Use cases: content management, web serving, data sharing,Wordpress</li>
+<li>Uses NFSv4.1 protocol</li>
+<li>Uses security group to control access to EFS</li>
+<li><strong>Compatible with Linux based AMI (not Windows)</strong></li>
+<li>Encryption at rest using KMS</li>
+<li>POSIX (Portable Operating System Interface &#x53EF;&#x79FB;&#x690D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A5;&#x53E3;) file system (~Linux) that has a standard file API</li>
+<li>File system scales automatically, pay-per-use, no capacity planning!</li>
+</ul>
+<h3 id="12-efs-&#x2013;-performance--storage-classes"><a name="12-efs-&#x2013;-performance--storage-classes" class="anchor-navigation-ex-anchor" href="#12-efs-&#x2013;-performance--storage-classes"><i class="fa fa-link" aria-hidden="true"></i></a>12. EFS &#x2013; Performance &amp; Storage Classes</h3>
+<ul>
+<li><strong>EFS Scale</strong><ul>
+<li>1000s of concurrent NFS clients, 10 GB+ /s throughput</li>
+<li>Grow to Petabyte-scale network file system, automatically</li>
+</ul>
+</li>
+<li><strong>Performance mode (set at EFS creation time)</strong><ul>
+<li>General purpose (default): latency-sensitive use cases (web server, CMS, etc&#x2026;)</li>
+<li>Max I/O &#x2013; higher latency, throughput, highly parallel (big data, media processing)</li>
+</ul>
+</li>
+<li><strong>Throughput mode</strong><ul>
+<li>Bursting (1 TB = 50MiB/s + burst of up to 100MiB/s)</li>
+<li>Provisioned: set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage</li>
+</ul>
+</li>
+<li><strong>Storage Tiers (lifecycle management feature &#x2013; move file after N days)</strong><ul>
+<li>Standard: for frequently accessed files</li>
+<li><font color="blue">Infrequent access (EFS-IA)</font>: cost to retrieve files, lower price to store</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-ebs-vs-efs-&#x2013;-elastic-block-storage"><a name="13-ebs-vs-efs-&#x2013;-elastic-block-storage" class="anchor-navigation-ex-anchor" href="#13-ebs-vs-efs-&#x2013;-elastic-block-storage"><i class="fa fa-link" aria-hidden="true"></i></a>13. EBS vs EFS &#x2013; Elastic Block Storage</h3>
+<ul>
+<li>EBS volumes&#x2026;<ul>
+<li>can be attached to only one instance at a time</li>
+<li>are locked at the Availability Zone (AZ) level</li>
+<li>gp2: IO increases if the disk size increases</li>
+<li>io1: can increase IO independently</li>
+</ul>
+</li>
+<li>To migrate an EBS volume across AZ<ul>
+<li>Take a snapshot</li>
+<li>Restore the snapshot to another AZ</li>
+<li>EBS backups use IO and you shouldn&#x2019;t run them while your application is handling a lot of traffic</li>
+</ul>
+</li>
+<li>Root EBS Volumes of instances get terminated by default if the EC2 instance gets terminated (you can disable that)</li>
+</ul>
+<h3 id="14-ebs-vs-efs-&#x2013;-elastic-file-system"><a name="14-ebs-vs-efs-&#x2013;-elastic-file-system" class="anchor-navigation-ex-anchor" href="#14-ebs-vs-efs-&#x2013;-elastic-file-system"><i class="fa fa-link" aria-hidden="true"></i></a>14. EBS vs EFS &#x2013; Elastic File System</h3>
+<ul>
+<li>Mounting 100s of instances across AZ</li>
+<li>EFS share website files (WordPress)</li>
+<li>Only for Linux Instances (POSIX)</li>
+<li>EFS has a higher price point than EBS</li>
+<li>Can leverage EFS-IA for cost savings</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5.ElasticIPs.html" class="navigation navigation-prev " aria-label="Previous page: 5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../cli/" class="navigation navigation-next " aria-label="Next page: CLI学习笔记">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6. EBS, AMI, EFS","level":"1.2.6","depth":2,"next":{"title":"CLI学习笔记","level":"2.1","depth":1,"path":"cli/README.md","ref":"cli/README.md","articles":[{"title":"1. git 常用命令","level":"2.1.1","depth":2,"path":"cli/git常用命令.md","ref":"cli/git常用命令.md","articles":[]}]},"previous":{"title":"5. Elastic IPs, Placement Groups, ENI, Hibernate, Nitro, Capacity Reservations","level":"1.2.5","depth":2,"path":"aws/5.ElasticIPs.md","ref":"aws/5.ElasticIPs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aws/6.EBS.md","mtime":"2023-07-12T04:19:34.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-12T04:44:54.837Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

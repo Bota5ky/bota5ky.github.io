@@ -1,14 +1,3 @@
-已通过2022.07.01记
-
-[Console](https://console.aws.amazon.com/console/home)
-[AWS文档](https://docs.aws.amazon.com/index.html)
-[AWS白皮书](https://aws.amazon.com/cn/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc&awsf.whitepapers-flag=*all&awsf.whitepapers-content-type=*all&awsf.whitepapers-tech-category=*all&awsf.whitepapers-industries=*all&awsf.whitepapers-business-category=*all&awsf.whitepapers-global-methodology=*all)
-[ExamTopics](https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c02/)
-[Jayendra](https://jayendrapatil.com/)
-[LiuYuchen](https://liuyuchen777.github.io/2021/10/04/AWS-Study-Note/AWS-SAA-C02/)
-[Bing哥的博客](www.cloudbin.cn/?tag=aws&paged=2)
-[Partner Central](https://partnercentral.awspartner.com/PartnerProfile)
-
 - Inspector 漏洞修复
 
 - GuardDuty 威胁检测
