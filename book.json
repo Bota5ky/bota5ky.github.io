@@ -8,8 +8,8 @@
     "-search",
     "search-pro",
     "code",
-    "-highlight",
-    "prism"
+    "prism",
+    "-highlight"
   ],
   "pluginsConfig": {
     "insert-logo": {
@@ -20,6 +20,9 @@
       "showLevel": false
     },
     "prism": {
+      "lang": {
+        "flow": "self"
+      },
       "ignore": [
         "mermaid"
       ]
