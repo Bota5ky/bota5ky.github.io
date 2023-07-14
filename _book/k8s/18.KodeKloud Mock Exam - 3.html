@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1087,28 +1087,28 @@ Next, create a pod called <code>pvviewer</code> with the image: <code>redis</cod
 <p>Pods authenticate to the API Server using ServiceAccounts. If the serviceAccount name is not specified, the default service account for the namespace is used during a pod creation.
 Reference: <code>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</code></p>
 <p>Now, create a service account <code>pvviewer</code>:</p>
-<pre><code class="lang-sh">kubectl create serviceaccount pvviewer
+<pre class="language-"><code class="lang-sh">kubectl create serviceaccount pvviewer
 </code></pre>
 <p>To create a clusterrole:</p>
-<pre><code class="lang-sh">kubectl create clusterrole pvviewer-role --resource=persistentvolumes --verb=list
+<pre class="language-"><code class="lang-sh">kubectl create clusterrole pvviewer-role <span class="token parameter variable">--resource</span><span class="token operator">=</span>persistentvolumes <span class="token parameter variable">--verb</span><span class="token operator">=</span>list
 </code></pre>
 <p>To create a clusterrolebinding:</p>
-<pre><code class="lang-sh">kubectl create clusterrolebinding pvviewer-role-binding --clusterrole=pvviewer-role --serviceaccount=default:pvviewer
+<pre class="language-"><code class="lang-sh">kubectl create clusterrolebinding pvviewer-role-binding <span class="token parameter variable">--clusterrole</span><span class="token operator">=</span>pvviewer-role <span class="token parameter variable">--serviceaccount</span><span class="token operator">=</span>default:pvviewer
 </code></pre>
 <p>Solution manifest file to create a new pod called <code>pvviewer</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    run:</span> pvviewer
-<span class="hljs-attr">  name:</span> pvviewer
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - image:</span> redis
-<span class="hljs-attr">    name:</span> pvviewer
-  <span class="hljs-comment"># Add service account name</span>
-<span class="hljs-attr">  serviceAccountName:</span> pvviewer
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">run</span><span class="token punctuation">:</span> pvviewer
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> pvviewer
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> pvviewer
+  <span class="token comment"># Add service account name</span>
+  <span class="token key atrule">serviceAccountName</span><span class="token punctuation">:</span> pvviewer
 </code></pre>
 <h3 id="question-2-12"><a name="question-2-12" class="anchor-navigation-ex-anchor" href="#question-2-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (12&apos;)</h3>
 <p>Question</p>
@@ -1138,24 +1138,24 @@ container 1:
 </ul>
 <p>Solution</p>
 <p>Solution manifest file to create a multi-container pod <code>multi-pod</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> multi-pod
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - image:</span> nginx
-<span class="hljs-attr">    name:</span> alpha
-<span class="hljs-attr">    env:</span>
-<span class="hljs-attr">    - name:</span> name
-<span class="hljs-attr">      value:</span> alpha
-<span class="hljs-attr">  - image:</span> busybox
-<span class="hljs-attr">    name:</span> beta
-<span class="hljs-attr">    command:</span> [<span class="hljs-string">&quot;sleep&quot;</span>, <span class="hljs-string">&quot;4800&quot;</span>]
-<span class="hljs-attr">    env:</span>
-<span class="hljs-attr">    - name:</span> name
-<span class="hljs-attr">      value:</span> beta
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> multi<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> alpha
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> name
+      <span class="token key atrule">value</span><span class="token punctuation">:</span> alpha
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> busybox
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> beta
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;sleep&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;4800&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> name
+      <span class="token key atrule">value</span><span class="token punctuation">:</span> beta
 </code></pre>
 <h3 id="question-4-8"><a name="question-4-8" class="anchor-navigation-ex-anchor" href="#question-4-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (8&apos;)</h3>
 <p>Question</p>
@@ -1169,21 +1169,21 @@ fsGroup: 2000</p>
 </ul>
 <p>Solution</p>
 <p>Solution manifest file to create a pod called <code>non-root-pod</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> non-root-pod
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  securityContext:</span>
-<span class="hljs-attr">    runAsUser:</span> <span class="hljs-number">1000</span>
-<span class="hljs-attr">    fsGroup:</span> <span class="hljs-number">2000</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - name:</span> non-root-pod
-<span class="hljs-attr">    image:</span> redis:alpine
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> non<span class="token punctuation">-</span>root<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runAsUser</span><span class="token punctuation">:</span> <span class="token number">1000</span>
+    <span class="token key atrule">fsGroup</span><span class="token punctuation">:</span> <span class="token number">2000</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> non<span class="token punctuation">-</span>root<span class="token punctuation">-</span>pod
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
 </code></pre>
 <p>Verify the user and group IDs by using below command:</p>
-<pre><code>kubectl exec -it non-root-pod -- id
+<pre class="language-"><code>kubectl exec -it non-root-pod -- id
 </code></pre><h3 id="question-5-14"><a name="question-5-14" class="anchor-navigation-ex-anchor" href="#question-5-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (14&apos;)</h3>
 <p>Question</p>
 <p>We have deployed a new pod called <code>np-test-1</code> and a service called <code>np-test-service</code>. Incoming connections to this service are not working. Troubleshoot and fix it.
@@ -1198,22 +1198,22 @@ Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows inc
 </ul>
 <p>Solution</p>
 <p>Solution manifest file to create a network policy <code>ingress-to-nptest</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> networking.k8s.io/v1
-<span class="hljs-attr">kind:</span> NetworkPolicy
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> ingress-to-nptest
-<span class="hljs-attr">  namespace:</span> default
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  podSelector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      run:</span> np-test<span class="hljs-bullet">-1</span>
-<span class="hljs-attr">  policyTypes:</span>
-<span class="hljs-bullet">  -</span> Ingress
-<span class="hljs-attr">  ingress:</span>
-<span class="hljs-attr">  - ports:</span>
-<span class="hljs-attr">    - protocol:</span> TCP
-<span class="hljs-attr">      port:</span> <span class="hljs-number">80</span>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> networking.k8s.io/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> NetworkPolicy
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> ingress<span class="token punctuation">-</span>to<span class="token punctuation">-</span>nptest
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">podSelector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> np<span class="token punctuation">-</span>test<span class="token punctuation">-</span><span class="token number">1</span>
+  <span class="token key atrule">policyTypes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Ingress
+  <span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
 </code></pre>
 <h3 id="question-6-12"><a name="question-6-12" class="anchor-navigation-ex-anchor" href="#question-6-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (12&apos;)</h3>
 <p>Question</p>
@@ -1229,32 +1229,32 @@ Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows inc
 </ul>
 <p>Solution</p>
 <p>To add taints on the <code>node01</code> worker node:</p>
-<pre><code class="lang-sh">kubectl taint node node01 env_<span class="hljs-built_in">type</span>=production:NoSchedule
+<pre class="language-"><code class="lang-sh">kubectl taint <span class="token function">node</span> node01 <span class="token assign-left variable">env_type</span><span class="token operator">=</span>production:NoSchedule
 </code></pre>
 <p>Now, deploy <code>dev-redis</code> pod and to ensure that workloads are not scheduled to this <code>node01</code> worker node.</p>
-<pre><code class="lang-sh">kubectl run dev-redis --image=redis:alpine
+<pre class="language-"><code class="lang-sh">kubectl run dev-redis <span class="token parameter variable">--image</span><span class="token operator">=</span>redis:alpine
 </code></pre>
 <p>To view the node name of recently deployed pod:</p>
-<pre><code class="lang-sh">kubectl get pods -o wide
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-o</span> wide
 </code></pre>
 <p>Solution manifest file to deploy new pod called <code>prod-redis</code> with toleration to be scheduled on <code>node01</code> worker node.</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> prod-redis
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - name:</span> prod-redis
-<span class="hljs-attr">    image:</span> redis:alpine
-<span class="hljs-attr">  tolerations:</span>
-<span class="hljs-attr">  - effect:</span> NoSchedule
-<span class="hljs-attr">    key:</span> env_type
-<span class="hljs-attr">    operator:</span> Equal
-<span class="hljs-attr">    value:</span> production
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> prod<span class="token punctuation">-</span>redis
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> prod<span class="token punctuation">-</span>redis
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
+  <span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">effect</span><span class="token punctuation">:</span> NoSchedule
+    <span class="token key atrule">key</span><span class="token punctuation">:</span> env_type
+    <span class="token key atrule">operator</span><span class="token punctuation">:</span> Equal
+    <span class="token key atrule">value</span><span class="token punctuation">:</span> production
 </code></pre>
 <p>To view only <code>prod-redis</code> pod with less details:</p>
-<pre><code class="lang-sh">kubectl get pods -o wide | grep prod-redis
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-o</span> wide <span class="token operator">|</span> <span class="token function">grep</span> prod-redis
 </code></pre>
 <h3 id="question-7-8"><a name="question-7-8" class="anchor-navigation-ex-anchor" href="#question-7-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (8&apos;)</h3>
 <p>Question</p>
@@ -1268,10 +1268,10 @@ image: <code>redis:alpine</code></p>
 </ul>
 <p>Solution</p>
 <p>Create a namespace if it doesn&apos;t exist:</p>
-<pre><code class="lang-shell">kubectl create namespace hr
+<pre class="language-"><code class="lang-shell">kubectl create namespace hr
 </code></pre>
 <p>and then create a <code>hr-pod</code> with given details:</p>
-<pre><code class="lang-shell">kubectl run hr-pod --image=redis:alpine --namespace=hr --labels=environment=production,tier=frontend
+<pre class="language-"><code class="lang-shell">kubectl run hr-pod <span class="token parameter variable">--image</span><span class="token operator">=</span>redis:alpine <span class="token parameter variable">--namespace</span><span class="token operator">=</span>hr <span class="token parameter variable">--labels</span><span class="token operator">=</span>environment<span class="token operator">=</span>production,tier<span class="token operator">=</span>frontend
 </code></pre>
 <h3 id="question-8-8"><a name="question-8-8" class="anchor-navigation-ex-anchor" href="#question-8-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 8 (8&apos;)</h3>
 <p>Question</p>
@@ -1284,7 +1284,7 @@ image: <code>redis:alpine</code></p>
 <p>Verify host and port for <code>kube-apiserver</code> are correct.
 Open the <code>super.kubeconfig</code> in vi editor.
 Change the 9999 port to 6443 and run the below command to verify:</p>
-<pre><code class="lang-shell">kubectl cluster-info --kubeconfig=/root/CKA/super.kubeconfig
+<pre class="language-"><code class="lang-shell">kubectl cluster-info <span class="token parameter variable">--kubeconfig</span><span class="token operator">=</span>/root/CKA/super.kubeconfig
 </code></pre>
 <h3 id="question-9-14"><a name="question-9-14" class="anchor-navigation-ex-anchor" href="#question-9-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 9 (14&apos;)</h3>
 <p>Question</p>
@@ -1295,18 +1295,18 @@ Change the 9999 port to 6443 and run the below command to verify:</p>
 </ul>
 <p>Solution</p>
 <p>Use the command <code>kubectl scale</code> to increase the replica count to 3.</p>
-<pre><code class="lang-sh">kubectl scale deploy nginx-deploy --replicas=3
+<pre class="language-"><code class="lang-sh">kubectl scale deploy nginx-deploy <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">3</span>
 </code></pre>
 <p>The <code>controller-manager</code> is responsible for scaling up pods of a replicaset. If you inspect the control plane components in the <code>kube-system</code> namespace, you will see that the <code>controller-manager</code> is not running.</p>
-<pre><code class="lang-sh">kubectl get pods -n kube-system
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-n</span> kube-system
 </code></pre>
 <p>The command running inside the <code>controller-manager</code> pod is incorrect.
 After fix all the values in the file and wait for <code>controller-manager</code> pod to restart.
 Alternatively, you can run <code>sed</code> command to change all values at once:</p>
-<pre><code>sed -i &apos;s/kube-contro1ler-manager/kube-controller-manager/g&apos; /etc/kubernetes/manifests/kube-controller-manager.yaml
+<pre class="language-"><code>sed -i &apos;s/kube-contro1ler-manager/kube-controller-manager/g&apos; /etc/kubernetes/manifests/kube-controller-manager.yaml
 </code></pre><p>This will fix the issues in <code>controller-manager</code> yaml file.
 At last, inspect the deployment by using below command:</p>
-<pre><code class="lang-sh">kubectl get deploy
+<pre class="language-"><code class="lang-sh">kubectl get deploy
 </code></pre>
 
                                 
@@ -1351,7 +1351,7 @@ At last, inspect the deployment by using below command:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"next":{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]},"previous":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/18.KodeKloud Mock Exam - 3.md","mtime":"2023-07-12T07:47:24.022Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"next":{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]},"previous":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/18.KodeKloud Mock Exam - 3.md","mtime":"2023-07-12T07:47:24.022Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1383,6 +1383,10 @@ At last, inspect the deployment by using below command:</p>
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

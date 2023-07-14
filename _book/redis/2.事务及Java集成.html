@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1101,12 +1101,12 @@
 <p><strong>redis&#x4E8B;&#x52A1;&#x662F;&#x4E0D;&#x4FDD;&#x8BC1;&#x6301;&#x4E45;&#x6027;&#x7684;</strong>&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;redis&#x6301;&#x4E45;&#x5316;&#x7B56;&#x7565;&#x4E2D;&#x4E0D;&#x7BA1;&#x662F;RDB&#x8FD8;&#x662F;AOF&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x4FDD;&#x8BC1;&#x6301;&#x4E45;&#x6027;&#x662F;&#x51FA;&#x4E8E;&#x5BF9;&#x6027;&#x80FD;&#x7684;&#x8003;&#x8651;&#x3002;</p>
 <h3 id="4-cas&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;"><a name="4-cas&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;" class="anchor-navigation-ex-anchor" href="#4-cas&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>4. CAS&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x4E50;&#x89C2;&#x9501;</h3>
 <p> check-and-set (CAS)&#xFF1A;&#x88AB; WATCH &#x7684;&#x952E;&#x4F1A;&#x88AB;&#x76D1;&#x89C6;&#xFF0C;&#x5E76;&#x4F1A;&#x53D1;&#x89C9;&#x8FD9;&#x4E9B;&#x952E;&#x662F;&#x5426;&#x88AB;&#x6539;&#x52A8;&#x8FC7;&#x4E86;&#x3002; &#x5982;&#x679C;&#x6709;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x88AB;&#x76D1;&#x89C6;&#x7684;&#x952E;&#x5728; EXEC &#x6267;&#x884C;&#x4E4B;&#x524D;&#x88AB;&#x4FEE;&#x6539;&#x4E86;&#xFF0C; &#x90A3;&#x4E48;&#x6574;&#x4E2A;&#x4E8B;&#x52A1;&#x90FD;&#x4F1A;&#x88AB;&#x53D6;&#x6D88;&#xFF0C; EXEC &#x8FD4;&#x56DE;nil-reply&#x6765;&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x7ECF;&#x5931;&#x8D25;&#x3002;</p>
-<pre><code class="lang-sql">WATCH mykey
-val = GET mykey
-val = val + 1
+<pre class="language-"><code class="lang-sql">WATCH mykey
+val <span class="token operator">=</span> GET mykey
+val <span class="token operator">=</span> val <span class="token operator">+</span> <span class="token number">1</span>
 MULTI
-<span class="hljs-keyword">SET</span> mykey $val
-EXEC
+<span class="token keyword">SET</span> mykey $val
+<span class="token keyword">EXEC</span>
 </code></pre>
 <h3 id="5-redis&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x6B65;&#x9AA4;"><a name="5-redis&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x6B65;&#x9AA4;" class="anchor-navigation-ex-anchor" href="#5-redis&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x6B65;&#x9AA4;"><i class="fa fa-link" aria-hidden="true"></i></a>5. Redis&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x6B65;&#x9AA4;</h3>
 <p>&#x901A;&#x8FC7;&#x4E0A;&#x6587;&#x547D;&#x4EE4;&#x6267;&#x884C;&#xFF0C;&#x5F88;&#x663E;&#x7136;Redis&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x662F;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;</p>
@@ -1132,11 +1132,11 @@ EXEC
 <p>Lettuce Doc&#xFF1A;<a href="https://lettuce.io/core/release/reference/#_for_gradle_users" target="_blank">https://lettuce.io/core/release/reference/#_for_gradle_users</a></p>
 <h3 id="8-redisconf-&#x8BE6;&#x89E3;"><a name="8-redisconf-&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#8-redisconf-&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>8. Redis.conf &#x8BE6;&#x89E3;</h3>
 <p>&#x67E5;&#x627E; redis.conf &#x4F4D;&#x7F6E;</p>
-<pre><code class="lang-bash">redis-cli config get dir
-find / -name redis.conf
+<pre class="language-"><code class="lang-bash">redis-cli config get <span class="token function">dir</span>
+<span class="token function">find</span> / <span class="token parameter variable">-name</span> redis.conf
 </code></pre>
 <p>Linux&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;</p>
-<pre><code class="lang-bash">systemctl status redis-server
+<pre class="language-"><code class="lang-bash">systemctl status redis-server
 </code></pre>
 <ul>
 <li>unit &#x5355;&#x4F4D;&#x5BF9;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;</li>
@@ -1152,7 +1152,7 @@ find / -name redis.conf
 </ul>
 <p>&#x5FEB;&#x7167;&#xFF1A;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x5728;&#x89C4;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x6267;&#x884C;&#x4E86;&#x591A;&#x5C11;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x4F1A;&#x6301;&#x4E45;&#x5316;&#x5230;&#x6587;&#x4EF6;<code>.rdb</code>,<code>.aof</code></p>
 <p>redis&#x662F;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x90A3;&#x4E48;&#x65AD;&#x7535;&#x5373;&#x4E22;&#x5931;&#xFF01;</p>
-<pre><code class="lang-in">save 900 1 #&#x5982;&#x679C;900&#x79D2;&#xFF0C;&#x5982;&#x679C;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;key&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#xFF0C;&#x6211;&#x4EEC;&#x5373;&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#x64CD;&#x4F5C;
+<pre class="language-"><code class="lang-in">save 900 1 #&#x5982;&#x679C;900&#x79D2;&#xFF0C;&#x5982;&#x679C;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;key&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#xFF0C;&#x6211;&#x4EEC;&#x5373;&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#x64CD;&#x4F5C;
 save 300 10
 save 60 10000
 </code></pre>
@@ -1164,9 +1164,9 @@ save 60 10000
 <li>rdbchecksum yes &#x4FDD;&#x5B58;&#x65F6;&#x662F;&#x5426;&#x6821;&#x9A8C;rdb&#x6587;&#x4EF6;</li>
 <li>dir ./ &#x6301;&#x4E45;&#x5316;rdb&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x7684;&#x76EE;&#x5F55;</li>
 </ul>
-<pre><code class="lang-bash">config get requirepass <span class="hljs-comment"># &#x83B7;&#x53D6;requirepass&#x9879;&#x914D;&#x7F6E;</span>
-config <span class="hljs-built_in">set</span> requirepass <span class="hljs-string">&quot;123456&quot;</span> <span class="hljs-comment"># &#x8BBE;&#x7F6E;requirepass&#x9879;&#x914D;&#x7F6E;</span>
-auth 123456 <span class="hljs-comment"># &#x767B;&#x5F55;&#x624D;&#x80FD;&#x67E5;&#x770B;&#x53CA;&#x4FEE;&#x6539;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#x5185;&#x5BB9;</span>
+<pre class="language-"><code class="lang-bash">config get requirepass <span class="token comment"># &#x83B7;&#x53D6;requirepass&#x9879;&#x914D;&#x7F6E;</span>
+config <span class="token builtin class-name">set</span> requirepass <span class="token string">&quot;123456&quot;</span> <span class="token comment"># &#x8BBE;&#x7F6E;requirepass&#x9879;&#x914D;&#x7F6E;</span>
+auth <span class="token number">123456</span> <span class="token comment"># &#x767B;&#x5F55;&#x624D;&#x80FD;&#x67E5;&#x770B;&#x53CA;&#x4FEE;&#x6539;&#x4EE5;&#x4E0A;&#x914D;&#x7F6E;&#x5185;&#x5BB9;</span>
 </code></pre>
 <ul>
 <li><p>maxclients 10000 &#x9ED8;&#x8BA4;&#x53EF;&#x8FDE;&#x63A5;&#x7684;&#x6700;&#x5927;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x76EE;</p>
@@ -1178,7 +1178,7 @@ auth 123456 <span class="hljs-comment"># &#x767B;&#x5F55;&#x624D;&#x80FD;&#x67E5
 <li><p>LFU least frequently used</p>
 </li>
 <li><p>maxmemory-policy noeviction &#x5185;&#x5B58;&#x5230;&#x8FBE;&#x4E0A;&#x9650;&#x4E4B;&#x540E;&#x7684;&#x5904;&#x7406;&#x7B56;&#x7565;&#xFF1A;</p>
-<pre><code class="lang-ini">volatile-lru&#xFF1A;&#x53EA;&#x5BF9;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;key&#x8FDB;&#x884C;LRU&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x5220;&#x9664;
+<pre class="language-"><code class="lang-ini">volatile-lru&#xFF1A;&#x53EA;&#x5BF9;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;key&#x8FDB;&#x884C;LRU&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x5220;&#x9664;
 allkeys-lru&#xFF1A;&#x5BF9;&#x6240;&#x6709;key&#x6267;&#x884C;LRU&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x5220;&#x9664;
 volatile-lfu&#xFF1A;&#x53EA;&#x5BF9;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x7684;key&#x8FDB;&#x884C;LFU&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x5220;&#x9664;
 allkeys-lfu&#xFF1A;&#x5BF9;&#x6240;&#x6709;key&#x6267;&#x884C;LFU&#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x5220;&#x9664;
@@ -1238,7 +1238,7 @@ noeviction&#xFF1A;&#x6C38;&#x4E0D;&#x8FC7;&#x671F;&#xFF0C;&#x8FD4;&#x56DE;&#x951
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"next":{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},"previous":{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redis/2.事务及Java集成.md","mtime":"2023-07-13T02:05:20.342Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"next":{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},"previous":{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redis/2.事务及Java集成.md","mtime":"2023-07-13T02:05:20.342Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1270,6 +1270,10 @@ noeviction&#xFF1A;&#x6C38;&#x4E0D;&#x8FC7;&#x671F;&#xFF0C;&#x8FD4;&#x56DE;&#x951
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1111,14 +1111,14 @@
 <p><img src="https://img2023.cnblogs.com/blog/2122768/202305/2122768-20230527111945510-212495721.png" style="zoom:60%"></p>
 <p>&#x7F13;&#x51B2;&#x533A;&#x4F1A;&#x4E3A;&#x4E3B;&#x9898;&#x7684;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6D88;&#x606F;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x9996;&#x5148;&#x5C06;&#x6D88;&#x606F;&#x653E;&#x5165;&#x5230;&#x5BF9;&#x5E94;&#x5206;&#x533A;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF0C;&#x5F53;&#x4ED6;&#x653E;&#x5165;&#x6D88;&#x606F;&#x540E;&#x7ACB;&#x523B;&#x8FD4;&#x56DE;&#xFF0C;&#x4E0D;&#x7B49;&#x6D88;&#x606F;&#x662F;&#x5426;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4E5F;&#x4E0D;&#x7BA1;&#x5B83;&#x662F;&#x5426;&#x6210;&#x529F;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x540E;&#x53F0;IO&#x7EBF;&#x7A0B;&#x8D1F;&#x8D23;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x7ED9;broker&#x3002;</p>
 <h3 id="6-&#x540C;&#x6B65;&#x53D1;&#x9001;"><a name="6-&#x540C;&#x6B65;&#x53D1;&#x9001;" class="anchor-navigation-ex-anchor" href="#6-&#x540C;&#x6B65;&#x53D1;&#x9001;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x540C;&#x6B65;&#x53D1;&#x9001;</h3>
-<pre><code class="lang-java">Future&lt;RecordMetadata&gt; result = producer.send(<span class="hljs-keyword">new</span> ProducerRecord&lt;String, String&gt;(<span class="hljs-string">&quot;topic_name&quot;</span>, <span class="hljs-string">&quot;&quot;</span> + (i%<span class="hljs-number">5</span>), Integer.toString(i)));
-<span class="hljs-keyword">try</span>{
-    RecordMetadata recordMetadata = result.get();    <span class="hljs-comment">//&#x963B;&#x585E;</span>
-} <span class="hljs-keyword">catch</span> (InterruptedException e) {
-    e.printStackTrace();
-} <span class="hljs-keyword">catch</span> (ExecutionException e) {
-    e.printStackTrace();
-}
+<pre class="language-"><code class="lang-java"><span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">RecordMetadata</span><span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ProducerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token string">&quot;topic_name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+    <span class="token class-name">RecordMetadata</span> recordMetadata <span class="token operator">=</span> result<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//&#x963B;&#x585E;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ExecutionException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="7-&#x6279;&#x91CF;&#x53D1;&#x9001;"><a name="7-&#x6279;&#x91CF;&#x53D1;&#x9001;" class="anchor-navigation-ex-anchor" href="#7-&#x6279;&#x91CF;&#x53D1;&#x9001;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x6279;&#x91CF;&#x53D1;&#x9001;</h3>
 <p>linger.ms &#x6BCF;&#x4E00;&#x6279;&#x6D88;&#x606F;&#x6700;&#x5927;&#x5927;&#x5C0F;</p>
@@ -1148,7 +1148,7 @@
 <li>&#x65F6;&#x95F4;&#x6233;&#xFF08;&#x7531;&#x7CFB;&#x7EDF;&#x6216;&#x8005;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#xFF09;</li>
 </ul>
 <h3 id="11-kafka-&#x6D88;&#x606F;-key-&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;"><a name="11-kafka-&#x6D88;&#x606F;-key-&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#11-kafka-&#x6D88;&#x606F;-key-&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>11. Kafka &#x6D88;&#x606F; key &#x54C8;&#x5E0C;&#x7B97;&#x6CD5;</h3>
-<pre><code class="lang-java">targetPartition = Math.abs(Utils.murmur2(keyBytes))%(numPartitions-<span class="hljs-number">1</span>)
+<pre class="language-"><code class="lang-java">targetPartition <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token class-name">Utils</span><span class="token punctuation">.</span><span class="token function">murmur2</span><span class="token punctuation">(</span>keyBytes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span>numPartitions<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="12-consumers"><a name="12-consumers" class="anchor-navigation-ex-anchor" href="#12-consumers"><i class="fa fa-link" aria-hidden="true"></i></a>12. Consumers</h3>
 <ul>
@@ -1158,9 +1158,9 @@
 <li>&#x5728;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x6839;&#x636E; offset &#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x88AB;&#x8BFB;&#x53D6;</li>
 </ul>
 <h3 id="13&#x751F;&#x4EA7;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;"><a name="13&#x751F;&#x4EA7;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;" class="anchor-navigation-ex-anchor" href="#13&#x751F;&#x4EA7;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;"><i class="fa fa-link" aria-hidden="true"></i></a>13.&#x751F;&#x4EA7;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;</h3>
-<pre><code class="lang-ini">enable.idempotence=true
-##retries=Integer.MAX_VALUE
-acts=all
+<pre class="language-"><code class="lang-ini"><span class="token key attr-name">enable.idempotence</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
+<span class="token comment">##retries=Integer.MAX_VALUE</span>
+<span class="token key attr-name">acts</span><span class="token punctuation">=</span><span class="token value attr-value">all</span>
 </code></pre>
 <h3 id="14-&#x6D88;&#x8D39;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;"><a name="14-&#x6D88;&#x8D39;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;" class="anchor-navigation-ex-anchor" href="#14-&#x6D88;&#x8D39;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;"><i class="fa fa-link" aria-hidden="true"></i></a>14. &#x6D88;&#x8D39;&#x8005;&#xFF1A;&#x7CBE;&#x786E;&#x4E00;&#x6B21;</h3>
 <p>&#x901A;&#x8FC7;offset&#x6765;&#x9632;&#x6B62;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x529E;&#x6CD5;
@@ -1341,7 +1341,7 @@ acts=all
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 基本概念","level":"1.6.2","depth":2,"next":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},"previous":{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"path":"kafka/1.介绍和简单部署.md","ref":"kafka/1.介绍和简单部署.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/2.基本概念.md","mtime":"2023-07-13T02:05:20.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. 基本概念","level":"1.6.2","depth":2,"next":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},"previous":{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"path":"kafka/1.介绍和简单部署.md","ref":"kafka/1.介绍和简单部署.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/2.基本概念.md","mtime":"2023-07-13T02:05:20.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1373,6 +1373,10 @@ acts=all
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

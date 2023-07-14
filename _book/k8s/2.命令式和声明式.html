@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1073,57 +1073,57 @@
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><b></b>1. &#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#2-kubectl-apply-&#x539F;&#x7406;"><b></b>2. kubectl apply &#x539F;&#x7406;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><a name="1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;</h3>
 <p>&#x547D;&#x4EE4;&#x5F0F; Imperative&#xFF1A;</p>
-<pre><code class="lang-bash">kubectl run nginx --image=nginx --port=80 --labels=<span class="hljs-string">&quot;tier=db,env=prod&quot;</span> --expose=<span class="hljs-literal">true</span>  <span class="hljs-comment">##container&#x7684;port</span>
-kubectl create deployment --image=nginx nginx
-kubectl expose deployment nginx --port 80 <span class="hljs-comment">## cluster&#x7684;port</span>
-kubectl edit deployment nginx <span class="hljs-comment">##&#x4EC5;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
-kubectl scale deployment nginx --replicas=5
-kubectl <span class="hljs-built_in">set</span> image deployment nginx nginx=nginx:1.18
-kubectl create <span class="hljs-_">-f</span> nginx.yaml
-kubectl replace <span class="hljs-_">-f</span> nginx.yaml <span class="hljs-comment">##&#x66F4;&#x65B0;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540E;&#x8FD0;&#x884C;</span>
-kubectl replace --force <span class="hljs-_">-f</span> nginx.yaml <span class="hljs-comment">##&#x5220;&#x9664;&#x540E;&#x518D;&#x521B;&#x5EFA;</span>
-kubectl delete <span class="hljs-_">-f</span> nginx.yaml
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">80</span> <span class="token parameter variable">--labels</span><span class="token operator">=</span><span class="token string">&quot;tier=db,env=prod&quot;</span> <span class="token parameter variable">--expose</span><span class="token operator">=</span>true  <span class="token comment">##container&#x7684;port</span>
+kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx
+kubectl expose deployment nginx <span class="token parameter variable">--port</span> <span class="token number">80</span> <span class="token comment">## cluster&#x7684;port</span>
+kubectl edit deployment nginx <span class="token comment">##&#x4EC5;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+kubectl scale deployment nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">5</span>
+kubectl <span class="token builtin class-name">set</span> image deployment nginx <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.18
+kubectl create <span class="token parameter variable">-f</span> nginx.yaml
+kubectl replace <span class="token parameter variable">-f</span> nginx.yaml <span class="token comment">##&#x66F4;&#x65B0;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540E;&#x8FD0;&#x884C;</span>
+kubectl replace <span class="token parameter variable">--force</span> <span class="token parameter variable">-f</span> nginx.yaml <span class="token comment">##&#x5220;&#x9664;&#x540E;&#x518D;&#x521B;&#x5EFA;</span>
+kubectl delete <span class="token parameter variable">-f</span> nginx.yaml
 </code></pre>
 <p>&#x58F0;&#x660E;&#x5F0F; Declarative&#xFF1A;</p>
-<pre><code class="lang-bash">kubectl apply <span class="hljs-_">-f</span> nginx.yaml
-kubectl apply <span class="hljs-_">-f</span> /path <span class="hljs-comment">##&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;</span>
+<pre class="language-"><code class="lang-bash">kubectl apply <span class="token parameter variable">-f</span> nginx.yaml
+kubectl apply <span class="token parameter variable">-f</span> /path <span class="token comment">##&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;</span>
 </code></pre>
 <p><strong>&#x521B;&#x5EFA; NGINX Pod</strong></p>
-<pre><code class="lang-bash">kubectl run nginx --image=nginx
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx
 </code></pre>
 <p><strong>&#x751F;&#x6210; POD &#x6E05;&#x5355; YAML &#x6587;&#x4EF6;<code>-o yaml</code>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x5219;&#x7528;<code>--dry-run</code></strong></p>
-<pre><code class="lang-bash">kubectl run nginx --image=nginx --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p><strong>&#x521B;&#x5EFA;&#x90E8;&#x7F72;</strong></p>
-<pre><code class="lang-bash">kubectl create deployment --image=nginx nginx
+<pre class="language-"><code class="lang-bash">kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx
 </code></pre>
 <p><strong>&#x751F;&#x6210;&#x90E8;&#x7F72; YAML &#x6587;&#x4EF6;<code>-o yaml</code>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x5219;&#x7528;<code>--dry-run</code></strong></p>
-<pre><code class="lang-bash">kubectl create deployment --image=nginx nginx --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p><strong>&#x4F7F;&#x7528; 4 &#x4E2A;&#x526F;&#x672C;&#x751F;&#x6210;&#x90E8;&#x7F72;</strong></p>
-<pre><code class="lang-bash">kubectl create deployment nginx --image=nginx --replicas=4
+<pre class="language-"><code class="lang-bash">kubectl create deployment nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">4</span>
 </code></pre>
 <p>&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;<code>kubectl scale</code>&#x547D;&#x4EE4;&#x6269;&#x5C55;&#x90E8;&#x7F72;&#x3002;</p>
-<pre><code class="lang-bash">kubectl scale deployment nginx --replicas=4
+<pre class="language-"><code class="lang-bash">kubectl scale deployment nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">4</span>
 </code></pre>
 <p><strong>&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5C06; YAML &#x5B9A;&#x4E49;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x5E76;&#x4FEE;&#x6539;</strong></p>
-<pre><code class="lang-bash">kubectl create deployment nginx --image=nginx --dry-run=client -o yaml &gt; nginx-deployment.yaml
+<pre class="language-"><code class="lang-bash">kubectl create deployment nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml <span class="token operator">&gt;</span> nginx-deployment.yaml
 </code></pre>
 <p>&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x521B;&#x5EFA;&#x90E8;&#x7F72;&#x4E4B;&#x524D;&#x4F7F;&#x7528;&#x526F;&#x672C;&#x6216;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x66F4;&#x65B0; YAML &#x6587;&#x4EF6;&#x3002;</p>
 <p><strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; redis-service &#x7684; ClusterIP &#x7C7B;&#x578B;&#x7684; Service &#x4EE5;&#x5728;&#x7AEF;&#x53E3; 6379 &#x4E0A;&#x516C;&#x5F00; pod redis</strong></p>
-<pre><code class="lang-bash">kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl expose pod redis <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">6379</span> <span class="token parameter variable">--name</span> redis-service --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p>&#xFF08;&#x8FD9;&#x5C06;&#x81EA;&#x52A8;&#x4F7F;&#x7528; pod &#x7684;&#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
 <p>&#x6216;&#x8005;</p>
-<pre><code class="lang-bash">kubectl create service clusterip redis --tcp=6379:6379 --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl create <span class="token function">service</span> clusterip redis <span class="token parameter variable">--tcp</span><span class="token operator">=</span><span class="token number">6379</span>:6379 --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p>&#xFF08;&#x8FD9;&#x4E0D;&#x4F1A;&#x5C06; pods &#x6807;&#x7B7E;&#x7528;&#x4F5C;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x9009;&#x62E9;&#x5668;&#x5047;&#x5B9A;&#x4E3A;<strong>app=redis&#x3002;</strong><a href="https://github.com/kubernetes/kubernetes/issues/46191" target="_blank">&#x60A8;&#x4E0D;&#x80FD;&#x5C06;&#x9009;&#x62E9;&#x5668;&#x4F5C;&#x4E3A;&#x9009;&#x9879;&#x4F20;&#x9012;&#x3002;</a>&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x7684; pod &#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6807;&#x7B7E;&#x96C6;&#xFF0C;&#x5B83;&#x5C31;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#x3002;&#x6240;&#x4EE5;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x5E76;&#x5728;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x4E4B;&#x524D;&#x4FEE;&#x6539;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
 <p><strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; nginx &#x7684; NodePort &#x7C7B;&#x578B;&#x7684; Service &#x4EE5;&#x5728;&#x8282;&#x70B9;&#x4E0A;&#x7684; 30080 &#x7AEF;&#x53E3;&#x4E0A;&#x516C;&#x5F00; pod nginx &#x7684; 80 &#x7AEF;&#x53E3;&#xFF1A;</strong></p>
-<pre><code class="lang-bash">kubectl expose pod nginx --type=NodePort --port=80 --name=nginx-service --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl expose pod nginx <span class="token parameter variable">--type</span><span class="token operator">=</span>NodePort <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">80</span> <span class="token parameter variable">--name</span><span class="token operator">=</span>nginx-service --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p>&#xFF08;&#x8FD9;&#x5C06;&#x81EA;&#x52A8;&#x4F7F;&#x7528; pod &#x7684;&#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF0C;<a href="https://github.com/kubernetes/kubernetes/issues/25478" target="_blank">&#x4F46;&#x60A8;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7AEF;&#x53E3;</a>&#x3002;&#x60A8;&#x5FC5;&#x987B;&#x751F;&#x6210;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4F7F;&#x7528; pod &#x521B;&#x5EFA;&#x670D;&#x52A1;&#x3002;&#xFF09;</p>
 <p>&#x6216;&#x8005;</p>
-<pre><code class="lang-bash">kubectl create service nodeport nginx --tcp=80:80 --node-port=30080 --dry-run=client -o yaml
+<pre class="language-"><code class="lang-bash">kubectl create <span class="token function">service</span> nodeport nginx <span class="token parameter variable">--tcp</span><span class="token operator">=</span><span class="token number">80</span>:80 --node-port<span class="token operator">=</span><span class="token number">30080</span> --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
 <p>&#xFF08;&#x8FD9;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528; pods &#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
 <p>&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x6311;&#x6218;&#x3002;&#x867D;&#x7136;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x4F46;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#x3002;&#x6211;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>kubectl expose</code>&#x547D;&#x4EE4;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x547D;&#x4EE4;&#x751F;&#x6210;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x4E4B;&#x524D;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#x3002;</p>
@@ -1139,9 +1139,9 @@ kubectl apply <span class="hljs-_">-f</span> /path <span class="hljs-comment">##
 <li><p>&#x5408;&#x5E76;&#x66F4;&#x6539;&#xFF1A;<a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#merging-changes-to-primitive-fields" target="_blank">https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#merging-changes-to-primitive-fields</a></p>
 </li>
 <li><p>Json &#x5185;&#x5BB9;&#x5B9E;&#x9645;&#x4FDD;&#x5B58;&#x5728;&#x5B9E;&#x65F6;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  annotations:</span>
-    kubectl.kubernetes.io/last-applied-configuration: {Json Content}
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+    <span class="token key atrule">kubectl.kubernetes.io/last-applied-configuration</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>Json Content<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5B9E;&#x9645;&#x8BF7;&#x4E0D;&#x8981;&#x8FD9;&#x6837;&#x914D;&#x7F6E;</p>
 </li>
@@ -1189,7 +1189,7 @@ kubectl apply <span class="hljs-_">-f</span> /path <span class="hljs-comment">##
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"next":{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},"previous":{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/2.命令式和声明式.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"next":{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},"previous":{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/2.命令式和声明式.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1221,6 +1221,10 @@ kubectl apply <span class="hljs-_">-f</span> /path <span class="hljs-comment">##
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

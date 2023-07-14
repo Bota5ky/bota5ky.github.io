@@ -4,10 +4,12 @@
     "chapter-fold",
     "insert-logo",
     "anchor-navigation-ex",
+    "search-pro",
+    "code",
+    "prism",
     "-lunr",
     "-search",
-    "search-pro",
-    "code"
+    "-highlight"
   ],
   "pluginsConfig": {
     "insert-logo": {
@@ -16,6 +18,11 @@
     },
     "anchor-navigation-ex": {
       "showLevel": false
+    },
+    "prism": {
+      "ignore": [
+        "mermaid"
+      ]
     }
   }
 }

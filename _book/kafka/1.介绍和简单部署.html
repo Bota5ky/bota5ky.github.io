@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1105,14 +1105,14 @@
 <p>kafka_2.11-1.0.0.tar <code>2.11</code>&#x8868;&#x793A;scala&#x7684;&#x7248;&#x672C;</p>
 <p>&#x89E3;&#x538B;&#xFF1A;<code>tar -xzvf kafka_2.11-1.0.0.tar</code></p>
 <h4 id="42-&#x914D;&#x7F6E;"><a name="42-&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#42-&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2 &#x914D;&#x7F6E;</h4>
-<pre><code class="lang-bash">cp config/server.properties etc/server-0.properties
-cp config/server.properties etc/server-1.properties
-cp config/server.properties etc/server-2.properties
+<pre class="language-"><code class="lang-bash"><span class="token function">cp</span> config/server.properties etc/server-0.properties
+<span class="token function">cp</span> config/server.properties etc/server-1.properties
+<span class="token function">cp</span> config/server.properties etc/server-2.properties
 </code></pre>
 <p>vi &#x64CD;&#x4F5C;&#x66F4;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
-<pre><code class="lang-ini">broker.id=0  #&#x4FEE;&#x6539;broker id
-#listeners=PLAINTEXT://:9092 #&#x53D6;&#x6D88;&#x6CE8;&#x91CA;
-log.dirs=/tmp/kafka-logs-0 #&#x533A;&#x5206;log
+<pre class="language-"><code class="lang-ini"><span class="token key attr-name">broker.id</span><span class="token punctuation">=</span><span class="token value attr-value">0  #&#x4FEE;&#x6539;broker id</span>
+<span class="token comment">#listeners=PLAINTEXT://:9092 #&#x53D6;&#x6D88;&#x6CE8;&#x91CA;</span>
+<span class="token key attr-name">log.dirs</span><span class="token punctuation">=</span><span class="token value attr-value">/tmp/kafka-logs-0 #&#x533A;&#x5206;log</span>
 </code></pre>
 <p>listeners&#xFF1A;&#x6307;&#x5B9A;broker&#x542F;&#x52A8;&#x65F6;&#x672C;&#x673A;&#x7684;&#x76D1;&#x542C;&#x540D;&#x79F0;&#x3001;&#x7AEF;&#x53E3;&#xFF0C;<strong>&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;</strong></p>
 <table>
@@ -1144,37 +1144,37 @@ log.dirs=/tmp/kafka-logs-0 #&#x533A;&#x5206;log
 <p>advertised.listeners&#xFF1A;&#x5BF9;&#x5916;&#x53D1;&#x5E03;&#x7684;&#x8BBF;&#x95EE;IP&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x6CE8;&#x518C;&#x5230;zookeeper&#x4E2D;&#xFF0C;<strong>&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;client&#xFF09;&#x4F7F;&#x7528;</strong></p>
 <p>&#x5982;&#x679C; advertised.listeners &#x6CA1;&#x6709;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x91C7;&#x7528; listeners &#x7684;&#x914D;&#x7F6E;</p>
 <p>&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x65F6;&#xFF0C;advertised.listeners &#x9700;&#x8981;&#x914D;&#x7F6E;&#x6210;&#x516C;&#x7F51;IP</p>
-<pre><code class="lang-ini">## &#x5B9E;&#x8DF5;
-listeners=INTERNAL://:9092,EXTERNAL://0.0.0.0:9093
-advertised.listeners=INTERNAL://kafka-0:9092,EXTERNAL://&#x516C;&#x7F51;IP:9093
-listener.security.protocol.map=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
-inter.broker.listener.name=INTERNAL
+<pre class="language-"><code class="lang-ini"><span class="token comment">## &#x5B9E;&#x8DF5;</span>
+<span class="token key attr-name">listeners</span><span class="token punctuation">=</span><span class="token value attr-value">INTERNAL://:9092,EXTERNAL://0.0.0.0:9093</span>
+<span class="token key attr-name">advertised.listeners</span><span class="token punctuation">=</span><span class="token value attr-value">INTERNAL://kafka-0:9092,EXTERNAL://&#x516C;&#x7F51;IP:9093</span>
+<span class="token key attr-name">listener.security.protocol.map</span><span class="token punctuation">=</span><span class="token value attr-value">INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT</span>
+<span class="token key attr-name">inter.broker.listener.name</span><span class="token punctuation">=</span><span class="token value attr-value">INTERNAL</span>
 </code></pre>
 <h4 id="43-&#x542F;&#x52A8;"><a name="43-&#x542F;&#x52A8;" class="anchor-navigation-ex-anchor" href="#43-&#x542F;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>4.3 &#x542F;&#x52A8;</h4>
 <p>&#x542F;&#x52A8;zookeeper</p>
-<pre><code class="lang-bash">./bin/zookeeper-server-start.sh ./etc/zookeeper.properties
+<pre class="language-"><code class="lang-bash">./bin/zookeeper-server-start.sh ./etc/zookeeper.properties
 </code></pre>
 <p>&#x4E0D;&#x540C;terminal&#x7A97;&#x53E3;&#x542F;&#x52A8;kafka&#x5B9E;&#x4F8B;</p>
-<pre><code class="lang-bash">./bin/kafka-server-start.sh ./etc/server-0.properties
+<pre class="language-"><code class="lang-bash">./bin/kafka-server-start.sh ./etc/server-0.properties
 </code></pre>
 <p>&#x4E3B;&#x9898;&#x521B;&#x5EFA;</p>
-<pre><code class="lang-bash">./bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic topic_name --partitions 3 --replication-factor 2
+<pre class="language-"><code class="lang-bash">./bin/kafka-topics.sh <span class="token parameter variable">--zookeeper</span> localhost:2181 <span class="token parameter variable">--create</span> <span class="token parameter variable">--topic</span> topic_name <span class="token parameter variable">--partitions</span> <span class="token number">3</span> --replication-factor <span class="token number">2</span>
 </code></pre>
 <p>&#x67E5;&#x770B;&#x4E3B;&#x9898;</p>
-<pre><code class="lang-bash">&gt; ./bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic topic_name
+<pre class="language-"><code class="lang-bash"><span class="token operator">&gt;</span> ./bin/kafka-topics.sh <span class="token parameter variable">--zookeeper</span> localhost:2181 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--topic</span> topic_name
 
-Topic: topic_name Partition: 0 Leader: 1 Replicas: 1,2 Isr: 1,2
-Topic: topic_name Partition: 1 Leader: 2 Replicas: 2,0 Isr: 2,0
-Topic: topic_name Partition: 2 Leader: 0 Replicas: 0,1 Isr: 0,1
+Topic: topic_name Partition: <span class="token number">0</span> Leader: <span class="token number">1</span> Replicas: <span class="token number">1,2</span> Isr: <span class="token number">1,2</span>
+Topic: topic_name Partition: <span class="token number">1</span> Leader: <span class="token number">2</span> Replicas: <span class="token number">2,0</span> Isr: <span class="token number">2,0</span>
+Topic: topic_name Partition: <span class="token number">2</span> Leader: <span class="token number">0</span> Replicas: <span class="token number">0,1</span> Isr: <span class="token number">0,1</span>
 </code></pre>
 <p><code>Replicas: 1,2</code>&#x8868;&#x793A;&#x6709;2&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x5728;broker id: 1&#x548C;broker id: 2&#x7EF4;&#x62A4;&#xFF0C;<code>Isr</code>&#x8868;&#x793A;&#x540C;&#x6B65;&#x6B63;&#x5E38;&#x7684;</p>
 <p>&#x521B;&#x5EFA;&#x6D88;&#x8D39;&#x8005;</p>
 <p>0.10&#x7248;&#x672C;&#x4E4B;&#x540E;&#xFF0C;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x4FDD;&#x5B58;&#x5728;kafka&#x4E3B;&#x9898;&#xFF0C;&#x4E0D;&#x518D;&#x5728;zookeeper&#x4E0A;&#x4FDD;&#x5B58;</p>
-<pre><code class="lang-bash">./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic topic_name
+<pre class="language-"><code class="lang-bash">./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 <span class="token parameter variable">--topic</span> topic_name
 </code></pre>
 <p>&#x4ECE;&#x5934;&#x6D88;&#x8D39;&#x53EF;&#x4EE5;&#x52A0;<code>--from-beginning</code></p>
 <p>&#x521B;&#x5EFA;Producer</p>
-<pre><code class="lang-bash">./bin/kafka-consle-producer.sh --broker-list localhost:9092,localhost:9093,localhost:9094 --topic topic_name
+<pre class="language-"><code class="lang-bash">./bin/kafka-consle-producer.sh --broker-list localhost:9092,localhost:9093,localhost:9094 <span class="token parameter variable">--topic</span> topic_name
 </code></pre>
 
                                 
@@ -1219,7 +1219,7 @@ Topic: topic_name Partition: 2 Leader: 0 Replicas: 0,1 Isr: 0,1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"next":{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},"previous":{"title":"Kafka 学习笔记","level":"1.6","depth":1,"path":"kafka/README.md","ref":"kafka/README.md","articles":[{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"path":"kafka/1.介绍和简单部署.md","ref":"kafka/1.介绍和简单部署.md","articles":[]},{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},{"title":"4. Java Integration","level":"1.6.4","depth":2,"path":"kafka/4.Java Integration.md","ref":"kafka/4.Java Integration.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/1.介绍和简单部署.md","mtime":"2023-07-13T02:05:20.335Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"next":{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},"previous":{"title":"Kafka 学习笔记","level":"1.6","depth":1,"path":"kafka/README.md","ref":"kafka/README.md","articles":[{"title":"1. 介绍和简单部署","level":"1.6.1","depth":2,"path":"kafka/1.介绍和简单部署.md","ref":"kafka/1.介绍和简单部署.md","articles":[]},{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},{"title":"4. Java Integration","level":"1.6.4","depth":2,"path":"kafka/4.Java Integration.md","ref":"kafka/4.Java Integration.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/1.介绍和简单部署.md","mtime":"2023-07-13T02:05:20.335Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1251,6 +1251,10 @@ Topic: topic_name Partition: 2 Leader: 0 Replicas: 0,1 Isr: 0,1
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

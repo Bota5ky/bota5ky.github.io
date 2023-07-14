@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
                 
             
                 
@@ -1079,8 +1079,8 @@
 </ul>
 <p>Solution</p>
 <p>Run the following command to take a backup:</p>
-<pre><code class="lang-shell">export ETCDCTL_API=3
-etcdctl snapshot save --endpoints https://[127.0.0.1]:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key  /opt/etcd-backup.db
+<pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ETCDCTL_API</span><span class="token operator">=</span><span class="token number">3</span>
+etcdctl snapshot save <span class="token parameter variable">--endpoints</span> https://<span class="token punctuation">[</span><span class="token number">127.0</span>.0.1<span class="token punctuation">]</span>:2379 <span class="token parameter variable">--cacert</span> /etc/kubernetes/pki/etcd/ca.crt <span class="token parameter variable">--cert</span> /etc/kubernetes/pki/etcd/server.crt <span class="token parameter variable">--key</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.key  /opt/etcd-backup.db
 </code></pre>
 <h3 id="question-2-10"><a name="question-2-10" class="anchor-navigation-ex-anchor" href="#question-2-10"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (10&apos;)</h3>
 <p>Create a Pod called <code>redis-storage</code> with image: <code>redis:alpine</code> with a Volume of type <code>emptyDir</code> that lasts for the life of the Pod.</p>
@@ -1097,24 +1097,24 @@ Alternatively, run the command:
 <code>kubectl run redis-storage --image=redis:alpine --dry-run=client -oyaml &gt; redis-storage.yaml</code>
 and add volume <code>emptyDir</code> in it.</p>
 <p>Solution manifest file to create a pod <code>redis-storage</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  creationTimestamp:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    run:</span> redis-storage
-<span class="hljs-attr">  name:</span> redis-storage
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - image:</span> redis:alpine
-<span class="hljs-attr">    name:</span> redis-storage
-<span class="hljs-attr">    volumeMounts:</span>
-<span class="hljs-attr">    - mountPath:</span> /data/redis
-<span class="hljs-attr">      name:</span> temp-volume
-<span class="hljs-attr">  volumes:</span>
-<span class="hljs-attr">  - name:</span> temp-volume
-<span class="hljs-attr">    emptyDir:</span> {}
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">creationTimestamp</span><span class="token punctuation">:</span> <span class="token null important">null</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">run</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> redis<span class="token punctuation">-</span>storage
+    <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /data/redis
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> temp<span class="token punctuation">-</span>volume
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> temp<span class="token punctuation">-</span>volume
+    <span class="token key atrule">emptyDir</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
 <h3 id="question-3-8"><a name="question-3-8" class="anchor-navigation-ex-anchor" href="#question-3-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (8&apos;)</h3>
 <p>Create a new pod called <code>super-user-pod</code> with image <code>busybox:1.28</code>. Allow the pod to be able to set <code>system_time</code>.</p>
@@ -1127,26 +1127,26 @@ and add volume <code>emptyDir</code> in it.</p>
 </ul>
 <p>Solution</p>
 <p>Solution manifest file to create a pod <code>super-user-pod</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  creationTimestamp:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    run:</span> super-user-pod
-<span class="hljs-attr">  name:</span> super-user-pod
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - command:</span>
-<span class="hljs-bullet">    -</span> sleep
-<span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;4800&quot;</span>
-<span class="hljs-attr">    image:</span> busybox:<span class="hljs-number">1.28</span>
-<span class="hljs-attr">    name:</span> super-user-pod
-<span class="hljs-attr">    securityContext:</span>
-<span class="hljs-attr">      capabilities:</span>
-<span class="hljs-attr">        add:</span> [<span class="hljs-string">&quot;SYS_TIME&quot;</span>]
-<span class="hljs-attr">  dnsPolicy:</span> ClusterFirst
-<span class="hljs-attr">  restartPolicy:</span> Always
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">creationTimestamp</span><span class="token punctuation">:</span> <span class="token null important">null</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">run</span><span class="token punctuation">:</span> super<span class="token punctuation">-</span>user<span class="token punctuation">-</span>pod
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> super<span class="token punctuation">-</span>user<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">command</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> sleep
+    <span class="token punctuation">-</span> <span class="token string">&quot;4800&quot;</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> busybox<span class="token punctuation">:</span><span class="token number">1.28</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> super<span class="token punctuation">-</span>user<span class="token punctuation">-</span>pod
+    <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
+      <span class="token key atrule">capabilities</span><span class="token punctuation">:</span>
+        <span class="token key atrule">add</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;SYS_TIME&quot;</span><span class="token punctuation">]</span>
+  <span class="token key atrule">dnsPolicy</span><span class="token punctuation">:</span> ClusterFirst
+  <span class="token key atrule">restartPolicy</span><span class="token punctuation">:</span> Always
 </code></pre>
 <h3 id="question-4-12"><a name="question-4-12" class="anchor-navigation-ex-anchor" href="#question-4-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (12&apos;)</h3>
 <p>A pod definition file is created at <code>/root/CKA/use-pv.yaml</code>. Make use of this manifest file and mount the persistent volume called <code>pv-1</code>. Ensure the pod is running and the PV is bound.</p>
@@ -1161,37 +1161,37 @@ persistentVolumeClaim Name: <code>my-pvc</code></p>
 <p>Solution</p>
 <p>Add a <code>persistentVolumeClaim</code> definition to pod definition file.</p>
 <p>Solution manifest file to create a pvc <code>my-pvc</code> as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> PersistentVolumeClaim
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> my-pvc
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  accessModes:</span>
-<span class="hljs-bullet">  -</span> ReadWriteOnce
-<span class="hljs-attr">  resources:</span>
-<span class="hljs-attr">    requests:</span>
-<span class="hljs-attr">       storage:</span> <span class="hljs-number">10</span>Mi
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolumeClaim
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>pvc
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> ReadWriteOnce
+  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+    <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+       <span class="token key atrule">storage</span><span class="token punctuation">:</span> 10Mi
 </code></pre>
 <p>And then, update the pod definition file as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Pod
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  creationTimestamp:</span> <span class="hljs-literal">null</span>
-<span class="hljs-attr">  labels:</span>
-<span class="hljs-attr">    run:</span> use-pv
-<span class="hljs-attr">  name:</span> use-pv
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  containers:</span>
-<span class="hljs-attr">  - image:</span> nginx
-<span class="hljs-attr">    name:</span> use-pv
-<span class="hljs-attr">    volumeMounts:</span>
-<span class="hljs-attr">    - mountPath:</span> <span class="hljs-string">&quot;/data&quot;</span>
-<span class="hljs-attr">      name:</span> mypd
-<span class="hljs-attr">  volumes:</span>
-<span class="hljs-attr">    - name:</span> mypd
-<span class="hljs-attr">      persistentVolumeClaim:</span>
-<span class="hljs-attr">        claimName:</span> my-pvc
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">creationTimestamp</span><span class="token punctuation">:</span> <span class="token null important">null</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">run</span><span class="token punctuation">:</span> use<span class="token punctuation">-</span>pv
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> use<span class="token punctuation">-</span>pv
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> use<span class="token punctuation">-</span>pv
+    <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> <span class="token string">&quot;/data&quot;</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> mypd
+  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> mypd
+      <span class="token key atrule">persistentVolumeClaim</span><span class="token punctuation">:</span>
+        <span class="token key atrule">claimName</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>pvc
 </code></pre>
 <p>Finally, create the pod by running: <code>kubectl create -f /root/CKA/use-pv.yaml</code></p>
 <h3 id="question-5-15"><a name="question-5-15" class="anchor-navigation-ex-anchor" href="#question-5-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (15&apos;)</h3>
@@ -1206,19 +1206,19 @@ persistentVolumeClaim Name: <code>my-pvc</code></p>
 <p>Solution</p>
 <p>Explore the <code>--record</code> option while creating the deployment while working with the deployment definition file. Then make use of the <code>kubectl apply</code> command to create or update the deployment.</p>
 <p>To create a deployment definition file <code>nginx-deploy</code>:</p>
-<pre><code class="lang-sh">$ kubectl create deployment nginx-deploy --image=nginx:1.16 --dry-run=client -o yaml &gt; deploy.yaml
+<pre class="language-"><code class="lang-sh">$ kubectl create deployment nginx-deploy <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx:1.16 --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml <span class="token operator">&gt;</span> deploy.yaml
 </code></pre>
 <p>To create a resource from definition file and to record:</p>
-<pre><code class="lang-sh">$ kubectl apply <span class="hljs-_">-f</span> deploy.yaml --record
+<pre class="language-"><code class="lang-sh">$ kubectl apply <span class="token parameter variable">-f</span> deploy.yaml <span class="token parameter variable">--record</span>
 </code></pre>
 <p>To view the history of deployment <code>nginx-deploy</code>:</p>
-<pre><code class="lang-sh">$ kubectl rollout <span class="hljs-built_in">history</span> deployment nginx-deploy
+<pre class="language-"><code class="lang-sh">$ kubectl rollout <span class="token function">history</span> deployment nginx-deploy
 </code></pre>
 <p>To upgrade the image to next given version:</p>
-<pre><code class="lang-sh">$ kubectl <span class="hljs-built_in">set</span> image deployment/nginx-deploy nginx=nginx:1.17 --record
+<pre class="language-"><code class="lang-sh">$ kubectl <span class="token builtin class-name">set</span> image deployment/nginx-deploy <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.17 <span class="token parameter variable">--record</span>
 </code></pre>
 <p>To view the history of deployment <code>nginx-deploy</code>:</p>
-<pre><code class="lang-sh">$ kubectl rollout <span class="hljs-built_in">history</span> deployment nginx-deploy
+<pre class="language-"><code class="lang-sh">$ kubectl rollout <span class="token function">history</span> deployment nginx-deploy
 </code></pre>
 <h3 id="question-6-15"><a name="question-6-15" class="anchor-navigation-ex-anchor" href="#question-6-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (15&apos;)</h3>
 <p>Create a new user called <code>john</code>. Grant him access to the cluster. John should have permission to <code>create, list, get, update and delete pods</code> in the <code>development</code> namespace . The private key exists in the location: <code>/root/CKA/john.key</code> and csr at <code>/root/CKA/john.csr</code>.</p>
@@ -1232,27 +1232,27 @@ persistentVolumeClaim Name: <code>my-pvc</code></p>
 </ul>
 <p>Solution</p>
 <p>Solution manifest file to create a CSR as follows:</p>
-<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">apiVersion:</span> certificates.k8s.io/v1
-<span class="hljs-attr">kind:</span> CertificateSigningRequest
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> john-developer
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  signerName:</span> kubernetes.io/kube-apiserver-client
-<span class="hljs-attr">  request:</span> LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1ZEQ0NBVHdDQVFBd0R6RU5NQXNHQTFVRUF3d0VhbTlvYmpDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRApnZ0VQQURDQ0FRb0NnZ0VCQUt2Um1tQ0h2ZjBrTHNldlF3aWVKSzcrVVdRck04ZGtkdzkyYUJTdG1uUVNhMGFPCjV3c3cwbVZyNkNjcEJFRmVreHk5NUVydkgyTHhqQTNiSHVsTVVub2ZkUU9rbjYra1NNY2o3TzdWYlBld2k2OEIKa3JoM2prRFNuZGFvV1NPWXBKOFg1WUZ5c2ZvNUpxby82YU92czFGcEc3bm5SMG1JYWpySTlNVVFEdTVncGw4bgpjakY0TG4vQ3NEb3o3QXNadEgwcVpwc0dXYVpURTBKOWNrQmswZWhiV2tMeDJUK3pEYzlmaDVIMjZsSE4zbHM4CktiSlRuSnY3WDFsNndCeTN5WUFUSXRNclpUR28wZ2c1QS9uREZ4SXdHcXNlMTdLZDRaa1k3RDJIZ3R4UytkMEMKMTNBeHNVdzQyWVZ6ZzhkYXJzVGRMZzcxQ2NaanRxdS9YSmlyQmxVQ0F3RUFBYUFBTUEwR0NTcUdTSWIzRFFFQgpDd1VBQTRJQkFRQ1VKTnNMelBKczB2czlGTTVpUzJ0akMyaVYvdXptcmwxTGNUTStsbXpSODNsS09uL0NoMTZlClNLNHplRlFtbGF0c0hCOGZBU2ZhQnRaOUJ2UnVlMUZnbHk1b2VuTk5LaW9FMnc3TUx1a0oyODBWRWFxUjN2SSsKNzRiNnduNkhYclJsYVhaM25VMTFQVTlsT3RBSGxQeDNYVWpCVk5QaGhlUlBmR3p3TTRselZuQW5mNm96bEtxSgpvT3RORStlZ2FYWDdvc3BvZmdWZWVqc25Yd0RjZ05pSFFTbDgzSkljUCtjOVBHMDJtNyt0NmpJU3VoRllTVjZtCmlqblNucHBKZWhFUGxPMkFNcmJzU0VpaFB1N294Wm9iZDFtdWF4bWtVa0NoSzZLeGV0RjVEdWhRMi80NEMvSDIKOWk1bnpMMlRST3RndGRJZjAveUF5N05COHlOY3FPR0QKLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==
-<span class="hljs-attr">  usages:</span>
-<span class="hljs-bullet">  -</span> digital signature
-<span class="hljs-bullet">  -</span> key encipherment
-<span class="hljs-bullet">  -</span> client auth
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> certificates.k8s.io/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> CertificateSigningRequest
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> john<span class="token punctuation">-</span>developer
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">signerName</span><span class="token punctuation">:</span> kubernetes.io/kube<span class="token punctuation">-</span>apiserver<span class="token punctuation">-</span>client
+  <span class="token key atrule">request</span><span class="token punctuation">:</span> LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1ZEQ0NBVHdDQVFBd0R6RU5NQXNHQTFVRUF3d0VhbTlvYmpDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRApnZ0VQQURDQ0FRb0NnZ0VCQUt2Um1tQ0h2ZjBrTHNldlF3aWVKSzcrVVdRck04ZGtkdzkyYUJTdG1uUVNhMGFPCjV3c3cwbVZyNkNjcEJFRmVreHk5NUVydkgyTHhqQTNiSHVsTVVub2ZkUU9rbjYra1NNY2o3TzdWYlBld2k2OEIKa3JoM2prRFNuZGFvV1NPWXBKOFg1WUZ5c2ZvNUpxby82YU92czFGcEc3bm5SMG1JYWpySTlNVVFEdTVncGw4bgpjakY0TG4vQ3NEb3o3QXNadEgwcVpwc0dXYVpURTBKOWNrQmswZWhiV2tMeDJUK3pEYzlmaDVIMjZsSE4zbHM4CktiSlRuSnY3WDFsNndCeTN5WUFUSXRNclpUR28wZ2c1QS9uREZ4SXdHcXNlMTdLZDRaa1k3RDJIZ3R4UytkMEMKMTNBeHNVdzQyWVZ6ZzhkYXJzVGRMZzcxQ2NaanRxdS9YSmlyQmxVQ0F3RUFBYUFBTUEwR0NTcUdTSWIzRFFFQgpDd1VBQTRJQkFRQ1VKTnNMelBKczB2czlGTTVpUzJ0akMyaVYvdXptcmwxTGNUTStsbXpSODNsS09uL0NoMTZlClNLNHplRlFtbGF0c0hCOGZBU2ZhQnRaOUJ2UnVlMUZnbHk1b2VuTk5LaW9FMnc3TUx1a0oyODBWRWFxUjN2SSsKNzRiNnduNkhYclJsYVhaM25VMTFQVTlsT3RBSGxQeDNYVWpCVk5QaGhlUlBmR3p3TTRselZuQW5mNm96bEtxSgpvT3RORStlZ2FYWDdvc3BvZmdWZWVqc25Yd0RjZ05pSFFTbDgzSkljUCtjOVBHMDJtNyt0NmpJU3VoRllTVjZtCmlqblNucHBKZWhFUGxPMkFNcmJzU0VpaFB1N294Wm9iZDFtdWF4bWtVa0NoSzZLeGV0RjVEdWhRMi80NEMvSDIKOWk1bnpMMlRST3RndGRJZjAveUF5N05COHlOY3FPR0QKLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==
+  <span class="token key atrule">usages</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> digital signature
+  <span class="token punctuation">-</span> key encipherment
+  <span class="token punctuation">-</span> client auth
 </code></pre>
 <p>To approve this certificate, run: <code>kubectl certificate approve john-developer</code></p>
 <p>Next, create a role <code>developer</code> and rolebinding <code>developer-role-binding</code>, run the command:</p>
-<pre><code class="lang-sh">$ kubectl create role developer --resource=pods --verb=create,list,get,update,delete --namespace=development
+<pre class="language-"><code class="lang-sh">$ kubectl create role developer <span class="token parameter variable">--resource</span><span class="token operator">=</span>pods <span class="token parameter variable">--verb</span><span class="token operator">=</span>create,list,get,update,delete <span class="token parameter variable">--namespace</span><span class="token operator">=</span>development
 
-$ kubectl create rolebinding developer-role-binding --role=developer --user=john --namespace=development
+$ kubectl create rolebinding developer-role-binding <span class="token parameter variable">--role</span><span class="token operator">=</span>developer <span class="token parameter variable">--user</span><span class="token operator">=</span>john <span class="token parameter variable">--namespace</span><span class="token operator">=</span>development
 </code></pre>
 <p>To verify the permission from kubectl utility tool:</p>
-<pre><code class="lang-sh">$ kubectl auth can-i update pods --as=john --namespace=development
+<pre class="language-"><code class="lang-sh">$ kubectl auth can-i update pods <span class="token parameter variable">--as</span><span class="token operator">=</span>john <span class="token parameter variable">--namespace</span><span class="token operator">=</span>development
 </code></pre>
 <h3 id="question-7-15"><a name="question-7-15" class="anchor-navigation-ex-anchor" href="#question-7-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (15&apos;)</h3>
 <p>Create a nginx pod called <code>nginx-resolver</code> using image <code>nginx</code>, expose it internally with a service called <code>nginx-resolver-service</code>. Test that you are able to look up the service and pod names from within the cluster. Use the image: <code>busybox:1.28</code> for dns lookup. Record results in <code>/root/CKA/nginx.svc</code> and <code>/root/CKA/nginx.pod</code></p>
@@ -1265,16 +1265,16 @@ $ kubectl create rolebinding developer-role-binding --role=developer --user=john
 <p>Solution</p>
 <p>Use the command <code>kubectl run</code> and create a nginx pod and busybox pod. Resolve it, nginx service and its pod name from <code>busybox</code> pod.</p>
 <p>To create a pod <code>nginx-resolver</code> and expose it internally:</p>
-<pre><code class="lang-sh">kubectl run nginx-resolver --image=nginx
-kubectl expose pod nginx-resolver --name=nginx-resolver-service --port=80 --target-port=80 --type=ClusterIP
+<pre class="language-"><code class="lang-sh">kubectl run nginx-resolver <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx
+kubectl expose pod nginx-resolver <span class="token parameter variable">--name</span><span class="token operator">=</span>nginx-resolver-service <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">80</span> --target-port<span class="token operator">=</span><span class="token number">80</span> <span class="token parameter variable">--type</span><span class="token operator">=</span>ClusterIP
 </code></pre>
 <p>To create a pod <code>test-nslookup</code>. Test that you are able to look up the service and pod names from within the cluster:</p>
-<pre><code class="lang-sh">kubectl run <span class="hljs-built_in">test</span>-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup nginx-resolver-service
-kubectl run <span class="hljs-built_in">test</span>-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup nginx-resolver-service &gt; /root/CKA/nginx.svc
+<pre class="language-"><code class="lang-sh">kubectl run test-nslookup <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox:1.28 <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never -- <span class="token function">nslookup</span> nginx-resolver-service
+kubectl run test-nslookup <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox:1.28 <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never -- <span class="token function">nslookup</span> nginx-resolver-service <span class="token operator">&gt;</span> /root/CKA/nginx.svc
 </code></pre>
 <p>Get the IP of the <code>nginx-resolver</code> pod and replace the dots(.) with hyphon(-) which will be used below.</p>
-<pre><code class="lang-sh">kubectl get pod nginx-resolver -o wide
-kubectl run <span class="hljs-built_in">test</span>-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup &lt;P-O-D-I-P.default.pod&gt; &gt; /root/CKA/nginx.pod
+<pre class="language-"><code class="lang-sh">kubectl get pod nginx-resolver <span class="token parameter variable">-o</span> wide
+kubectl run test-nslookup <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox:1.28 <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never -- <span class="token function">nslookup</span> <span class="token operator">&lt;</span>P-O-D-I-P.default.pod<span class="token operator">&gt;</span> <span class="token operator">&gt;</span> /root/CKA/nginx.pod
 </code></pre>
 <h3 id="question-8"><a name="question-8" class="anchor-navigation-ex-anchor" href="#question-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 8</h3>
 <p>Create a static pod on <code>node01</code> called <code>nginx-critical</code> with image <code>nginx</code> and make sure that it is recreated/restarted automatically in case of a failure.</p>
@@ -1286,33 +1286,33 @@ kubectl run <span class="hljs-built_in">test</span>-nslookup --image=busybox:1.2
 </ul>
 <p>Solution</p>
 <p>To create a static pod called <code>nginx-critical</code> by using below command:</p>
-<pre><code class="lang-sh">kubectl run nginx-critical --image=nginx --dry-run=client -o yaml &gt; static.yaml
+<pre class="language-"><code class="lang-sh">kubectl run nginx-critical <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml <span class="token operator">&gt;</span> static.yaml
 </code></pre>
 <p>Copy the contents of this file or use <code>scp</code> command to transfer this file from <code>controlplane</code> to <code>node01</code> node.</p>
-<pre><code class="lang-shell">root@controlplane:~# scp static.yaml node01:/root/
+<pre class="language-"><code class="lang-shell">root@controlplane:~<span class="token comment"># scp static.yaml node01:/root/</span>
 </code></pre>
 <p>To know the IP Address of the <code>node01</code> node:</p>
-<pre><code class="lang-shell">root@controlplane:~# kubectl get nodes -o wide
+<pre class="language-"><code class="lang-shell">root@controlplane:~<span class="token comment"># kubectl get nodes -o wide</span>
 
-# Perform SSH
-root@controlplane:~# ssh node01
+<span class="token comment"># Perform SSH</span>
+root@controlplane:~<span class="token comment"># ssh node01</span>
 OR
-root@controlplane:~# ssh &lt;IP of node01&gt;
+root@controlplane:~<span class="token comment"># ssh &lt;IP of node01&gt;</span>
 </code></pre>
 <p>On <code>node01</code> node:
 Check if static pod directory is present which is <code>/etc/kubernetes/manifests</code>, if it&apos;s not present then create it.</p>
-<pre><code class="lang-shell">root@node01:~# mkdir -p /etc/kubernetes/manifests
+<pre class="language-"><code class="lang-shell">root@node01:~<span class="token comment"># mkdir -p /etc/kubernetes/manifests</span>
 </code></pre>
 <p>Add that complete path to the <code>staticPodPath</code> field in the kubelet <code>config.yaml</code> file.</p>
-<pre><code class="lang-shell">root@node01:~# vi /var/lib/kubelet/config.yaml
+<pre class="language-"><code class="lang-shell">root@node01:~<span class="token comment"># vi /var/lib/kubelet/config.yaml</span>
 </code></pre>
 <p>now, move/copy the static.yaml to path <code>/etc/kubernetes/manifests/</code>.</p>
-<pre><code class="lang-shell">root@node01:~# cp /root/static.yaml /etc/kubernetes/manifests/
+<pre class="language-"><code class="lang-shell">root@node01:~<span class="token comment"># cp /root/static.yaml /etc/kubernetes/manifests/</span>
 </code></pre>
 <p>Go back to the <code>controlplane</code> node and check the status of static pod:</p>
-<pre><code class="lang-shell">root@node01:~# exit
-logout
-root@controlplane:~# kubectl get pods
+<pre class="language-"><code class="lang-shell">root@node01:~<span class="token comment"># exit</span>
+<span class="token builtin class-name">logout</span>
+root@controlplane:~<span class="token comment"># kubectl get pods</span>
 </code></pre>
 
                                 
@@ -1357,7 +1357,7 @@ root@controlplane:~# kubectl get pods
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"next":{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},"previous":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/17.KodeKloud Mock Exam - 2.md","mtime":"2023-07-12T07:46:49.420Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"next":{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},"previous":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/17.KodeKloud Mock Exam - 2.md","mtime":"2023-07-12T07:46:49.420Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:58:14.055Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1389,6 +1389,10 @@ root@controlplane:~# kubectl get pods
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
