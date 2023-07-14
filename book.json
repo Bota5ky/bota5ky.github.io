@@ -7,6 +7,8 @@
     "search-pro",
     "code",
     "prism",
+    "tbfed-pagefooter",
+    "disqus",
     "-lunr",
     "-search",
     "-highlight"
@@ -23,6 +25,14 @@
       "ignore": [
         "mermaid"
       ]
+    },
+    "tbfed-pagefooter": {
+      "copyright": "Copyright ©Bota5ky",
+      "modify_label": "Last Updated: ",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "disqus": {
+      "shortName": "bota5ky"
     }
   }
 }
