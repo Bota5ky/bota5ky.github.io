@@ -9,8 +9,7 @@
     "search-pro",
     "code",
     "-highlight",
-    "prism",
-    "prism-themes"
+    "prism"
   ],
   "pluginsConfig": {
     "insert-logo": {
