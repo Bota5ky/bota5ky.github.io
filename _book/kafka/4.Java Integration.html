@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1072,151 +1072,151 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-java-producer"><b></b>1. Java Producer</a></li><li><span class="title-icon "></span><a href="#2-java-producer-callbacks"><b></b>2. Java Producer Callbacks</a></li><li><span class="title-icon "></span><a href="#3-java-consumer"><b></b>3. Java Consumer</a></li><li><span class="title-icon "></span><a href="#4-kafka-consumer---graceful-shutdown"><b></b>4. Kafka Consumer - Graceful shutdown</a></li><li><span class="title-icon "></span><a href="#5-&#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;"><b></b>5. &#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;</a></li><li><span class="title-icon "></span><a href="#6-&#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;"><b></b>6. &#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;</a></li><li><span class="title-icon "></span><a href="#7-&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;"><b></b>7. &#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-java-producer"><a name="1-java-producer" class="anchor-navigation-ex-anchor" href="#1-java-producer"><i class="fa fa-link" aria-hidden="true"></i></a>1. Java Producer</h3>
-<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProducerDemo</span> <span class="token punctuation">{</span>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProducerDemo</span> </span>{
 
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> log <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">ProducerDemo</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger log = LoggerFactory.getLogger(ProducerDemo.class.getSimpleName());
 
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;I am a Kafka Producer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        log.info(<span class="hljs-string">&quot;I am a Kafka Producer&quot;</span>);
 
-        <span class="token comment">// create Producer Properties</span>
-        <span class="token class-name">Properties</span> properties <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ProducerConfig</span><span class="token punctuation">.</span><span class="token constant">BOOTSTRAP_SERVERS_CONFIG</span><span class="token punctuation">,</span> <span class="token string">&quot;127.0.0.1:9092&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ProducerConfig</span><span class="token punctuation">.</span><span class="token constant">KEY_SERIALIZER_CLASS_CONFIG</span><span class="token punctuation">,</span> <span class="token class-name">StringSerializer</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ProducerConfig</span><span class="token punctuation">.</span><span class="token constant">VALUE_SERIALIZER_CLASS_CONFIG</span><span class="token punctuation">,</span> <span class="token class-name">StringSerializer</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// create Producer Properties</span>
+        Properties properties = <span class="hljs-keyword">new</span> Properties();
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, <span class="hljs-string">&quot;127.0.0.1:9092&quot;</span>);
+        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
-        <span class="token comment">// create the Producer</span>
-        <span class="token class-name">KafkaProducer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> producer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KafkaProducer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>properties<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// create the Producer</span>
+        KafkaProducer&lt;String, String&gt; producer = <span class="hljs-keyword">new</span> KafkaProducer&lt;&gt;(properties);
 
-        <span class="token comment">// create a producer record</span>
-        <span class="token class-name">ProducerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> producerRecord <span class="token operator">=</span>
-            <span class="token keyword">new</span> <span class="token class-name">ProducerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token string">&quot;demo_java&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;hello world&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// create a producer record</span>
+        ProducerRecord&lt;String, String&gt; producerRecord =
+            <span class="hljs-keyword">new</span> ProducerRecord&lt;&gt;(<span class="hljs-string">&quot;demo_java&quot;</span>, <span class="hljs-string">&quot;hello world&quot;</span>);
 
-        <span class="token comment">// send the data - asynchronous</span>
-        producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>producerRecord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// send the data - asynchronous</span>
+        producer.send(producerRecord);
 
-        <span class="token comment">// flush data - synchronous</span>
-        producer<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// flush data - synchronous</span>
+        producer.flush();
 
-        <span class="token comment">// flush and close producer</span>
-        producer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// flush and close producer</span>
+        producer.close();
 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    }
+}
 </code></pre>
 <h3 id="2-java-producer-callbacks"><a name="2-java-producer-callbacks" class="anchor-navigation-ex-anchor" href="#2-java-producer-callbacks"><i class="fa fa-link" aria-hidden="true"></i></a>2. Java Producer Callbacks</h3>
-<pre class="language-"><code class="lang-java">producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>producerRecord<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCompletion</span><span class="token punctuation">(</span><span class="token class-name">RecordMetadata</span> metadata<span class="token punctuation">,</span> <span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// executes every time a record is successfully sent or an exception is thrown</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment">// the record was successfully sent</span>
-            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Received new metadata. \n&quot;</span> <span class="token operator">+</span>
-                    <span class="token string">&quot;Topic: &quot;</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">topic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span>
-                    <span class="token string">&quot;Partition: &quot;</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span>
-                    <span class="token string">&quot;Offset: &quot;</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;\n&quot;</span> <span class="token operator">+</span>
-                    <span class="token string">&quot;Timestamp: &quot;</span> <span class="token operator">+</span> metadata<span class="token punctuation">.</span><span class="token function">timestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Error while producing&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">producer.send(producerRecord, <span class="hljs-keyword">new</span> Callback() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCompletion</span><span class="hljs-params">(RecordMetadata metadata, Exception e)</span> </span>{
+        <span class="hljs-comment">// executes every time a record is successfully sent or an exception is thrown</span>
+        <span class="hljs-keyword">if</span> (e == <span class="hljs-keyword">null</span>){
+            <span class="hljs-comment">// the record was successfully sent</span>
+            log.info(<span class="hljs-string">&quot;Received new metadata. \n&quot;</span> +
+                    <span class="hljs-string">&quot;Topic: &quot;</span> + metadata.topic() + <span class="hljs-string">&quot;\n&quot;</span> +
+                    <span class="hljs-string">&quot;Partition: &quot;</span> + metadata.partition() + <span class="hljs-string">&quot;\n&quot;</span> +
+                    <span class="hljs-string">&quot;Offset: &quot;</span> + metadata.offset() + <span class="hljs-string">&quot;\n&quot;</span> +
+                    <span class="hljs-string">&quot;Timestamp: &quot;</span> + metadata.timestamp());
+        } <span class="hljs-keyword">else</span> {
+            log.error(<span class="hljs-string">&quot;Error while producing&quot;</span>, e);
+        }
+    }
+});
 </code></pre>
 <p><strong>&#x7C98;&#x6027;&#x5206;&#x533A;</strong>&#xFF1A;&#x5982;&#x679C;&#x53D1;&#x9001;&#x901F;&#x5EA6;&#x8DB3;&#x591F;&#x5FEB;&#xFF0C;&#x51E0;&#x6761;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x4F5C;&#x4E3A;&#x540C;&#x4E00;&#x6279;&#x53D1;&#x9001;&#x5230;&#x540C;&#x4E00;&#x5206;&#x533A;</p>
-<pre class="language-"><code class="lang-pro">partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+<pre><code class="lang-pro">partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
 </code></pre>
 <p><code>DefaultPartitioner</code> &#x521D;&#x59CB;&#x5316;&#x65F6;&#x9ED8;&#x8BA4;&#x91C7;&#x7528; <code>StickyPartitionCache</code></p>
 <h3 id="3-java-consumer"><a name="3-java-consumer" class="anchor-navigation-ex-anchor" href="#3-java-consumer"><i class="fa fa-link" aria-hidden="true"></i></a>3. Java Consumer</h3>
-<pre class="language-"><code class="lang-java"><span class="token class-name">String</span> boostrapServers <span class="token operator">=</span> <span class="token string">&quot;127.0.0.1:9092&quot;</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> groupId <span class="token operator">=</span> <span class="token string">&quot;my-second-application&quot;</span><span class="token punctuation">;</span>
-<span class="token class-name">String</span> topic <span class="token operator">=</span> <span class="token string">&quot;demo_java&quot;</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">String boostrapServers = <span class="hljs-string">&quot;127.0.0.1:9092&quot;</span>;
+String groupId = <span class="hljs-string">&quot;my-second-application&quot;</span>;
+String topic = <span class="hljs-string">&quot;demo_java&quot;</span>;
 
-<span class="token comment">// create consumer configs</span>
-<span class="token class-name">Properties</span> properties <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ConsumerConfig</span><span class="token punctuation">.</span><span class="token constant">BOOTSTRAP_SERVERS_CONFIG</span><span class="token punctuation">,</span> boostrapServers<span class="token punctuation">)</span><span class="token punctuation">;</span>
-properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ConsumerConfig</span><span class="token punctuation">.</span><span class="token constant">KEY_DESERIALIZER_CLASS_CONFIG</span><span class="token punctuation">,</span> <span class="token class-name">StringDeserializer</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ConsumerConfig</span><span class="token punctuation">.</span><span class="token constant">VALUE_DESERIALIZER_CLASS_CONFIG</span><span class="token punctuation">,</span> <span class="token class-name">StringDeserializer</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ConsumerConfig</span><span class="token punctuation">.</span><span class="token constant">GROUP_ID_CONFIG</span><span class="token punctuation">,</span> groupId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-properties<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token class-name">ConsumerConfig</span><span class="token punctuation">.</span><span class="token constant">AUTO_OFFSET_RESET_CONFIG</span><span class="token punctuation">,</span> <span class="token string">&quot;earliest&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// create consumer configs</span>
+Properties properties = <span class="hljs-keyword">new</span> Properties();
+properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, boostrapServers);
+properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, <span class="hljs-string">&quot;earliest&quot;</span>);
 
-<span class="token comment">// create consumer</span>
-<span class="token class-name">KafkaConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> consumer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KafkaConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>properties<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// create consumer</span>
+KafkaConsumer&lt;String, String&gt; consumer = <span class="hljs-keyword">new</span> KafkaConsumer&lt;&gt;(properties);
 
-<span class="token comment">// subscribe consumer to our topic(s)</span>
-consumer<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>topic<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// subscribe consumer to our topic(s)</span>
+consumer.subscribe(Arrays.asList(topic));
 
-<span class="token comment">// poll for new data</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Polling&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token class-name">ConsumerRecords</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> records <span class="token operator">=</span>
-            consumer<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token class-name">Duration</span><span class="token punctuation">.</span><span class="token function">ofMillis</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">ConsumerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> record <span class="token operator">:</span> records<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Key: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;, Value: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Partition: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;, Offset: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<span class="hljs-comment">// poll for new data</span>
+<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) {
+    log.info(<span class="hljs-string">&quot;Polling&quot;</span>);
+    ConsumerRecords&lt;String, String&gt; records =
+            consumer.poll(Duration.ofMillis(<span class="hljs-number">1000</span>));
+    <span class="hljs-keyword">for</span> (ConsumerRecord&lt;String, String&gt; record : records) {
+        log.info(<span class="hljs-string">&quot;Key: &quot;</span> + record.key() + <span class="hljs-string">&quot;, Value: &quot;</span> + record.value());
+        log.info(<span class="hljs-string">&quot;Partition: &quot;</span> + record.partition() + <span class="hljs-string">&quot;, Offset: &quot;</span> + record.offset());
+    }
+}
 </code></pre>
 <h3 id="4-kafka-consumer---graceful-shutdown"><a name="4-kafka-consumer---graceful-shutdown" class="anchor-navigation-ex-anchor" href="#4-kafka-consumer---graceful-shutdown"><i class="fa fa-link" aria-hidden="true"></i></a>4. Kafka Consumer - Graceful shutdown</h3>
-<pre class="language-"><code class="lang-java"><span class="token comment">// create consumer</span>
-<span class="token class-name">KafkaConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> consumer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KafkaConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>properties<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// get a reference to the current thread</span>
-<span class="token keyword">final</span> <span class="token class-name">Thread</span> mainThread <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// adding the shutdown hook</span>
-<span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addShutdownHook</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Detected a shutdown, let&apos;s exit by calling consumer.wakeup()...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        consumer<span class="token punctuation">.</span><span class="token function">wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// &#x4F1A;&#x8BA9;&#x4E0B;&#x9762;&#x7684;poll() throw exception</span>
-        <span class="token comment">// join the main thread to allow the execution of the code in the main thread</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            mainThread<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token comment">// subscribe consumer to our topic(s)</span>
-    consumer<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>topic<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// poll for new data</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">ConsumerRecords</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> records <span class="token operator">=</span>
-                consumer<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token class-name">Duration</span><span class="token punctuation">.</span><span class="token function">ofMillis</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">ConsumerRecord</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> record <span class="token operator">:</span> records<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Key: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;, Value: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Partition: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">partition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;, Offset: &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">WakeupException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;Wake up exception!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// we ignore this as this is an expected exception when closing a consumer</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;Unexpected exception&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
-    consumer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// this will also commit the offsets if need be</span>
-    log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;The consumer is now gracefully closed&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-java"><span class="hljs-comment">// create consumer</span>
+KafkaConsumer&lt;String, String&gt; consumer = <span class="hljs-keyword">new</span> KafkaConsumer&lt;&gt;(properties);
+<span class="hljs-comment">// get a reference to the current thread</span>
+<span class="hljs-keyword">final</span> Thread mainThread = Thread.currentThread();
+<span class="hljs-comment">// adding the shutdown hook</span>
+Runtime.getRuntime().addShutdownHook(<span class="hljs-keyword">new</span> Thread() {
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        log.info(<span class="hljs-string">&quot;Detected a shutdown, let&apos;s exit by calling consumer.wakeup()...&quot;</span>);
+        consumer.wakeup();
+        <span class="hljs-comment">// &#x4F1A;&#x8BA9;&#x4E0B;&#x9762;&#x7684;poll() throw exception</span>
+        <span class="hljs-comment">// join the main thread to allow the execution of the code in the main thread</span>
+        <span class="hljs-keyword">try</span> {
+            mainThread.join();
+        } <span class="hljs-keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+});
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// subscribe consumer to our topic(s)</span>
+    consumer.subscribe(Arrays.asList(topic));
+    <span class="hljs-comment">// poll for new data</span>
+    <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) {
+        ConsumerRecords&lt;String, String&gt; records =
+                consumer.poll(Duration.ofMillis(<span class="hljs-number">1000</span>));
+        <span class="hljs-keyword">for</span> (ConsumerRecord&lt;String, String&gt; record : records) {
+            log.info(<span class="hljs-string">&quot;Key: &quot;</span> + record.key() + <span class="hljs-string">&quot;, Value: &quot;</span> + record.value());
+            log.info(<span class="hljs-string">&quot;Partition: &quot;</span> + record.partition() + <span class="hljs-string">&quot;, Offset: &quot;</span> + record.offset());
+        }
+    }
+} <span class="hljs-keyword">catch</span> (WakeupException e) {
+    log.info(<span class="hljs-string">&quot;Wake up exception!&quot;</span>);
+    <span class="hljs-comment">// we ignore this as this is an expected exception when closing a consumer</span>
+} <span class="hljs-keyword">catch</span> (Exception e){
+    log.error(<span class="hljs-string">&quot;Unexpected exception&quot;</span>);
+} <span class="hljs-keyword">finally</span> {
+    consumer.close(); <span class="hljs-comment">// this will also commit the offsets if need be</span>
+    log.info(<span class="hljs-string">&quot;The consumer is now gracefully closed&quot;</span>);
+}
 </code></pre>
 <h3 id="5-&#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;"><a name="5-&#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;" class="anchor-navigation-ex-anchor" href="#5-&#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x81EA;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x591A;&#x4E00;&#x6B21;</h3>
-<pre class="language-"><code class="lang-java">props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;enable.auto.commit&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;true&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;auto.commit.interval.ms&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;1000&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">props.put(<span class="hljs-string">&quot;enable.auto.commit&quot;</span>, <span class="hljs-string">&quot;true&quot;</span>);
+props.put(<span class="hljs-string">&quot;auto.commit.interval.ms&quot;</span>, <span class="hljs-string">&quot;1000&quot;</span>);
 
-consumer<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+consumer.poll(<span class="hljs-number">100</span>);
 </code></pre>
 <h3 id="6-&#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;"><a name="6-&#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;" class="anchor-navigation-ex-anchor" href="#6-&#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x624B;&#x52A8;&#x63D0;&#x4EA4;-&#x81F3;&#x5C11;&#x4E00;&#x6B21;</h3>
-<pre class="language-"><code class="lang-java">props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;enable.auto.commit&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;false&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">props.put(<span class="hljs-string">&quot;enable.auto.commit&quot;</span>, <span class="hljs-string">&quot;false&quot;</span>);
 
-consumer<span class="token punctuation">.</span><span class="token function">commitSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+consumer.commitSync();
 </code></pre>
 <h3 id="7-&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;"><a name="7-&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#7-&#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x624B;&#x52A8;&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;&#x548C;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;</h3>
 <p>&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x5206;&#x533A;</p>
-<pre class="language-"><code class="lang-java"><span class="token class-name">String</span> topic <span class="token operator">=</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">;</span>
-<span class="token class-name">TopicPartition</span> partition0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TopicPartition</span><span class="token punctuation">(</span>topic<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">TopicPartition</span> partition1 <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">TopicPartition</span><span class="token punctuation">(</span>topic<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-consumer<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span>partition0<span class="token punctuation">,</span>partition1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-java">String topic =<span class="hljs-string">&quot;foo&quot;</span>;
+TopicPartition partition0 = <span class="hljs-keyword">new</span> TopicPartition(topic, <span class="hljs-number">0</span>);
+TopicPartition partition1 =<span class="hljs-keyword">new</span> TopicPartition(topic,<span class="hljs-number">1</span>);
+consumer.assign(Arrays.asList(partition0,partition1));
 </code></pre>
 <p>&#x6307;&#x5B9A;&#x6D88;&#x8D39;&#x4F4D;&#x7F6E;</p>
-<pre class="language-"><code class="lang-java"><span class="token function">seek</span><span class="token punctuation">(</span><span class="token class-name">TopicPartition</span><span class="token punctuation">,</span> <span class="token keyword">long</span><span class="token punctuation">)</span>
+<pre><code class="lang-java">seek(TopicPartition, <span class="hljs-keyword">long</span>)
 </code></pre>
 
                                 
@@ -1261,7 +1261,7 @@ consumer<span class="token punctuation">.</span><span class="token function">ass
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. Java Integration","level":"1.6.4","depth":2,"next":{"title":"Redis 学习笔记","level":"1.7","depth":1,"path":"redis/README.md","ref":"redis/README.md","articles":[{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},{"title":"4. 订阅发布及主从复制","level":"1.7.4","depth":2,"path":"redis/4.订阅发布及主从复制.md","ref":"redis/4.订阅发布及主从复制.md","articles":[]}]},"previous":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/4.Java Integration.md","mtime":"2023-07-13T02:05:20.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. Java Integration","level":"1.6.4","depth":2,"next":{"title":"Redis 学习笔记","level":"1.7","depth":1,"path":"redis/README.md","ref":"redis/README.md","articles":[{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},{"title":"4. 订阅发布及主从复制","level":"1.7.4","depth":2,"path":"redis/4.订阅发布及主从复制.md","ref":"redis/4.订阅发布及主从复制.md","articles":[]}]},"previous":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"path":"kafka/3.Kafka Topics & CLI.md","ref":"kafka/3.Kafka Topics & CLI.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/4.Java Integration.md","mtime":"2023-07-13T02:05:20.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1293,10 +1293,6 @@ consumer<span class="token punctuation">.</span><span class="token function">ass
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

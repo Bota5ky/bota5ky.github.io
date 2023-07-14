@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1082,46 +1082,46 @@
 <p>Solution</p>
 <p>Here is the solution for this task. Please note that the output of these commands have not been added here.</p>
 <p>On the <code>controlplane</code> node:</p>
-<pre class="language-"><code class="lang-sh">root@controlplane:~<span class="token comment"># kubectl drain controlplane --ignore-daemonsets</span>
-root@controlplane:~<span class="token comment"># apt update</span>
-root@controlplane:~<span class="token comment"># apt-get install kubeadm=1.24.0-00</span>
-root@controlplane:~<span class="token comment"># kubeadm upgrade plan v1.24.0</span>
-root@controlplane:~<span class="token comment"># kubeadm upgrade apply v1.24.0</span>
-root@controlplane:~<span class="token comment"># apt-get install kubelet=1.24.0-00</span>
-root@controlplane:~<span class="token comment"># systemctl daemon-reload</span>
-root@controlplane:~<span class="token comment"># systemctl restart kubelet</span>
-root@controlplane:~<span class="token comment"># kubectl uncordon controlplane</span>
+<pre><code class="lang-sh">root@controlplane:~<span class="hljs-comment"># kubectl drain controlplane --ignore-daemonsets</span>
+root@controlplane:~<span class="hljs-comment"># apt update</span>
+root@controlplane:~<span class="hljs-comment"># apt-get install kubeadm=1.24.0-00</span>
+root@controlplane:~<span class="hljs-comment"># kubeadm upgrade plan v1.24.0</span>
+root@controlplane:~<span class="hljs-comment"># kubeadm upgrade apply v1.24.0</span>
+root@controlplane:~<span class="hljs-comment"># apt-get install kubelet=1.24.0-00</span>
+root@controlplane:~<span class="hljs-comment"># systemctl daemon-reload</span>
+root@controlplane:~<span class="hljs-comment"># systemctl restart kubelet</span>
+root@controlplane:~<span class="hljs-comment"># kubectl uncordon controlplane</span>
 </code></pre>
 <p>Before draining <code>node01</code>, we need to remove the taint from the <code>controlplane</code> node.</p>
-<pre class="language-"><code class="lang-sh"><span class="token comment"># Identify the taint first. </span>
-root@controlplane:~<span class="token comment"># kubectl describe node controlplane | grep -i taint</span>
+<pre><code class="lang-sh"><span class="hljs-comment"># Identify the taint first. </span>
+root@controlplane:~<span class="hljs-comment"># kubectl describe node controlplane | grep -i taint</span>
 
-<span class="token comment"># Remove the taint with help of &quot;kubectl taint&quot; command.</span>
-root@controlplane:~<span class="token comment"># kubectl taint node controlplane node-role.kubernetes.io/control-plane:NoSchedule-</span>
+<span class="hljs-comment"># Remove the taint with help of &quot;kubectl taint&quot; command.</span>
+root@controlplane:~<span class="hljs-comment"># kubectl taint node controlplane node-role.kubernetes.io/control-plane:NoSchedule-</span>
 
-<span class="token comment"># Verify it, the taint has been removed successfully.  </span>
-root@controlplane:~<span class="token comment"># kubectl describe node controlplane | grep -i taint</span>
+<span class="hljs-comment"># Verify it, the taint has been removed successfully.  </span>
+root@controlplane:~<span class="hljs-comment"># kubectl describe node controlplane | grep -i taint</span>
 </code></pre>
 <p>Now, drain the <code>node01</code> as follows: -</p>
-<pre class="language-"><code class="lang-sh">root@controlplane:~<span class="token comment"># kubectl drain node01 --ignore-daemonsets</span>
+<pre><code class="lang-sh">root@controlplane:~<span class="hljs-comment"># kubectl drain node01 --ignore-daemonsets</span>
 </code></pre>
 <p><code>SSH</code> to the <code>node01</code> and perform the below steps as follows:</p>
-<pre class="language-"><code class="lang-sh">root@node01:~<span class="token comment"># apt update</span>
-root@node01:~<span class="token comment"># apt-get install kubeadm=1.24.0-00</span>
-root@node01:~<span class="token comment"># kubeadm upgrade node</span>
-root@node01:~<span class="token comment"># apt-get install kubelet=1.24.0-00</span>
-root@node01:~<span class="token comment"># systemctl daemon-reload</span>
-root@node01:~<span class="token comment"># systemctl restart kubelet</span>
+<pre><code class="lang-sh">root@node01:~<span class="hljs-comment"># apt update</span>
+root@node01:~<span class="hljs-comment"># apt-get install kubeadm=1.24.0-00</span>
+root@node01:~<span class="hljs-comment"># kubeadm upgrade node</span>
+root@node01:~<span class="hljs-comment"># apt-get install kubelet=1.24.0-00</span>
+root@node01:~<span class="hljs-comment"># systemctl daemon-reload</span>
+root@node01:~<span class="hljs-comment"># systemctl restart kubelet</span>
 </code></pre>
 <p>To exit from the specific node, type <code>exit</code> or <code>logout</code> on the terminal.</p>
 <p>Back on the <code>controlplane</code> node:</p>
-<pre class="language-"><code class="lang-sh">root@controlplane:~<span class="token comment"># kubectl uncordon node01</span>
-root@controlplane:~<span class="token comment"># kubectl get pods -o wide | grep gold (make sure this is scheduled on node)</span>
+<pre><code class="lang-sh">root@controlplane:~<span class="hljs-comment"># kubectl uncordon node01</span>
+root@controlplane:~<span class="hljs-comment"># kubectl get pods -o wide | grep gold (make sure this is scheduled on node)</span>
 </code></pre>
 <h3 id="question-2-15"><a name="question-2-15" class="anchor-navigation-ex-anchor" href="#question-2-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (15&apos;)</h3>
 <p>Print the names of all deployments in the <code>admin2406</code> namespace in the following format:
 <code>DEPLOYMENT CONTAINER_IMAGE READY_REPLICAS NAMESPACE</code>
-<code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>deployment</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>container</span> <span class="token attr-name">image</span> <span class="token attr-name">used</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ready</span> <span class="token attr-name">replica</span> <span class="token attr-name">count</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Namespace</span><span class="token punctuation">&gt;</span></span></code>
+<code>&lt;deployment name&gt; &lt;container image used&gt; &lt;ready replica count&gt; &lt;Namespace&gt;</code>
 . The data should be sorted by the increasing order of the <code>deployment name</code>.</p>
 <p>Example:
 <code>DEPLOYMENT CONTAINER_IMAGE READY_REPLICAS NAMESPACE</code>
@@ -1133,7 +1133,7 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 </ul>
 <p>Solution</p>
 <p>Run the below command to get the correct output:</p>
-<pre class="language-"><code class="lang-sh">kubectl <span class="token parameter variable">-n</span> admin2406 get deployment <span class="token parameter variable">-o</span> custom-columns<span class="token operator">=</span>DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers<span class="token punctuation">[</span><span class="token punctuation">]</span>.image,READY_REPLICAS:.status.readyReplicas,NAMESPACE:.metadata.namespace --sort-by<span class="token operator">=</span>.metadata.name <span class="token operator">&gt;</span> /opt/admin2406_data
+<pre><code class="lang-sh">kubectl -n admin2406 get deployment -o custom-columns=DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers[].image,READY_REPLICAS:.status.readyReplicas,NAMESPACE:.metadata.namespace --sort-by=.metadata.name &gt; /opt/admin2406_data
 </code></pre>
 <h3 id="question-3-8"><a name="question-3-8" class="anchor-navigation-ex-anchor" href="#question-3-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (8&apos;)</h3>
 <p>A kubeconfig file called <code>admin.kubeconfig</code> has been created in <code>/root/CKA</code>. There is something wrong with the configuration. Troubleshoot and fix it.</p>
@@ -1144,7 +1144,7 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Solution</p>
 <p>Make sure the port for the <code>kube-apiserver</code> is correct. So for this change port from <code>4380</code> to <code>6443</code>.</p>
 <p>Run the below command to know the cluster information:</p>
-<pre class="language-"><code class="lang-sh">kubectl cluster-info <span class="token parameter variable">--kubeconfig</span> /root/CKA/admin.kubeconfig
+<pre><code class="lang-sh">kubectl cluster-info --kubeconfig /root/CKA/admin.kubeconfig
 </code></pre>
 <h3 id="question-4-12"><a name="question-4-12" class="anchor-navigation-ex-anchor" href="#question-4-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (12&apos;)</h3>
 <p>Create a new deployment called <code>nginx-deploy</code>, with image <code>nginx:1.16</code> and <code>1</code> replica. Next upgrade the deployment to version <code>1.17</code> using <code>rolling update</code>.</p>
@@ -1156,10 +1156,10 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Solution</p>
 <p>Make use of the <code>kubectl create</code> command to create the deployment and explore the <code>--record</code> option while upgrading the deployment image.</p>
 <p>Run the below command to create a deployment <code>nginx-deploy</code>:</p>
-<pre class="language-"><code class="lang-sh">kubectl create deployment  nginx-deploy <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx:1.16
+<pre><code class="lang-sh">kubectl create deployment  nginx-deploy --image=nginx:1.16
 </code></pre>
 <p>Run the below command to update the new image for <code>nginx-deploy</code> deployment and to record the version:</p>
-<pre class="language-"><code class="lang-sh">kubectl <span class="token builtin class-name">set</span> image deployment/nginx-deploy <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.17 <span class="token parameter variable">--record</span>
+<pre><code class="lang-sh">kubectl <span class="hljs-built_in">set</span> image deployment/nginx-deploy nginx=nginx:1.17 --record
 </code></pre>
 <h3 id="question-5-20"><a name="question-5-20" class="anchor-navigation-ex-anchor" href="#question-5-20"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (20&apos;)</h3>
 <p>A new deployment called <code>alpha-mysql</code> has been deployed in the <code>alpha</code> namespace. However, the pods are not running. Troubleshoot and fix the issue. The deployment should make use of the persistent volume <code>alpha-pv</code> to be mounted at <code>/var/lib/mysql</code> and should use the environment variable <code>MYSQL_ALLOW_EMPTY_PASSWORD=1</code> to make use of an empty root password.</p>
@@ -1171,19 +1171,19 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Solution</p>
 <p>Use the command <code>kubectl describe</code> and try to fix the issue.
 Solution manifest file to create a pvc called <code>mysql-alpha-pvc</code> as follows:</p>
-<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolumeClaim
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> mysql<span class="token punctuation">-</span>alpha<span class="token punctuation">-</span>pvc
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> alpha
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> ReadWriteOnce
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-    <span class="token key atrule">requests</span><span class="token punctuation">:</span>
-      <span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi
-  <span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> slow
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> PersistentVolumeClaim
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> mysql-alpha-pvc
+<span class="hljs-attr">  namespace:</span> alpha
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  accessModes:</span>
+<span class="hljs-bullet">  -</span> ReadWriteOnce
+<span class="hljs-attr">  resources:</span>
+<span class="hljs-attr">    requests:</span>
+<span class="hljs-attr">      storage:</span> <span class="hljs-number">1</span>Gi
+<span class="hljs-attr">  storageClassName:</span> slow
 </code></pre>
 <h3 id="question-6-10"><a name="question-6-10" class="anchor-navigation-ex-anchor" href="#question-6-10"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (10&apos;)</h3>
 <p>Take the backup of ETCD at the location <code>/opt/etcd-backup.db</code> on the <code>controlplane</code> node.</p>
@@ -1193,8 +1193,8 @@ Solution manifest file to create a pvc called <code>mysql-alpha-pvc</code> as fo
 </ul>
 <p>Solution</p>
 <p>Take a help of command <code>etcdctl snapshot save --help</code> options.</p>
-<pre class="language-"><code class="lang-sh"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ETCDCTL_API</span><span class="token operator">=</span><span class="token number">3</span>
-etcdctl snapshot save <span class="token parameter variable">--cacert</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/ca.crt <span class="token parameter variable">--cert</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.crt <span class="token parameter variable">--key</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.key <span class="token parameter variable">--endpoints</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:2379 /opt/etcd-backup.db
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> ETCDCTL_API=3
+etcdctl snapshot save --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --endpoints=127.0.0.1:2379 /opt/etcd-backup.db
 </code></pre>
 <h3 id="question-7-20"><a name="question-7-20" class="anchor-navigation-ex-anchor" href="#question-7-20"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (20&apos;)</h3>
 <p>Create a pod called <code>secret-1401</code> in the <code>admin1401</code> namespace using the <code>busybox</code> image. The container within the pod should be called <code>secret-admin</code> and should sleep for <code>4800</code> seconds.</p>
@@ -1206,35 +1206,35 @@ etcdctl snapshot save <span class="token parameter variable">--cacert</span><spa
 <p>Solution</p>
 <p>Use the command <code>kubectl run</code> to create a pod definition file. Add secret volume and update container name in it.
 Alternatively, run the following command:</p>
-<pre class="language-"><code class="lang-sh">kubectl run secret-1401 <span class="token parameter variable">-n</span> admin1401 <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml <span class="token parameter variable">--command</span> -- <span class="token function">sleep</span> <span class="token number">4800</span> <span class="token operator">&gt;</span> admin.yaml
+<pre><code class="lang-sh">kubectl run secret-1401 -n admin1401 --image=busybox --dry-run=client -o yaml --command -- sleep 4800 &gt; admin.yaml
 </code></pre>
 <p>Add the <code>secret</code> volume and mount path to create a pod called <code>secret-1401</code> in the <code>admin1401</code> namespace as follows:</p>
-<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
-<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">creationTimestamp</span><span class="token punctuation">:</span> <span class="token null important">null</span>
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">run</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span><span class="token number">1401</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span><span class="token number">1401</span>
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> admin1401
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span>volume
-    <span class="token comment"># secret volume</span>
-    <span class="token key atrule">secret</span><span class="token punctuation">:</span>
-      <span class="token key atrule">secretName</span><span class="token punctuation">:</span> dotfile<span class="token punctuation">-</span>secret
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">command</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> sleep
-    <span class="token punctuation">-</span> <span class="token string">&quot;4800&quot;</span>
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> busybox
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span>admin
-    <span class="token comment"># volumes&apos; mount path</span>
-    <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> secret<span class="token punctuation">-</span>volume
-      <span class="token key atrule">readOnly</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-      <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> <span class="token string">&quot;/etc/secret-volume&quot;</span>
+<pre><code class="lang-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Pod
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  creationTimestamp:</span> <span class="hljs-literal">null</span>
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    run:</span> secret<span class="hljs-bullet">-1401</span>
+<span class="hljs-attr">  name:</span> secret<span class="hljs-bullet">-1401</span>
+<span class="hljs-attr">  namespace:</span> admin1401
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  volumes:</span>
+<span class="hljs-attr">  - name:</span> secret-volume
+    <span class="hljs-comment"># secret volume</span>
+<span class="hljs-attr">    secret:</span>
+<span class="hljs-attr">      secretName:</span> dotfile-secret
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - command:</span>
+<span class="hljs-bullet">    -</span> sleep
+<span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;4800&quot;</span>
+<span class="hljs-attr">    image:</span> busybox
+<span class="hljs-attr">    name:</span> secret-admin
+    <span class="hljs-comment"># volumes&apos; mount path</span>
+<span class="hljs-attr">    volumeMounts:</span>
+<span class="hljs-attr">    - name:</span> secret-volume
+<span class="hljs-attr">      readOnly:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">      mountPath:</span> <span class="hljs-string">&quot;/etc/secret-volume&quot;</span>
 </code></pre>
 
                                 
@@ -1279,7 +1279,7 @@ Alternatively, run the following command:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"next":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},"previous":{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/16.KodeKloud Lightning Lab - 1.md","mtime":"2023-07-12T07:46:14.453Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"next":{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},"previous":{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/16.KodeKloud Lightning Lab - 1.md","mtime":"2023-07-12T07:46:14.453Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1311,10 +1311,6 @@ Alternatively, run the following command:</p>
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

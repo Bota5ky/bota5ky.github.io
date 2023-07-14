@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1198,12 +1198,12 @@
 <p><code>$</code>&#x975E;&#x5F3A;&#x5236;&#x9700;&#x8981;&#x5199;&#x4E0A;&#xFF0C;kubectl&#x4F1A;&#x5E2E;&#x52A9;&#x6DFB;&#x52A0;</p>
 <p>&#x62FC;&#x63A5;&#x5185;&#x5BB9;&#xFF1A;<code>kubectl get nodes -o=jsonpath=&apos;{.items[*].metadata.name}{&quot;\n&quot;}{.items[*].status.capacity.cpu}&apos;</code></p>
 <p>Loop&#xFF1A;</p>
-<pre class="language-"><code class="lang-yaml">&apos;<span class="token punctuation">{</span>range .items<span class="token punctuation">[</span>*<span class="token punctuation">]</span><span class="token punctuation">}</span>
-    <span class="token punctuation">{</span>.metadata.name<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token string">&quot;\t&quot;</span><span class="token punctuation">}</span><span class="token punctuation">{</span>.status.capacity.cpu<span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">}</span>
-<span class="token punctuation">{</span>end<span class="token punctuation">}</span>&apos;
+<pre><code class="lang-yaml"><span class="hljs-string">&apos;{range .items[*]}
+    {.metadata.name}{&quot;\t&quot;}{.status.capacity.cpu}{&quot;\n&quot;}
+{end}&apos;</span>
 </code></pre>
 <p>custom-columns&#xFF1A;</p>
-<p><code>kubectl get nodes -o=custom-columns=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>COLUMN</span> <span class="token attr-name">NAME</span><span class="token punctuation">&gt;</span></span>:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>JSON</span> <span class="token attr-name">PATH</span><span class="token punctuation">&gt;</span></span></code></p>
+<p><code>kubectl get nodes -o=custom-columns=&lt;COLUMN NAME&gt;:&lt;JSON PATH&gt;</code></p>
 
                                 
                                 </section>
@@ -1247,7 +1247,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. JSON Path","level":"1.4.4","depth":2,"next":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},"previous":{"title":"3. terminal 常用快捷键","level":"1.4.3","depth":2,"path":"cli/3.terminal常用快捷键.md","ref":"cli/3.terminal常用快捷键.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/4.JSON Path.md","mtime":"2023-07-13T02:05:20.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. JSON Path","level":"1.4.4","depth":2,"next":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},"previous":{"title":"3. terminal 常用快捷键","level":"1.4.3","depth":2,"path":"cli/3.terminal常用快捷键.md","ref":"cli/3.terminal常用快捷键.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/4.JSON Path.md","mtime":"2023-07-13T02:05:20.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1279,10 +1279,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

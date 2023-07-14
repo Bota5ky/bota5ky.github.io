@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1074,25 +1074,25 @@
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-daemon-sets"><b></b>1. Daemon Sets</a></li><li><span class="title-icon "></span><a href="#2-static-pods"><b></b>2. Static Pods</a></li><li><span class="title-icon "></span><a href="#3-multiple-schedulers"><b></b>3. Multiple Schedulers</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-daemon-sets"><a name="1-daemon-sets" class="anchor-navigation-ex-anchor" href="#1-daemon-sets"><i class="fa fa-link" aria-hidden="true"></i></a>1. Daemon Sets</h3>
 <p>Daemon Sets&#x786E;&#x4FDD; pod &#x7684;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#x59CB;&#x7EC8;&#x5B58;&#x5728;&#x4E8E;&#x96C6;&#x7FA4;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x4E2D;&#xFF0C;&#x5E38;&#x7528;&#x4E8E; Monitoring Solution&#x3001;Logs Viewer&#x3001;Kube-porxy&#x3001;Weave-net&#xFF08;networking&#xFF09;&#x3002;</p>
 <p><code>daemon-set-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> DaemonSet <span class="token comment">##&#x552F;&#x4E00;&#x533A;&#x522B;</span>
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> elasticsearch
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">k8s-app</span><span class="token punctuation">:</span> fluentd<span class="token punctuation">-</span>logging
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
-    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd<span class="token punctuation">-</span>elasticsearch
-  <span class="token key atrule">template</span><span class="token punctuation">:</span>
-    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-        <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd<span class="token punctuation">-</span>elasticsearch
-    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
-      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> fluentd<span class="token punctuation">-</span>elasticsearch
-        <span class="token key atrule">image</span><span class="token punctuation">:</span> k8s.gcr.io/fluentd<span class="token punctuation">-</span>elasticsearch<span class="token punctuation">:</span><span class="token number">1.20</span>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> apps/v1
+<span class="hljs-attr">kind:</span> DaemonSet <span class="hljs-comment">##&#x552F;&#x4E00;&#x533A;&#x522B;</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> elasticsearch
+<span class="hljs-attr">  namespace:</span> kube-system
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    k8s-app:</span> fluentd-logging
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    matchLabels:</span>
+<span class="hljs-attr">      name:</span> fluentd-elasticsearch
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      labels:</span>
+<span class="hljs-attr">        name:</span> fluentd-elasticsearch
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span> fluentd-elasticsearch
+<span class="hljs-attr">        image:</span> k8s.gcr.io/fluentd-elasticsearch:<span class="hljs-number">1.20</span>
 </code></pre>
 <p>&#x5728; v1.12 &#x4E4B;&#x524D;&#xFF0C;pod &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E; nodeName &#x4EE5;&#x653E;&#x7F6E;&#x5230;&#x60F3;&#x8981;&#x7684; node &#x4E0A;&#xFF0C;&#x4E4B;&#x540E;&#x4F7F;&#x7528; scheduler &#x548C; affinity&#x3002;</p>
 <p>&#x56E0;&#x4E3A;&#x6CA1;&#x6709;<code>kubectl create daemonset</code>&#x76F8;&#x5173;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x6240;&#x4EE5;&#x521B;&#x5EFA;DaemonSets&#x65F6;&#x53EF;&#x4EE5;&#x5148;&#x7528;create deployment &#x547D;&#x4EE4;&#x751F;&#x6210; yaml &#x6A21;&#x677F;&#xFF0C;<code>kubectl create deployment ds-name -n=namespace-name --image=image-name --dry-run=client -o yaml &gt; app.yaml</code>&#xFF0C;&#x4FEE;&#x6539;&#x540E; apply&#x3002;</p>
@@ -1107,7 +1107,7 @@
 <li><code>--config=kubeconfig.yaml</code> ps : kubeadmin &#x4E5F;&#x662F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7684;</li>
 </ul>
 <p>&#x5176;&#x4E2D;<code>kubeconfig.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">staticPodPath</span><span class="token punctuation">:</span> /etc/Kubernetes/manifests
+<pre><code class="lang-yaml"><span class="hljs-attr">staticPodPath:</span> /etc/Kubernetes/manifests
 </code></pre>
 <p>&#x7528;<code>docker ps</code>&#x67E5;&#x770B; Static Pod &#x751F;&#x6210;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709; Kubernetes cluster&#x3002;</p>
 <p>&#x5982;&#x679C;&#x6709; Kubernetes cluster&#xFF0C;kube-apiserver &#x4F1A;&#x77E5;&#x9053; Static Pod &#x7684;&#x60C5;&#x51B5;&#x3002;&#xFF08;kube-apiserver &#x4E0A;&#x4F1A;&#x6709;&#x4E2A; Static Pod &#x7684;&#x53EA;&#x8BFB;&#x955C;&#x50CF;&#xFF0C;pod &#x7684; name &#x4F1A;&#x9644;&#x52A0; node &#x7684;&#x540D;&#x79F0;&#xFF09;</p>
@@ -1152,38 +1152,38 @@
 <p>&#x5207;&#x6362; node &#x7684;&#x65B9;&#x5F0F;<code>ssh node-ip-address</code></p>
 <h3 id="3-multiple-schedulers"><a name="3-multiple-schedulers" class="anchor-navigation-ex-anchor" href="#3-multiple-schedulers"><i class="fa fa-link" aria-hidden="true"></i></a>3. Multiple Schedulers</h3>
 <p><code>kube-scheduler.service</code></p>
-<pre class="language-"><code class="lang-yaml">ExecStart=/usr/local/bin/kube<span class="token punctuation">-</span>scheduler \\
-  <span class="token punctuation">-</span><span class="token punctuation">-</span>config=/etc/kubernetes/config/kube<span class="token punctuation">-</span>scheduler.yaml \\
-  <span class="token punctuation">-</span><span class="token punctuation">-</span>scheduler<span class="token punctuation">-</span>name= default<span class="token punctuation">-</span>scheduler
+<pre><code class="lang-yaml">ExecStart=/usr/local/bin/kube-scheduler \\
+<span class="hljs-bullet">  -</span>-config=/etc/kubernetes/config/kube-scheduler.yaml \\
+<span class="hljs-bullet">  -</span>-scheduler-name= default-scheduler
 </code></pre>
 <p><code>/etc/kubernetes/manifests/kube-scheduler.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>custom<span class="token punctuation">-</span>scheduler
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>system
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">command</span><span class="token punctuation">:</span>  <span class="token comment">##&#x5305;&#x542B;&#x7528;&#x4E8E;&#x542F;&#x52A8;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x7684;&#x547D;&#x4EE4;&#x548C;&#x76F8;&#x5173;&#x9009;&#x9879;</span>
-    <span class="token punctuation">-</span> kube<span class="token punctuation">-</span>scheduler
-    <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>address=127.0.0.1
-    <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>kubeconfig=/etc/kubernetes/scheduler.conf
-    <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>leader<span class="token punctuation">-</span>elect=true  <span class="token comment">##&#x6CA1;&#x6709;&#x591A;&#x4E2A;&#x4E3B;&#x8282;&#x70B9;&#x8FD0;&#x884C;scheduler&#x5C31;&#x8BBE;&#x7F6E;&#x4E3A;false</span>
-    <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>scheduler<span class="token punctuation">-</span>name=my<span class="token punctuation">-</span>custom<span class="token punctuation">-</span>scheduler  <span class="token comment">##&#x8BBE;&#x7F6E;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x540D;&#x79F0;</span>
-    <span class="token punctuation">-</span> <span class="token punctuation">-</span><span class="token punctuation">-</span>lock<span class="token punctuation">-</span>object<span class="token punctuation">-</span>name=my<span class="token punctuation">-</span>custom<span class="token punctuation">-</span>scheduler  <span class="token comment">##&#x7528;&#x4E8E;&#x533A;&#x5206;&#x81EA;&#x5B9A;&#x4E49;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x548C;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;</span>
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> k8s.gcr.io/kube<span class="token punctuation">-</span>scheduler<span class="token punctuation">-</span>amd64<span class="token punctuation">:</span>v1.11.3
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> kube<span class="token punctuation">-</span>scheduler
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Pod
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> my-custom-scheduler
+<span class="hljs-attr">  namespace:</span> kube-system
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - command:</span>  <span class="hljs-comment">##&#x5305;&#x542B;&#x7528;&#x4E8E;&#x542F;&#x52A8;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x7684;&#x547D;&#x4EE4;&#x548C;&#x76F8;&#x5173;&#x9009;&#x9879;</span>
+<span class="hljs-bullet">    -</span> kube-scheduler
+<span class="hljs-bullet">    -</span> --address=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+<span class="hljs-bullet">    -</span> --kubeconfig=/etc/kubernetes/scheduler.conf
+<span class="hljs-bullet">    -</span> --leader-elect=<span class="hljs-literal">true</span>  <span class="hljs-comment">##&#x6CA1;&#x6709;&#x591A;&#x4E2A;&#x4E3B;&#x8282;&#x70B9;&#x8FD0;&#x884C;scheduler&#x5C31;&#x8BBE;&#x7F6E;&#x4E3A;false</span>
+<span class="hljs-bullet">    -</span> --scheduler-name=my-custom-scheduler  <span class="hljs-comment">##&#x8BBE;&#x7F6E;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x540D;&#x79F0;</span>
+<span class="hljs-bullet">    -</span> --lock-object-name=my-custom-scheduler  <span class="hljs-comment">##&#x7528;&#x4E8E;&#x533A;&#x5206;&#x81EA;&#x5B9A;&#x4E49;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#x548C;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;</span>
+<span class="hljs-attr">    image:</span> k8s.gcr.io/kube-scheduler-amd64:v1<span class="hljs-number">.11</span><span class="hljs-number">.3</span>
+<span class="hljs-attr">    name:</span> kube-scheduler
 </code></pre>
 <p><code>pod-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
-  <span class="token key atrule">schedulerName</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>custom<span class="token punctuation">-</span>scheduler
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Pod
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> nginx
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - image:</span> nginx
+<span class="hljs-attr">    name:</span> nginx
+<span class="hljs-attr">  schedulerName:</span> my-custom-scheduler
 </code></pre>
 <p><code>kubectl get events</code>&#xFF1A;&#x67E5;&#x770B;&#x54EA;&#x4E2A; scheduler &#x8C03;&#x7528;</p>
 <p><code>kubectl logs my-custom-scheduler --name-space=kube-system</code>&#xFF1A;&#x67E5;&#x770B;&#x65E5;&#x5FD7;</p>
@@ -1231,7 +1231,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"next":{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},"previous":{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/5.守护进程、静态Pod、多调度器.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"next":{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},"previous":{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/5.守护进程、静态Pod、多调度器.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1263,10 +1263,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

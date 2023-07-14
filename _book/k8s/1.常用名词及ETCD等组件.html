@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1112,17 +1112,17 @@
 <p><code>kubectl run xxx --image=xxx</code>&#x8FD9;&#x7C7B;&#x547D;&#x4EE4;&#x9996;&#x5148;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;pod&#xFF0C;&#x5E76;&#x90E8;&#x7F72;&#x5BB9;&#x5668;&#x5F15;&#x64CE;&#x5982;docker img&#x7684;&#x5B9E;&#x4F8B;</p>
 <p>&#x67E5;&#x770B;cluster&#x4E2D;pod&#x5217;&#x8868;&#xFF1A;<code>kubectl get pods -o wide</code></p>
 <p><code>pod-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token punctuation">|</span>apps/v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod<span class="token punctuation">|</span>Service<span class="token punctuation">|</span>ReplicaSet<span class="token punctuation">|</span>Deployment
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>pod
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> front<span class="token punctuation">-</span>end
-<span class="token key atrule">spec</span><span class="token punctuation">:</span> 
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>container
-      <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1|apps/v1
+<span class="hljs-attr">kind:</span> Pod|Service|ReplicaSet|Deployment
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> myapp-pod
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> myapp
+<span class="hljs-attr">    type:</span> front-end
+<span class="hljs-attr">spec:</span> 
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">    - name:</span> nginx-container
+<span class="hljs-attr">      image:</span> nginx
 </code></pre>
 <p><code>kubectl create -f pod-definition.yml</code></p>
 <p><code>kubectl describe pod nginx</code>&#xFF1A;&#x67E5;&#x770B;pod&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p>
@@ -1133,48 +1133,48 @@
 <h3 id="4-replicasets"><a name="4-replicasets" class="anchor-navigation-ex-anchor" href="#4-replicasets"><i class="fa fa-link" aria-hidden="true"></i></a>4. ReplicaSets</h3>
 <p>Replication Controller&#xFF1A;&#x7BA1;&#x7406;&#x8DE8;&#x8D8A;&#x96C6;&#x7FA4;&#x4E2D;&#x591A;&#x4E2A;node</p>
 <p><code>rc-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ReplicationController
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rc
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> front<span class="token punctuation">-</span>end
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">template</span><span class="token punctuation">:</span>
-    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-    <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">app</span><span class="token punctuation">:</span>
-      <span class="token key atrule">type</span><span class="token punctuation">:</span>
-    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
-      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span>
-        <span class="token key atrule">image</span><span class="token punctuation">:</span>
-  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> ReplicationController
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> myapp-rc
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> myapp
+<span class="hljs-attr">    type:</span> front-end
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">    labels:</span>
+<span class="hljs-attr">      app:</span>
+<span class="hljs-attr">      type:</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span>
+<span class="hljs-attr">        image:</span>
+<span class="hljs-attr">  replicas:</span> <span class="hljs-number">3</span>
 </code></pre>
 <p><code>kubectl get replicationcontroller</code>&#xFF1A;&#x67E5;&#x770B;&#x590D;&#x5236;&#x63A7;&#x5236;&#x5668;</p>
 <p><code>replicaset-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ReplicaSet
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>replicaset
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> front<span class="token punctuation">-</span>end
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">template</span><span class="token punctuation">:</span>
-    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-    <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">app</span><span class="token punctuation">:</span>
-      <span class="token key atrule">type</span><span class="token punctuation">:</span>
-    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
-      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span>
-        <span class="token key atrule">image</span><span class="token punctuation">:</span>
-  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
-  <span class="token key atrule">selector</span><span class="token punctuation">:</span> 
-    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
-      <span class="token key atrule">type</span><span class="token punctuation">:</span> front<span class="token punctuation">-</span>end
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> apps/v1
+<span class="hljs-attr">kind:</span> ReplicaSet
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> myapp-replicaset
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> myapp
+<span class="hljs-attr">    type:</span> front-end
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">    labels:</span>
+<span class="hljs-attr">      app:</span>
+<span class="hljs-attr">      type:</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span>
+<span class="hljs-attr">        image:</span>
+<span class="hljs-attr">  replicas:</span> <span class="hljs-number">3</span>
+<span class="hljs-attr">  selector:</span> 
+<span class="hljs-attr">    matchLabels:</span>
+<span class="hljs-attr">      type:</span> front-end
 </code></pre>
 <p>Scale&#xFF1A;</p>
 <ul>
@@ -1185,26 +1185,26 @@
 <p><code>kubectl delete replicaset myapp-replicaset</code>&#xFF1A;&#x4E5F;&#x4F1A;&#x5220;&#x9664;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;PODs</p>
 <p><code>replicaset</code> &#x53EF;&#x4EE5;&#x7F29;&#x5199;&#x4E3A; <code>rs</code></p>
 <p><code>deployment-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<pre><code class="lang-yaml"><span class="hljs-attr">kind:</span> Deployment
 </code></pre>
 <p><code>kubectl create deployment my-dep-name --image==busybox --replicas=3</code></p>
 <h3 id="5-service"><a name="5-service" class="anchor-navigation-ex-anchor" href="#5-service"><i class="fa fa-link" aria-hidden="true"></i></a>5. Service</h3>
 <p>NodePorts&#x8303;&#x56F4;&#xFF1A;30000 - 32767</p>
 <p><code>service-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> V1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>service
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> V1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> myapp-service
 
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort       <span class="token comment">##LoadBalancer</span>
-  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>   <span class="token comment">##pod&#x7AEF;&#x53E3;  &#x4E0D;&#x586B;&#x5219;&#x9ED8;&#x8BA4;&#x548C;port&#x76F8;&#x540C;</span>
-      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>         <span class="token comment">##Servoce&#x7AEF;&#x53E3;  &#x5FC5;&#x586B;</span>
-      <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">30008</span>  <span class="token comment">##&#x5BF9;&#x5916;&#x7AEF;&#x53E3;  &#x4E0D;&#x586B;&#x81EA;&#x52A8;&#x5206;&#x914D;30000-32767</span>
-  <span class="token key atrule">selector</span><span class="token punctuation">:</span>            <span class="token comment">##&#x9009;&#x62E9;pods&#x7684;label&#x5185;&#x5BB9;</span>
-    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> front<span class="token punctuation">-</span>end
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  type:</span> NodePort       <span class="hljs-comment">##LoadBalancer</span>
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">    - targetPort:</span> <span class="hljs-number">80</span>   <span class="hljs-comment">##pod&#x7AEF;&#x53E3;  &#x4E0D;&#x586B;&#x5219;&#x9ED8;&#x8BA4;&#x548C;port&#x76F8;&#x540C;</span>
+<span class="hljs-attr">      port:</span> <span class="hljs-number">80</span>         <span class="hljs-comment">##Servoce&#x7AEF;&#x53E3;  &#x5FC5;&#x586B;</span>
+<span class="hljs-attr">      nodePort:</span> <span class="hljs-number">30008</span>  <span class="hljs-comment">##&#x5BF9;&#x5916;&#x7AEF;&#x53E3;  &#x4E0D;&#x586B;&#x81EA;&#x52A8;&#x5206;&#x914D;30000-32767</span>
+<span class="hljs-attr">  selector:</span>            <span class="hljs-comment">##&#x9009;&#x62E9;pods&#x7684;label&#x5185;&#x5BB9;</span>
+<span class="hljs-attr">    app:</span> myapp
+<span class="hljs-attr">    type:</span> front-end
 </code></pre>
 <p><code>kubectl create -f service-definition.yml</code></p>
 <p><code>192.168.1.2:30008</code></p>
@@ -1224,27 +1224,27 @@
 <li>&#x5728;yaml&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6307;&#x5B9A;<code>metadata.namespace=dev</code></li>
 </ul>
 <p>namespace-dev.yml</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Namespace
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> dev
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Namespace
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> dev
 </code></pre>
 <p>&#x8BBE;&#x7F6E;&#x6C38;&#x4E45;&#x5207;&#x6362;Namespace</p>
 <p><code>kubectl config set-context $(kubectl config current-context) --namespace=dev</code></p>
 <p>&#x67E5;&#x770B;&#x6240;&#x6709;Namespace&#x4E2D;&#x7684;pods&#xFF1A;<code>kubectl get pods --all-namespaces</code>&#xFF0C;<code>-A</code>short for <code>--all-namespaces</code></p>
 <p>&#x8BBE;&#x7F6E;Resource Quota&#xFF0C;Compute-quota.yaml&#xFF1A;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> ResourceQuota
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> compute<span class="token punctuation">-</span>quota
-  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> dev
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">hard</span><span class="token punctuation">:</span>
-    <span class="token key atrule">pods</span><span class="token punctuation">:</span> <span class="token string">&quot;10&quot;</span>
-    <span class="token key atrule">requests.cpu</span><span class="token punctuation">:</span> <span class="token string">&quot;4&quot;</span>
-    <span class="token key atrule">requests.memory</span><span class="token punctuation">:</span> 5Gi
-    <span class="token key atrule">limits.cpu</span><span class="token punctuation">:</span> <span class="token string">&quot;10&quot;</span>
-    <span class="token key atrule">limits.memory</span><span class="token punctuation">:</span> 10Gi
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> ResourceQuota
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> compute-quota
+<span class="hljs-attr">  namespace:</span> dev
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  hard:</span>
+<span class="hljs-attr">    pods:</span> <span class="hljs-string">&quot;10&quot;</span>
+    requests.cpu: <span class="hljs-string">&quot;4&quot;</span>
+    requests.memory: <span class="hljs-number">5</span>Gi
+    limits.cpu: <span class="hljs-string">&quot;10&quot;</span>
+    limits.memory: <span class="hljs-number">10</span>Gi
 </code></pre>
 <p><code>kubectl run redis --image=redis -n=finance</code>&#x5176;&#x4E2D;<code>-n</code>short for <code>--namespace</code></p>
 
@@ -1290,7 +1290,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"next":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"previous":{"title":"Kubernetes 学习笔记","level":"1.5","depth":1,"path":"k8s/README.md","ref":"k8s/README.md","articles":[{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/1.常用名词及ETCD等组件.md","mtime":"2023-07-13T02:05:20.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"next":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"previous":{"title":"Kubernetes 学习笔记","level":"1.5","depth":1,"path":"k8s/README.md","ref":"k8s/README.md","articles":[{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/1.常用名词及ETCD等组件.md","mtime":"2023-07-13T02:05:20.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1322,10 +1322,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

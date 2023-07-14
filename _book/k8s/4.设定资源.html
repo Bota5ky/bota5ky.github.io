@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1072,25 +1072,25 @@
                                 <section class="normal markdown-section">
                                 
                                 <p><code>pod-definition.yaml</code> : &#x4E5F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x8BBE;&#x5B9A;&#x6240;&#x9700;&#x8D44;&#x6E90;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> simple<span class="token punctuation">-</span>webapp<span class="token punctuation">-</span>color
-  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> simple<span class="token punctuation">-</span>webapp<span class="token punctuation">-</span>color
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> simple<span class="token punctuation">-</span>webapp<span class="token punctuation">-</span>color
-    <span class="token key atrule">image</span><span class="token punctuation">:</span> simple<span class="token punctuation">-</span>webapp<span class="token punctuation">-</span>color
-    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
-    <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-      <span class="token key atrule">requests</span><span class="token punctuation">:</span>  <span class="token comment">##&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x8D44;&#x6E90;&#x521B;&#x5EFA;&#xFF0C;&#x5219;pod&#x4F1A;pending</span>
-        <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">&quot;1Gi&quot;</span>
-        <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token number">1</span>
-      <span class="token key atrule">limits</span><span class="token punctuation">:</span>
-        <span class="token key atrule">memory</span><span class="token punctuation">:</span> <span class="token string">&quot;2Gi&quot;</span>
-        <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token number">2</span>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Pod
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> simple-webapp-color
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    name:</span> simple-webapp-color
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - name:</span> simple-webapp-color
+<span class="hljs-attr">    image:</span> simple-webapp-color
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-attr">      - containerPort:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">    resources:</span>
+<span class="hljs-attr">      requests:</span>  <span class="hljs-comment">##&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x8D44;&#x6E90;&#x521B;&#x5EFA;&#xFF0C;&#x5219;pod&#x4F1A;pending</span>
+<span class="hljs-attr">        memory:</span> <span class="hljs-string">&quot;1Gi&quot;</span>
+<span class="hljs-attr">        cpu:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">      limits:</span>
+<span class="hljs-attr">        memory:</span> <span class="hljs-string">&quot;2Gi&quot;</span>
+<span class="hljs-attr">        cpu:</span> <span class="hljs-number">2</span>
 </code></pre>
 <p>&#x5355;&#x4F4D;&#xFF1A;</p>
 <ul>
@@ -1108,30 +1108,30 @@
 <li>container&#x53EF;&#x4EE5;&#x8D85;&#x9650;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#xFF0C;pod&#x4F7F;&#x7528;&#x8D85;&#x51FA;&#x9650;&#x5236;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;terminate</li>
 </ul>
 <p>&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#x524D;&#x9700;&#x8981;&#x5728;Namespace&#x521B;&#x5EFA;LimitRange</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> LimitRange
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> mem<span class="token punctuation">-</span>limit<span class="token punctuation">-</span>range
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">limits</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">default</span><span class="token punctuation">:</span>
-      <span class="token key atrule">memory</span><span class="token punctuation">:</span> 512Mi
-    <span class="token key atrule">defaultRequest</span><span class="token punctuation">:</span>
-      <span class="token key atrule">memory</span><span class="token punctuation">:</span> 256Mi
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> Container
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> LimitRange
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> mem-limit-range
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  limits:</span>
+<span class="hljs-attr">  - default:</span>
+<span class="hljs-attr">      memory:</span> <span class="hljs-number">512</span>Mi
+<span class="hljs-attr">    defaultRequest:</span>
+<span class="hljs-attr">      memory:</span> <span class="hljs-number">256</span>Mi
+<span class="hljs-attr">    type:</span> Container
 </code></pre>
 <p><a href="https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/" target="_blank">https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/</a></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> LimitRange
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> cpu<span class="token punctuation">-</span>limit<span class="token punctuation">-</span>range
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">limits</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">default</span><span class="token punctuation">:</span>
-      <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token number">1</span>
-    <span class="token key atrule">defaultRequest</span><span class="token punctuation">:</span>
-      <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token number">0.5</span>
-    <span class="token key atrule">type</span><span class="token punctuation">:</span> Container
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> LimitRange
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> cpu-limit-range
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  limits:</span>
+<span class="hljs-attr">  - default:</span>
+<span class="hljs-attr">      cpu:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">    defaultRequest:</span>
+<span class="hljs-attr">      cpu:</span> <span class="hljs-number">0.5</span>
+<span class="hljs-attr">    type:</span> Container
 </code></pre>
 <p><a href="https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/cpu-default-namespace/" target="_blank">https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/cpu-default-namespace/</a></p>
 <p><strong>References:</strong></p>
@@ -1189,7 +1189,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. 设定资源","level":"1.5.4","depth":2,"next":{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},"previous":{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/4.设定资源.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. 设定资源","level":"1.5.4","depth":2,"next":{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},"previous":{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/4.设定资源.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1221,10 +1221,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

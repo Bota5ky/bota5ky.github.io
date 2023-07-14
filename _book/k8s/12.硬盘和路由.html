@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1073,84 +1073,84 @@
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-volumes"><b></b>1. Volumes</a></li><li><span class="title-icon "></span><a href="#2-persistent-volumes"><b></b>2. Persistent Volumes</a></li><li><span class="title-icon "></span><a href="#3-storage-class"><b></b>3. Storage Class</a></li><li><span class="title-icon "></span><a href="#4-switching"><b></b>4. Switching</a></li><li><span class="title-icon "></span><a href="#5-routing"><b></b>5. Routing</a></li><li><span class="title-icon "></span><a href="#6-gateway"><b></b>6. Gateway</a></li><li><span class="title-icon "></span><a href="#7-dns"><b></b>7. DNS</a></li><li><span class="title-icon "></span><a href="#8-domain-names"><b></b>8. Domain Names</a></li><li><span class="title-icon "></span><a href="#9-search-domain"><b></b>9. Search Domain</a></li><li><span class="title-icon "></span><a href="#10-record-types"><b></b>10. Record Types</a></li><li><span class="title-icon "></span><a href="#11-nslookup&#x3001;dig"><b></b>11. nslookup&#x3001;dig</a></li><li><span class="title-icon "></span><a href="#12-&#x5C06;&#x4E3B;&#x673A;&#x914D;&#x7F6E;&#x6210;dns&#x670D;&#x52A1;&#x5668;"><b></b>12. &#x5C06;&#x4E3B;&#x673A;&#x914D;&#x7F6E;&#x6210;DNS&#x670D;&#x52A1;&#x5668;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-volumes"><a name="1-volumes" class="anchor-navigation-ex-anchor" href="#1-volumes"><i class="fa fa-link" aria-hidden="true"></i></a>1. Volumes</h3>
 <p>!!!&#x6CE8;&#x610F;&#x9898;&#x76EE;&#x7ED9;&#x7684; <code>mountPath</code> &#x540E;&#x9762;&#x6709;&#x6CA1;&#x6709; <code>/</code>&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5224;&#x5B9A;&#x4E3A;&#x4E0D;&#x540C;&#x8DEF;&#x5F84;&#x3002;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> random<span class="token punctuation">-</span>number<span class="token punctuation">-</span>generator
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> alpine
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> alpine
-    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;/bin/sh&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;-c&quot;</span><span class="token punctuation">]</span>
-    <span class="token key atrule">args</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;shuf -i 0-100 -n 1 &gt;&gt; /opt/number.out;&quot;</span><span class="token punctuation">]</span>
-    <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /opt <span class="token comment">## Container&#x5185;&#x7684;&#x5B58;&#x50A8;&#x8DEF;&#x5F84;</span>
-      <span class="token key atrule">name</span><span class="token punctuation">:</span> data<span class="token punctuation">-</span>volume
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Pod
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> random-number-generator
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  containers:</span>
+<span class="hljs-attr">  - image:</span> alpine
+<span class="hljs-attr">    name:</span> alpine
+<span class="hljs-attr">    command:</span> [<span class="hljs-string">&quot;/bin/sh&quot;</span>,<span class="hljs-string">&quot;-c&quot;</span>]
+<span class="hljs-attr">    args:</span> [<span class="hljs-string">&quot;shuf -i 0-100 -n 1 &gt;&gt; /opt/number.out;&quot;</span>]
+<span class="hljs-attr">    volumeMounts:</span>
+<span class="hljs-attr">    - mountPath:</span> /opt <span class="hljs-comment">## Container&#x5185;&#x7684;&#x5B58;&#x50A8;&#x8DEF;&#x5F84;</span>
+<span class="hljs-attr">      name:</span> data-volume
 
-  <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> data<span class="token punctuation">-</span>volume
-    <span class="token key atrule">hostPath</span><span class="token punctuation">:</span>
-      <span class="token key atrule">path</span><span class="token punctuation">:</span> /data <span class="token comment">## &#x5BF9;&#x5E94;&#x5B58;&#x50A8;&#x5728;host&#x4E0A;&#x7684;&#x8DEF;&#x5F84;</span>
-      <span class="token key atrule">type</span><span class="token punctuation">:</span> Directory
-    <span class="token comment">## awsElasticBlockStore: ## &#x53EF;&#x66FF;&#x6362;hostPath</span>
-      <span class="token comment">## volumeID:</span>
-      <span class="token comment">## fsType: ext4</span>
+<span class="hljs-attr">  volumes:</span>
+<span class="hljs-attr">  - name:</span> data-volume
+<span class="hljs-attr">    hostPath:</span>
+<span class="hljs-attr">      path:</span> /data <span class="hljs-comment">## &#x5BF9;&#x5E94;&#x5B58;&#x50A8;&#x5728;host&#x4E0A;&#x7684;&#x8DEF;&#x5F84;</span>
+<span class="hljs-attr">      type:</span> Directory
+    <span class="hljs-comment">## awsElasticBlockStore: ## &#x53EF;&#x66FF;&#x6362;hostPath</span>
+      <span class="hljs-comment">## volumeID:</span>
+      <span class="hljs-comment">## fsType: ext4</span>
 </code></pre>
 <h3 id="2-persistent-volumes"><a name="2-persistent-volumes" class="anchor-navigation-ex-anchor" href="#2-persistent-volumes"><i class="fa fa-link" aria-hidden="true"></i></a>2. Persistent Volumes</h3>
 <p>Persistent Volumes Claim (PVC)</p>
 <p><code>pv-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolume
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> pv<span class="token punctuation">-</span>vol1
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> ReadWriteOnce
-  <span class="token key atrule">capacity</span><span class="token punctuation">:</span>
-    <span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi
-  <span class="token key atrule">awsElasticBlockStore</span><span class="token punctuation">:</span>
-    <span class="token key atrule">volumeID</span><span class="token punctuation">:</span> &lt;volume<span class="token punctuation">-</span>id<span class="token punctuation">&gt;</span>
-    <span class="token key atrule">fsType</span><span class="token punctuation">:</span> ext4
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> PersistentVolume
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> pv-vol1
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  accessModes:</span>
+<span class="hljs-bullet">    -</span> ReadWriteOnce
+<span class="hljs-attr">  capacity:</span>
+<span class="hljs-attr">    storage:</span> <span class="hljs-number">1</span>Gi
+<span class="hljs-attr">  awsElasticBlockStore:</span>
+<span class="hljs-attr">    volumeID:</span> &lt;volume-id<span class="hljs-string">&gt;
+</span><span class="hljs-attr">    fsType:</span> ext4
 </code></pre>
 <p>&#x7BA1;&#x7406;&#x5458;&#x521B;&#x5EFA;&#x4E00;&#x7EC4;PV&#xFF0C;&#x7528;&#x6237;&#x521B;&#x5EFA;PVC&#x4EE5;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x3002;&#x5355;&#x4E2A;PVC&#x7ED1;&#x5B9A;&#x5355;&#x4E2A;PV&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;label&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x6761;&#x4EF6;&#x90FD;&#x5339;&#x914D;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x5219;&#x8F83;&#x5C0F;&#x7684;PVC&#x53EF;&#x80FD;&#x4F1A;&#x7ED1;&#x5B9A;&#x5230;&#x8F83;&#x5927;&#x7684;PV&#xFF0C;&#x4E14;&#x5269;&#x4E0B;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x65E0;&#x6CD5;&#x518D;&#x88AB;&#x5176;&#x4ED6;PVC&#x5229;&#x7528;&#x3002;&#x6CA1;&#x6709;PV&#x53EF;&#x7528;&#xFF0C;&#x5219;PVC&#x4F1A;&#x4FDD;&#x6301;pending&#x72B6;&#x6001;&#x3002;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">selector</span><span class="token punctuation">:</span>
-  <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
-    <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>pv <span class="token comment">## PVC</span>
+<pre><code class="lang-yaml"><span class="hljs-attr">selector:</span>
+<span class="hljs-attr">  matchLabels:</span>
+<span class="hljs-attr">    name:</span> my-pv <span class="hljs-comment">## PVC</span>
 </code></pre>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">labels</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>pv <span class="token comment">## PV</span>
+<pre><code class="lang-yaml"><span class="hljs-attr">labels:</span>
+<span class="hljs-attr">  name:</span> my-pv <span class="hljs-comment">## PV</span>
 </code></pre>
 <p><code>pvc-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolumeClaim
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> myclaim
-<span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> ReadWriteOnce
-  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-    <span class="token key atrule">requests</span><span class="token punctuation">:</span>
-      <span class="token key atrule">storage</span><span class="token punctuation">:</span> 500Mi
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> PersistentVolumeClaim
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> myclaim
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  accessModes:</span>
+<span class="hljs-bullet">    -</span> ReadWriteOnce
+<span class="hljs-attr">  resources:</span>
+<span class="hljs-attr">    requests:</span>
+<span class="hljs-attr">      storage:</span> <span class="hljs-number">500</span>Mi
 </code></pre>
 <p>PVC&#x88AB;&#x5220;&#x9664;&#x540E;&#xFF0C;PV&#x7684;&#x72B6;&#x6001;&#x53D6;&#x51B3;&#x4E8E;&#xFF1A;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">persistentVolumeReclaimPolicy</span><span class="token punctuation">:</span> Retain <span class="token punctuation">|</span> Delete <span class="token punctuation">|</span> Recycle
+<pre><code class="lang-yaml"><span class="hljs-attr">persistentVolumeReclaimPolicy:</span> Retain | Delete | Recycle
 </code></pre>
 <h3 id="3-storage-class"><a name="3-storage-class" class="anchor-navigation-ex-anchor" href="#3-storage-class"><i class="fa fa-link" aria-hidden="true"></i></a>3. Storage Class</h3>
 <p>&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x65F6;&#x81EA;&#x52A8;&#x914D;&#x7F6E; volumes</p>
 <p><code>sc-definition.yaml</code> &#x4E0D;&#x9700;&#x8981;&#x518D;&#x914D;&#x7F6E; pv&#xFF0C;&#x7531; Storage Class &#x81EA;&#x52A8;&#x521B;&#x5EFA;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> storage.k8s.io/v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> StorageClass
-<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> google<span class="token punctuation">-</span>storage
-<span class="token key atrule">provisioner</span><span class="token punctuation">:</span> kubernetes.io/gec<span class="token punctuation">-</span>pd
-<span class="token key atrule">parameters</span><span class="token punctuation">:</span> <span class="token comment">## &#x53D6;&#x51B3;&#x4E8E;&#x78C1;&#x76D8;&#x914D;&#x7F6E;</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> pd<span class="token punctuation">-</span>standard
-  <span class="token key atrule">replication-type</span><span class="token punctuation">:</span> none
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> storage.k8s.io/v1
+<span class="hljs-attr">kind:</span> StorageClass
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> google-storage
+<span class="hljs-attr">provisioner:</span> kubernetes.io/gec-pd
+<span class="hljs-attr">parameters:</span> <span class="hljs-comment">## &#x53D6;&#x51B3;&#x4E8E;&#x78C1;&#x76D8;&#x914D;&#x7F6E;</span>
+<span class="hljs-attr">  type:</span> pd-standard
+<span class="hljs-attr">  replication-type:</span> none
 </code></pre>
 <p><code>pvc-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> google<span class="token punctuation">-</span>storage
+<pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  storageClassName:</span> google-storage
 </code></pre>
 <h3 id="4-switching"><a name="4-switching" class="anchor-navigation-ex-anchor" href="#4-switching"><i class="fa fa-link" aria-hidden="true"></i></a>4. Switching</h3>
 <center><img src="switching.png" style="zoom:35%"></center>
@@ -1158,8 +1158,8 @@
 <p><code>ip link</code>&#xFF1A;&#x7528;&#x4E8E;&#x5217;&#x51FA;&#x548C;&#x4FEE;&#x6539;host&#x4E0A;&#x7684;&#x63A5;&#x53E3;&#xFF0C; ip link&#x53EA;&#x80FD;&#x770B;&#x94FE;&#x8DEF;&#x5C42;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x770B;&#x4E0D;&#x5230;ip&#x5730;&#x5740;</p>
 <p><code>ip addr</code>&#xFF1A;&#x67E5;&#x770B;&#x5206;&#x914D;&#x7ED9;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x5373;&#x4F7F;&#x7F51;&#x5361;&#x5904;&#x4E8E;down&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x80FD;&#x663E;&#x793A;&#x51FA;&#x7F51;&#x5361;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x662F;ifconfig&#x67E5;&#x770B;&#x5C31;&#x770B;&#x4E0D;&#x5230;</p>
 <p><code>cat /etc/network/interfaces</code>&#xFF1A;&#x67E5;&#x770B;&#x7269;&#x7406;&#x63A5;&#x53E3;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> addr <span class="token function">add</span> <span class="token number">192.168</span>.1.10/24 dev eth0 <span class="token comment"># &#x91CD;&#x542F;&#x5931;&#x6548;</span>
-<span class="token function">ip</span> addr <span class="token function">add</span> <span class="token number">192.168</span>.1.11/24 dev eth0 <span class="token comment"># &#x5982;&#x9700;&#x6C38;&#x4E45;&#x751F;&#x6548;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x6587;&#x4EF6;&#x4E2D;&#x4FEE;&#x6539;</span>
+<pre><code class="lang-bash">ip addr add 192.168.1.10/24 dev eth0 <span class="hljs-comment"># &#x91CD;&#x542F;&#x5931;&#x6548;</span>
+ip addr add 192.168.1.11/24 dev eth0 <span class="hljs-comment"># &#x5982;&#x9700;&#x6C38;&#x4E45;&#x751F;&#x6548;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x6587;&#x4EF6;&#x4E2D;&#x4FEE;&#x6539;</span>
 </code></pre>
 <p>&#x4E4B;&#x540E;&#xFF0C;&#x4E24;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E4B;&#x95F4;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EA4;&#x6362;&#x673A;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;&#x8DEF;&#x7531;&#x5668;&#x8FDE;&#x63A5;&#x5230;2&#x4E2A;&#x7F51;&#x7EDC;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x901A;&#x4FE1;&#x3002;</p>
 <p>&#x4E00;&#x65E6;&#x94FE;&#x8DEF;&#x5EFA;&#x7ACB;&#x5E76;&#x5206;&#x914D;&#x4E86;IP&#x5730;&#x5740;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EA4;&#x6362;&#x673A;&#x76F8;&#x4E92;&#x901A;&#x4FE1;&#x3002;&#x4EA4;&#x6362;&#x673A;&#x53EA;&#x80FD;&#x5728;&#x540C;&#x4E00;&#x7F51;&#x7EDC;&#x5185;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x53EF;&#x4EE5;&#x4ECE;&#x7F51;&#x7EDC;&#x4E0A;&#x7684;&#x4E3B;&#x673A;&#x63A5;&#x6536;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4F20;&#x9001;&#x5230;&#x540C;&#x4E00;&#x7F51;&#x7EDC;&#x5185;&#x7684;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#x3002;</p>
@@ -1171,14 +1171,14 @@
 <h3 id="6-gateway"><a name="6-gateway" class="anchor-navigation-ex-anchor" href="#6-gateway"><i class="fa fa-link" aria-hidden="true"></i></a>6. Gateway</h3>
 <p>&#x5982;&#x679C;&#x8BF4;&#x7F51;&#x7EDC;&#x662F;&#x4E00;&#x4E2A;&#x623F;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x7F51;&#x5173;&#x5C31;&#x662F;&#x901A;&#x5411;&#x5916;&#x90E8;&#x4E16;&#x754C;&#x3001;&#x5176;&#x4ED6;&#x7F51;&#x7EDC;&#x6216;Internet&#x7684;&#x4E00;&#x6247;&#x95E8;&#x3002;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x77E5;&#x9053;&#x95E8;&#x5728;&#x54EA;&#x91CC;&#x624D;&#x80FD;&#x901A;&#x8FC7;&#x3002;</p>
 <p>&#x8981;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x4E0A;&#x73B0;&#x6709;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#xFF0C;&#x8FD0;&#x884C; <code>route</code>&#x547D;&#x4EE4;&#xFF0C;&#x5B83;&#x4F1A;&#x663E;&#x793A;&#x5185;&#x6838;&#x7684;&#x8DEF;&#x7531;&#x8868;&#x3002;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> route show default <span class="token comment">## &#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;</span>
-<span class="token function">netstat</span> <span class="token parameter variable">-nplt</span> <span class="token operator">|</span> <span class="token function">grep</span> scheduler <span class="token comment">## &#x67E5;&#x770B;&#x76EE;&#x524D;&#x8282;&#x70B9;&#x4E0A;&#x88AB;scheduler&#x76D1;&#x542C;&#x7684;&#x63A5;&#x53E3;</span>
-<span class="token function">ip</span> route <span class="token function">add</span> <span class="token number">192.168</span>.2.0/24 via <span class="token number">192.168</span>.1.1 <span class="token comment">## &#x8FD9;&#x6837;B&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;2&#x4E0A;&#x7684;&#x7CFB;&#x7EDF;</span>
-<span class="token function">ip</span> route <span class="token function">add</span> <span class="token number">192.168</span>.1.0/24 via <span class="token number">192.168</span>.2.1 <span class="token comment">## &#x8FD9;&#x6837;C&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;1&#x4E0A;&#x7684;&#x7CFB;&#x7EDF;</span>
-<span class="token function">ip</span> route <span class="token function">add</span> <span class="token number">172.217</span>.194.0/24 via <span class="token number">192.168</span>.2.1 <span class="token comment">## &#x5982;&#x679C;C&#x9700;&#x8981;&#x8BBF;&#x95EE;Internet&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x5219;&#x4E5F;&#x9700;&#x8981;&#x628A;&#x65B0;&#x7684;&#x8DEF;&#x7531;&#x6DFB;&#x52A0;&#x5230;&#x8DEF;&#x7531;&#x8868;</span>
+<pre><code class="lang-bash">ip route show default <span class="hljs-comment">## &#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;</span>
+netstat -nplt | grep scheduler <span class="hljs-comment">## &#x67E5;&#x770B;&#x76EE;&#x524D;&#x8282;&#x70B9;&#x4E0A;&#x88AB;scheduler&#x76D1;&#x542C;&#x7684;&#x63A5;&#x53E3;</span>
+ip route add 192.168.2.0/24 via 192.168.1.1 <span class="hljs-comment">## &#x8FD9;&#x6837;B&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;2&#x4E0A;&#x7684;&#x7CFB;&#x7EDF;</span>
+ip route add 192.168.1.0/24 via 192.168.2.1 <span class="hljs-comment">## &#x8FD9;&#x6837;C&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;1&#x4E0A;&#x7684;&#x7CFB;&#x7EDF;</span>
+ip route add 172.217.194.0/24 via 192.168.2.1 <span class="hljs-comment">## &#x5982;&#x679C;C&#x9700;&#x8981;&#x8BBF;&#x95EE;Internet&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x5730;&#x5740;&#xFF0C;&#x5219;&#x4E5F;&#x9700;&#x8981;&#x628A;&#x65B0;&#x7684;&#x8DEF;&#x7531;&#x6DFB;&#x52A0;&#x5230;&#x8DEF;&#x7531;&#x8868;</span>
 </code></pre>
 <p>&#x5728;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x7684;&#x4E0D;&#x540C;&#x7F51;&#x7EDC;&#x4E0A;&#x6709;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7AD9;&#xFF0C;&#x60A8;&#x4E0D;&#x5FC5;&#x4E3A;&#x6BCF;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x76F8;&#x540C;&#x8DEF;&#x7531;&#x5668;IP&#x5730;&#x5740;&#x6DFB;&#x52A0;&#x8DEF;&#x7531;&#x8868;&#x6761;&#x76EE;&#xFF0C;&#x800C;&#x53EA;&#x9700;&#x7B80;&#x5355;&#x5730;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x60A8;&#x4E0D;&#x77E5;&#x9053;&#x8DEF;&#x7531;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6B64;&#x8DEF;&#x7531;&#x5668;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;&#x3002;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> route <span class="token function">add</span> default via <span class="token number">192.168</span>.1.1 <span class="token comment"># default = 0.0.0.0</span>
+<pre><code class="lang-bash">ip route add default via 192.168.1.1 <span class="hljs-comment"># default = 0.0.0.0</span>
 </code></pre>
 <center><img src="route.png" style="zoom:35%"></center>
 
@@ -1194,14 +1194,14 @@
 <h3 id="7-dns"><a name="7-dns" class="anchor-navigation-ex-anchor" href="#7-dns"><i class="fa fa-link" aria-hidden="true"></i></a>7. DNS</h3>
 <p><code>hostname</code> &#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x672C;&#x673A;&#x7684;hostname</p>
 <p>&#x8BB0;&#x5F55;&#x5728;&#x672C;&#x5730; <code>/etc/hosts</code>&#x4E2D;&#xFF0C;<code>ssh</code> &#x548C; <code>curl</code> &#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x6839;&#x636E;&#x6B64;&#x6587;&#x4EF6;&#x67E5;&#x627E;&#x5BF9;&#x5E94;&#x7684;ip&#x5730;&#x5740;&#xFF0C;&#x5148;&#x67E5;&#x770B;&#x672C;&#x5730;&#x8BB0;&#x5F55;&#xFF0C;&#x672C;&#x5730;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#xFF1A;</p>
-<pre class="language-"><code class="lang-markdown">192.168.1.11                        db
+<pre><code class="lang-markdown">192.168.1.11                        db
 </code></pre>
 <p>DNS&#x914D;&#x7F6E;&#x5728; <code>/etc/resolv.conf</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5C06;&#x4E3B;&#x673A;&#x6307;&#x5411;DNS&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
-<pre class="language-"><code class="lang-markdown">nameserver                        192.168.1.100  ## &#x53EF;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;
+<pre><code class="lang-markdown">nameserver                        192.168.1.100  ## &#x53EF;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;
 </code></pre>
 <p>&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x4E5F;&#x5728;&#x6BCF;&#x4E2A;&#x4E3B;&#x673A;&#x4E0A;&#x914D;&#x7F6E;&#x591A;&#x4E2A;DNS&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;DNS&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5C06;&#x4EFB;&#x4F55;&#x672A;&#x77E5;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x8F6C;&#x53D1;&#x5230;Internet&#x4E0A;&#x7684;&#x516C;&#x5171;DNS&#x670D;&#x52A1;&#x5668;</p>
 <p>&#x4F18;&#x5148;&#x7EA7;&#x987A;&#x5E8F;&#x53EF;&#x4EE5;&#x5728; <code>/etc/nsswitch.conf</code> &#x4E2D;&#x4FEE;&#x6539;&#xFF1A;</p>
-<pre class="language-"><code class="lang-markdown">...
+<pre><code class="lang-markdown">...
 hosts:                        files dns
 ...
 </code></pre>
@@ -1215,7 +1215,7 @@ hosts:                        files dns
 </ul>
 <h3 id="9-search-domain"><a name="9-search-domain" class="anchor-navigation-ex-anchor" href="#9-search-domain"><i class="fa fa-link" aria-hidden="true"></i></a>9. Search Domain</h3>
 <p>&#x5728; <code>/etc/resolv.conf</code> &#x4E2D;&#x6DFB;&#x52A0; <code>search</code> &#x6761;&#x76EE;&#x5E76;&#x6307;&#x5B9A;&#x8981;&#x9644;&#x52A0;&#x7684;&#x641C;&#x7D22;&#x57DF;&#x540D;</p>
-<pre class="language-"><code class="lang-markdown">search                        mycompany.com prod.mycompany.com
+<pre><code class="lang-markdown">search                        mycompany.com prod.mycompany.com
 </code></pre>
 <p>&#x8F93;&#x5165; <code>web</code> &#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x5C1D;&#x8BD5;&#x5339;&#x914D; <code>web.mycompany.com</code> &#x3001;<code>web.prod.mycompany.com</code></p>
 <h3 id="10-record-types"><a name="10-record-types" class="anchor-navigation-ex-anchor" href="#10-record-types"><i class="fa fa-link" aria-hidden="true"></i></a>10. Record Types</h3>
@@ -1252,7 +1252,7 @@ hosts:                        files dns
 <li><p>&#x9ED8;&#x8BA4;&#x4FA6;&#x542C;&#x7AEF;&#x53E3;53</p>
 </li>
 <li><p>&#x914D;&#x7F6E;Corefile&#x6587;&#x4EF6;</p>
-<pre class="language-"><code>. {
+<pre><code>. {
     hosts /etc/hosts
 }
 </code></pre></li>
@@ -1304,7 +1304,7 @@ hosts:                        files dns
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"next":{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},"previous":{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/12.硬盘和路由.md","mtime":"2023-07-13T02:05:20.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"next":{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},"previous":{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/12.硬盘和路由.md","mtime":"2023-07-13T02:05:20.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1336,10 +1336,6 @@ hosts:                        files dns
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

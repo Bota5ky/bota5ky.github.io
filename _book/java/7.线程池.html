@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1161,9 +1161,9 @@
 <li>&#x5982;&#x679C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x5219;&#x6267;&#x884C;&#x62D2;&#x7EDD;&#x7B56;&#x7565;&#xFF0C;&#x62D2;&#x7EDD;&#x6B64;<code>Runnable</code></li>
 </ol>
 <h3 id="5-&#x4E09;&#x5927;&#x65B9;&#x6CD5;"><a name="5-&#x4E09;&#x5927;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#5-&#x4E09;&#x5927;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x4E09;&#x5927;&#x65B9;&#x6CD5;</h3>
-<pre class="language-"><code class="lang-java"><span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newSingleThreadExecutor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x5355;&#x4E2A;&#x7EBF;&#x7A0B;</span>
-<span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newFixedThreadPool</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x56FA;&#x5B9A;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5927;&#x5C0F;</span>
-<span class="token class-name">Executors</span><span class="token punctuation">.</span><span class="token function">newCachedThreadPool</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x53EF;&#x4F38;&#x7F29;&#x7684;</span>
+<pre><code class="lang-java">Executors.newSingleThreadExecutor(); <span class="hljs-comment">// &#x5355;&#x4E2A;&#x7EBF;&#x7A0B;</span>
+Executors.newFixedThreadPool(<span class="hljs-number">5</span>); <span class="hljs-comment">// &#x56FA;&#x5B9A;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5927;&#x5C0F;</span>
+Executors.newCachedThreadPool(); <span class="hljs-comment">// &#x53EF;&#x4F38;&#x7F29;&#x7684;</span>
 </code></pre>
 <p>&#x4EE5;&#x4E0A;&#x5E95;&#x5C42;&#x90FD;&#x662F;&#x7531; ThreadPoolExecutor &#x5B9E;&#x73B0;</p>
 <blockquote>
@@ -1176,29 +1176,29 @@ Executors &#x8FD4;&#x56DE;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5BF9;&#x8C61;&#x768
 </ul>
 </blockquote>
 <h3 id="6-&#x4E03;&#x5927;&#x53C2;&#x6570;"><a name="6-&#x4E03;&#x5927;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#6-&#x4E03;&#x5927;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x4E03;&#x5927;&#x53C2;&#x6570;</h3>
-<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token class-name">ThreadPoolExecutor</span><span class="token punctuation">(</span>
-    <span class="token keyword">int</span> corePoolSize<span class="token punctuation">,</span>
-    <span class="token keyword">int</span> maximumPoolSize<span class="token punctuation">,</span>
-    <span class="token keyword">long</span> keepAliveTime<span class="token punctuation">,</span>
-    <span class="token class-name">TimeUnit</span> unit<span class="token punctuation">,</span>    <span class="token comment">// TimeUnit.SECONDS</span>
-    <span class="token class-name">BlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Runnable</span><span class="token punctuation">&gt;</span></span> workQueue<span class="token punctuation">,</span>    <span class="token comment">// new LinkedBlockingDeque&lt;&gt;(3)</span>
-    <span class="token class-name">ThreadFactory</span> threadFactory<span class="token punctuation">,</span>    <span class="token comment">// Executors.defaultThreadFactory()</span>
-    <span class="token class-name">RejectedExecutionHandler</span> handler <span class="token comment">// new ThreadPoolExecutor.AbortPolicy()</span>
-<span class="token punctuation">)</span>
-</code></pre>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ThreadPoolExecutor</span><span class="hljs-params">(
+    <span class="hljs-keyword">int</span> corePoolSize,
+    <span class="hljs-keyword">int</span> maximumPoolSize,
+    <span class="hljs-keyword">long</span> keepAliveTime,
+    TimeUnit unit,    // TimeUnit.SECONDS
+    BlockingQueue&lt;Runnable&gt; workQueue,    // new LinkedBlockingDeque&lt;&gt;(<span class="hljs-number">3</span>)</span>
+    ThreadFactory threadFactory,    <span class="hljs-comment">// Executors.defaultThreadFactory()</span>
+    RejectedExecutionHandler handler <span class="hljs-comment">// new ThreadPoolExecutor.AbortPolicy()</span>
+)
+</span></code></pre>
 <h3 id="7-&#x56DB;&#x79CD;&#x7B56;&#x7565;"><a name="7-&#x56DB;&#x79CD;&#x7B56;&#x7565;" class="anchor-navigation-ex-anchor" href="#7-&#x56DB;&#x79CD;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x56DB;&#x79CD;&#x7B56;&#x7565;</h3>
 <ul>
 <li>AbortPolicy &#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6C60;&#x62D2;&#x7EDD;&#x4E86;&#x4EFB;&#x52A1;&#xFF0C;&#x76F4;&#x63A5;&#x62A5;&#x9519;</li>
 <li>CallerRunsPolicy &#x7EBF;&#x7A0B;&#x6C60;&#x8BA9;&#x8C03;&#x7528;&#x8005;&#x53BB;&#x6267;&#x884C;</li>
 </ul>
-<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">CallerRunsPolicy</span> <span class="token keyword">implements</span> <span class="token class-name">RejectedExecutionHandler</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token class-name">CallerRunsPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rejectedExecution</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> r<span class="token punctuation">,</span> <span class="token class-name">ThreadPoolExecutor</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>e<span class="token punctuation">.</span><span class="token function">isShutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            r<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x6E90;&#x7801;&#x903B;&#x8F91;&#x4E3A;&#xFF0C;&#x5148;&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x6C60;&#x8FD8;&#x672A;&#x5173;&#x95ED;&#xFF0C;&#x7136;&#x540E;&#x76F4;&#x63A5;r.run&#x8FD0;&#x884C;&#x4E86;&#x4EFB;&#x52A1;&#x3002;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CallerRunsPolicy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">RejectedExecutionHandler</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CallerRunsPolicy</span><span class="hljs-params">()</span> </span>{ }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rejectedExecution</span><span class="hljs-params">(Runnable r, ThreadPoolExecutor e)</span> </span>{
+        <span class="hljs-keyword">if</span> (!e.isShutdown()) {
+            r.run(); <span class="hljs-comment">// &#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x6E90;&#x7801;&#x903B;&#x8F91;&#x4E3A;&#xFF0C;&#x5148;&#x5224;&#x65AD;&#x7EBF;&#x7A0B;&#x6C60;&#x8FD8;&#x672A;&#x5173;&#x95ED;&#xFF0C;&#x7136;&#x540E;&#x76F4;&#x63A5;r.run&#x8FD0;&#x884C;&#x4E86;&#x4EFB;&#x52A1;&#x3002;</span>
+        }
+    }
+}
 </code></pre>
 <ul>
 <li>DiscardPolicy &#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6C60;&#x62D2;&#x7EDD;&#x4E86;&#x4EFB;&#x52A1;&#xFF0C;&#x76F4;&#x63A5;&#x4E22;&#x5F03;</li>
@@ -1249,7 +1249,7 @@ Executors &#x8FD4;&#x56DE;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5BF9;&#x8C61;&#x768
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7. 线程池","level":"1.8.7","depth":2,"next":{"title":"数据库","level":"1.9","depth":1,"path":"数据库.md","ref":"数据库.md","articles":[]},"previous":{"title":"6. 单例模式","level":"1.8.6","depth":2,"path":"java/6.单例模式.md","ref":"java/6.单例模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/7.线程池.md","mtime":"2023-07-13T02:05:20.292Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7. 线程池","level":"1.8.7","depth":2,"next":{"title":"数据库","level":"1.9","depth":1,"path":"数据库.md","ref":"数据库.md","articles":[]},"previous":{"title":"6. 单例模式","level":"1.8.6","depth":2,"path":"java/6.单例模式.md","ref":"java/6.单例模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/7.线程池.md","mtime":"2023-07-13T02:05:20.292Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1281,10 +1281,6 @@ Executors &#x8FD4;&#x56DE;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5BF9;&#x8C61;&#x768
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

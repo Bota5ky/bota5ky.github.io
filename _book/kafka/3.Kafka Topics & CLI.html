@@ -42,7 +42,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -1072,183 +1072,183 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-kafka-cli-kafka-topicssh"><b></b>1. Kafka CLI: kafka-topics.sh</a></li><li><span class="title-icon "></span><a href="#2-kafka-cli-kafka-console-producersh"><b></b>2. Kafka CLI: kafka-console-producer.sh</a></li><li><span class="title-icon "></span><a href="#3-kafka-cli-kafka-console-consumersh"><b></b>3. Kafka CLI: kafka-console-consumer.sh</a></li><li><span class="title-icon "></span><a href="#4-cli-consumer-in-groups-with-kafka-console-consumersh"><b></b>4. CLI Consumer in Groups with kafka-console-consumer.sh</a></li><li><span class="title-icon "></span><a href="#5-consumer-group-management-cli-kafka-consumer-groupssh"><b></b>5. Consumer Group Management CLI kafka-consumer-groups.sh</a></li><li><span class="title-icon "></span><a href="#6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><b></b>6. Consumer Groups -Reset Offsets kafka-consumer-groups.sh</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-kafka-cli-kafka-topicssh"><a name="1-kafka-cli-kafka-topicssh" class="anchor-navigation-ex-anchor" href="#1-kafka-cli-kafka-topicssh"><i class="fa fa-link" aria-hidden="true"></i></a>1. Kafka CLI: <code>kafka-topics.sh</code></h3>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-topics.sh&quot; </span>
-<span class="token comment"># by &quot;kafka-topics&quot; or &quot;kafka-topics.bat&quot; based on your system # (or bin/kafka-topics.sh or bin\windows\kafka-topics.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># Replace &quot;kafka-topics.sh&quot; </span>
+<span class="hljs-comment"># by &quot;kafka-topics&quot; or &quot;kafka-topics.bat&quot; based on your system # (or bin/kafka-topics.sh or bin\windows\kafka-topics.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
 kafka-topics.sh 
 
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--list</span> 
+kafka-topics.sh --bootstrap-server localhost:9092 --list 
 
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--create</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create
 
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--create</span> <span class="token parameter variable">--partitions</span> <span class="token number">3</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3
 
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--create</span> <span class="token parameter variable">--partitions</span> <span class="token number">3</span> --replication-factor <span class="token number">2</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 2
 
-<span class="token comment"># Create a topic (working)</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--create</span> <span class="token parameter variable">--partitions</span> <span class="token number">3</span> --replication-factor <span class="token number">1</span>
+<span class="hljs-comment"># Create a topic (working)</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
 
-<span class="token comment"># List topics</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--list</span> 
+<span class="hljs-comment"># List topics</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --list 
 
-<span class="token comment"># Describe a topic</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--describe</span>
+<span class="hljs-comment"># Describe a topic</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --describe
 
-<span class="token comment"># Delete a topic </span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--delete</span>
-<span class="token comment"># (only works if delete.topic.enable=true)</span>
+<span class="hljs-comment"># Delete a topic </span>
+kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --delete
+<span class="hljs-comment"># (only works if delete.topic.enable=true)</span>
 </code></pre>
 <h3 id="2-kafka-cli-kafka-console-producersh"><a name="2-kafka-cli-kafka-console-producersh" class="anchor-navigation-ex-anchor" href="#2-kafka-cli-kafka-console-producersh"><i class="fa fa-link" aria-hidden="true"></i></a>2. Kafka CLI: <code>kafka-console-producer.sh</code></h3>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-console-producer.sh&quot; </span>
-<span class="token comment"># by &quot;kafka-console-producer&quot; or &quot;kafka-console-producer.bat&quot; based on your system # (or bin/kafka-console-producer.sh or bin\windows\kafka-console-producer.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># Replace &quot;kafka-console-producer.sh&quot; </span>
+<span class="hljs-comment"># by &quot;kafka-console-producer&quot; or &quot;kafka-console-producer.bat&quot; based on your system # (or bin/kafka-console-producer.sh or bin\windows\kafka-console-producer.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
 kafka-console-producer.sh 
 
-<span class="token comment"># producing</span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic 
-<span class="token operator">&gt;</span> Hello World
-<span class="token operator">&gt;</span>My name is Conduktor
-<span class="token operator">&gt;</span>I love Kafka
-<span class="token operator">&gt;</span>^C  <span class="token punctuation">(</span><span class="token operator">&lt;</span>- Ctrl + C is used to <span class="token builtin class-name">exit</span> the producer<span class="token punctuation">)</span>
+<span class="hljs-comment"># producing</span>
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic 
+&gt; Hello World
+&gt;My name is Conduktor
+&gt;I love Kafka
+&gt;^C  (&lt;- Ctrl + C is used to <span class="hljs-built_in">exit</span> the producer)
 
 
-<span class="token comment"># producing with properties</span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic --producer-property <span class="token assign-left variable">acks</span><span class="token operator">=</span>all
-<span class="token operator">&gt;</span> some message that is acked
-<span class="token operator">&gt;</span> just <span class="token keyword">for</span> fun
-<span class="token operator">&gt;</span> fun learning<span class="token operator">!</span>
+<span class="hljs-comment"># producing with properties</span>
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic --producer-property acks=all
+&gt; some message that is acked
+&gt; just <span class="hljs-keyword">for</span> fun
+&gt; fun learning!
 
 
-<span class="token comment"># producing to a non existing topic</span>
-<span class="token comment"># &#x4F1A;&#x81EA;&#x52A8;&#x5E2E;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4E3B;&#x9898;&#xFF0C;&#x9ED8;&#x8BA4;partition=1 </span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> new_topic
-<span class="token operator">&gt;</span> hello world<span class="token operator">!</span>
+<span class="hljs-comment"># producing to a non existing topic</span>
+<span class="hljs-comment"># &#x4F1A;&#x81EA;&#x52A8;&#x5E2E;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4E3B;&#x9898;&#xFF0C;&#x9ED8;&#x8BA4;partition=1 </span>
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic new_topic
+&gt; hello world!
 
-<span class="token comment"># our new topic only has 1 partition</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--list</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> new_topic <span class="token parameter variable">--describe</span>
-
-
-<span class="token comment"># edit config/server.properties or config/kraft/server.properties</span>
-<span class="token comment"># num.partitions=3</span>
-
-<span class="token comment"># produce against a non existing topic again</span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> new_topic_2
-hello again<span class="token operator">!</span>
-
-<span class="token comment"># this time our topic has 3 partitions</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--list</span>
-kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> new_topic_2 <span class="token parameter variable">--describe</span>
-
-<span class="token comment"># overall, please create topics before producing to them!</span>
+<span class="hljs-comment"># our new topic only has 1 partition</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+kafka-topics.sh --bootstrap-server localhost:9092 --topic new_topic --describe
 
 
-<span class="token comment"># produce with keys</span>
-kafka-console-producer --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--property</span> <span class="token assign-left variable">parse.key</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">key.separator</span><span class="token operator">=</span>:
-<span class="token operator">&gt;</span>example key:example value
-<span class="token operator">&gt;</span>name:Stephane
+<span class="hljs-comment"># edit config/server.properties or config/kraft/server.properties</span>
+<span class="hljs-comment"># num.partitions=3</span>
+
+<span class="hljs-comment"># produce against a non existing topic again</span>
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic new_topic_2
+hello again!
+
+<span class="hljs-comment"># this time our topic has 3 partitions</span>
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+kafka-topics.sh --bootstrap-server localhost:9092 --topic new_topic_2 --describe
+
+<span class="hljs-comment"># overall, please create topics before producing to them!</span>
+
+
+<span class="hljs-comment"># produce with keys</span>
+kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic --property parse.key=<span class="hljs-literal">true</span> --property key.separator=:
+&gt;example key:example value
+&gt;name:Stephane
 </code></pre>
 <h3 id="3-kafka-cli-kafka-console-consumersh"><a name="3-kafka-cli-kafka-console-consumersh" class="anchor-navigation-ex-anchor" href="#3-kafka-cli-kafka-console-consumersh"><i class="fa fa-link" aria-hidden="true"></i></a>3. Kafka CLI: <code>kafka-console-consumer.sh</code></h3>
-<pre class="language-"><code class="lang-shell"><span class="token comment"># Replace &quot;kafka-console-consumer.sh&quot; </span>
-<span class="token comment"># by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-shell"># Replace &quot;kafka-console-consumer.sh&quot; 
+# by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)
 
 kafka-console-consumer.sh 
 
-<span class="token comment"># consuming</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic
+# consuming
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic
 
-<span class="token comment"># other terminal</span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic
+# other terminal
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic
 
-<span class="token comment"># consuming from beginning</span>
-<span class="token comment"># &#x9ED8;&#x8BA4;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x8BFB;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982;&#x7D2F;&#x79EF;&#x4E86;&#x4E00;&#x5468;&#x7684;&#x6D88;&#x606F;</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic --from-beginning
+# consuming from beginning
+# &#x9ED8;&#x8BA4;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x8BFB;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982;&#x7D2F;&#x79EF;&#x4E86;&#x4E00;&#x5468;&#x7684;&#x6D88;&#x606F;
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --from-beginning
 
-<span class="token comment"># display key, values and timestamp in consumer</span>
-kafka-console-consumer --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--formatter</span> kafka.tools.DefaultMessageFormatter <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.timestamp</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.key</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.value</span><span class="token operator">=</span>true --from-beginning
+# display key, values and timestamp in consumer
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true --from-beginning
 </code></pre>
 <h3 id="4-cli-consumer-in-groups-with-kafka-console-consumersh"><a name="4-cli-consumer-in-groups-with-kafka-console-consumersh" class="anchor-navigation-ex-anchor" href="#4-cli-consumer-in-groups-with-kafka-console-consumersh"><i class="fa fa-link" aria-hidden="true"></i></a>4. CLI Consumer in Groups with <code>kafka-console-consumer.sh</code></h3>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-console-consumer.sh&quot; </span>
-<span class="token comment"># by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># Replace &quot;kafka-console-consumer.sh&quot; </span>
+<span class="hljs-comment"># by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
-<span class="token comment"># start one consumer</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># start one consumer</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 
-<span class="token comment"># start one producer and start producing</span>
-kafka-console-producer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic
+<span class="hljs-comment"># start one producer and start producing</span>
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic
 
-<span class="token comment"># start another consumer part of the same group. See messages being spread</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># start another consumer part of the same group. See messages being spread</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 
-<span class="token comment"># start another consumer part of a different group from beginning</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-second-application --from-beginning
+<span class="hljs-comment"># start another consumer part of a different group from beginning</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-second-application --from-beginning
 </code></pre>
 <h3 id="5-consumer-group-management-cli-kafka-consumer-groupssh"><a name="5-consumer-group-management-cli-kafka-consumer-groupssh" class="anchor-navigation-ex-anchor" href="#5-consumer-group-management-cli-kafka-consumer-groupssh"><i class="fa fa-link" aria-hidden="true"></i></a>5. Consumer Group Management CLI <code>kafka-consumer-groups.sh</code></h3>
-<pre class="language-"><code class="lang-bash"> <span class="token comment"># Replace &quot;kafka-consumer-groups.sh&quot; </span>
-<span class="token comment"># by &quot;kafka-consumer-groups&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-bash"> <span class="hljs-comment"># Replace &quot;kafka-consumer-groups.sh&quot; </span>
+<span class="hljs-comment"># by &quot;kafka-consumer-groups&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
-<span class="token comment"># documentation for the command </span>
+<span class="hljs-comment"># documentation for the command </span>
 kafka-consumer-groups.sh 
 
-<span class="token comment"># list consumer groups</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--list</span>
+<span class="hljs-comment"># list consumer groups</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
 
-<span class="token comment"># describe one specific group</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-second-application
+<span class="hljs-comment"># describe one specific group</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-second-application
 
-<span class="token comment"># describe another group</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># describe another group</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-first-application
 
-<span class="token comment"># start a consumer</span>
-<span class="token comment"># &#x542F;&#x52A8;consumer&#x65F6;&#xFF0C;&#x82E5;&#x4E0D;&#x6307;&#x5B9A;group&#xFF0C;&#x5219;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;group&#xFF0C;&#x5728;consumer&#x5173;&#x95ED;&#x540E;&#x5220;&#x9664;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x63D0;&#x4EA4;offset</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># start a consumer</span>
+<span class="hljs-comment"># &#x542F;&#x52A8;consumer&#x65F6;&#xFF0C;&#x82E5;&#x4E0D;&#x6307;&#x5B9A;group&#xFF0C;&#x5219;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;group&#xFF0C;&#x5728;consumer&#x5173;&#x95ED;&#x540E;&#x5220;&#x9664;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x63D0;&#x4EA4;offset</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 
-<span class="token comment"># describe the group now</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># describe the group now</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-first-application
 
-<span class="token comment"># describe a console consumer group (change the end number)</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> console-consumer-10592
+<span class="hljs-comment"># describe a console consumer group (change the end number)</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group console-consumer-10592
 
-<span class="token comment"># start a console consumer</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># start a console consumer</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 
-<span class="token comment"># describe the group again</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># describe the group again</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-first-application
 </code></pre>
 <h3 id="6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><a name="6-consumer-groups--reset-offsets-kafka-consumer-groupssh" class="anchor-navigation-ex-anchor" href="#6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><i class="fa fa-link" aria-hidden="true"></i></a>6. Consumer Groups -Reset Offsets <code>kafka-consumer-groups.sh</code></h3>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-consumer-groups&quot; </span>
-<span class="token comment"># by &quot;kafka-consumer-groups.sh&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># Replace &quot;kafka-consumer-groups&quot; </span>
+<span class="hljs-comment"># by &quot;kafka-consumer-groups.sh&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
-<span class="token comment"># look at the documentation again</span>
+<span class="hljs-comment"># look at the documentation again</span>
 kafka-consumer-groups
 
-<span class="token comment"># reset the offsets to the beginning of each partition</span>
-<span class="token comment"># &#x505C;&#x6B62;&#x8FD0;&#x884C;consumer&#x624D;&#x53EF;&#x4EE5;reset</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--group</span> my-first-application --reset-offsets --to-earliest
+<span class="hljs-comment"># reset the offsets to the beginning of each partition</span>
+<span class="hljs-comment"># &#x505C;&#x6B62;&#x8FD0;&#x884C;consumer&#x624D;&#x53EF;&#x4EE5;reset</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest
 
-<span class="token comment"># execute flag is needed</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--group</span> my-first-application --reset-offsets --to-earliest <span class="token parameter variable">--execute</span>
+<span class="hljs-comment"># execute flag is needed</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest --execute
 
-<span class="token comment"># topic flag is also needed</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--group</span> my-first-application --reset-offsets --to-earliest <span class="token parameter variable">--execute</span> <span class="token parameter variable">--topic</span> first_topic
+<span class="hljs-comment"># topic flag is also needed</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic first_topic
 
-<span class="token comment"># consume from where the offsets have been reset</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># consume from where the offsets have been reset</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 
-<span class="token comment"># describe the group again</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># describe the group again</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-first-application
 
-<span class="token comment"># documentation for more options</span>
+<span class="hljs-comment"># documentation for more options</span>
 kafka-consumer-groups.sh
 
-<span class="token comment"># shift offsets by 2 (forward) as another strategy</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--group</span> my-first-application --reset-offsets --shift-by <span class="token number">2</span> <span class="token parameter variable">--execute</span> <span class="token parameter variable">--topic</span> first_topic
+<span class="hljs-comment"># shift offsets by 2 (forward) as another strategy</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by 2 --execute --topic first_topic
 
-<span class="token comment"># shift offsets by 2 (backward) as another strategy</span>
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--group</span> my-first-application --reset-offsets --shift-by <span class="token parameter variable">-2</span> <span class="token parameter variable">--execute</span> <span class="token parameter variable">--topic</span> first_topic
+<span class="hljs-comment"># shift offsets by 2 (backward) as another strategy</span>
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --shift-by -2 --execute --topic first_topic
 
-<span class="token comment"># consume again</span>
-kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-first-application
+<span class="hljs-comment"># consume again</span>
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-first-application
 </code></pre>
 
                                 
@@ -1293,7 +1293,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"next":{"title":"4. Java Integration","level":"1.6.4","depth":2,"path":"kafka/4.Java Integration.md","ref":"kafka/4.Java Integration.md","articles":[]},"previous":{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","prism","-highlight","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"flow":"self"},"ignore":["mermaid"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/3.Kafka Topics & CLI.md","mtime":"2023-07-13T02:05:20.337Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:48:41.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. Kafka Topics & CLI","level":"1.6.3","depth":2,"next":{"title":"4. Java Integration","level":"1.6.4","depth":2,"path":"kafka/4.Java Integration.md","ref":"kafka/4.Java Integration.md","articles":[]},"previous":{"title":"2. 基本概念","level":"1.6.2","depth":2,"path":"kafka/2.基本概念.md","ref":"kafka/2.基本概念.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code"],"pluginsConfig":{"chapter-fold":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kafka/3.Kafka Topics & CLI.md","mtime":"2023-07-13T02:05:20.337Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T05:52:44.840Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1325,10 +1325,6 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
     
         
         <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
