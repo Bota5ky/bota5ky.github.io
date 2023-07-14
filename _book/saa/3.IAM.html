@@ -1,0 +1,1237 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3. IAM · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.EC2.html" />
+    
+    
+    <link rel="prev" href="2.考试概览.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SAA 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="6.EBS.html">
+            
+                <a href="6.EBS.html">
+            
+                    
+                    6. EBS, AMI & EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="7.LB&ASG.html">
+            
+                <a href="7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="9.路由.html">
+            
+                <a href="9.路由.html">
+            
+                    
+                    9. 路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="10.S3, FSx & Storage Gateway.html">
+            
+                <a href="10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="11.S3, Glacier & Athena.html">
+            
+                <a href="11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="14.ECS.html">
+            
+                <a href="14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="15.考前速记.html">
+            
+                <a href="15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../dbs/">
+            
+                <a href="../dbs/">
+            
+                    
+                    DBS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../dbs/1.基本概念及Security.html">
+            
+                <a href="../dbs/1.基本概念及Security.html">
+            
+                    
+                    1. 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../dbs/2.RDS备份.html">
+            
+                <a href="../dbs/2.RDS备份.html">
+            
+                    
+                    2. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cli/1.git常用命令.html">
+            
+                <a href="../cli/1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cli/2.ssh配置及连接.html">
+            
+                <a href="../cli/2.ssh配置及连接.html">
+            
+                    
+                    2. ssh 配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cli/3.terminal常用快捷键.html">
+            
+                <a href="../cli/3.terminal常用快捷键.html">
+            
+                    
+                    3. terminal 常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cli/4.JSON Path.html">
+            
+                <a href="../cli/4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cli/5.常用PowerShell命令.html">
+            
+                <a href="../cli/5.常用PowerShell命令.html">
+            
+                    
+                    5. 常用 PowerShell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cli/6.正则表达式.html">
+            
+                <a href="../cli/6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../k8s/3.调度.html">
+            
+                <a href="../k8s/3.调度.html">
+            
+                    
+                    3. 调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../k8s/4.设定资源.html">
+            
+                <a href="../k8s/4.设定资源.html">
+            
+                    
+                    4. 设定资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                <a href="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                    
+                    5. 守护进程、静态Pod、多调度器 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                <a href="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../k8s/10.RBAC.html">
+            
+                <a href="../k8s/10.RBAC.html">
+            
+                    
+                    10. RBAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../k8s/11.网络策略和存储.html">
+            
+                <a href="../k8s/11.网络策略和存储.html">
+            
+                    
+                    11. 网络策略和存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../k8s/12.硬盘和路由.html">
+            
+                <a href="../k8s/12.硬盘和路由.html">
+            
+                    
+                    12. 硬盘和路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../k8s/13.网络空间.html">
+            
+                <a href="../k8s/13.网络空间.html">
+            
+                    
+                    13. 网络空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../k8s/15.资料及经验分享.html">
+            
+                <a href="../k8s/15.资料及经验分享.html">
+            
+                    
+                    15. 资料及经验分享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3. IAM</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-iam-users--groups"><b></b>1. IAM: Users &amp; Groups</a></li><li><span class="title-icon "></span><a href="#2-iam-permissions"><b></b>2. IAM: Permissions</a></li><li><span class="title-icon "></span><a href="#3-iam-policies-structure"><b></b>3. IAM Policies Structure</a></li><li><span class="title-icon "></span><a href="#4-how-can-users-access-aws-"><b></b>4. How can users access AWS ?</a></li><li><span class="title-icon "></span><a href="#5-iam-security-tools"><b></b>5. IAM Security Tools</a></li><li><span class="title-icon "></span><a href="#6-iam-guidelines--best-practices"><b></b>6. IAM Guidelines &amp; Best Practices</a></li><li><span class="title-icon "></span><a href="#7-shared-responsibility-model-for-iam"><b></b>7. Shared Responsibility Model for IAM</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-iam-users--groups"><a name="1-iam-users--groups" class="anchor-navigation-ex-anchor" href="#1-iam-users--groups"><i class="fa fa-link" aria-hidden="true"></i></a>1. IAM: Users &amp; Groups</h3>
+<p>Identity and Access Management</p>
+<ul>
+<li><strong>Global</strong> service</li>
+<li><strong>Root account</strong> created by default, shouldn&#x2019;t be used or shared</li>
+<li><strong>Users</strong> are people within your organization, and can be grouped</li>
+<li><strong>Groups</strong> only contain users, not other groups</li>
+<li>Users don&#x2019;t have to belong to a group, and user can belong to multiple groups</li>
+</ul>
+<h3 id="2-iam-permissions"><a name="2-iam-permissions" class="anchor-navigation-ex-anchor" href="#2-iam-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>2. IAM: Permissions</h3>
+<ul>
+<li><strong>Users or Groups</strong> can be assigned JSON documents called policies</li>
+<li>These policies define the <strong>permissions</strong> of the users</li>
+<li>In AWS you apply the <strong>least privilege principle</strong>: don&apos;t give more permissions than a user needs</li>
+</ul>
+<h3 id="3-iam-policies-structure"><a name="3-iam-policies-structure" class="anchor-navigation-ex-anchor" href="#3-iam-policies-structure"><i class="fa fa-link" aria-hidden="true"></i></a>3. IAM Policies Structure</h3>
+<center><img src="iam.png" style="zoom:75%"></center>
+
+<p>Version: policy language version, always include <code>&quot;2012-10-17&quot;</code>
+Id: an identifier for the policy (optional)
+Statement: one or more individual statements (required)</p>
+<ul>
+<li>Sid: an identifier for the statement (optional) </li>
+<li>Effect: whether the statement allows or denies access (Allow, Deny)</li>
+<li>Principal: account/user/role to which this policy applied to</li>
+<li>Action: list of actions this policy allows or denies</li>
+<li>Resource: list of resources to which the actions applied to</li>
+<li>Condition: conditions for when this policy is in effect (optional)</li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/access_iam-tags.html" target="_blank">&#x4F7F;&#x7528;&#x6807;&#x7B7E;&#x63A7;&#x5236;&#x5BF9; IAM &#x7528;&#x6237;&#x548C;&#x89D2;&#x8272;&#x7684;&#x8BBF;&#x95EE;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x8FDB;&#x884C;&#x7684;&#x8BBF;&#x95EE;</a></p>
+<h3 id="4-how-can-users-access-aws-"><a name="4-how-can-users-access-aws-" class="anchor-navigation-ex-anchor" href="#4-how-can-users-access-aws-"><i class="fa fa-link" aria-hidden="true"></i></a>4. How can users access AWS ?</h3>
+<ul>
+<li><strong>AWS Management Console</strong> (protected by password + MFA)</li>
+<li><strong><a href="https://github.com/aws/aws-cli" target="_blank">AWS Command Line Interface (CLI)</a></strong>: protected by access keys (is built on AWS SDK for Python)</li>
+<li><strong>AWS Software Developer Kit (SDK)</strong> - for code: protected by access keys</li>
+</ul>
+<h3 id="5-iam-security-tools"><a name="5-iam-security-tools" class="anchor-navigation-ex-anchor" href="#5-iam-security-tools"><i class="fa fa-link" aria-hidden="true"></i></a>5. IAM Security Tools</h3>
+<p>IAM Credentials Report (account-level):</p>
+<ul>
+<li>a report that lists all your account&apos;s users and the status of their various credentials</li>
+</ul>
+<p>IAM Access Advisor (user-level):</p>
+<ul>
+<li>Access advisor shows the service permissions granted to a user and when those services were last accessed</li>
+<li>You can use this information to revise your policies</li>
+</ul>
+<h3 id="6-iam-guidelines--best-practices"><a name="6-iam-guidelines--best-practices" class="anchor-navigation-ex-anchor" href="#6-iam-guidelines--best-practices"><i class="fa fa-link" aria-hidden="true"></i></a>6. IAM Guidelines &amp; Best Practices</h3>
+<ul>
+<li>Don&#x2019;t use the root account except for AWS account setup</li>
+<li>One physical user = One AWS <strong>user</strong></li>
+<li><strong>Assign users to groups</strong> and assign permissions to groups</li>
+<li>Create a <strong>strong password policy</strong></li>
+<li>Use and enforce the use of <strong>Multi Factor Authentication (MFA)</strong></li>
+<li>Create and use <strong>Roles</strong> for giving permissions to AWS services</li>
+<li>Use Access Keys for Programmatic Access (CLI / SDK)</li>
+<li>Audit permissions of your account with the IAM Credentials Report</li>
+<li><strong>Never share IAM users &amp; Access Keys</strong></li>
+</ul>
+<h3 id="7-shared-responsibility-model-for-iam"><a name="7-shared-responsibility-model-for-iam" class="anchor-navigation-ex-anchor" href="#7-shared-responsibility-model-for-iam"><i class="fa fa-link" aria-hidden="true"></i></a>7. Shared Responsibility Model for IAM</h3>
+<table>
+<thead>
+<tr>
+<th><center>aws</center></th>
+<th><center>you</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Infrastructure (global network security) <br>- Configuration and vulnerability analysis <br>- Compliance validation</td>
+<td>- Users, Groups, Roles, Policies management and monitoring <br>- Enable MFA on all accounts <br>- Rotate all your keys often <br>- Use IAM tools to apply appropriate permissions <br>- Analyze access patterns &amp; review permissions</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.考试概览.html" class="navigation navigation-prev " aria-label="Previous page: 2. SAA-C02考试概览">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.EC2.html" class="navigation navigation-next " aria-label="Next page: 4. EC2 & Security Groups">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3. IAM","level":"1.2.3","depth":2,"next":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"path":"saa/4.EC2.md","ref":"saa/4.EC2.md","articles":[]},"previous":{"title":"2. SAA-C02考试概览","level":"1.2.2","depth":2,"path":"saa/2.考试概览.md","ref":"saa/2.考试概览.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saa/3.IAM.md","mtime":"2023-07-13T02:05:20.351Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T06:13:31.602Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

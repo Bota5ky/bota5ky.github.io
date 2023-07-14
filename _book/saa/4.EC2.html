@@ -1,0 +1,1349 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4. EC2 & Security Groups · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="5.ElasticIPs.html" />
+    
+    
+    <link rel="prev" href="3.IAM.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SAA 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1.基本概念.html">
+            
+                <a href="1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.考试概览.html">
+            
+                <a href="2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.IAM.html">
+            
+                <a href="3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="4.EC2.html">
+            
+                <a href="4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.ElasticIPs.html">
+            
+                <a href="5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="6.EBS.html">
+            
+                <a href="6.EBS.html">
+            
+                    
+                    6. EBS, AMI & EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="7.LB&ASG.html">
+            
+                <a href="7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="9.路由.html">
+            
+                <a href="9.路由.html">
+            
+                    
+                    9. 路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="10.S3, FSx & Storage Gateway.html">
+            
+                <a href="10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="11.S3, Glacier & Athena.html">
+            
+                <a href="11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="14.ECS.html">
+            
+                <a href="14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="15.考前速记.html">
+            
+                <a href="15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../dbs/">
+            
+                <a href="../dbs/">
+            
+                    
+                    DBS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../dbs/1.基本概念及Security.html">
+            
+                <a href="../dbs/1.基本概念及Security.html">
+            
+                    
+                    1. 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../dbs/2.RDS备份.html">
+            
+                <a href="../dbs/2.RDS备份.html">
+            
+                    
+                    2. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cli/1.git常用命令.html">
+            
+                <a href="../cli/1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cli/2.ssh配置及连接.html">
+            
+                <a href="../cli/2.ssh配置及连接.html">
+            
+                    
+                    2. ssh 配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cli/3.terminal常用快捷键.html">
+            
+                <a href="../cli/3.terminal常用快捷键.html">
+            
+                    
+                    3. terminal 常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cli/4.JSON Path.html">
+            
+                <a href="../cli/4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cli/5.常用PowerShell命令.html">
+            
+                <a href="../cli/5.常用PowerShell命令.html">
+            
+                    
+                    5. 常用 PowerShell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cli/6.正则表达式.html">
+            
+                <a href="../cli/6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../k8s/3.调度.html">
+            
+                <a href="../k8s/3.调度.html">
+            
+                    
+                    3. 调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../k8s/4.设定资源.html">
+            
+                <a href="../k8s/4.设定资源.html">
+            
+                    
+                    4. 设定资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                <a href="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                    
+                    5. 守护进程、静态Pod、多调度器 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                <a href="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../k8s/10.RBAC.html">
+            
+                <a href="../k8s/10.RBAC.html">
+            
+                    
+                    10. RBAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../k8s/11.网络策略和存储.html">
+            
+                <a href="../k8s/11.网络策略和存储.html">
+            
+                    
+                    11. 网络策略和存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../k8s/12.硬盘和路由.html">
+            
+                <a href="../k8s/12.硬盘和路由.html">
+            
+                    
+                    12. 硬盘和路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../k8s/13.网络空间.html">
+            
+                <a href="../k8s/13.网络空间.html">
+            
+                    
+                    13. 网络空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../k8s/15.资料及经验分享.html">
+            
+                <a href="../k8s/15.资料及经验分享.html">
+            
+                    
+                    15. 资料及经验分享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4. EC2 & Security Groups</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-amazon-ec2-elastic-compute-cloud"><b></b>1. Amazon EC2 (Elastic Compute Cloud)</a></li><li><span class="title-icon "></span><a href="#2-ec2-instance-types---overview"><b></b>2. EC2 Instance Types - Overview</a></li><li><span class="title-icon "></span><a href="#3-introduction-to-security-groups"><b></b>3. Introduction to Security Groups</a></li><li><span class="title-icon "></span><a href="#4-security-groups-good-to-know"><b></b>4. Security Groups Good to know</a></li><li><span class="title-icon "></span><a href="#5-classic-ports-to-know"><b></b>5. Classic Ports to know</a></li><li><span class="title-icon "></span><a href="#6-ssh-summary-table"><b></b>6. SSH Summary Table</a></li><li><span class="title-icon "></span><a href="#7-ec2-instances-purchasing-options"><b></b>7. EC2 Instances Purchasing Options</a></li><li><span class="title-icon "></span><a href="#8-differences-between-options"><b></b>8. Differences between options</a></li><li><span class="title-icon "></span><a href="#9-how-to-terminate-spot-instances"><b></b>9. How to terminate Spot Instances?</a></li><li><span class="title-icon "></span><a href="#10-spot-fleets"><b></b>10. Spot Fleets</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-amazon-ec2-elastic-compute-cloud"><a name="1-amazon-ec2-elastic-compute-cloud" class="anchor-navigation-ex-anchor" href="#1-amazon-ec2-elastic-compute-cloud"><i class="fa fa-link" aria-hidden="true"></i></a>1. Amazon EC2 (Elastic Compute Cloud)</h3>
+<p>It mainly consists in the capability of :</p>
+<ul>
+<li>Renting virtual machines (EC2)</li>
+<li>Storing data on virtual drives (EBS)</li>
+<li>Distributing load across machines (ELB)</li>
+<li>Scaling the services using an auto-scaling group (ASG)</li>
+</ul>
+<h3 id="2-ec2-instance-types---overview"><a name="2-ec2-instance-types---overview" class="anchor-navigation-ex-anchor" href="#2-ec2-instance-types---overview"><i class="fa fa-link" aria-hidden="true"></i></a>2. EC2 Instance Types - Overview</h3>
+<p>m5.2xlarge</p>
+<ul>
+<li>m: instance class</li>
+<li>5: generation (AWS improves them over time)</li>
+<li>2xlarge: size within the instance class</li>
+</ul>
+<h3 id="3-introduction-to-security-groups"><a name="3-introduction-to-security-groups" class="anchor-navigation-ex-anchor" href="#3-introduction-to-security-groups"><i class="fa fa-link" aria-hidden="true"></i></a>3. Introduction to Security Groups</h3>
+<ul>
+<li>Security groups only contain <strong>allow</strong> rules</li>
+<li>Security groups rules can reference by IP or by security group</li>
+</ul>
+<h3 id="4-security-groups-good-to-know"><a name="4-security-groups-good-to-know" class="anchor-navigation-ex-anchor" href="#4-security-groups-good-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>4. Security Groups Good to know</h3>
+<ul>
+<li>Can be attached to multiple instances</li>
+<li>Locked down to a region / VPC combination</li>
+<li>Does live &quot;outside&quot; the EC2 &#x2013; if traffic is blocked the EC2 instance won&apos;t see it</li>
+<li><font color="blue">It&apos;s good to maintain one separate security group for SSH access</font></li>
+<li>If your application is not accessible (time out), then it&apos;s a security group issue</li>
+<li>If your application gives a &quot;connection refused&quot; error, then it&apos;s an application error or it&apos;s not launched</li>
+<li>All inbound traffic is <font color="red">blocked</font> by default</li>
+<li>All outbound traffic is <font color="green">authorised</font> by default</li>
+</ul>
+<h3 id="5-classic-ports-to-know"><a name="5-classic-ports-to-know" class="anchor-navigation-ex-anchor" href="#5-classic-ports-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>5. Classic Ports to know</h3>
+<ul>
+<li>22 = SSH (Secure Shell) - log into a Linux instance</li>
+<li>21 = FTP (File Transfer Protocol) &#x2013; upload files into a file share</li>
+<li>22 = SFTP (Secure File Transfer Protocol) &#x2013; upload files using SSH</li>
+<li>80 = HTTP &#x2013; access unsecured websites</li>
+<li>443 = HTTPS &#x2013; access secured websites</li>
+<li>3389 = RDP (Remote Desktop Protocol) &#x2013; log into a Windows instance</li>
+</ul>
+<h3 id="6-ssh-summary-table"><a name="6-ssh-summary-table" class="anchor-navigation-ex-anchor" href="#6-ssh-summary-table"><i class="fa fa-link" aria-hidden="true"></i></a>6. SSH Summary Table</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">SSH</th>
+<th style="text-align:center">Putty</th>
+<th style="text-align:center">EC2 Instance Connect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Mac</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Linux</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows &lt; 10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+<tr>
+<td style="text-align:center">Windows &gt; 10</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+<td style="text-align:center">&#x221A;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-ec2-instances-purchasing-options"><a name="7-ec2-instances-purchasing-options" class="anchor-navigation-ex-anchor" href="#7-ec2-instances-purchasing-options"><i class="fa fa-link" aria-hidden="true"></i></a>7. EC2 Instances Purchasing Options</h3>
+<ul>
+<li><strong>On-Demand Instances</strong>: short workload, predictable pricing</li>
+<li><strong>Reserved</strong>: (MINIMUM 1 year)<ul>
+<li><strong>Reserved Instances</strong>: long workloads</li>
+<li><strong>Convertible Reserved Instances</strong>: long workloads with flexible instances</li>
+<li><strong>Scheduled Reserved Instances</strong>: example &#x2013; every Thursday between 3 and 6 pm</li>
+</ul>
+</li>
+<li><strong>Spot Instances</strong>: short workloads, cheap, can lose instances (less reliable)<ul>
+<li>Useful for workloads that are resilient to failure: Batch jobs, Data analysis, Image processing, Any distributed workloads, Workloads with a flexible start and end time</li>
+<li>&#x5982;&#x679C;&#x4E3B;&#x52A8;&#x7EC8;&#x6B62;&#x4E00;&#x4E2A;&#x7ADE;&#x4EF7;&#x5B9E;&#x4F8B;&#xFF0C;&#x9700;&#x8981;&#x4E3A;&#x5F53;&#x524D;&#x8FD9;&#x4E2A;&#x5B8C;&#x6574;&#x5C0F;&#x65F6;&#x4ED8;&#x8D39;</li>
+<li>&#x5982;&#x679C;&#x56E0;&#x4E3A;&#x4EF7;&#x683C;&#x4E0A;&#x6DA8;&#xFF0C;AWS&#x7EC8;&#x6B62;&#x4E86;&#x4F60;&#x7684;&#x7ADE;&#x4EF7;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x5C0F;&#x65F6;&#x7684;&#x8D39;&#x7528;&#x4F1A;&#x88AB;&#x514D;&#x9664;</li>
+</ul>
+</li>
+<li><strong>Dedicated Hosts</strong>: book an entire physical server, control instance placement<ul>
+<li>Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses</li>
+</ul>
+</li>
+<li><strong>Dedicated Instances</strong>: no other customers will share your hardware<ul>
+<li>May share hardware with other instances in same account</li>
+<li>No control over instance placement (can move hardware after Stop / Start)</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-differences-between-options"><a name="8-differences-between-options" class="anchor-navigation-ex-anchor" href="#8-differences-between-options"><i class="fa fa-link" aria-hidden="true"></i></a>8. Differences between options</h3>
+<center><img src="diff.png" style="zoom:70%"></center>
+
+<p>*note: </p>
+<ul>
+<li>the % discounts are different from the video as AWS change them over time &#x2013; the exact numbers are not needed for the exam. This is just for illustrative purposes</li>
+<li>Spot Instances: <strong>Spot blocks</strong> during a specified time frame (1 to 6 hours) without interruptions (no longer available from 01/7/2021, support until 31/12/2022)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Discount</th>
+<th style="text-align:center">Reservation Period</th>
+<th style="text-align:center">Upfront Payment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">On Demand</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Reserved</td>
+<td style="text-align:center">Up to 72%</td>
+<td style="text-align:center">1 year/ 3 years</td>
+<td style="text-align:center">No / Partial / All</td>
+</tr>
+<tr>
+<td style="text-align:center">Convertible Reserved</td>
+<td style="text-align:center">Up to 66%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Scheduled Reserved</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">1 year only</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Spot</td>
+<td style="text-align:center">Up to 90%</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Dedicated Hosts</td>
+<td style="text-align:center">More expensive</td>
+<td style="text-align:center">3 years</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Dedicated Instances</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-how-to-terminate-spot-instances"><a name="9-how-to-terminate-spot-instances" class="anchor-navigation-ex-anchor" href="#9-how-to-terminate-spot-instances"><i class="fa fa-link" aria-hidden="true"></i></a>9. How to terminate Spot Instances?</h3>
+<p><img src="terminate.png" style="zoom:32%"><img src="terminate2.png" style="zoom:32%"></p>
+<p>You can only cancel Spot Instance requests that are open, active, or disabled.
+Cancelling a Spot Request does not terminate instances
+You must first cancel a Spot Request, and then terminate the associated Spot Instances</p>
+<h3 id="10-spot-fleets"><a name="10-spot-fleets" class="anchor-navigation-ex-anchor" href="#10-spot-fleets"><i class="fa fa-link" aria-hidden="true"></i></a>10. Spot Fleets</h3>
+<ul>
+<li>Spot Fleets = set of Spot Instances + (optional) On-Demand Instances</li>
+<li>The Spot Fleet will try to meet the target capacity with price constraints<ul>
+<li>Define possible launch pools: instance type (m5.large), OS, Availability Zone</li>
+<li>Can have multiple launch pools, so that the fleet can choose</li>
+<li>Spot Fleet stops launching instances when reaching capacity or max cost</li>
+</ul>
+</li>
+<li>Strategies to allocate Spot Instances:<ul>
+<li><strong>lowestPrice</strong>: from the pool with the lowest price (cost optimization, short workload)</li>
+<li><strong>diversified</strong>: distributed across all pools (great for availability, long workloads)</li>
+<li><strong>capacityOptimized</strong>: pool with the optimal capacity for the number of instances</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3.IAM.html" class="navigation navigation-prev " aria-label="Previous page: 3. IAM">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="5.ElasticIPs.html" class="navigation navigation-next " aria-label="Next page: 5. Elastic IPs 及 EC2相关">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4. EC2 & Security Groups","level":"1.2.4","depth":2,"next":{"title":"5. Elastic IPs 及 EC2相关","level":"1.2.5","depth":2,"path":"saa/5.ElasticIPs.md","ref":"saa/5.ElasticIPs.md","articles":[]},"previous":{"title":"3. IAM","level":"1.2.3","depth":2,"path":"saa/3.IAM.md","ref":"saa/3.IAM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saa/4.EC2.md","mtime":"2023-07-13T02:05:20.352Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T06:13:31.602Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

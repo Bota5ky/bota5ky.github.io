@@ -1,0 +1,1292 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2. ssh 配置及连接 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.terminal常用快捷键.html" />
+    
+    
+    <link rel="prev" href="1.git常用命令.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../saa/">
+            
+                <a href="../saa/">
+            
+                    
+                    SAA 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../saa/1.基本概念.html">
+            
+                <a href="../saa/1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../saa/2.考试概览.html">
+            
+                <a href="../saa/2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../saa/3.IAM.html">
+            
+                <a href="../saa/3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../saa/4.EC2.html">
+            
+                <a href="../saa/4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../saa/5.ElasticIPs.html">
+            
+                <a href="../saa/5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../saa/6.EBS.html">
+            
+                <a href="../saa/6.EBS.html">
+            
+                    
+                    6. EBS, AMI & EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../saa/7.LB&ASG.html">
+            
+                <a href="../saa/7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../saa/8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="../saa/8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../saa/9.路由.html">
+            
+                <a href="../saa/9.路由.html">
+            
+                    
+                    9. 路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../saa/10.S3, FSx & Storage Gateway.html">
+            
+                <a href="../saa/10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../saa/11.S3, Glacier & Athena.html">
+            
+                <a href="../saa/11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../saa/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="../saa/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../saa/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="../saa/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../saa/14.ECS.html">
+            
+                <a href="../saa/14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../saa/15.考前速记.html">
+            
+                <a href="../saa/15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../dbs/">
+            
+                <a href="../dbs/">
+            
+                    
+                    DBS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../dbs/1.基本概念及Security.html">
+            
+                <a href="../dbs/1.基本概念及Security.html">
+            
+                    
+                    1. 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../dbs/2.RDS备份.html">
+            
+                <a href="../dbs/2.RDS备份.html">
+            
+                    
+                    2. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="1.git常用命令.html">
+            
+                <a href="1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="2.ssh配置及连接.html">
+            
+                <a href="2.ssh配置及连接.html">
+            
+                    
+                    2. ssh 配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3.terminal常用快捷键.html">
+            
+                <a href="3.terminal常用快捷键.html">
+            
+                    
+                    3. terminal 常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="4.JSON Path.html">
+            
+                <a href="4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="5.常用PowerShell命令.html">
+            
+                <a href="5.常用PowerShell命令.html">
+            
+                    
+                    5. 常用 PowerShell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="6.正则表达式.html">
+            
+                <a href="6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../k8s/">
+            
+                <a href="../k8s/">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../k8s/1.常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../k8s/2.命令式和声明式.html">
+            
+                <a href="../k8s/2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../k8s/3.调度.html">
+            
+                <a href="../k8s/3.调度.html">
+            
+                    
+                    3. 调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../k8s/4.设定资源.html">
+            
+                <a href="../k8s/4.设定资源.html">
+            
+                    
+                    4. 设定资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                <a href="../k8s/5.守护进程、静态Pod、多调度器.html">
+            
+                    
+                    5. 守护进程、静态Pod、多调度器 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                <a href="../k8s/6.监控、滚动升级、回滚及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../k8s/7.Secrets.html">
+            
+                <a href="../k8s/7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../k8s/8.升级和版本.html">
+            
+                <a href="../k8s/8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../k8s/9.备份、认证及TLS.html">
+            
+                <a href="../k8s/9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../k8s/10.RBAC.html">
+            
+                <a href="../k8s/10.RBAC.html">
+            
+                    
+                    10. RBAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../k8s/11.网络策略和存储.html">
+            
+                <a href="../k8s/11.网络策略和存储.html">
+            
+                    
+                    11. 网络策略和存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../k8s/12.硬盘和路由.html">
+            
+                <a href="../k8s/12.硬盘和路由.html">
+            
+                    
+                    12. 硬盘和路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../k8s/13.网络空间.html">
+            
+                <a href="../k8s/13.网络空间.html">
+            
+                    
+                    13. 网络空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../k8s/14.Networking.html">
+            
+                <a href="../k8s/14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../k8s/15.资料及经验分享.html">
+            
+                <a href="../k8s/15.资料及经验分享.html">
+            
+                    
+                    15. 资料及经验分享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="../k8s/16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="../k8s/17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="../k8s/18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="../k8s/19.CKA已通过2022.12.04.html">
+            
+                <a href="../k8s/19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2. ssh 配置及连接</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><b></b>1. &#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li><li><span class="title-icon "></span><a href="#2-etcsshsshdconfig-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;"><b></b>2. /etc/ssh/sshd_config &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</a></li><li><span class="title-icon "></span><a href="#3-ssh&#x96A7;&#x9053;"><b></b>3. ssh&#x96A7;&#x9053;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a name="1-&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#1-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5E38;&#x7528;&#x547D;&#x4EE4;</h3>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># 1.&#x4F7F;&#x7528;ssh&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;</span>
+<span class="token comment"># &#x6700;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6CD5;&#x53EA;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x540D;&#x548C;&#x4E3B;&#x673A;&#x540D;&#x53C2;&#x6570;&#x5373;&#x53EF;&#xFF0C;&#x4E3B;&#x673A;&#x540D;&#x53EF;&#x4EE5;&#x662F; IP &#x5730;&#x5740;&#x6216;&#x8005;&#x57DF;&#x540D;&#x3002;</span>
+<span class="token function">ssh</span> user@hostname
+
+<span class="token comment"># 2.ssh&#x8FDE;&#x63A5;&#x5230;&#x5176;&#x4ED6;&#x7AEF;&#x53E3;</span>
+<span class="token comment"># SSH &#x9ED8;&#x8BA4;&#x8FDE;&#x63A5;&#x5230;&#x76EE;&#x6807;&#x4E3B;&#x673A;&#x7684; 22 &#x7AEF;&#x53E3;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;-p&#x9009;&#x9879;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#x53F7;</span>
+<span class="token function">ssh</span> <span class="token parameter variable">-p</span> <span class="token number">10022</span> user@hostname
+
+<span class="token comment"># 3.&#x4F7F;&#x7528;ssh&#x5728;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x6267;&#x884C;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x5E76;&#x663E;&#x793A;&#x5230;&#x672C;&#x5730;, &#x7136;&#x540E;&#x7EE7;&#x7EED;&#x672C;&#x5730;&#x5DE5;&#x4F5C;</span>
+<span class="token comment"># &#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#x5E76;&#x5728;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x8981;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</span>
+<span class="token function">ssh</span> pi@10.42.0.47 <span class="token function">ls</span> <span class="token parameter variable">-l</span>
+
+<span class="token comment"># 4.&#x5728;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x7684;&#x7A0B;&#x5E8F;</span>
+<span class="token comment"># &#x4F7F;&#x7528;ssh&#x7684;-X&#x9009;&#x9879;&#xFF0C;&#x7136;&#x540E;&#x4E3B;&#x673A;&#x5C31;&#x4F1A;&#x5F00;&#x542F; X11 &#x8F6C;&#x53D1;&#x529F;&#x80FD;</span>
+<span class="token function">ssh</span> <span class="token parameter variable">-X</span> feiyu@222.24.51.147
+
+<span class="token comment"># 5.&#x6784;&#x5EFA; ssh &#x5BC6;&#x94A5;&#x5BF9;</span>
+<span class="token comment"># &#x4F7F;&#x7528; ssh-keygen -t &lt;rsa|dsa|...&gt; &#xFF0C;&#x73B0;&#x5728;&#x5927;&#x591A;&#x6570;&#x90FD;&#x4F7F;&#x7528;rsa&#x6216;&#x8005;dsa&#x7B97;&#x6CD5;&#x3002;</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa
+
+<span class="token comment"># 6.&#x4F7F;&#x7528;-F&#x9009;&#x9879;&#x67E5;&#x770B;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6DFB;&#x52A0;&#x4E86;&#x5BF9;&#x5E94;&#x4E3B;&#x673A;&#x7684;&#x5BC6;&#x94A5;</span>
+ssh-keygen <span class="token parameter variable">-F</span> <span class="token number">222.24</span>.51.147
+
+<span class="token comment"># 7&#xFF0C;&#x4F7F;&#x7528;-R&#x9009;&#x9879;&#x5220;&#x9664;&#x4E3B;&#x673A;&#x5BC6;&#x94A5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;~/.ssh/known_hosts&#x6587;&#x4EF6;&#x4E2D;&#x624B;&#x52A8;&#x5220;&#x9664;</span>
+ssh-keygen <span class="token parameter variable">-R</span> <span class="token number">222.24</span>.51.147
+
+<span class="token comment"># 8.&#x7ED1;&#x5B9A;&#x6E90;&#x5730;&#x5740;</span>
+<span class="token comment"># &#x5982;&#x679C;&#x4F60;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x6709;&#x591A;&#x4E8E;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684; IP &#x5730;&#x5740;&#xFF0C;&#x4F60;&#x5C31;&#x4E0D;&#x53EF;&#x80FD;&#x5206;&#x5F97;&#x6E05;&#x695A;&#x5728;&#x4F7F;&#x7528;&#x54EA;&#x4E00;&#x4E2A; IP &#x8FDE;&#x63A5;&#x5230; SSH &#x670D;&#x52A1;&#x5668;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; -b &#x9009;&#x9879;&#x6765;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;IP &#x5730;&#x5740;&#x3002;&#x8FD9;&#x4E2A; IP &#x5C06;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x505A;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x7684;&#x6E90;&#x5730;&#x5740;&#x3002;</span>
+<span class="token function">ssh</span> <span class="token parameter variable">-b</span> <span class="token number">192.168</span>.0.200  root@192.168.0.103
+
+<span class="token comment"># 9.&#x5BF9;&#x6240;&#x6709;&#x6570;&#x636E;&#x8BF7;&#x6C42;&#x538B;&#x7F29;</span>
+<span class="token comment"># &#x4F7F;&#x7528; -C &#x9009;&#x9879;&#xFF0C;&#x6240;&#x6709;&#x901A;&#x8FC7; SSH &#x53D1;&#x9001;&#x6216;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x88AB;&#x538B;&#x7F29;&#xFF0C;&#x5E76;&#x4E14;&#x4ECD;&#x7136;&#x662F;&#x52A0;&#x5BC6;&#x7684;&#x3002;</span>
+<span class="token function">ssh</span> <span class="token parameter variable">-C</span> root@192.168.0.103
+
+<span class="token comment"># 10.&#x6253;&#x5F00;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;</span>
+<span class="token comment"># &#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x539F;&#x56E0;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x8FFD;&#x8E2A;&#x8C03;&#x8BD5;&#x6211;&#x4EEC;&#x5EFA;&#x7ACB;&#x7684; SSH &#x8FDE;&#x63A5;&#x60C5;&#x51B5;&#x3002;SSH &#x63D0;&#x4F9B;&#x7684; -v &#x9009;&#x9879;&#x53C2;&#x6570;&#x6B63;&#x662F;&#x4E3A;&#x6B64;&#x800C;&#x8BBE;&#x7684;&#x3002;&#x5176;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;&#x54EA;&#x4E2A;&#x73AF;&#x8282;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#x3002;</span>
+<span class="token function">ssh</span> <span class="token parameter variable">-v</span> root@192.168.0.103
+
+<span class="token comment"># 11.&#x4E0A;&#x4F20;&#x516C;&#x94A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x514D;&#x5BC6;&#x767B;&#x5F55;</span>
+ssh-copy-id <span class="token parameter variable">-i</span> ~/.ssh/id_rsa.pub root@192.168.235.22
+</code></pre>
+<h3 id="2-etcsshsshdconfig-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;"><a name="2-etcsshsshdconfig-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#2-etcsshsshdconfig-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>2. /etc/ssh/sshd_config &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</h3>
+<pre class="language-"><code class="lang-ini"><span class="token comment"># &#x8BBE;&#x7F6E;sshd&#x76D1;&#x542C;&#x7684;&#x7AEF;&#x53E3;&#x53F7;</span>
+Port 2
+
+<span class="token comment"># &#x8BBE;&#x7F6E;sshd&#x670D;&#x52A1;&#x5668;&#x7ED1;&#x5B9A;&#x7684;IP&#x5730;&#x5740;</span>
+ListenAddress 192.168.1.1
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5305;&#x542B;&#x8BA1;&#x7B97;&#x673A;&#x79C1;&#x4EBA;&#x5BC6;&#x5319;&#x7684;&#x6587;&#x4EF6;</span>
+HostKey /etc/ssh/ssh_host_key
+
+<span class="token comment"># &#x5B9A;&#x4E49;&#x670D;&#x52A1;&#x5668;&#x5BC6;&#x5319;&#x7684;&#x4F4D;&#x6570;</span>
+ServerKeyBits 1024
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5982;&#x679C;&#x7528;&#x6237;&#x4E0D;&#x80FD;&#x6210;&#x529F;&#x767B;&#x5F55;&#xFF0C;&#x5728;&#x5207;&#x65AD;&#x8FDE;&#x63A5;&#x4E4B;&#x524D;&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;&#xFF08;&#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#xFF09;</span>
+LoginGraceTime 600
+
+<span class="token comment"># &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x662F;&#x610F;&#x601D;&#x662F;&#x6BCF;5&#x5206;&#x949F;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#xFF0C;&#x7528;&#x4E8E;&#x4FDD;&#x6301;&#x8FDE;&#x63A5;</span>
+ClientAliveInterval 300&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF09;
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5728;&#x591A;&#x5C11;&#x79D2;&#x4E4B;&#x540E;&#x81EA;&#x52A8;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5BC6;&#x5319;&#xFF08;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5BC6;&#x5319;&#xFF09;&#x3002;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x5BC6;&#x5319;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x7528;&#x76D7;&#x7528;&#x7684;&#x5BC6;&#x5319;&#x89E3;&#x5BC6;&#x88AB;&#x622A;&#x83B7;&#x7684;&#x4FE1;&#x606F;</span>
+KeyRegenerationInterval 3600
+
+<span class="token comment"># &#x8BBE;&#x7F6E;root&#x80FD;&#x4E0D;&#x80FD;&#x7528;ssh&#x767B;&#x5F55;&#x3002;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x8BBE;&#x6210;&quot;yes&quot;</span>
+PermitRootLogin no
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x9A8C;&#x8BC1;&#x7684;&#x65F6;&#x5019;&#x662F;&#x5426;&#x4F7F;&#x7528;&quot;rhosts&quot;&#x548C;&quot;shosts&quot;&#x6587;&#x4EF6;</span>
+IgnoreRhosts yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;ssh daemon&#x662F;&#x5426;&#x5728;&#x8FDB;&#x884C;RhostsRSAAuthentication&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x7684;&#x65F6;&#x5019;&#x5FFD;&#x7565;&#x7528;&#x6237;&#x7684;&quot;$HOME/.ssh/known_hosts</span>
+IgnoreUserKnownHosts yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;ssh&#x5728;&#x63A5;&#x6536;&#x767B;&#x5F55;&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x662F;&#x5426;&#x68C0;&#x67E5;&#x7528;&#x6237;&#x5BB6;&#x76EE;&#x5F55;&#x548C;rhosts&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x548C;&#x6240;&#x6709;&#x6743;&#x3002;&#x8FD9;&#x901A;&#x5E38;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x65B0;&#x624B;&#x7ECF;&#x5E38;&#x4F1A;&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x76EE;&#x5F55;&#x548C;&#x6587;&#x4EF6;&#x8BBE;&#x6210;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x6709;&#x5199;&#x6743;&#x9650;</span>
+StrictModes yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;X11&#x8F6C;&#x53D1;</span>
+X11Forwarding no
+
+<span class="token comment"># &#x8BBE;&#x7F6E;sshd&#x662F;&#x5426;&#x5728;&#x7528;&#x6237;&#x767B;&#x5F55;&#x7684;&#x65F6;&#x5019;&#x663E;&#x793A;&quot;/etc/motd&quot;&#x4E2D;&#x7684;&#x4FE1;&#x606F;</span>
+PrintMotd yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5728;&#x8BB0;&#x5F55;&#x6765;&#x81EA;sshd&#x7684;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x5426;&#x7ED9;&#x51FA;&quot;facility pre&quot;</span>
+SyslogFacility AUTH
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x8BB0;&#x5F55;sshd&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x7684;&#x5C42;&#x6B21;</span>
+LogLevel INFO
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x53EA;&#x7528;rhosts&#x6216;&quot;/etc/hosts.equiv&quot;&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x4E86;</span>
+RhostsAuthentication no
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;rhosts&#x6216;&quot;/etc/hosts.equiv&quot;&#x52A0;&#x4E0A;RSA&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x9A8C;&#x8BC1;</span>
+RhostsRSAAuthentication no
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x53EA;&#x6709;RSA&#x5B89;&#x5168;&#x9A8C;&#x8BC1;</span>
+RSAAuthentication yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x53E3;&#x4EE4;&#x9A8C;&#x8BC1;</span>
+PasswordAuthentication yes
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x53E3;&#x4EE4;&#x4E3A;&#x7A7A;&#x7684;&#x5E10;&#x53F7;&#x767B;&#x5F55;</span>
+PermitEmptyPasswords no
+</code></pre>
+<h3 id="3-ssh&#x96A7;&#x9053;"><a name="3-ssh&#x96A7;&#x9053;" class="anchor-navigation-ex-anchor" href="#3-ssh&#x96A7;&#x9053;"><i class="fa fa-link" aria-hidden="true"></i></a>3. ssh&#x96A7;&#x9053;</h3>
+<h4 id="31-&#x673A;&#x5668;ip"><a name="31-&#x673A;&#x5668;ip" class="anchor-navigation-ex-anchor" href="#31-&#x673A;&#x5668;ip"><i class="fa fa-link" aria-hidden="true"></i></a>3.1 &#x673A;&#x5668;IP:</h4>
+<ul>
+<li>10.211.55.3</li>
+<li>10.211.55.7 &#x88C5;&#x6709;nginx</li>
+</ul>
+<h4 id="32-&#x672C;&#x5730;&#x8F6C;&#x53D1;&#xFF0C;&#x5C06;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x7684;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x672C;&#x5730;&#x4EC5;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;ssh&#x7AEF;&#x53E3;"><a name="32-&#x672C;&#x5730;&#x8F6C;&#x53D1;&#xFF0C;&#x5C06;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x7684;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x672C;&#x5730;&#x4EC5;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;ssh&#x7AEF;&#x53E3;" class="anchor-navigation-ex-anchor" href="#32-&#x672C;&#x5730;&#x8F6C;&#x53D1;&#xFF0C;&#x5C06;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x7684;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x672C;&#x5730;&#x4EC5;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;ssh&#x7AEF;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2 &#x672C;&#x5730;&#x8F6C;&#x53D1;&#xFF0C;&#x5C06;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;&#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x7684;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x672C;&#x5730;&#x4EC5;&#x80FD;&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x7684;ssh&#x7AEF;&#x53E3;</h4>
+<p>&#x201C;-L&#x9009;&#x9879;&#x201D;&#xFF1A;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x521B;&#x5EFA;ssh&#x96A7;&#x9053;</p>
+<p>&#x201C;-R&#x9009;&#x9879;&#x201D;&#xFF1A;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x8FDC;&#x7A0B;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x521B;&#x5EFA;ssh&#x96A7;&#x9053;</p>
+<p>&#x201C;-N&#x9009;&#x9879;&#x201D;&#xFF1A;&#x8868;&#x793A;&#x521B;&#x5EFA;&#x96A7;&#x9053;&#x4EE5;&#x540E;&#x4E0D;&#x8FDE;&#x63A5;&#x5230;sshServer&#x7AEF;&#xFF0C;&#x901A;&#x5E38;&#x4E0E;&#x201D;-f&#x201D;&#x9009;&#x9879;&#x8FDE;&#x7528;</p>
+<p>&quot;-f&#x9009;&#x9879;&quot;&#xFF1A;&#x8868;&#x793A;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;ssh&#x96A7;&#x9053;&#xFF0C;&#x901A;&#x5E38;&#x4E0E;&#x201D;-N&#x201D;&#x9009;&#x9879;&#x8FDE;&#x7528;</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">ssh</span> <span class="token parameter variable">-fNL</span> <span class="token number">12345</span>:10.211.55.7:80 root@10.211.55.7
+</code></pre>
+<p>&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;<a href="http://localhost:12345/" target="_blank">http://localhost:12345/</a></p>
+<h4 id="33-&#x540C;&#x4E0A;&#xFF0C;&#x533A;&#x522B;&#xFF1A;&#x9002;&#x7528;&#x4E8E;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x4EC5;&#x80FD;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x8DF3;&#x677F;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;"><a name="33-&#x540C;&#x4E0A;&#xFF0C;&#x533A;&#x522B;&#xFF1A;&#x9002;&#x7528;&#x4E8E;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x4EC5;&#x80FD;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x8DF3;&#x677F;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;" class="anchor-navigation-ex-anchor" href="#33-&#x540C;&#x4E0A;&#xFF0C;&#x533A;&#x522B;&#xFF1A;&#x9002;&#x7528;&#x4E8E;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x4EC5;&#x80FD;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x8DF3;&#x677F;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3 &#x540C;&#x4E0A;&#xFF0C;&#x533A;&#x522B;&#xFF1A;&#x9002;&#x7528;&#x4E8E;&#x8FDC;&#x7A0B;&#x673A;&#x5668;&#x4EC5;&#x80FD;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x8DF3;&#x677F;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">ssh</span> <span class="token parameter variable">-fNL</span> <span class="token number">12345</span>:10.211.55.7:80 root@10.211.55.7 <span class="token parameter variable">-J</span> root@10.211.55.3
+</code></pre>
+<p>&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;<a href="http://localhost:12345/" target="_blank">http://localhost:12345/</a></p>
+<h4 id="34-&#x8FDC;&#x7A0B;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x81EA;&#x5DF1;&#x6709;&#x516C;&#x7F51;ip&#x7684;&#x865A;&#x673A;&#xFF0C;&#x4E14;&#x5F00;&#x653E;&#x4E86;&#x5BF9;&#x5E94;&#x7AEF;&#x53E3;&#x7684;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5E76;&#x4E14;&#x8FDC;&#x7A0B;&#x865A;&#x673A;&#x4FEE;&#x6539;&#x8FC7;&#x5BF9;&#x5E94;&#x914D;&#x7F6E;"><a name="34-&#x8FDC;&#x7A0B;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x81EA;&#x5DF1;&#x6709;&#x516C;&#x7F51;ip&#x7684;&#x865A;&#x673A;&#xFF0C;&#x4E14;&#x5F00;&#x653E;&#x4E86;&#x5BF9;&#x5E94;&#x7AEF;&#x53E3;&#x7684;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5E76;&#x4E14;&#x8FDC;&#x7A0B;&#x865A;&#x673A;&#x4FEE;&#x6539;&#x8FC7;&#x5BF9;&#x5E94;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#34-&#x8FDC;&#x7A0B;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x81EA;&#x5DF1;&#x6709;&#x516C;&#x7F51;ip&#x7684;&#x865A;&#x673A;&#xFF0C;&#x4E14;&#x5F00;&#x653E;&#x4E86;&#x5BF9;&#x5E94;&#x7AEF;&#x53E3;&#x7684;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5E76;&#x4E14;&#x8FDC;&#x7A0B;&#x865A;&#x673A;&#x4FEE;&#x6539;&#x8FC7;&#x5BF9;&#x5E94;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4 &#x8FDC;&#x7A0B;&#x8F6C;&#x53D1;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x81EA;&#x5DF1;&#x6709;&#x516C;&#x7F51;IP&#x7684;&#x865A;&#x673A;&#xFF0C;&#x4E14;&#x5F00;&#x653E;&#x4E86;&#x5BF9;&#x5E94;&#x7AEF;&#x53E3;&#x7684;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5E76;&#x4E14;&#x8FDC;&#x7A0B;&#x865A;&#x673A;&#x4FEE;&#x6539;&#x8FC7;&#x5BF9;&#x5E94;&#x914D;&#x7F6E;</h4>
+<pre class="language-"><code class="lang-ini">/etc/ssh/sshd_config
+GatewayPorts yes
+</code></pre>
+<pre class="language-"><code class="lang-bash"><span class="token function">ssh</span> <span class="token parameter variable">-fNTR</span> <span class="token number">71.132</span>.36.61:10035:0.0.0.0:80 ec2-user@71.132.36.61 <span class="token parameter variable">-i</span> ./.ssh/temp.pem
+</code></pre>
+<p>&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;<a href="http://71.132.36.61:12345/" target="_blank">http://71.132.36.61:12345/</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.git常用命令.html" class="navigation navigation-prev " aria-label="Previous page: 1. git 常用命令">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.terminal常用快捷键.html" class="navigation navigation-next " aria-label="Next page: 3. terminal 常用快捷键">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2. ssh 配置及连接","level":"1.4.2","depth":2,"next":{"title":"3. terminal 常用快捷键","level":"1.4.3","depth":2,"path":"cli/3.terminal常用快捷键.md","ref":"cli/3.terminal常用快捷键.md","articles":[]},"previous":{"title":"1. git 常用命令","level":"1.4.1","depth":2,"path":"cli/1.git常用命令.md","ref":"cli/1.git常用命令.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/2.ssh配置及连接.md","mtime":"2023-07-14T05:56:50.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T06:13:31.602Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

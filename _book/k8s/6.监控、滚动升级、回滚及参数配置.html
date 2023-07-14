@@ -1,0 +1,1271 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6. 监控、滚动升级、回滚及参数配置 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="7.Secrets.html" />
+    
+    
+    <link rel="prev" href="5.守护进程、静态Pod、多调度器.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../saa/">
+            
+                <a href="../saa/">
+            
+                    
+                    SAA 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../saa/1.基本概念.html">
+            
+                <a href="../saa/1.基本概念.html">
+            
+                    
+                    1. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../saa/2.考试概览.html">
+            
+                <a href="../saa/2.考试概览.html">
+            
+                    
+                    2. SAA-C02考试概览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../saa/3.IAM.html">
+            
+                <a href="../saa/3.IAM.html">
+            
+                    
+                    3. IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../saa/4.EC2.html">
+            
+                <a href="../saa/4.EC2.html">
+            
+                    
+                    4. EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../saa/5.ElasticIPs.html">
+            
+                <a href="../saa/5.ElasticIPs.html">
+            
+                    
+                    5. Elastic IPs 及 EC2相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../saa/6.EBS.html">
+            
+                <a href="../saa/6.EBS.html">
+            
+                    
+                    6. EBS, AMI & EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../saa/7.LB&ASG.html">
+            
+                <a href="../saa/7.LB&ASG.html">
+            
+                    
+                    7. LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../saa/8.RDS, Aurora & ElastiCache.html">
+            
+                <a href="../saa/8.RDS, Aurora & ElastiCache.html">
+            
+                    
+                    8. RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../saa/9.路由.html">
+            
+                <a href="../saa/9.路由.html">
+            
+                    
+                    9. 路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../saa/10.S3, FSx & Storage Gateway.html">
+            
+                <a href="../saa/10.S3, FSx & Storage Gateway.html">
+            
+                    
+                    10. S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../saa/11.S3, Glacier & Athena.html">
+            
+                <a href="../saa/11.S3, Glacier & Athena.html">
+            
+                    
+                    11. S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../saa/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                <a href="../saa/12.CloudFront, SQS, SNS & Kinesis.html">
+            
+                    
+                    12. CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../saa/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                <a href="../saa/13.DynamoDB, QuickSight, Redshift及安全相关.html">
+            
+                    
+                    13. DynamoDB, QuickSight, Redshift及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../saa/14.ECS.html">
+            
+                <a href="../saa/14.ECS.html">
+            
+                    
+                    14. ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../saa/15.考前速记.html">
+            
+                <a href="../saa/15.考前速记.html">
+            
+                    
+                    15. 考前速记（已通过 SAA）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../dbs/">
+            
+                <a href="../dbs/">
+            
+                    
+                    DBS 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../dbs/1.基本概念及Security.html">
+            
+                <a href="../dbs/1.基本概念及Security.html">
+            
+                    
+                    1. 基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../dbs/2.RDS备份.html">
+            
+                <a href="../dbs/2.RDS备份.html">
+            
+                    
+                    2. RDS 备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cli/">
+            
+                <a href="../cli/">
+            
+                    
+                    CLI 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cli/1.git常用命令.html">
+            
+                <a href="../cli/1.git常用命令.html">
+            
+                    
+                    1. git 常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cli/2.ssh配置及连接.html">
+            
+                <a href="../cli/2.ssh配置及连接.html">
+            
+                    
+                    2. ssh 配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cli/3.terminal常用快捷键.html">
+            
+                <a href="../cli/3.terminal常用快捷键.html">
+            
+                    
+                    3. terminal 常用快捷键
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cli/4.JSON Path.html">
+            
+                <a href="../cli/4.JSON Path.html">
+            
+                    
+                    4. JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cli/5.常用PowerShell命令.html">
+            
+                <a href="../cli/5.常用PowerShell命令.html">
+            
+                    
+                    5. 常用 PowerShell 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cli/6.正则表达式.html">
+            
+                <a href="../cli/6.正则表达式.html">
+            
+                    
+                    6. 正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Kubernetes 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="1.常用名词及ETCD等组件.html">
+            
+                <a href="1.常用名词及ETCD等组件.html">
+            
+                    
+                    1. 常用名词及 ETCD 等组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="2.命令式和声明式.html">
+            
+                <a href="2.命令式和声明式.html">
+            
+                    
+                    2. 命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="3.调度.html">
+            
+                <a href="3.调度.html">
+            
+                    
+                    3. 调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="4.设定资源.html">
+            
+                <a href="4.设定资源.html">
+            
+                    
+                    4. 设定资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="5.守护进程、静态Pod、多调度器.html">
+            
+                <a href="5.守护进程、静态Pod、多调度器.html">
+            
+                    
+                    5. 守护进程、静态Pod、多调度器 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.6" data-path="6.监控、滚动升级、回滚及参数配置.html">
+            
+                <a href="6.监控、滚动升级、回滚及参数配置.html">
+            
+                    
+                    6. 监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="7.Secrets.html">
+            
+                <a href="7.Secrets.html">
+            
+                    
+                    7. Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="8.升级和版本.html">
+            
+                <a href="8.升级和版本.html">
+            
+                    
+                    8. 升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="9.备份、认证及TLS.html">
+            
+                <a href="9.备份、认证及TLS.html">
+            
+                    
+                    9. 备份、认证及TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="10.RBAC.html">
+            
+                <a href="10.RBAC.html">
+            
+                    
+                    10. RBAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="11.网络策略和存储.html">
+            
+                <a href="11.网络策略和存储.html">
+            
+                    
+                    11. 网络策略和存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="12.硬盘和路由.html">
+            
+                <a href="12.硬盘和路由.html">
+            
+                    
+                    12. 硬盘和路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="13.网络空间.html">
+            
+                <a href="13.网络空间.html">
+            
+                    
+                    13. 网络空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="14.Networking.html">
+            
+                <a href="14.Networking.html">
+            
+                    
+                    14. Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="15.资料及经验分享.html">
+            
+                <a href="15.资料及经验分享.html">
+            
+                    
+                    15. 资料及经验分享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="16.KodeKloud Lightning Lab - 1.html">
+            
+                <a href="16.KodeKloud Lightning Lab - 1.html">
+            
+                    
+                    16. KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="17.KodeKloud Mock Exam - 2.html">
+            
+                <a href="17.KodeKloud Mock Exam - 2.html">
+            
+                    
+                    17. KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="18.KodeKloud Mock Exam - 3.html">
+            
+                <a href="18.KodeKloud Mock Exam - 3.html">
+            
+                    
+                    18. KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="19.CKA已通过2022.12.04.html">
+            
+                <a href="19.CKA已通过2022.12.04.html">
+            
+                    
+                    19. CKA 已通过 2022.12.04
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../kafka/">
+            
+                <a href="../kafka/">
+            
+                    
+                    Kafka 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../kafka/1.介绍和简单部署.html">
+            
+                <a href="../kafka/1.介绍和简单部署.html">
+            
+                    
+                    1. 介绍和简单部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../kafka/2.基本概念.html">
+            
+                <a href="../kafka/2.基本概念.html">
+            
+                    
+                    2. 基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../kafka/3.Kafka Topics & CLI.html">
+            
+                <a href="../kafka/3.Kafka Topics & CLI.html">
+            
+                    
+                    3. Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../kafka/4.Java Integration.html">
+            
+                <a href="../kafka/4.Java Integration.html">
+            
+                    
+                    4. Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../redis/">
+            
+                <a href="../redis/">
+            
+                    
+                    Redis 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../redis/1.基础命令.html">
+            
+                <a href="../redis/1.基础命令.html">
+            
+                    
+                    1. 基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../redis/2.事务及Java集成.html">
+            
+                <a href="../redis/2.事务及Java集成.html">
+            
+                    
+                    2. 事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../redis/3.RDB&AOF持久化.html">
+            
+                <a href="../redis/3.RDB&AOF持久化.html">
+            
+                    
+                    3. RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../redis/4.订阅发布及主从复制.html">
+            
+                <a href="../redis/4.订阅发布及主从复制.html">
+            
+                    
+                    4. 订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../java/">
+            
+                <a href="../java/">
+            
+                    
+                    Java 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../java/1.基础.html">
+            
+                <a href="../java/1.基础.html">
+            
+                    
+                    1. 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../java/2.集合.html">
+            
+                <a href="../java/2.集合.html">
+            
+                    
+                    2. 集合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../java/3.JVM.html">
+            
+                <a href="../java/3.JVM.html">
+            
+                    
+                    3. JVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../java/4.锁.html">
+            
+                <a href="../java/4.锁.html">
+            
+                    
+                    4. 锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../java/5.多线程.html">
+            
+                <a href="../java/5.多线程.html">
+            
+                    
+                    5. 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../java/6.单例模式.html">
+            
+                <a href="../java/6.单例模式.html">
+            
+                    
+                    6. 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../java/7.线程池.html">
+            
+                <a href="../java/7.线程池.html">
+            
+                    
+                    7. 线程池
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../数据库.html">
+            
+                <a href="../数据库.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../网络模型、协议及报文.html">
+            
+                <a href="../网络模型、协议及报文.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6. 监控、滚动升级、回滚及参数配置</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x76D1;&#x63A7;"><b></b>1. &#x76D1;&#x63A7;</a></li><li><span class="title-icon "></span><a href="#2-&#x4F7F;&#x7528;metrics-server"><b></b>2. &#x4F7F;&#x7528;Metrics Server</a></li><li><span class="title-icon "></span><a href="#3-logs"><b></b>3. Logs</a></li><li><span class="title-icon "></span><a href="#4-rolling-updates-and-rollbacks"><b></b>4. Rolling Updates and Rollbacks</a></li><li><span class="title-icon "></span><a href="#5-&#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;commands-and-arguments&#xFF09;"><b></b>5. &#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;Commands and Arguments&#xFF09;</a></li><li><span class="title-icon "></span><a href="#6-kubernetes-&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><b></b>6. Kubernetes &#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</a></li><li><span class="title-icon "></span><a href="#7-configmaps"><b></b>7. ConfigMaps</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x76D1;&#x63A7;"><a name="1-&#x76D1;&#x63A7;" class="anchor-navigation-ex-anchor" href="#1-&#x76D1;&#x63A7;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x76D1;&#x63A7;</h3>
+<p>Kubernetes &#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x529F;&#x80FD;&#x5168;&#x9762;&#x7684;&#x5185;&#x7F6E;&#x76D1;&#x63A7;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x4F46;&#x6709;&#x8BB8;&#x591A;&#x5F00;&#x6E90;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x53EF;&#x7528;&#xFF0C;&#x5982; Metrics-Server&#x3001;Prometheus&#x3001;Elastic Stack&#x3001;DATADOG&#x3001;dynatrace&#x3002;</p>
+<p>Heapster &#x662F; Kubernetes &#x542F;&#x7528;&#x76D1;&#x63A7;&#x548C;&#x5206;&#x6790;&#x529F;&#x80FD;&#x7684;&#x539F;&#x59CB;&#x9879;&#x76EE;&#x4E4B;&#x4E00;&#xFF0C;&#x4F46;&#x73B0;&#x5DF2;&#x5F03;&#x7528;&#xFF0C;&#x5E76;&#x5F62;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x7CBE;&#x7B80;&#x7248;&#x672C;&#xFF0C;&#x79F0;&#x4E3A; Metrics Server&#xFF08;In-Memory&#xFF09;&#x3002;</p>
+<p>Kubelet &#x5305;&#x542B;&#x4E00;&#x4E2A;&#x79F0;&#x4E3A; cAdvisor &#x6216; container advisor &#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x8D1F;&#x8D23;&#x4ECE; pod &#x4E2D;&#x68C0;&#x7D22;&#x6027;&#x80FD;&#x6307;&#x6807;&#xFF0C;&#x53D1;&#x9001;&#x7ED9; apiserver&#x3002;</p>
+<h3 id="2-&#x4F7F;&#x7528;metrics-server"><a name="2-&#x4F7F;&#x7528;metrics-server" class="anchor-navigation-ex-anchor" href="#2-&#x4F7F;&#x7528;metrics-server"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x4F7F;&#x7528;Metrics Server</h3>
+<ul>
+<li>&#x5B89;&#x88C5;</li>
+</ul>
+<p>minikube : <code>minikube addons enable metrics-server</code></p>
+<p>others : <code>git clone https://github.com/kubernetes-incubator/metrics-server.git</code></p>
+<ul>
+<li>&#x90E8;&#x7F72;&#xFF1A;pods&#x3001;services&#x3001;roles</li>
+</ul>
+<p><code>kubectl create -f deploy/1.8+/</code> : &#x5728;&#x4E0B;&#x8F7D;&#x540E; repo &#x4E2D;&#x6267;&#x884C;<code>-f .</code></p>
+<ul>
+<li>&#x67E5;&#x770B;&#xFF1A;<code>kubectl top (node | pod)</code></li>
+</ul>
+<h3 id="3-logs"><a name="3-logs" class="anchor-navigation-ex-anchor" href="#3-logs"><i class="fa fa-link" aria-hidden="true"></i></a>3. Logs</h3>
+<p><code>docker run kodekloud/event-simulator</code>&#xFF0C;event-simulator &#x7528;&#x6765;&#x751F;&#x6210;&#x968F;&#x673A;&#x4E8B;&#x4EF6;&#x6A21;&#x62DF; web &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x6709; std ouput&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x5728; detach &#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;<code>run -d</code>&#xFF0C;&#x90A3;&#x4E48;&#x60F3;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>docker logs -f container-id</code>&#xFF0C;-f&#x9009;&#x9879;&#x5E2E;&#x52A9;&#x67E5;&#x770B;&#x5B9E;&#x65F6;&#x65E5;&#x5FD7;&#x8DDF;&#x8E2A;&#x3002;</p>
+<p>&#x5728; Kubernetes &#x4E2D;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#xFF1A;</p>
+<p><code>kubectl create -f event-simulator.yaml</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> event<span class="token punctuation">-</span>simulator<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> event<span class="token punctuation">-</span>simulator
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> kodekloud/event<span class="token punctuation">-</span>simulator
+</code></pre>
+<p><code>kubectl logs -f pod-name container-name</code>&#xFF1A;&#x5982;&#x679C; pod &#x4E2D;&#x5305;&#x542B;&#x591A;&#x4E2A; container&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x8981;&#x6307;&#x660E; container-name&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x6216;&#x7528;<code>-c</code>&#x6307;&#x5B9A; container&#x3002;</p>
+<p>&#x5F53; Pod &#x6709;&#x591A;&#x4E2A;&#x5BB9;&#x5668;&#x65F6;&#x6253;&#x5F00; shell&#xFF1A;<code>kubectl -n elastic-stack exec -it app -- cat /log/app.log</code>&#x6216;<code>kubectl exec -i -t my-pod --container main-app -- /bin/bash</code>&#xFF0C;<code>-i</code>and<code>-t</code>are the same as the long options <code>--stdin</code> and <code>--tty</code></p>
+<h3 id="4-rolling-updates-and-rollbacks"><a name="4-rolling-updates-and-rollbacks" class="anchor-navigation-ex-anchor" href="#4-rolling-updates-and-rollbacks"><i class="fa fa-link" aria-hidden="true"></i></a>4. Rolling Updates and Rollbacks</h3>
+<p><code>kubectl rollout status deployment/myapp-deployment</code>&#xFF1A;&#x67E5;&#x770B;&#x72B6;&#x6001;</p>
+<p><code>kubectl rollout history deployment/myapp-deployment</code>&#xFF1A;&#x67E5;&#x770B;&#x5386;&#x53F2;</p>
+<p>&#x90E8;&#x7F72;&#x7B56;&#x7565;&#xFF1A;</p>
+<ul>
+<li>Recreate&#xFF1A;&#x4E00;&#x6B21;&#x9500;&#x6BC1;&#x6240;&#x6709;&#x65E7;&#x7684;&#xFF0C;&#x65B0;&#x5EFA;&#x65B0;&#x7248;&#x672C;</li>
+<li>Rolling Update&#xFF1A;&#x6EDA;&#x52A8;&#x66F4;&#x65B0;&#xFF0C;&#x4E00;&#x6B21;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;</li>
+</ul>
+<p>&#x66F4;&#x65B0; image &#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li><code>kubectl apply -f deployment-definition.yml</code></li>
+<li><code>kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1</code>&#xFF1A;&#x4F1A;&#x5BFC;&#x81F4;&#x90E8;&#x7F72;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;</li>
+</ul>
+<p>&#x56DE;&#x6EDA;&#xFF1A;<code>kubectl rollout undo deployment/myapp-deployment</code>&#xFF0C;&#x56DE;&#x6EDA;&#x4F1A;&#x5728;&#x539F;&#x6765;&#x7684;replicasets&#x4E0A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;</p>
+<h3 id="5-&#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;commands-and-arguments&#xFF09;"><a name="5-&#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;commands-and-arguments&#xFF09;" class="anchor-navigation-ex-anchor" href="#5-&#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;commands-and-arguments&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x547D;&#x4EE4;&#x548C;&#x53C2;&#x6570;&#xFF08;Commands and Arguments&#xFF09;</h3>
+<p><code>pod-definition.yml</code> &#x5B9E;&#x9645;&#x6267;&#x884C;&#x4E3A; <code>command</code> &#x540E;&#x9762;&#x8DDF;&#x7740; <code>args</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>sleeper<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>sleeper
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>sleeper
+      <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;sleep2.0&quot;</span><span class="token punctuation">]</span>  <span class="token comment">##&#x8986;&#x5199;dockerfile&#x4E2D;&#x7684;ENTRYPOINT</span>
+      <span class="token key atrule">args</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;10&quot;</span><span class="token punctuation">]</span>  <span class="token comment">##&#x8986;&#x5199;dockerfile&#x4E2D;&#x7684;CMD</span>
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x6210;</p>
+<pre class="language-"><code class="lang-yaml">      <span class="token key atrule">command</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token string">&quot;sleep&quot;</span>
+        <span class="token punctuation">-</span> <span class="token string">&quot;10&quot;</span>
+</code></pre>
+<h3 id="6-kubernetes-&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a name="6-kubernetes-&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#6-kubernetes-&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>6. Kubernetes &#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h3>
+<p><code>docker run -e APP_COLOR=pink simple-webapp-color</code></p>
+<p><code>pod-definition.yaml</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> APP_COLOR
+        <span class="token key atrule">value</span><span class="token punctuation">:</span> pink
+</code></pre>
+<pre class="language-"><code class="lang-yaml">        <span class="token key atrule">valueFrom</span><span class="token punctuation">:</span>  <span class="token comment">## 2. &#x5355;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5BFC;&#x5165;</span>
+          <span class="token key atrule">configMapKeyRef</span><span class="token punctuation">:</span>  <span class="token comment">##ConfigMap</span>
+            <span class="token key atrule">name</span><span class="token punctuation">:</span>
+            <span class="token key atrule">key</span><span class="token punctuation">:</span>
+
+          <span class="token key atrule">secretKeyRef</span><span class="token punctuation">:</span>  <span class="token comment">##Secrets</span>
+</code></pre>
+<h3 id="7-configmaps"><a name="7-configmaps" class="anchor-navigation-ex-anchor" href="#7-configmaps"><i class="fa fa-link" aria-hidden="true"></i></a>7. ConfigMaps</h3>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+    <span class="token key atrule">envFrom</span><span class="token punctuation">:</span>  <span class="token comment">## 1. &#x591A;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x5BFC;&#x5165;</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">configMapRef</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> app<span class="token punctuation">-</span>color
+</code></pre>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">volumes</span><span class="token punctuation">:</span>  <span class="token comment">##3. &#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x5BFC;&#x5165;volume</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> app<span class="token punctuation">-</span>config<span class="token punctuation">-</span>volume
+  <span class="token key atrule">configMap</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> app<span class="token punctuation">-</span>config
+</code></pre>
+<p>&#x521B;&#x5EFA;&#xFF1A;</p>
+<ul>
+<li><p><code>kubectl create configmap <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>config-name</span><span class="token punctuation">&gt;</span></span> --from-literal=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span>=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span> --from-literal=...</code> &#x6216;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x521B;&#x5EFA; <code>--from-file=app_config.properties</code></p>
+</li>
+<li><p><code>kubectl create -f</code></p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> app<span class="token punctuation">-</span>config
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">APP_COLOR</span><span class="token punctuation">:</span> blue
+  <span class="token key atrule">APP_MODE</span><span class="token punctuation">:</span> prod
+</code></pre>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5.守护进程、静态Pod、多调度器.html" class="navigation navigation-prev " aria-label="Previous page: 5. 守护进程、静态Pod、多调度器 ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="7.Secrets.html" class="navigation navigation-next " aria-label="Next page: 7. Secrets">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"next":{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},"previous":{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","-lunr","-search","-highlight"],"pluginsConfig":{"chapter-fold":{},"prism":{"ignore":["mermaid"]},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","mtime":"2023-07-13T02:05:20.299Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T06:13:31.602Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
