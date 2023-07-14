@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1104,9 +1108,9 @@
 </table>
 <h3 id="2-&#x4F20;&#x7EDF;&#x7684;-synchronized-&#x9501;"><a name="2-&#x4F20;&#x7EDF;&#x7684;-synchronized-&#x9501;" class="anchor-navigation-ex-anchor" href="#2-&#x4F20;&#x7EDF;&#x7684;-synchronized-&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x4F20;&#x7EDF;&#x7684; synchronized &#x9501;</h3>
 <p>synchronized <strong>&#x901A;&#x8FC7;&#x4E3A;&#x65B9;&#x6CD5;&#x6216;&#x4EE3;&#x7801;&#x5757;&#x6DFB;&#x52A0;&#x4E92;&#x65A5;&#x9501;&#xFF0C;&#x6765;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x6027;</strong>&#x3002; &#x6301;&#x6709;&#x76F8;&#x540C;&#x9501;&#x7684;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x62FF;&#x5230;&#x9501;&#x5E76;&#x6267;&#x884C;&#x9501;&#x5B9A;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x6216;&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>{ <span class="hljs-comment">// do something }</span>
-<span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>){<span class="hljs-comment">// do something}</span>
-<span class="hljs-keyword">synchronized</span> (A.class){<span class="hljs-comment">// do something}</span>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// do something }</span>
+<span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">// do something}</span>
+<span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">// do something}</span>
 </code></pre>
 <h3 id="3-synchronized-&#x9501;&#x7684;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;"><a name="3-synchronized-&#x9501;&#x7684;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#3-synchronized-&#x9501;&#x7684;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>3. synchronized &#x9501;&#x7684;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;</h3>
 <p>&#x65E0;&#x9501;&#x72B6;&#x6001;&#xFF08;No lock&#xFF09;&#xFF1A;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E0B;&#xFF0C;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x6CA1;&#x6709;&#x88AB;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x9501;&#x5B9A;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x4EFB;&#x610F;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x3002;</p>
@@ -1122,16 +1126,16 @@
 <li>ReentractReadWriteLock.ReadLock</li>
 <li>ReentractReadWriteLock.WriteLock</li>
 </ul>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span>{
-  lock.lock();
-  <span class="hljs-keyword">try</span>{
-    <span class="hljs-comment">// do something </span>
-  } <span class="hljs-keyword">catch</span> (Exception e) {
-    e.printStackTrace();
-  } <span class="hljs-keyword">finally</span> {
-    lock.unlock();
-  }
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">try</span><span class="token punctuation">{</span>
+    <span class="token comment">// do something </span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="5-&#x975E;&#x516C;&#x5E73;&#x9501;"><a name="5-&#x975E;&#x516C;&#x5E73;&#x9501;" class="anchor-navigation-ex-anchor" href="#5-&#x975E;&#x516C;&#x5E73;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x975E;&#x516C;&#x5E73;&#x9501;</h3>
 <p>&#x975E;&#x516C;&#x5E73;&#x9501;&#xFF08;Unfair Lock&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x673A;&#x5236;&#xFF0C;&#x4E0E;&#x516C;&#x5E73;&#x9501;&#xFF08;Fair Lock&#xFF09;&#x76F8;&#x5BF9;&#x5E94;&#x3002;&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x516C;&#x5E73;&#x9501;&#x4F1A;&#x6309;&#x7167;&#x7EBF;&#x7A0B;&#x7684;&#x7533;&#x8BF7;&#x987A;&#x5E8F;&#x6765;&#x83B7;&#x53D6;&#x9501;&#x8D44;&#x6E90;&#xFF0C;&#x5373;&#x5148;&#x5230;&#x5148;&#x5F97;&#x7684;&#x539F;&#x5219;&#x3002;&#x800C;&#x975E;&#x516C;&#x5E73;&#x9501;&#x5219;&#x4E0D;&#x8003;&#x8651;&#x7EBF;&#x7A0B;&#x7684;&#x7533;&#x8BF7;&#x987A;&#x5E8F;&#xFF0C;&#x5141;&#x8BB8;&#x65B0;&#x6765;&#x7684;&#x7EBF;&#x7A0B;&#x63D2;&#x961F;&#x83B7;&#x53D6;&#x9501;&#x8D44;&#x6E90;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5DF2;&#x7ECF;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x957F;&#x671F;&#x7B49;&#x5F85;&#x3002;</p>
@@ -1149,52 +1153,52 @@
 <p><a href="https://xie.infoq.cn/article/4e370ded27e4419d2a94a44b3" target="_blank">https://xie.infoq.cn/article/4e370ded27e4419d2a94a44b3</a></p>
 <h3 id="8-&#x4F20;&#x7EDF;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;&#xFF0C;&#x9632;&#x6B62;&#x865A;&#x5047;&#x5524;&#x9192;"><a name="8-&#x4F20;&#x7EDF;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;&#xFF0C;&#x9632;&#x6B62;&#x865A;&#x5047;&#x5524;&#x9192;" class="anchor-navigation-ex-anchor" href="#8-&#x4F20;&#x7EDF;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;&#xFF0C;&#x9632;&#x6B62;&#x865A;&#x5047;&#x5524;&#x9192;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x4F20;&#x7EDF;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;&#xFF0C;&#x9632;&#x6B62;&#x865A;&#x5047;&#x5524;&#x9192;</h3>
 <p>&#x7EBF;&#x7A0B;&#x4E5F;&#x53EF;&#x4EE5;&#x5524;&#x9192;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x88AB;&#x901A;&#x77E5;&#xFF0C;&#x4E2D;&#x65AD;&#x6216;&#x8D85;&#x65F6;&#xFF0C;&#x5373;&#x6240;&#x8C13;&#x7684;&#x865A;&#x4FC3;&#x5524;&#x9192; &#x3002; &#x867D;&#x7136;&#x8FD9;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x5F88;&#x5C11;&#x4F1A;&#x53D1;&#x751F;&#xFF0C;&#x4F46;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x5E94;&#x8BE5;&#x4F7F;&#x7EBF;&#x7A0B;&#x88AB;&#x5524;&#x9192;&#x7684;&#x6761;&#x4EF6;&#x6765;&#x9632;&#x8303;&#xFF0C;&#x5E76;&#x76EE;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x4E0D;&#x6EE1;&#x8DB3;&#x5219;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x3002; &#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x7B49;&#x5F85;&#x5E94;&#x8BE5;&#x603B;&#x662F;&#x51FA;&#x73B0;&#x5728;&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;&#x5C31;&#x50CF;&#x8FD9;&#x6837;:</p>
-<pre><code class="lang-java"><span class="hljs-keyword">synchronized</span> (obj) {
-  <span class="hljs-keyword">while</span> (&lt;condition does not hold&gt;)
-        obi.wait(timeout);
-    ...<span class="hljs-comment">// Perform action appropriate to condition</span>
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">synchronized</span> <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token generics"><span class="token punctuation">&lt;</span>condition does not hold<span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span>
+        obi<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">// Perform action appropriate to condition</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;interrupted&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x4E4B;&#x524D;&#x6216;&#x5728;&#x7B49;&#x5F85;&#x65F6;&#xFF0C;&#x90A3;&#x4E48;InterruptedException&#x88AB;&#x629B;&#x51FA;&#x3002; &#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x5728;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#x5B9A;&#x72B6;&#x6001;&#x5DF2;&#x6062;&#x590D;&#x4E4B;&#x524D;&#xFF0C;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x6B64;&#x5F02;&#x5E38;&#x3002;</p>
 <h3 id="9-lock&#x7248;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;"><a name="9-lock&#x7248;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#9-lock&#x7248;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>9. Lock&#x7248;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</h3>
 <p>Condition&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7CBE;&#x51C6;&#x901A;&#x77E5;&#x5524;&#x9192;</p>
-<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoundedBuffer</span>&lt;<span class="hljs-title">E</span>&gt; </span>{
-    <span class="hljs-keyword">final</span> Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();
-    <span class="hljs-keyword">final</span> Condition notFull  = lock.newCondition(); 
-    <span class="hljs-keyword">final</span> Condition notEmpty = lock.newCondition(); 
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> <span class="token class-name">BoundedBuffer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">Lock</span> lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReentrantLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">Condition</span> notFull  <span class="token operator">=</span> lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">final</span> <span class="token class-name">Condition</span> notEmpty <span class="token operator">=</span> lock<span class="token punctuation">.</span><span class="token function">newCondition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 
-    <span class="hljs-keyword">final</span> Object[] items = <span class="hljs-keyword">new</span> Object[<span class="hljs-number">100</span>];
-    <span class="hljs-keyword">int</span> putptr, takeptr, count;
+    <span class="token keyword">final</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> putptr<span class="token punctuation">,</span> takeptr<span class="token punctuation">,</span> count<span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(E x)</span> <span class="hljs-keyword">throws</span> InterruptedException</span>{
-        lock.lock();
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">while</span> (count == items.length)
-                notFull.await();
-            items[putptr] = x;
-            <span class="hljs-keyword">if</span> (++putptr == items.length) putptr = <span class="hljs-number">0</span>;
-            ++count;
-            notEmpty.signal();
-        } <span class="hljs-keyword">finally</span> {
-            lock.unlock();
-        }
-    }
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">E</span> x<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span><span class="token punctuation">{</span>
+        lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+                notFull<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            items<span class="token punctuation">[</span>putptr<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>putptr <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span> putptr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token operator">++</span>count<span class="token punctuation">;</span>
+            notEmpty<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">take</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{
-        lock.lock();
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">while</span> (count == <span class="hljs-number">0</span>)
-                notEmpty.await();
-            E x = (E) items[takeptr];
-            <span class="hljs-keyword">if</span> (++takeptr == items.length) takeptr = <span class="hljs-number">0</span>;
-            --count;
-            notFull.signal();
-            <span class="hljs-keyword">return</span> x;
-        } <span class="hljs-keyword">finally</span> {
-            lock.unlock();
-        }
-    }
-}
+    <span class="token keyword">public</span> <span class="token class-name">E</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                notEmpty<span class="token punctuation">.</span><span class="token function">await</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">E</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">E</span><span class="token punctuation">)</span> items<span class="token punctuation">[</span>takeptr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">++</span>takeptr <span class="token operator">==</span> items<span class="token punctuation">.</span>length<span class="token punctuation">)</span> takeptr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token operator">--</span>count<span class="token punctuation">;</span>
+            notFull<span class="token punctuation">.</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="10-&#x516B;&#x9501;&#x73B0;&#x8C61;"><a name="10-&#x516B;&#x9501;&#x73B0;&#x8C61;" class="anchor-navigation-ex-anchor" href="#10-&#x516B;&#x9501;&#x73B0;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>10. &#x516B;&#x9501;&#x73B0;&#x8C61;</h3>
 <p><a href="https://cloud.tencent.com/developer/article/1665932" target="_blank">JUC&#x5B66;&#x4E60;&#x4E4B;8&#x9501;&#x73B0;&#x8C61;</a></p>
@@ -1264,7 +1268,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4. 锁","level":"1.8.4","depth":2,"next":{"title":"5. 多线程","level":"1.8.5","depth":2,"path":"java/5.多线程.md","ref":"java/5.多线程.md","articles":[]},"previous":{"title":"3. JVM","level":"1.8.3","depth":2,"path":"java/3.JVM.md","ref":"java/3.JVM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/4.锁.md","mtime":"2023-07-12T11:34:22.230Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4. 锁","level":"1.8.4","depth":2,"next":{"title":"5. 多线程","level":"1.8.5","depth":2,"path":"java/5.多线程.md","ref":"java/5.多线程.md","articles":[]},"previous":{"title":"3. JVM","level":"1.8.3","depth":2,"path":"java/3.JVM.md","ref":"java/3.JVM.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/4.锁.md","mtime":"2023-07-13T02:05:20.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1287,11 +1291,19 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

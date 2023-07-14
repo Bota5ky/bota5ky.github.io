@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1068,65 +1072,65 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-network-policy"><b></b>1. Network Policy</a></li><li><span class="title-icon "></span><a href="#2-&#x5B58;&#x50A8;"><b></b>2. &#x5B58;&#x50A8;</a></li><li><span class="title-icon "></span><a href="#3-container-storage-interface"><b></b>3. Container Storage Interface</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-network-policy"><a name="1-network-policy" class="anchor-navigation-ex-anchor" href="#1-network-policy"><i class="fa fa-link" aria-hidden="true"></i></a>1. Network Policy</h3>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> networking.k8s.io/v1
-<span class="hljs-attr">kind:</span> NetworkPolicy
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> db-policy
-<span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  podSelector:</span>
-<span class="hljs-attr">    matchLabels:</span>
-<span class="hljs-attr">      role:</span> db
-<span class="hljs-attr">  policyTypes:</span>
-<span class="hljs-bullet">  -</span> Ingress <span class="hljs-comment">## &#x8BBE;&#x7F6E;&#x5165;&#x53E3;&#x89C4;&#x5219;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x51FA;&#x53E3;</span>
-<span class="hljs-bullet">  -</span> Egress
-<span class="hljs-attr">  ingress:</span>
-<span class="hljs-attr">  - from:</span>
-<span class="hljs-attr">    - podSelector:</span> <span class="hljs-comment">## &#x89C4;&#x5219;1</span>
-<span class="hljs-attr">        matchLabels:</span>
-<span class="hljs-attr">          name:</span> api-pod
-<span class="hljs-attr">      namespaceSelector:</span> <span class="hljs-comment">## &#x9650;&#x5236;namespace&#xFF0C;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;pod&#x7B5B;&#x9009;&#x6761;&#x4EF6;</span>
-<span class="hljs-attr">        matchLabels:</span>
-<span class="hljs-attr">          name:</span> prod
-<span class="hljs-attr">    - ipBlock:</span> <span class="hljs-comment">## 2&#x4E2A;&#x89C4;&#x5219;&#x5176;&#x4E00;&#x901A;&#x8FC7;&#x5373;&#x53EF;</span>
-<span class="hljs-attr">        cidr:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.10</span>/<span class="hljs-number">32</span>
-<span class="hljs-attr">    ports:</span>
-<span class="hljs-attr">    - protocol:</span> TCP
-<span class="hljs-attr">      port:</span> <span class="hljs-number">3306</span>
-<span class="hljs-attr">  egress:</span>
-<span class="hljs-attr">  - to:</span>
-<span class="hljs-attr">    - ipBlock:</span>
-<span class="hljs-attr">        cidr:</span>
-<span class="hljs-attr">    ports:</span>
-<span class="hljs-attr">    - protocol:</span> TCP
-<span class="hljs-attr">      port:</span> <span class="hljs-number">80</span>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> networking.k8s.io/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> NetworkPolicy
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> db<span class="token punctuation">-</span>policy
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">podSelector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">role</span><span class="token punctuation">:</span> db
+  <span class="token key atrule">policyTypes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Ingress <span class="token comment">## &#x8BBE;&#x7F6E;&#x5165;&#x53E3;&#x89C4;&#x5219;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x51FA;&#x53E3;</span>
+  <span class="token punctuation">-</span> Egress
+  <span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">from</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">podSelector</span><span class="token punctuation">:</span> <span class="token comment">## &#x89C4;&#x5219;1</span>
+        <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> api<span class="token punctuation">-</span>pod
+      <span class="token key atrule">namespaceSelector</span><span class="token punctuation">:</span> <span class="token comment">## &#x9650;&#x5236;namespace&#xFF0C;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;pod&#x7B5B;&#x9009;&#x6761;&#x4EF6;</span>
+        <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> prod
+    <span class="token punctuation">-</span> <span class="token key atrule">ipBlock</span><span class="token punctuation">:</span> <span class="token comment">## 2&#x4E2A;&#x89C4;&#x5219;&#x5176;&#x4E00;&#x901A;&#x8FC7;&#x5373;&#x53EF;</span>
+        <span class="token key atrule">cidr</span><span class="token punctuation">:</span> 192.168.5.10/32
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">3306</span>
+  <span class="token key atrule">egress</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">to</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">ipBlock</span><span class="token punctuation">:</span>
+        <span class="token key atrule">cidr</span><span class="token punctuation">:</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
 </code></pre>
 <p>&#x67E5;&#x8BE2;&#x65B9;&#x5F0F;&#xFF1A;<code>kubectl get netpol</code> &#x6216; <code>kubectl get networkpolicy</code></p>
 <h3 id="2-&#x5B58;&#x50A8;"><a name="2-&#x5B58;&#x50A8;" class="anchor-navigation-ex-anchor" href="#2-&#x5B58;&#x50A8;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B58;&#x50A8;</h3>
 <p>&#x5B89;&#x88C5;Docker&#x540E;&#xFF0C;&#x9ED8;&#x8BA4;&#x5B58;&#x50A8;&#x8DEF;&#x5F84;&#xFF1A;</p>
-<pre><code>/var/lib/docker
+<pre class="language-"><code>/var/lib/docker
 |- aufs
 |- containers
 |- image
 |- volumes
 </code></pre><p>&#x5BF9;&#x4E8E;Dockerfile buid&#x65F6;&#x7684;&#x5206;&#x5C42;&#x67B6;&#x6784;&#xFF1A;</p>
 <p><code>Dockerfile</code></p>
-<pre><code class="lang-dockerfile"><span class="hljs-keyword">FROM</span> Ubuntu
-<span class="hljs-keyword">RUN</span> <span class="bash">apt-get update &amp;&amp; apt-get -y install python
-</span><span class="hljs-keyword">RUN</span> <span class="bash">pip install flask flask-mysql
-</span><span class="hljs-keyword">COPY</span> <span class="bash">. /opt/<span class="hljs-built_in">source</span>-code
-</span><span class="hljs-keyword">ENTRYPOINT</span> <span class="bash">FLASK_APP=/opt/<span class="hljs-built_in">source</span>-code/app.py flask run
-</span></code></pre>
+<pre class="language-"><code class="lang-dockerfile">FROM Ubuntu
+RUN apt-get update &amp;&amp; apt-get -y install python
+RUN pip install flask flask-mysql
+COPY . /opt/source-code
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+</code></pre>
 <p><code>docker build Dockerfile -t my-name/my-custom-app</code></p>
-<pre><code>Layer 1. Base Ubuntu Layer       ## 120MB
+<pre class="language-"><code>Layer 1. Base Ubuntu Layer       ## 120MB
 Layer 2. Changes in apt packages ## 360MB
 Layer 3. Changes in pip packages ## 6.3MB &#x524D;3&#x5C42;&#x53EF;&#x4EE5;&#x590D;&#x7528;
 Layer 4. Source code             ## 229B
 Layer 5. Update Entrypoint       ## 0B
 </code></pre><p>&#x4EE5;&#x4E0A;&#x90FD;&#x662F;Image Layers&#xFF08;readonly&#xFF09;&#xFF0C;Container Layer&#x53EA;&#x6709;&#x5F53;Container&#x5B58;&#x5728;&#x65F6;&#x5B58;&#x5728;</p>
-<pre><code>Layer 6. Container Layer         ## read &amp; write
+<pre class="language-"><code>Layer 6. Container Layer         ## read &amp; write
 </code></pre><p>COPY-ON-WRITE&#xFF1A;Image Layers&#x7684;&#x6587;&#x4EF6;&#x867D;&#x7136;&#x53EA;&#x8BFB;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF0C;&#x5728;&#x4FDD;&#x5B58;&#x4FEE;&#x6539;&#x4E4B;&#x524D;&#xFF0C;Docker&#x4F1A;&#x81EA;&#x52A8;&#x5728;&#x8BFB;&#x5199;&#x5C42;&#x4E2D;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x8BFB;&#x5199;&#x5C42;&#x4E2D;&#x4FEE;&#x6539;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x3002;</p>
 <p>volumes&#xFF1A;&#x4FDD;&#x7559;&#x6301;&#x4E45;&#x5316;&#x6570;&#x636E;&#xFF0C;&#x5373;&#x4F7F;container&#x88AB;&#x7834;&#x574F;</p>
-<pre><code>docker volume create data_volume
+<pre class="language-"><code>docker volume create data_volume
 
 /var/lib/docker
 |- volumes
@@ -1181,7 +1185,7 @@ Layer 5. Update Entrypoint       ## 0B
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"next":{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},"previous":{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/11.网络策略和存储.md","mtime":"2023-07-12T12:28:36.783Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"next":{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},"previous":{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/11.网络策略和存储.md","mtime":"2023-07-13T02:05:20.295Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1204,11 +1208,19 @@ Layer 5. Update Entrypoint       ## 0B
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

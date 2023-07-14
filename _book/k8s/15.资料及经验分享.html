@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1080,11 +1084,11 @@
 <li><a href="https://blog.csdn.net/zhaopeng_yu/article/details/109155299" target="_blank">CKA&#x8003;&#x8BD5;&#x6307;&#x5357;&#x548C;&#x653B;&#x7565;</a>&#xFF1A;&#x6709;&#x754C;&#x9762;&#x622A;&#x56FE;</li>
 </ul>
 <h3 id="3-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a name="3-&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#3-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5E38;&#x7528;&#x547D;&#x4EE4;</h3>
-<pre><code class="lang-bash">kubectl explain replicaset <span class="hljs-comment">## List the fields for supported resources</span>
-kubectl api-resources <span class="hljs-comment">## list a complete list of supported resources</span>
-kubectl run <span class="hljs-built_in">test</span>-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup nginx-resolver-service <span class="hljs-comment">## &#x8FD0;&#x884C;&#x540E;&#x5220;&#x9664;pod</span>
-kubectl top pods --selector=<span class="hljs-string">&quot;app=demo&quot;</span> | grep -v NAME | sort -k 2 -nr <span class="hljs-comment">## &#x627E;&#x5230;&#x6307;&#x5B9A;service&#x4E0B;&#x7684;pod&#x4E2D;&#xFF0C;cpu&#x5229;&#x7528;&#x7387;&#x6309;&#x9AD8;&#x5230;&#x5E95;&#x6392;&#x5E8F;</span>
-<span class="hljs-comment">## &#x5220;&#x9664; .spec.claimRef&#xFF0C;&#x53EF;&#x8BA9;pv&#x4ECE;released&#x72B6;&#x6001;&#x91CD;&#x65B0;&#x53D8;&#x4E3A;available</span>
+<pre class="language-"><code class="lang-bash">kubectl explain replicaset <span class="token comment">## List the fields for supported resources</span>
+kubectl api-resources <span class="token comment">## list a complete list of supported resources</span>
+kubectl run test-nslookup <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox:1.28 <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never -- <span class="token function">nslookup</span> nginx-resolver-service <span class="token comment">## &#x8FD0;&#x884C;&#x540E;&#x5220;&#x9664;pod</span>
+kubectl <span class="token function">top</span> pods <span class="token parameter variable">--selector</span><span class="token operator">=</span><span class="token string">&quot;app=demo&quot;</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> NAME <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-k</span> <span class="token number">2</span> <span class="token parameter variable">-nr</span> <span class="token comment">## &#x627E;&#x5230;&#x6307;&#x5B9A;service&#x4E0B;&#x7684;pod&#x4E2D;&#xFF0C;cpu&#x5229;&#x7528;&#x7387;&#x6309;&#x9AD8;&#x5230;&#x5E95;&#x6392;&#x5E8F;</span>
+<span class="token comment">## &#x5220;&#x9664; .spec.claimRef&#xFF0C;&#x53EF;&#x8BA9;pv&#x4ECE;released&#x72B6;&#x6001;&#x91CD;&#x65B0;&#x53D8;&#x4E3A;available</span>
 </code></pre>
 <h3 id="4-&#x5237;&#x9898;"><a name="4-&#x5237;&#x9898;" class="anchor-navigation-ex-anchor" href="#4-&#x5237;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5237;&#x9898;</h3>
 <ul>
@@ -1178,7 +1182,7 @@ kubectl top pods --selector=<span class="hljs-string">&quot;app=demo&quot;</span
 <li><p>CoreDNS &#x53D1;&#x751F; CrashLoopBackOff &#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#x662F;  CoreDNS pod &#x68C0;&#x6D4B;&#x5230;&#x5FAA;&#x73AF;</p>
 <p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x6709;&#xFF1A;</p>
 <ul>
-<li>&#x5C06;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x6DFB;&#x52A0;&#x5230;&#x60A8;&#x7684; kubelet &#x914D;&#x7F6E; yaml&#xFF1A;<code>resolvConf: &lt;path-to-your-real-resolv-conf-file&gt;</code> &#x6B64;&#x6807;&#x5FD7;&#x544A;&#x8BC9; <code>kubelet</code> &#x5C06;&#x5907;&#x7528; <code>resolv.conf</code> &#x4F20;&#x9012;&#x7ED9; Pod &#x3002;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528; <code>systemd-resolved</code> &#x7684;&#x7CFB;&#x7EDF;&#xFF0C;<code>/run/systemd/resolve/resolv.conf</code> &#x901A;&#x5E38;&#x662F;&#x201C;&#x771F;&#x5B9E;&#x201D; <code>resolv.conf</code> &#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5C3D;&#x7BA1;&#x8FD9;&#x53EF;&#x80FD;&#x56E0;&#x60A8;&#x7684;&#x53D1;&#x884C;&#x7248;&#x800C;&#x5F02;</li>
+<li>&#x5C06;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x6DFB;&#x52A0;&#x5230;&#x60A8;&#x7684; kubelet &#x914D;&#x7F6E; yaml&#xFF1A;<code>resolvConf: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path-to-your-real-resolv-conf-file</span><span class="token punctuation">&gt;</span></span></code> &#x6B64;&#x6807;&#x5FD7;&#x544A;&#x8BC9; <code>kubelet</code> &#x5C06;&#x5907;&#x7528; <code>resolv.conf</code> &#x4F20;&#x9012;&#x7ED9; Pod &#x3002;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528; <code>systemd-resolved</code> &#x7684;&#x7CFB;&#x7EDF;&#xFF0C;<code>/run/systemd/resolve/resolv.conf</code> &#x901A;&#x5E38;&#x662F;&#x201C;&#x771F;&#x5B9E;&#x201D; <code>resolv.conf</code> &#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5C3D;&#x7BA1;&#x8FD9;&#x53EF;&#x80FD;&#x56E0;&#x60A8;&#x7684;&#x53D1;&#x884C;&#x7248;&#x800C;&#x5F02;</li>
 <li>&#x7981;&#x7528;&#x4E3B;&#x673A;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x672C;&#x5730; DNS &#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x5C06; <code>/etc/resolv.conf</code> &#x6062;&#x590D;&#x4E3A;&#x539F;&#x59CB;</li>
 <li>&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x7F16;&#x8F91;&#x60A8;&#x7684; Corefile&#xFF0C;&#x66FF;&#x6362; forward /etc/resolv.conf &#x4E0E;&#x60A8;&#x7684;&#x4E0A;&#x6E38; DNS &#x7684; IP &#x5730;&#x5740;&#xFF0C;&#x4F8B;&#x5982; forward 8.8.8.8&#x3002;&#x4F46;&#x8FD9;&#x4EC5;&#x89E3;&#x51B3;&#x4E86; CoreDNS &#x7684;&#x95EE;&#x9898;&#xFF0C;kubelet &#x5C06;&#x7EE7;&#x7EED;&#x5C06;&#x65E0;&#x6548;&#x7684; resolv.conf &#x8F6C;&#x53D1;&#x5230;&#x6240;&#x6709;&#x9ED8;&#x8BA4;&#x7684; dnsPolicy Pod&#xFF0C;&#x4F7F;&#x5B83;&#x4EEC;&#x65E0;&#x6CD5;&#x89E3;&#x6790; DNS  </li>
 </ul>
@@ -1243,7 +1247,7 @@ kubectl top pods --selector=<span class="hljs-string">&quot;app=demo&quot;</span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"next":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},"previous":{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/15.资料及经验分享.md","mtime":"2023-07-12T12:43:43.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"next":{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},"previous":{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/15.资料及经验分享.md","mtime":"2023-07-13T02:05:20.296Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1266,11 +1270,19 @@ kubectl top pods --selector=<span class="hljs-string">&quot;app=demo&quot;</span
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

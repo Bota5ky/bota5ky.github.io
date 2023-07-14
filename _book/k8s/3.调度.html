@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1069,22 +1073,22 @@
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x7ED1;&#x5B9A;-pod"><b></b>1. &#x7ED1;&#x5B9A; Pod</a></li><li><span class="title-icon "></span><a href="#2-labels"><b></b>2. Labels</a></li><li><span class="title-icon "></span><a href="#3-taints---node"><b></b>3. Taints - Node</a></li><li><span class="title-icon "></span><a href="#4-tolerations---pods"><b></b>4. Tolerations - Pods</a></li><li><span class="title-icon "></span><a href="#5-node-selectors"><b></b>5. Node Selectors</a></li><li><span class="title-icon "></span><a href="#6-node-affinity"><b></b>6. Node Affinity</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x7ED1;&#x5B9A;-pod"><a name="1-&#x7ED1;&#x5B9A;-pod" class="anchor-navigation-ex-anchor" href="#1-&#x7ED1;&#x5B9A;-pod"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7ED1;&#x5B9A; Pod</h3>
 <p>&#x672A;&#x547D;&#x540D;&#x9690;&#x85CF;&#x5B57;&#x6BB5;<code>nodeName</code>&#x7684; pod &#x5C06;&#x4F5C;&#x4E3A;&#x5019;&#x9009;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;</p>
-<pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  nodeName:</span> node02
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nodeName</span><span class="token punctuation">:</span> node02
 </code></pre>
 <p>&#x4F46;&#x5BF9;&#x4E8E;&#x5DF2;&#x521B;&#x5EFA;&#x7684; pod&#xFF0C;<code>pod-definition.yaml</code>&#x4E2D;&#x7684;<code>nodeName</code>&#x5B57;&#x6BB5;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;Node&#x5206;&#x914D;&#x7ED9; pod &#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5411; pod &#x7ED1;&#x5B9A; API &#x53D1;&#x9001; post &#x8BF7;&#x6C42;&#xFF1A;</p>
 <p><code>Pod-bind-definition.yaml</code></p>
-<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
-<span class="hljs-attr">kind:</span> Binding
-<span class="hljs-attr">metadata:</span>
-<span class="hljs-attr">  name:</span> nginx
-<span class="hljs-attr">target:</span>
-<span class="hljs-attr">  apiVersion:</span> v1
-<span class="hljs-attr">  kind:</span> Node
-<span class="hljs-attr">  name:</span> node02
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Binding
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
+<span class="token key atrule">target</span><span class="token punctuation">:</span>
+  <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+  <span class="token key atrule">kind</span><span class="token punctuation">:</span> Node
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> node02
 </code></pre>
 <p>&#x628A; yaml &#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210; Json &#x683C;&#x5F0F;</p>
-<pre><code class="lang-bash">curl --header <span class="hljs-string">&quot;Content-Type:application/json&quot;</span> --request POST --data <span class="hljs-string">&apos;{&quot;apiVersion&quot;:&quot;v1&quot;, &quot;kind&quot;: &quot;Binding&quot;, ...}&apos;</span> http://<span class="hljs-variable">$SERVER</span>/api/v1/namespaces/default/pods/<span class="hljs-variable">$PODNAME</span>/binding
+<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">--header</span> <span class="token string">&quot;Content-Type:application/json&quot;</span> <span class="token parameter variable">--request</span> POST <span class="token parameter variable">--data</span> <span class="token string">&apos;{&quot;apiVersion&quot;:&quot;v1&quot;, &quot;kind&quot;: &quot;Binding&quot;, ...}&apos;</span> http://<span class="token variable">$SERVER</span>/api/v1/namespaces/default/pods/<span class="token variable">$PODNAME</span>/binding
 </code></pre>
 <h3 id="2-labels"><a name="2-labels" class="anchor-navigation-ex-anchor" href="#2-labels"><i class="fa fa-link" aria-hidden="true"></i></a>2. Labels</h3>
 <p><code>kubectl get all</code></p>
@@ -1097,35 +1101,35 @@
 <p>NoExecute : &#x65B0;Pod&#x4E0D;&#x4F1A;&#x90E8;&#x7F72;&#xFF0C;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8282;&#x70B9;&#x4E5F;&#x4F1A;&#x7EC8;&#x6B62;</p>
 <h3 id="4-tolerations---pods"><a name="4-tolerations---pods" class="anchor-navigation-ex-anchor" href="#4-tolerations---pods"><i class="fa fa-link" aria-hidden="true"></i></a>4. Tolerations - Pods</h3>
 <p><code>pod-definition.yml</code></p>
-<pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  tolerations:</span>
-<span class="hljs-attr">  - key:</span> app
-<span class="hljs-attr">    operator:</span> Equal
-<span class="hljs-attr">    value:</span> blue
-<span class="hljs-attr">    effect:</span> NoSchedule
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">key</span><span class="token punctuation">:</span> app
+    <span class="token key atrule">operator</span><span class="token punctuation">:</span> Equal
+    <span class="token key atrule">value</span><span class="token punctuation">:</span> blue
+    <span class="token key atrule">effect</span><span class="token punctuation">:</span> NoSchedule
 </code></pre>
 <p><code>kubectl describe node kubemaster | grep Taint</code> : &#x67E5;&#x770B;master node&#x7684;Taint</p>
 <p><code>kubectl taint node node-name key=value:NoSchedule-</code> : &#x6E05;&#x9664;taint</p>
 <h3 id="5-node-selectors"><a name="5-node-selectors" class="anchor-navigation-ex-anchor" href="#5-node-selectors"><i class="fa fa-link" aria-hidden="true"></i></a>5. Node Selectors</h3>
 <p><code>pod-definition.yml</code></p>
-<pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  nodeSelector:</span>
-<span class="hljs-attr">    size:</span> Large  <span class="hljs-comment">##&#x751F;&#x6548;&#x524D;&#x9700;&#x8981;&#x5148;&#x6807;&#x8BB0; node</span>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nodeSelector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">size</span><span class="token punctuation">:</span> Large  <span class="token comment">##&#x751F;&#x6548;&#x524D;&#x9700;&#x8981;&#x5148;&#x6807;&#x8BB0; node</span>
 </code></pre>
-<p><code>kubectl label nodes &lt;node-name&gt; &lt;label-key&gt;=&lt;label-value&gt;</code> : &#x6807;&#x8BB0;node</p>
+<p><code>kubectl label nodes <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>node-name</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label-key</span><span class="token punctuation">&gt;</span></span>=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label-value</span><span class="token punctuation">&gt;</span></span></code> : &#x6807;&#x8BB0;node</p>
 <h3 id="6-node-affinity"><a name="6-node-affinity" class="anchor-navigation-ex-anchor" href="#6-node-affinity"><i class="fa fa-link" aria-hidden="true"></i></a>6. Node Affinity</h3>
 <p><code>pod-definition.yml</code></p>
-<pre><code class="lang-yaml"><span class="hljs-attr">spec:</span>
-<span class="hljs-attr">  affinity:</span>
-<span class="hljs-attr">    nodeAffinity:</span>
-<span class="hljs-attr">      requiredDuringSchedulingIgnoredDuringExecution:</span>
-<span class="hljs-attr">        nodeSelectorTerms:</span>
-<span class="hljs-attr">        - matchExpressions:</span>
-<span class="hljs-attr">          - key:</span> size
-<span class="hljs-attr">            operator:</span> NotIn | In | Exists <span class="hljs-comment">## Exists&#x8FD0;&#x7B97;&#x7B26;&#x751A;&#x81F3;&#x4E0D;&#x9700;&#x8981;&#x4E0B;&#x9762;&#x7684;values</span>
-<span class="hljs-attr">            values:</span>
-<span class="hljs-bullet">            -</span> Large
-<span class="hljs-bullet">            -</span> Medium
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">affinity</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nodeAffinity</span><span class="token punctuation">:</span>
+      <span class="token key atrule">requiredDuringSchedulingIgnoredDuringExecution</span><span class="token punctuation">:</span>
+        <span class="token key atrule">nodeSelectorTerms</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">key</span><span class="token punctuation">:</span> size
+            <span class="token key atrule">operator</span><span class="token punctuation">:</span> NotIn <span class="token punctuation">|</span> In <span class="token punctuation">|</span> Exists <span class="token comment">## Exists&#x8FD0;&#x7B97;&#x7B26;&#x751A;&#x81F3;&#x4E0D;&#x9700;&#x8981;&#x4E0B;&#x9762;&#x7684;values</span>
+            <span class="token key atrule">values</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> Large
+            <span class="token punctuation">-</span> Medium
 </code></pre>
 <p>Available &#xFF1A;</p>
 <ul>
@@ -1206,7 +1210,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. 调度","level":"1.5.3","depth":2,"next":{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},"previous":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/3.调度.md","mtime":"2023-07-12T12:01:47.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 调度","level":"1.5.3","depth":2,"next":{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},"previous":{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"k8s/3.调度.md","mtime":"2023-07-13T02:05:20.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1229,11 +1233,19 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

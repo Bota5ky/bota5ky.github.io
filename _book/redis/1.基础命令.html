@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1070,21 +1074,21 @@
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;-redis-demo"><b></b>1. &#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B; redis demo</a></li><li><span class="title-icon "></span><a href="#2-&#x5728;macos&#x4E0A;&#x67E5;&#x770B;redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><b></b>2. &#x5728;macOs&#x4E0A;&#x67E5;&#x770B;Redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#3-redis-&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;"><b></b>3. Redis &#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</a></li><li><span class="title-icon "></span><a href="#4-string"><b></b>4. String</a></li><li><span class="title-icon "></span><a href="#5list"><b></b>5.List</a></li><li><span class="title-icon "></span><a href="#6hash"><b></b>6.Hash</a></li><li><span class="title-icon "></span><a href="#7set"><b></b>7.Set</a></li><li><span class="title-icon "></span><a href="#8sorted-set"><b></b>8.Sorted Set</a></li><li><span class="title-icon "></span><a href="#9bitmap"><b></b>9.Bitmap</a></li><li><span class="title-icon "></span><a href="#10hyperloglog"><b></b>10.Hyperloglog</a></li><li><span class="title-icon "></span><a href="#11json"><b></b>11.JSON</a></li><li><span class="title-icon "></span><a href="#12index"><b></b>12.Index</a></li><li><span class="title-icon "></span><a href="#13-&#x5982;&#x4F55;&#x964D;&#x4F4E;&#x5185;&#x5B58;&#x7A7F;&#x900F;&#x98CE;&#x9669;&#xFF1F;"><b></b>13. &#x5982;&#x4F55;&#x964D;&#x4F4E;&#x5185;&#x5B58;&#x7A7F;&#x900F;&#x98CE;&#x9669;&#xFF1F;</a></li><li><span class="title-icon "></span><a href="#14-geospatial-&#x5730;&#x7406;&#x4F4D;&#x7F6E;"><b></b>14. geospatial &#x5730;&#x7406;&#x4F4D;&#x7F6E;</a></li><li><span class="title-icon "></span><a href="#15-hyperloglog"><b></b>15. Hyperloglog</a></li><li><span class="title-icon "></span><a href="#16-bitmap"><b></b>16. Bitmap</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;-redis-demo"><a name="1-&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;-redis-demo" class="anchor-navigation-ex-anchor" href="#1-&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;-redis-demo"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B; redis demo</h3>
 <p>demo&#x5DE5;&#x5177;&#x7F51;&#x7AD9;&#xFF1A;<a href="https://app.redislabs.com" target="_blank">https://app.redislabs.com</a></p>
 <p>&#x8FDC;&#x7A0B;&#x767B;&#x5F55;</p>
-<pre><code class="lang-bash">redis-cli -u redis://&lt;username&gt;:&lt;password&gt;@redis-16985.c14.us-east-1-2.ec2.cloud.redislabs.com:16985
+<pre class="language-"><code class="lang-bash">redis-cli <span class="token parameter variable">-u</span> redis://<span class="token operator">&lt;</span>username<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>password<span class="token operator">&gt;</span>@redis-16985.c14.us-east-1-2.ec2.cloud.redislabs.com:16985
 </code></pre>
 <p>&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#xFF1A;<a href="https://redis.io/docs/management/optimization/benchmarks/" target="_blank">redis-benchmark</a></p>
 <h3 id="2-&#x5728;macos&#x4E0A;&#x67E5;&#x770B;redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a name="2-&#x5728;macos&#x4E0A;&#x67E5;&#x770B;redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#2-&#x5728;macos&#x4E0A;&#x67E5;&#x770B;redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5728;macOs&#x4E0A;&#x67E5;&#x770B;Redis&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3>
-<pre><code class="lang-bash">cat /usr/<span class="hljs-built_in">local</span>/etc/redis.conf
+<pre class="language-"><code class="lang-bash"><span class="token function">cat</span> /usr/local/etc/redis.conf
 </code></pre>
-<p>&#x9ED8;&#x8BA4;16&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>SELECT &lt;index&gt;</code>&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;</p>
-<pre><code class="lang-bash">DBSIZE <span class="hljs-comment"># &#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x5927;&#x5C0F;</span>
-KEYS * <span class="hljs-comment"># &#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;key</span>
-FLUSHDB <span class="hljs-comment"># &#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x5E93;</span>
-FLUSHALL <span class="hljs-comment"># &#x6E05;&#x7A7A;&#x5168;&#x90E8;&#x5E93;</span>
-MOVE &lt;key&gt; &lt;db&gt; <span class="hljs-comment"># &#x79FB;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;</span>
-EXPIRE &lt;key&gt; &lt;seconds&gt;
-TTL &lt;key&gt; <span class="hljs-comment"># &#x67E5;&#x770B;&#x5269;&#x4F59;&#x65F6;&#x95F4; -1&#x8868;&#x793A;&#x4E0D;&#x4F1A;&#x8FC7;&#x671F; -2&#x8868;&#x793A;&#x5DF2;&#x8FC7;&#x671F;</span>
-TYPE &lt;key&gt; <span class="hljs-comment"># &#x67E5;&#x770B;key&#x7C7B;&#x578B;</span>
+<p>&#x9ED8;&#x8BA4;16&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>SELECT <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>index</span><span class="token punctuation">&gt;</span></span></code>&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;</p>
+<pre class="language-"><code class="lang-bash">DBSIZE <span class="token comment"># &#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x5927;&#x5C0F;</span>
+KEYS * <span class="token comment"># &#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;key</span>
+FLUSHDB <span class="token comment"># &#x6E05;&#x7A7A;&#x5F53;&#x524D;&#x5E93;</span>
+FLUSHALL <span class="token comment"># &#x6E05;&#x7A7A;&#x5168;&#x90E8;&#x5E93;</span>
+MOVE <span class="token operator">&lt;</span>key<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>db<span class="token operator">&gt;</span> <span class="token comment"># &#x79FB;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;</span>
+EXPIRE <span class="token operator">&lt;</span>key<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>seconds<span class="token operator">&gt;</span>
+TTL <span class="token operator">&lt;</span>key<span class="token operator">&gt;</span> <span class="token comment"># &#x67E5;&#x770B;&#x5269;&#x4F59;&#x65F6;&#x95F4; -1&#x8868;&#x793A;&#x4E0D;&#x4F1A;&#x8FC7;&#x671F; -2&#x8868;&#x793A;&#x5DF2;&#x8FC7;&#x671F;</span>
+TYPE <span class="token operator">&lt;</span>key<span class="token operator">&gt;</span> <span class="token comment"># &#x67E5;&#x770B;key&#x7C7B;&#x578B;</span>
 </code></pre>
 <h3 id="3-redis-&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;"><a name="3-redis-&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#3-redis-&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>3. Redis &#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</h3>
 <ol>
@@ -1099,7 +1103,7 @@ TYPE &lt;key&gt; <span class="hljs-comment"># &#x67E5;&#x770B;key&#x7C7B;&#x578B
 <ul>
 <li>SET</li>
 <li>GET</li>
-<li>APPEND  # &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;<code>SET &lt;key&gt;</code></li>
+<li>APPEND  # &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;<code>SET <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">&gt;</span></span></code></li>
 <li>EXISTS</li>
 <li>INCR</li>
 <li>DECR</li>
@@ -1271,7 +1275,7 @@ TYPE &lt;key&gt; <span class="hljs-comment"># &#x67E5;&#x770B;key&#x7C7B;&#x578B
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. 基础命令","level":"1.7.1","depth":2,"next":{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},"previous":{"title":"Redis 学习笔记","level":"1.7","depth":1,"path":"redis/README.md","ref":"redis/README.md","articles":[{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},{"title":"4. 订阅发布及主从复制","level":"1.7.4","depth":2,"path":"redis/4.订阅发布及主从复制.md","ref":"redis/4.订阅发布及主从复制.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redis/1.基础命令.md","mtime":"2023-07-12T13:15:46.934Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. 基础命令","level":"1.7.1","depth":2,"next":{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},"previous":{"title":"Redis 学习笔记","level":"1.7","depth":1,"path":"redis/README.md","ref":"redis/README.md","articles":[{"title":"1. 基础命令","level":"1.7.1","depth":2,"path":"redis/1.基础命令.md","ref":"redis/1.基础命令.md","articles":[]},{"title":"2. 事务及 Java 集成","level":"1.7.2","depth":2,"path":"redis/2.事务及Java集成.md","ref":"redis/2.事务及Java集成.md","articles":[]},{"title":"3. RDB & AOF 持久化","level":"1.7.3","depth":2,"path":"redis/3.RDB&AOF持久化.md","ref":"redis/3.RDB&AOF持久化.md","articles":[]},{"title":"4. 订阅发布及主从复制","level":"1.7.4","depth":2,"path":"redis/4.订阅发布及主从复制.md","ref":"redis/4.订阅发布及主从复制.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"redis/1.基础命令.md","mtime":"2023-07-13T02:05:20.342Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1294,11 +1298,19 @@ TYPE &lt;key&gt; <span class="hljs-comment"># &#x67E5;&#x770B;key&#x7C7B;&#x578B
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

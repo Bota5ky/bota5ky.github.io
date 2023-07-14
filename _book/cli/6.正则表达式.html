@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1084,26 +1088,26 @@
 </ul>
 <h3 id="&#x5206;&#x7EC4;"><a name="&#x5206;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7EC4;</h3>
 <ul>
-<li><font color="green">\<no.></no.></font> &#x5982;\1&#xFF0C;&#x5F15;&#x7528;&#x524D;&#x9762;&#x7684;&#x7B2C;1&#x4E2A;&#x5206;&#x7EC4;<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> match = Regex.Match(<span class="hljs-string">&quot;abcabc&quot;</span>, <span class="hljs-string">@&quot;(.+)\1&quot;</span>);
-<span class="hljs-comment">// match.Groups[1] = &quot;abc&quot;</span>
+<li><font color="green">\<no.></no.></font> &#x5982;\1&#xFF0C;&#x5F15;&#x7528;&#x524D;&#x9762;&#x7684;&#x7B2C;1&#x4E2A;&#x5206;&#x7EC4;<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> match <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Match</span><span class="token punctuation">(</span><span class="token string">&quot;abcabc&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(.+)\1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// match.Groups[1] = &quot;abc&quot;</span>
 </code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> result = Regex.Replace(<span class="hljs-string">&quot; 358 * (126 + 282)&quot;</span>, <span class="hljs-string">@&quot;(\d+) \* \((\d+) \+ (\d+)\)&quot;</span>, <span class="hljs-string">&quot;$1 * $2 + $1 * $3&quot;</span>);
-<span class="hljs-comment">// result = &quot;358 * 126 + 358 * 282&quot;</span>
-</code></pre>
-</li>
-<li>&#x5BF9;&#x4E8E;&#x4E0D;&#x60F3;&#x8981;&#x7684;&#x5206;&#x7EC4;&#xFF0C;&#x5F00;&#x5934;&#x52A0;&#x4E0A; ?:<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> match = Regex.Match(<span class="hljs-string">&quot;abcabc&quot;</span>, <span class="hljs-string">@&quot;(?:.+)\1&quot;</span>);
-<span class="hljs-comment">// Reference to undefined group number 1</span>
-</code></pre>
-&#x6CE8;&#x610F;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x5BF9;&#x5355;&#x72EC;&#x7684;&#x5706;&#x62EC;&#x53F7;&#x5C31;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x7EC4;&#xFF0C;&#x987A;&#x5E8F;&#x4E3A;&#x5F00;&#x62EC;&#x53F7;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> match = Regex.Match(<span class="hljs-string">&quot;abcdef&quot;</span>, <span class="hljs-string">@&quot;(?:a(bc)(d(ef)))&quot;</span>);
-<span class="hljs-comment">// match.Groups[1] = bc</span>
-<span class="hljs-comment">// match.Groups[2] = def</span>
-<span class="hljs-comment">// match.Groups[3] = ef</span>
+<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Replace</span><span class="token punctuation">(</span><span class="token string">&quot; 358 * (126 + 282)&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(\d+) \* \((\d+) \+ (\d+)\)&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;$1 * $2 + $1 * $3&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// result = &quot;358 * 126 + 358 * 282&quot;</span>
 </code></pre>
 </li>
-<li>&#x5206;&#x7EC4;&#x65F6;&#x7528; ?<name> &#x6307;&#x5B9A;&#x540D;&#x5B57;&#xFF0C;&#x5373;&#x53EF;&#x7528; \k<name> &#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x7528;<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> match = Regex.Match(<span class="hljs-string">&quot;abcabc&quot;</span>, <span class="hljs-string">@&quot;(?&lt;x&gt;.+)\k&lt;x&gt;&quot;</span>)
-<span class="hljs-comment">// match.Groups[&quot;x&quot;] = abc &#x6B63;&#x5219;&#x66FF;&#x6362;&#x7684;&#x5F15;&#x7528;&#x65B9;&#x5F0F;:</span>
-<span class="hljs-keyword">var</span> result = Regex.Replace(<span class="hljs-string">&quot; 358 + 126&quot;</span>, <span class="hljs-string">@&quot;(?&lt;A&gt;\d+) \+ (?&lt;B&gt;\d+)&quot;</span>, <span class="hljs-string">&quot;${B} + ${A}&quot;</span>)
-<span class="hljs-comment">// result = &quot;126 + 358&quot;</span>
+<li>&#x5BF9;&#x4E8E;&#x4E0D;&#x60F3;&#x8981;&#x7684;&#x5206;&#x7EC4;&#xFF0C;&#x5F00;&#x5934;&#x52A0;&#x4E0A; ?:<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> match <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Match</span><span class="token punctuation">(</span><span class="token string">&quot;abcabc&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(?:.+)\1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Reference to undefined group number 1</span>
+</code></pre>
+&#x6CE8;&#x610F;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x5BF9;&#x5355;&#x72EC;&#x7684;&#x5706;&#x62EC;&#x53F7;&#x5C31;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x7EC4;&#xFF0C;&#x987A;&#x5E8F;&#x4E3A;&#x5F00;&#x62EC;&#x53F7;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> match <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Match</span><span class="token punctuation">(</span><span class="token string">&quot;abcdef&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(?:a(bc)(d(ef)))&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// match.Groups[1] = bc</span>
+<span class="token comment">// match.Groups[2] = def</span>
+<span class="token comment">// match.Groups[3] = ef</span>
+</code></pre>
+</li>
+<li>&#x5206;&#x7EC4;&#x65F6;&#x7528; ?<name> &#x6307;&#x5B9A;&#x540D;&#x5B57;&#xFF0C;&#x5373;&#x53EF;&#x7528; \k<name> &#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x7528;<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> match <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Match</span><span class="token punctuation">(</span><span class="token string">&quot;abcabc&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(?&lt;x&gt;.+)\k&lt;x&gt;&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">// match.Groups[&quot;x&quot;] = abc &#x6B63;&#x5219;&#x66FF;&#x6362;&#x7684;&#x5F15;&#x7528;&#x65B9;&#x5F0F;:</span>
+<span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Replace</span><span class="token punctuation">(</span><span class="token string">&quot; 358 + 126&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;(?&lt;A&gt;\d+) \+ (?&lt;B&gt;\d+)&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;${B} + ${A}&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">// result = &quot;126 + 358&quot;</span>
 </code></pre>
 </name></name></li>
 </ul>
@@ -1123,17 +1127,17 @@
 <li>&#x7EC4;&#x4EE5;&#x5806;&#x6808;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;&#x800C;&#x975E;&#x5355;&#x4E2A;&#x5143;&#x7D20;</li>
 <li>&#x5BF9;&#x4E8E;&#x540C;&#x7EC4;&#x5339;&#x914D;&#x591A;&#x4E2A;&#x7684;&#x6B63;&#x5219;&#xFF0C;&#x80FD;&#x540C;&#x65F6;&#x5B58;&#x50A8;&#x88AB;&#x5339;&#x914D;&#x7684;&#x5185;&#x5BB9;</li>
 <li>&#x5BF9;&#x4E8E;&#x5E26;&#x540D;&#x79F0;&#x7684;&#x5206;&#x7EC4;&#x6548;&#x679C;&#x76F8;&#x540C;</li>
-<li>&#x9664;&#x4E86;&#x653E;&#x5165;&#x5143;&#x7D20;&#x8FD8;&#x53EF;&#x4EE5;&#x53D6;&#x51FA;&#x5143;&#x7D20;&#xFF0C;&#x9075;&#x5FAA;&#x5806;&#x6808;&#x7684;&#x540E;&#x5165;&#x5148;&#x51FA;&#x539F;&#x5219;<pre><code class="lang-csharp">Pattern p = Pattern.compile(<span class="hljs-string">&quot;(.)+&quot;</span>)
-Matcher m = p.matcher(<span class="hljs-string">&quot;abc&quot;</span>);
-<span class="hljs-keyword">if</span> (m.matches())
-System.<span class="hljs-keyword">out</span>.println(m.<span class="hljs-keyword">group</span>(<span class="hljs-number">1</span>));
-<span class="hljs-comment">// &#x8F93;&#x51FA;:c</span>
+<li>&#x9664;&#x4E86;&#x653E;&#x5165;&#x5143;&#x7D20;&#x8FD8;&#x53EF;&#x4EE5;&#x53D6;&#x51FA;&#x5143;&#x7D20;&#xFF0C;&#x9075;&#x5FAA;&#x5806;&#x6808;&#x7684;&#x540E;&#x5165;&#x5148;&#x51FA;&#x539F;&#x5219;<pre class="language-"><code class="lang-csharp"><span class="token class-name">Pattern</span> p <span class="token operator">=</span> Pattern<span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token string">&quot;(.)+&quot;</span><span class="token punctuation">)</span>
+<span class="token class-name">Matcher</span> m <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">matcher</span><span class="token punctuation">(</span><span class="token string">&quot;abc&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+System<span class="token punctuation">.</span><span class="token keyword">out</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">group</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x8F93;&#x51FA;:c</span>
 </code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> groups = Regex.Match(<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;(.)+&quot;</span>).Groups;
-<span class="hljs-keyword">var</span> captures = groups[<span class="hljs-number">1</span>].Captures.ToArray();
-<span class="hljs-keyword">var</span> output = <span class="hljs-keyword">string</span>.Join&lt;Capture&gt;(<span class="hljs-string">&quot;,&quot;</span>), captures);
-Console.WriteLine(output);
-<span class="hljs-comment">// &#x8F93;&#x51FA;:a,b,c</span>
+<pre class="language-"><code class="lang-csharp"><span class="token class-name"><span class="token keyword">var</span></span> groups <span class="token operator">=</span> Regex<span class="token punctuation">.</span><span class="token function">Match</span><span class="token punctuation">(</span><span class="token string">&quot;abc&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;(.)+&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Groups<span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> captures <span class="token operator">=</span> groups<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Captures<span class="token punctuation">.</span><span class="token function">ToArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> output <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Join</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Capture<span class="token punctuation">&gt;</span></span></span><span class="token punctuation">(</span><span class="token string">&quot;,&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> captures<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#x8F93;&#x51FA;:a,b,c</span>
 </code></pre>
 </li>
 </ul>
@@ -1183,7 +1187,7 @@ Console.WriteLine(output);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6. 正则表达式","level":"1.4.6","depth":2,"next":{"title":"Kubernetes 学习笔记","level":"1.5","depth":1,"path":"k8s/README.md","ref":"k8s/README.md","articles":[{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]}]},"previous":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/6.正则表达式.md","mtime":"2023-07-12T11:02:57.271Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6. 正则表达式","level":"1.4.6","depth":2,"next":{"title":"Kubernetes 学习笔记","level":"1.5","depth":1,"path":"k8s/README.md","ref":"k8s/README.md","articles":[{"title":"1. 常用名词及 ETCD 等组件","level":"1.5.1","depth":2,"path":"k8s/1.常用名词及ETCD等组件.md","ref":"k8s/1.常用名词及ETCD等组件.md","articles":[]},{"title":"2. 命令式和声明式","level":"1.5.2","depth":2,"path":"k8s/2.命令式和声明式.md","ref":"k8s/2.命令式和声明式.md","articles":[]},{"title":"3. 调度","level":"1.5.3","depth":2,"path":"k8s/3.调度.md","ref":"k8s/3.调度.md","articles":[]},{"title":"4. 设定资源","level":"1.5.4","depth":2,"path":"k8s/4.设定资源.md","ref":"k8s/4.设定资源.md","articles":[]},{"title":"5. 守护进程、静态Pod、多调度器 ","level":"1.5.5","depth":2,"path":"k8s/5.守护进程、静态Pod、多调度器.md","ref":"k8s/5.守护进程、静态Pod、多调度器.md","articles":[]},{"title":"6. 监控、滚动升级、回滚及参数配置","level":"1.5.6","depth":2,"path":"k8s/6.监控、滚动升级、回滚及参数配置.md","ref":"k8s/6.监控、滚动升级、回滚及参数配置.md","articles":[]},{"title":"7. Secrets","level":"1.5.7","depth":2,"path":"k8s/7.Secrets.md","ref":"k8s/7.Secrets.md","articles":[]},{"title":"8. 升级和版本","level":"1.5.8","depth":2,"path":"k8s/8.升级和版本.md","ref":"k8s/8.升级和版本.md","articles":[]},{"title":"9. 备份、认证及TLS","level":"1.5.9","depth":2,"path":"k8s/9.备份、认证及TLS.md","ref":"k8s/9.备份、认证及TLS.md","articles":[]},{"title":"10. RBAC","level":"1.5.10","depth":2,"path":"k8s/10.RBAC.md","ref":"k8s/10.RBAC.md","articles":[]},{"title":"11. 网络策略和存储","level":"1.5.11","depth":2,"path":"k8s/11.网络策略和存储.md","ref":"k8s/11.网络策略和存储.md","articles":[]},{"title":"12. 硬盘和路由","level":"1.5.12","depth":2,"path":"k8s/12.硬盘和路由.md","ref":"k8s/12.硬盘和路由.md","articles":[]},{"title":"13. 网络空间","level":"1.5.13","depth":2,"path":"k8s/13.网络空间.md","ref":"k8s/13.网络空间.md","articles":[]},{"title":"14. Networking","level":"1.5.14","depth":2,"path":"k8s/14.Networking.md","ref":"k8s/14.Networking.md","articles":[]},{"title":"15. 资料及经验分享","level":"1.5.15","depth":2,"path":"k8s/15.资料及经验分享.md","ref":"k8s/15.资料及经验分享.md","articles":[]},{"title":"16. KodeKloud Lightning Lab - 1","level":"1.5.16","depth":2,"path":"k8s/16.KodeKloud Lightning Lab - 1.md","ref":"k8s/16.KodeKloud Lightning Lab - 1.md","articles":[]},{"title":"17. KodeKloud Mock Exam - 2","level":"1.5.17","depth":2,"path":"k8s/17.KodeKloud Mock Exam - 2.md","ref":"k8s/17.KodeKloud Mock Exam - 2.md","articles":[]},{"title":"18. KodeKloud Mock Exam - 3","level":"1.5.18","depth":2,"path":"k8s/18.KodeKloud Mock Exam - 3.md","ref":"k8s/18.KodeKloud Mock Exam - 3.md","articles":[]},{"title":"19. CKA 已通过 2022.12.04","level":"1.5.19","depth":2,"path":"k8s/19.CKA已通过2022.12.04.md","ref":"k8s/19.CKA已通过2022.12.04.md","articles":[]}]},"previous":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/6.正则表达式.md","mtime":"2023-07-13T02:05:20.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1206,11 +1210,19 @@ Console.WriteLine(output);
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

@@ -4,7 +4,13 @@
     "chapter-fold",
     "insert-logo",
     "anchor-navigation-ex",
-    "-lunr"
+    "-lunr",
+    "-search",
+    "search-pro",
+    "code",
+    "-highlight",
+    "prism",
+    "prism-themes"
   ],
   "pluginsConfig": {
     "insert-logo": {
@@ -13,6 +19,11 @@
     },
     "anchor-navigation-ex": {
       "showLevel": false
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ]
     }
   }
 }

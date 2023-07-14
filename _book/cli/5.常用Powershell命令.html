@@ -34,11 +34,15 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
                 
             
                 
@@ -1069,21 +1073,21 @@
                                 
                                 <p><a href="https://stackoverflow.com/questions/32069265/how-do-you-set-powershells-default-directory" target="_blank">How do you set PowerShell&apos;s default directory?</a></p>
 <ul>
-<li>&#x5220;&#x9664;&#x6587;&#x4EF6;<pre><code class="lang-powershell"><span class="hljs-built_in">Remove-Item</span> -Path <span class="hljs-string">&quot;*&quot;</span> -Include <span class="hljs-string">&quot;*.txt&quot;</span> -Recurse -Force
+<li>&#x5220;&#x9664;&#x6587;&#x4EF6;<pre class="language-"><code class="lang-powershell"><span class="token function">Remove-Item</span> <span class="token operator">-</span>Path <span class="token string">&quot;*&quot;</span> <span class="token operator">-</span>Include <span class="token string">&quot;*.txt&quot;</span> <span class="token operator">-</span>Recurse <span class="token operator">-</span>Force
 </code></pre>
 </li>
-<li>&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x4E2A;&#x6570;<pre><code class="lang-powershell"><span class="hljs-built_in">Get-ChildItem</span> &lt;path&gt; -Include *.dump -Recurse | select Name | <span class="hljs-built_in">Measure-Object</span>
+<li>&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x4E2A;&#x6570;<pre class="language-"><code class="lang-powershell"><span class="token function">Get-ChildItem</span> &lt;path&gt; <span class="token operator">-</span>Include <span class="token operator">*</span><span class="token punctuation">.</span>dump <span class="token operator">-</span>Recurse <span class="token punctuation">|</span> <span class="token function">select</span> Name <span class="token punctuation">|</span> <span class="token function">Measure-Object</span>
 </code></pre>
 </li>
-<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;sqlserver&#x6570;&#x636E;&#x5E93;<pre><code class="lang-powershell"><span class="hljs-variable">$Databases</span> = Invoke-SQLcmd -ServerInstance <span class="hljs-variable">$ServerInstance</span> -Query (<span class="hljs-string">&quot;SELECT * FROM sys.databases WHERE NAME LIKE &apos;Sample%&apos;&quot;</span>)
-<span class="hljs-keyword">ForEach</span> (<span class="hljs-variable">$Database</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$Databases</span>){Invoke-SQLcmd -ServerInstance <span class="hljs-variable">$ServerInstance</span> -Query (<span class="hljs-string">&quot;DROP DATABASE [&quot;</span> + <span class="hljs-variable">$Database</span>.Name + <span class="hljs-string">&quot;]&quot;</span>)
-<span class="hljs-string">&quot;$(<span class="hljs-variable">$Database</span>.Name) is deleted.&quot;</span>}
+<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;sqlserver&#x6570;&#x636E;&#x5E93;<pre class="language-"><code class="lang-powershell"><span class="token variable">$Databases</span> = <span class="token function">Invoke-SQLcmd</span> <span class="token operator">-</span>ServerInstance <span class="token variable">$ServerInstance</span> <span class="token operator">-</span>Query <span class="token punctuation">(</span><span class="token string">&quot;SELECT * FROM sys.databases WHERE NAME LIKE &apos;Sample%&apos;&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">ForEach</span> <span class="token punctuation">(</span><span class="token variable">$Database</span> in <span class="token variable">$Databases</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">Invoke-SQLcmd</span> <span class="token operator">-</span>ServerInstance <span class="token variable">$ServerInstance</span> <span class="token operator">-</span>Query <span class="token punctuation">(</span><span class="token string">&quot;DROP DATABASE [&quot;</span> <span class="token operator">+</span> <span class="token variable">$Database</span><span class="token punctuation">.</span>Name <span class="token operator">+</span> <span class="token string">&quot;]&quot;</span><span class="token punctuation">)</span>
+<span class="token string">&quot;<span class="token function">$<span class="token punctuation">(</span><span class="token variable">$Database</span><span class="token punctuation">.</span>Name<span class="token punctuation">)</span></span> is deleted.&quot;</span><span class="token punctuation">}</span>
 </code></pre>
 </li>
-<li>dump&#x6587;&#x4EF6;&#x8F6C;postgres<pre><code class="lang-powershell">psql -U postgres -d &lt;databaseName&gt; -f <span class="hljs-string">&apos;C:\xxxxxx.dump&apos;</span>
+<li>dump&#x6587;&#x4EF6;&#x8F6C;postgres<pre class="language-"><code class="lang-powershell">psql <span class="token operator">-</span>U postgres <span class="token operator">-</span>d &lt;databaseName&gt; <span class="token operator">-</span>f <span class="token string">&apos;C:\xxxxxx.dump&apos;</span>
 </code></pre>
 </li>
-<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;postgres&#x6570;&#x636E;&#x5E93;<pre><code class="lang-powershell">psql -U postgres -t -A -c <span class="hljs-string">&quot;select datname from pg_database where datname ~ &apos;Sample\w*&apos;&quot;</span> | <span class="hljs-built_in">ForEach-Object</span> { dropdb --force --echo --username postgres <span class="hljs-string">&quot;<span class="hljs-variable">$_</span>&quot;</span> }
+<li>&#x5220;&#x9664;Sample&#x5F00;&#x5934;&#x7684;postgres&#x6570;&#x636E;&#x5E93;<pre class="language-"><code class="lang-powershell">psql <span class="token operator">-</span>U postgres <span class="token operator">-</span>t <span class="token operator">-</span>A <span class="token operator">-</span>c <span class="token string">&quot;select datname from pg_database where datname ~ &apos;Sample\w*&apos;&quot;</span> <span class="token punctuation">|</span> <span class="token function">ForEach-Object</span> <span class="token punctuation">{</span> dropdb <span class="token operator">--</span>force <span class="token operator">--</span><span class="token function">echo</span> <span class="token operator">--</span>username postgres <span class="token string">&quot;<span class="token variable">$_</span>&quot;</span> <span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ul>
@@ -1130,7 +1134,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"next":{"title":"6. 正则表达式","level":"1.4.6","depth":2,"path":"cli/6.正则表达式.md","ref":"cli/6.正则表达式.md","articles":[]},"previous":{"title":"4. JSON Path","level":"1.4.4","depth":2,"path":"cli/4.JSON Path.md","ref":"cli/4.JSON Path.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr"],"pluginsConfig":{"chapter-fold":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/5.常用PowerShell命令.md","mtime":"2023-07-12T10:45:54.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-13T00:22:08.891Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"next":{"title":"6. 正则表达式","level":"1.4.6","depth":2,"path":"cli/6.正则表达式.md","ref":"cli/6.正则表达式.md","articles":[]},"previous":{"title":"4. JSON Path","level":"1.4.4","depth":2,"path":"cli/4.JSON Path.md","ref":"cli/4.JSON Path.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","-lunr","-search","search-pro","code","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli/5.常用PowerShell命令.md","mtime":"2023-07-12T06:46:48.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T03:19:51.337Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1153,11 +1157,19 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
