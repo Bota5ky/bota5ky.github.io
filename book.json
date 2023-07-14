@@ -20,9 +20,6 @@
       "showLevel": false
     },
     "prism": {
-      "css": [
-        "prismjs/themes/prism-solarizedlight.css"
-      ],
       "ignore": [
         "mermaid"
       ]
