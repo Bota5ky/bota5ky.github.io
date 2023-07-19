@@ -20,7 +20,7 @@
 * [DBS 学习笔记](dbs/README.md)
     * [1. 基本概念及 Security](dbs/1.基本概念及Security.md)
     * [2. RDS](dbs/2.rds.md)
-    * [3. DynamoDB and DAX](dbs/3.dynamodb.md)
+    * [3. 其他数据库](dbs/3.others.md)
 * [CLI 学习笔记](cli/README.md)
     * [1. git 常用命令](cli/1.git常用命令.md)
     * [2. ssh 配置及连接](cli/2.ssh配置及连接.md)
@@ -68,4 +68,5 @@
     * [7. 线程池](java/7.线程池.md)
 * [数据库](数据库.md)
 * [网络](网络模型、协议及报文.md)
+* [markdown](markdown.md)
 

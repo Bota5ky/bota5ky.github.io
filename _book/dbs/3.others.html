@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3. DynamoDB and DAX · GitBook</title>
+        <title>3. 其他数据库 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -388,12 +388,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3" data-path="3.dynamodb.html">
+        <li class="chapter active" data-level="1.3.3" data-path="3.others.html">
             
-                <a href="3.dynamodb.html">
+                <a href="3.others.html">
             
                     
-                    3. DynamoDB and DAX
+                    3. 其他数据库
             
                 </a>
             
@@ -1047,6 +1047,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11" data-path="../markdown.html">
+            
+                <a href="../markdown.html">
+            
+                    
+                    markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -1077,7 +1090,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3. DynamoDB and DAX</a>
+        <a href=".." >3. 其他数据库</a>
     </h1>
 </div>
 
@@ -1092,7 +1105,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-dynamodb-terminology-compared-to-sql"><b></b>1. DynamoDB Terminology Compared to SQL</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-dynamodb-terminology-compared-to-sql"><a name="1-dynamodb-terminology-compared-to-sql" class="anchor-navigation-ex-anchor" href="#1-dynamodb-terminology-compared-to-sql"><i class="fa fa-link" aria-hidden="true"></i></a>1. DynamoDB Terminology Compared to SQL</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-dynamodb-terminology-compared-to-sql"><b></b>1. DynamoDB Terminology Compared to SQL</a></li><li><span class="title-icon "></span><a href="#2-aws-&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;"><b></b>2. AWS &#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-dynamodb-terminology-compared-to-sql"><a name="1-dynamodb-terminology-compared-to-sql" class="anchor-navigation-ex-anchor" href="#1-dynamodb-terminology-compared-to-sql"><i class="fa fa-link" aria-hidden="true"></i></a>1. DynamoDB Terminology Compared to SQL</h3>
 <table>
 <thead>
 <tr>
@@ -1127,8 +1140,79 @@
 </tr>
 </tbody>
 </table>
+<h3 id="2-aws-&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;"><a name="2-aws-&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;" class="anchor-navigation-ex-anchor" href="#2-aws-&#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;"><i class="fa fa-link" aria-hidden="true"></i></a>2. AWS &#x6570;&#x636E;&#x5E93;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x8F83;</h3>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Type of data</th>
+<th>Workload</th>
+<th>Size</th>
+<th>Performance</th>
+<th>Operational overhead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RDS DBs</td>
+<td>Structured</td>
+<td>Relational / OLTP / simple OLAP</td>
+<td>Low TB range</td>
+<td>Mid-to-high throughtput, low latency</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Aurora Mysql</td>
+<td>Structured</td>
+<td>Relational / OLTP / simple OLAP</td>
+<td>Mid TB range</td>
+<td>High throughtput, low latency</td>
+<td>Low-to-moderate</td>
+</tr>
+<tr>
+<td>Aurora PostgrSQL</td>
+<td>Structured</td>
+<td>Relational / OLTP / simple OLAP</td>
+<td>Mid TB range</td>
+<td>High throughtput, low latency</td>
+<td>Low-to-moderate</td>
+</tr>
+<tr>
+<td>Redshift</td>
+<td>Structured / Semi-structured</td>
+<td>Relational / OLAP / DW</td>
+<td>PB range</td>
+<td>Mid-to-high latency</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>DynamoDB</td>
+<td>Semi-structured</td>
+<td>Non-relational / Key-Value / OLTP / Document store</td>
+<td>High TB range</td>
+<td>Ultra-high throughtput, low latency, ultra-low latency with DAX</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>ElastiCache</td>
+<td>Semi-structured / Unstructured</td>
+<td>Non-relational / In-memory caching / Key-Value</td>
+<td>Low TB range</td>
+<td>High throughtput, ultra-low latency</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Neptune</td>
+<td>Graph data</td>
+<td>Highly connected graph datasets</td>
+<td>Mid TB range</td>
+<td>High throughtput, ultra-low latency</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
-2023-07-14 16:07:25
+2023-07-19 11:13:02
 </span></footer>
                                 
                                 </section>
@@ -1172,7 +1256,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3. DynamoDB and DAX","level":"1.3.3","depth":2,"next":{"title":"CLI 学习笔记","level":"1.4","depth":1,"path":"cli/README.md","ref":"cli/README.md","articles":[{"title":"1. git 常用命令","level":"1.4.1","depth":2,"path":"cli/1.git常用命令.md","ref":"cli/1.git常用命令.md","articles":[]},{"title":"2. ssh 配置及连接","level":"1.4.2","depth":2,"path":"cli/2.ssh配置及连接.md","ref":"cli/2.ssh配置及连接.md","articles":[]},{"title":"3. terminal 常用快捷键","level":"1.4.3","depth":2,"path":"cli/3.terminal常用快捷键.md","ref":"cli/3.terminal常用快捷键.md","articles":[]},{"title":"4. JSON Path","level":"1.4.4","depth":2,"path":"cli/4.JSON Path.md","ref":"cli/4.JSON Path.md","articles":[]},{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},{"title":"6. 正则表达式","level":"1.4.6","depth":2,"path":"cli/6.正则表达式.md","ref":"cli/6.正则表达式.md","articles":[]}]},"previous":{"title":"2. RDS","level":"1.3.2","depth":2,"path":"dbs/2.rds.md","ref":"dbs/2.rds.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dbs/3.dynamodb.md","mtime":"2023-07-14T08:07:25.497Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-14T09:36:05.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3. 其他数据库","level":"1.3.3","depth":2,"next":{"title":"CLI 学习笔记","level":"1.4","depth":1,"path":"cli/README.md","ref":"cli/README.md","articles":[{"title":"1. git 常用命令","level":"1.4.1","depth":2,"path":"cli/1.git常用命令.md","ref":"cli/1.git常用命令.md","articles":[]},{"title":"2. ssh 配置及连接","level":"1.4.2","depth":2,"path":"cli/2.ssh配置及连接.md","ref":"cli/2.ssh配置及连接.md","articles":[]},{"title":"3. terminal 常用快捷键","level":"1.4.3","depth":2,"path":"cli/3.terminal常用快捷键.md","ref":"cli/3.terminal常用快捷键.md","articles":[]},{"title":"4. JSON Path","level":"1.4.4","depth":2,"path":"cli/4.JSON Path.md","ref":"cli/4.JSON Path.md","articles":[]},{"title":"5. 常用 PowerShell 命令","level":"1.4.5","depth":2,"path":"cli/5.常用PowerShell命令.md","ref":"cli/5.常用PowerShell命令.md","articles":[]},{"title":"6. 正则表达式","level":"1.4.6","depth":2,"path":"cli/6.正则表达式.md","ref":"cli/6.正则表达式.md","articles":[]}]},"previous":{"title":"2. RDS","level":"1.3.2","depth":2,"path":"dbs/2.rds.md","ref":"dbs/2.rds.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dbs/3.others.md","mtime":"2023-07-19T03:13:02.700Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-19T03:24:17.372Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
