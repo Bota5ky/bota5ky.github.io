@@ -1277,74 +1277,6 @@
 </tbody>
 </table>
 <h3 id="7-comparison-of-rds-deployments"><a name="7-comparison-of-rds-deployments" class="anchor-navigation-ex-anchor" href="#7-comparison-of-rds-deployments"><i class="fa fa-link" aria-hidden="true"></i></a>7. Comparison of RDS Deployments</h3>
-<table>
-<thead>
-  <tr>
-    <th></th>
-    <th>Read replicas</th>
-    <th>Multi-AZ deployments (Single-Region)</th>
-    <th>Multi-Region deployments</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Main purpose</td>
-    <td>Scalability</td>
-    <td>HA</td>
-    <td>DR and performance</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Replication method</td>
-    <td rowspan="2">Asynchronous (eventual consistency)</td>
-    <td>Synchronous</td>
-    <td rowspan="2">Asynchronous (eventual consistency)</td>
-  </tr>
-  <tr>
-    <td>Asynchronous (Aurora)</td>
-  </tr>
-  <tr>
-    <td>Accessibility</td>
-    <td>All replicas can be used for read scaling</td>
-    <td>Active-Passive (standby not accessible)</td>
-    <td>All regions can be used for reads</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Automated backups</td>
-    <td rowspan="2">No backups configured by default</td>
-    <td>Taken from standby</td>
-    <td rowspan="2">Can be taken in each region</td>
-  </tr>
-  <tr>
-    <td>Taken from shared storage layer (Aurora)</td>
-  </tr>
-  <tr>
-    <td>Instance placement</td>
-    <td>Within-AZ, Cross-AZ, or Cross-Region</td>
-    <td>At least two AZs within region</td>
-    <td>Each region can have a Multi-AZ deployment</td>
-  </tr>
-  <tr>
-    <td rowspan="2">Upgrades</td>
-    <td>Independent from source instance</td>
-    <td>On primary</td>
-    <td>Independent in each region</td>
-  </tr>
-  <tr>
-    <td colspan="3">All instances together (Aurora) </td>
-  </tr>
-  <tr>
-    <td rowspan="2">DR (Disaster Recovery)</td>
-    <td>Can be manually promoted to a standalone instance</td>
-    <td>Automatic failover to standby</td>
-    <td rowspan="2">Aurora allows promotion of a secondary region to be the master</td>
-  </tr>
-  <tr>
-    <td>Can be promoted to primary (Aurora)</td>
-    <td>Automatic failover to read replica (Aurora)</td>
-  </tr>
-</tbody>
-</table>
-
 <h3 id="8-dynamodb-terminology-compared-to-sql"><a name="8-dynamodb-terminology-compared-to-sql" class="anchor-navigation-ex-anchor" href="#8-dynamodb-terminology-compared-to-sql"><i class="fa fa-link" aria-hidden="true"></i></a>8. DynamoDB Terminology Compared to SQL</h3>
 <table>
 <thead>
@@ -1452,7 +1384,7 @@
 </tbody>
 </table>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
-2023-07-24 13:38:49
+2023-07-24 13:45:15
 </span></footer>
                                 
                                 </section>
@@ -1496,7 +1428,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2. 数据库","level":"1.3.2","depth":2,"next":{"title":"3. 网络","level":"1.3.3","depth":2,"path":"dbs/3.network.md","ref":"dbs/3.network.md","articles":[]},"previous":{"title":"1. 基本概念及 Security","level":"1.3.1","depth":2,"path":"dbs/1.基本概念及Security.md","ref":"dbs/1.基本概念及Security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","livereload"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dbs/2.databases.md","mtime":"2023-07-24T05:38:49.811Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-24T05:39:09.985Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2. 数据库","level":"1.3.2","depth":2,"next":{"title":"3. 网络","level":"1.3.3","depth":2,"path":"dbs/3.network.md","ref":"dbs/3.network.md","articles":[]},"previous":{"title":"1. 基本概念及 Security","level":"1.3.1","depth":2,"path":"dbs/1.基本概念及Security.md","ref":"dbs/1.基本概念及Security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mermaid-gb3","chapter-fold","insert-logo","anchor-navigation-ex","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight"],"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 160px; min-height: 160px","url":"/icon.png"}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dbs/2.databases.md","mtime":"2023-07-24T05:45:15.455Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-24T05:45:29.206Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1536,10 +1468,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
