@@ -2,6 +2,7 @@
 
 - [OpenTelemetry 系列四｜如何使用 Java Agent 来实现无侵入的调用链](https://xie.infoq.cn/article/a3814f9326781409a05edc23d)
 - [spring@Transactional 注解的12种失效场景](https://blog.51cto.com/u_14787961/4833414)
+- [Java 八股文系列](https://mp.weixin.qq.com/s?__biz=MzU2NzAzMjQyOA==&mid=2247484198&idx=1&sn=c3c4dc133cceb410af6c7aa87daf5693)
 
 ### 书籍课程
 
