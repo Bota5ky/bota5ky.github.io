@@ -21,6 +21,7 @@
     * [1. 基本概念及 Security](dbs/1.基本概念及Security.md)
     * [2. 数据库](dbs/2.databases.md)
     * [3. 网络](dbs/3.network.md)
+    * [4. 已通过](dbs/4.pass.md)
 * [CLI 学习笔记](cli/README.md)
     * [1. git 常用命令](cli/1.git常用命令.md)
     * [2. ssh 配置及连接](cli/2.ssh配置及连接.md)
