@@ -23,3 +23,7 @@
 - 编译原理：《Compilers: Principles, Techniques and Tools》龙书
 
 - 《分布式原理》MIT 6.824
+
+### Open Source License Explains
+
+![](OpenSourceLicenseExplains.svg)
