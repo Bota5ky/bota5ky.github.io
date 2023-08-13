@@ -1,0 +1,3 @@
+### 1. Spring ApplicationContext 和 BeanFactory 的区别
+
+BeanFactory 是 Spring 中非常核心的组件，表示 Bean 工厂可以生成 Bean，维护 Bean，而 ApplicationContext 继承了 BeanFactory，所以 ApplicationContext 拥有 BeanFactory 所有的特点，也是一个 Bean工厂，但是 ApplicationContext 除开继承了 BeanFactoy 之外，还继承了诸如 EnvironmentCapable（获取环境变量、properties等）、MesageSoure（国际化）、ApplicationEventPublisher 等接口，从而 ApplicationContext 还有获取系统环境变量、国际化、事件发布等功能，这是 BeanFactory 所不具备的。
