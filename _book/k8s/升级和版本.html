@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-upgrades">1. Upgrades</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-upgrades"><b></b>1. Upgrades</a></li><li><span class="title-icon "></span><a href="#2-releases"><b></b>2. Releases</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-upgrades"><a name="1-upgrades" class="anchor-navigation-ex-anchor" href="#1-upgrades"><i class="fa fa-link" aria-hidden="true"></i></a>1. Upgrades</h3>
 <p>&#x9ED8;&#x8BA4; pod &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;5&#x5206;&#x949F;&#xFF1A;<code>kube-controller-manager --pod-eviction-timeout=5m0s</code></p>
 <p>&#x7CFB;&#x7EDF;&#x5347;&#x7EA7;&#x65F6;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;<code>kubectl drain node-1</code>&#xFF0C;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x8C03;&#x5EA6;&#xFF0C;&#x4F1A;&#x6E05;&#x9664; pod&#xFF0C;&#x4F46;&#x5F53; pod &#x4E0D;&#x5C5E;&#x4E8E; replicaSet &#x65F6;&#xFF0C;drain &#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A; <code>--force</code>&#xFF0C;&#x8FD9;&#x4E2A; pod &#x5C31;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x5728;&#x5176;&#x4ED6;node &#x4E0A;&#x88AB;&#x521B;&#x5EFA;</p>
 <p>&#x5347;&#x7EA7;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF1A;<code>kubectl uncordon node-1</code></p>
@@ -1072,7 +1076,7 @@
 </li>
 </ul>
 <p>&#x5148;&#x5347;&#x7EA7; master node&#xFF0C;&#x518D;&#x5347;&#x7EA7; work node</p>
-<h3 id="2-releases">2. Releases</h3>
+<h3 id="2-releases"><a name="2-releases" class="anchor-navigation-ex-anchor" href="#2-releases"><i class="fa fa-link" aria-hidden="true"></i></a>2. Releases</h3>
 <ul>
 <li>&#x5347;&#x7EA7;master node&#xFF1A;</li>
 </ul>
@@ -1156,7 +1160,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"升级和版本","level":"7.8","depth":1,"next":{"title":"备份、认证及 TLS","level":"7.9","depth":1,"path":"k8s/备份、认证及TLS.md","ref":"k8s/备份、认证及TLS.md","articles":[]},"previous":{"title":"Secrets","level":"7.7","depth":1,"path":"k8s/Secrets.md","ref":"k8s/Secrets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/升级和版本.md","mtime":"2023-07-12T12:20:27.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"升级和版本","level":"7.8","depth":1,"next":{"title":"备份、认证及 TLS","level":"7.9","depth":1,"path":"k8s/备份、认证及TLS.md","ref":"k8s/备份、认证及TLS.md","articles":[]},"previous":{"title":"Secrets","level":"7.7","depth":1,"path":"k8s/Secrets.md","ref":"k8s/Secrets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/升级和版本.md","mtime":"2023-07-12T12:20:27.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="question-1-15">Question 1 (15&apos;)</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#question-1-15"><b></b>Question 1 (15&apos;)</a></li><li><span class="title-icon "></span><a href="#question-2-15"><b></b>Question 2 (15&apos;)</a></li><li><span class="title-icon "></span><a href="#question-3-8"><b></b>Question 3 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-4-12"><b></b>Question 4 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-5-20"><b></b>Question 5 (20&apos;)</a></li><li><span class="title-icon "></span><a href="#question-6-10"><b></b>Question 6 (10&apos;)</a></li><li><span class="title-icon "></span><a href="#question-7-20"><b></b>Question 7 (20&apos;)</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="question-1-15"><a name="question-1-15" class="anchor-navigation-ex-anchor" href="#question-1-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 1 (15&apos;)</h3>
 <p>Upgrade the current version of kubernetes from <code>1.23.0</code> to <code>1.24.0</code> exactly using the <code>kubeadm</code> utility. Make sure that the upgrade is carried out one node at a time starting with the controlplane node. To minimize downtime, the deployment <code>gold-nginx</code> should be rescheduled on an alternate node before upgrading each node.</p>
 <p>Upgrade <code>controlplane</code> node first and drain node <code>node01</code> before upgrading it. Pods for <code>gold-nginx</code> should run on the <code>controlplane</code> node subsequently.</p>
 <p>Details</p>
@@ -1094,7 +1098,7 @@ root@node01:~<span class="token comment"># systemctl restart kubelet</span>
 <pre class="language-"><code class="lang-sh">root@controlplane:~<span class="token comment"># kubectl uncordon node01</span>
 root@controlplane:~<span class="token comment"># kubectl get pods -o wide | grep gold (make sure this is scheduled on node)</span>
 </code></pre>
-<h3 id="question-2-15">Question 2 (15&apos;)</h3>
+<h3 id="question-2-15"><a name="question-2-15" class="anchor-navigation-ex-anchor" href="#question-2-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (15&apos;)</h3>
 <p>Print the names of all deployments in the <code>admin2406</code> namespace in the following format:
 <code>DEPLOYMENT CONTAINER_IMAGE READY_REPLICAS NAMESPACE</code>
 <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>deployment</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>container</span> <span class="token attr-name">image</span> <span class="token attr-name">used</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ready</span> <span class="token attr-name">replica</span> <span class="token attr-name">count</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Namespace</span><span class="token punctuation">&gt;</span></span></code>
@@ -1111,7 +1115,7 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Run the below command to get the correct output:</p>
 <pre class="language-"><code class="lang-sh">kubectl <span class="token parameter variable">-n</span> admin2406 get deployment <span class="token parameter variable">-o</span> custom-columns<span class="token operator">=</span>DEPLOYMENT:.metadata.name,CONTAINER_IMAGE:.spec.template.spec.containers<span class="token punctuation">[</span><span class="token punctuation">]</span>.image,READY_REPLICAS:.status.readyReplicas,NAMESPACE:.metadata.namespace --sort-by<span class="token operator">=</span>.metadata.name <span class="token operator">&gt;</span> /opt/admin2406_data
 </code></pre>
-<h3 id="question-3-8">Question 3 (8&apos;)</h3>
+<h3 id="question-3-8"><a name="question-3-8" class="anchor-navigation-ex-anchor" href="#question-3-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (8&apos;)</h3>
 <p>A kubeconfig file called <code>admin.kubeconfig</code> has been created in <code>/root/CKA</code>. There is something wrong with the configuration. Troubleshoot and fix it.</p>
 <p>Details</p>
 <ul>
@@ -1122,7 +1126,7 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Run the below command to know the cluster information:</p>
 <pre class="language-"><code class="lang-sh">kubectl cluster-info <span class="token parameter variable">--kubeconfig</span> /root/CKA/admin.kubeconfig
 </code></pre>
-<h3 id="question-4-12">Question 4 (12&apos;)</h3>
+<h3 id="question-4-12"><a name="question-4-12" class="anchor-navigation-ex-anchor" href="#question-4-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (12&apos;)</h3>
 <p>Create a new deployment called <code>nginx-deploy</code>, with image <code>nginx:1.16</code> and <code>1</code> replica. Next upgrade the deployment to version <code>1.17</code> using <code>rolling update</code>.</p>
 <p>Details</p>
 <ul>
@@ -1137,7 +1141,7 @@ Write the result to the file <code>/opt/admin2406_data</code>.</p>
 <p>Run the below command to update the new image for <code>nginx-deploy</code> deployment and to record the version:</p>
 <pre class="language-"><code class="lang-sh">kubectl <span class="token builtin class-name">set</span> image deployment/nginx-deploy <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.17 <span class="token parameter variable">--record</span>
 </code></pre>
-<h3 id="question-5-20">Question 5 (20&apos;)</h3>
+<h3 id="question-5-20"><a name="question-5-20" class="anchor-navigation-ex-anchor" href="#question-5-20"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (20&apos;)</h3>
 <p>A new deployment called <code>alpha-mysql</code> has been deployed in the <code>alpha</code> namespace. However, the pods are not running. Troubleshoot and fix the issue. The deployment should make use of the persistent volume <code>alpha-pv</code> to be mounted at <code>/var/lib/mysql</code> and should use the environment variable <code>MYSQL_ALLOW_EMPTY_PASSWORD=1</code> to make use of an empty root password.</p>
 <p>Important: Do not alter the persistent volume.</p>
 <p>Details</p>
@@ -1161,7 +1165,7 @@ Solution manifest file to create a pvc called <code>mysql-alpha-pvc</code> as fo
       <span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi
   <span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> slow
 </code></pre>
-<h3 id="question-6-10">Question 6 (10&apos;)</h3>
+<h3 id="question-6-10"><a name="question-6-10" class="anchor-navigation-ex-anchor" href="#question-6-10"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (10&apos;)</h3>
 <p>Take the backup of ETCD at the location <code>/opt/etcd-backup.db</code> on the <code>controlplane</code> node.</p>
 <p>Details</p>
 <ul>
@@ -1172,7 +1176,7 @@ Solution manifest file to create a pvc called <code>mysql-alpha-pvc</code> as fo
 <pre class="language-"><code class="lang-sh"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ETCDCTL_API</span><span class="token operator">=</span><span class="token number">3</span>
 etcdctl snapshot save <span class="token parameter variable">--cacert</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/ca.crt <span class="token parameter variable">--cert</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.crt <span class="token parameter variable">--key</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.key <span class="token parameter variable">--endpoints</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:2379 /opt/etcd-backup.db
 </code></pre>
-<h3 id="question-7-20">Question 7 (20&apos;)</h3>
+<h3 id="question-7-20"><a name="question-7-20" class="anchor-navigation-ex-anchor" href="#question-7-20"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (20&apos;)</h3>
 <p>Create a pod called <code>secret-1401</code> in the <code>admin1401</code> namespace using the <code>busybox</code> image. The container within the pod should be called <code>secret-admin</code> and should sleep for <code>4800</code> seconds.</p>
 <p>The container should mount a <code>read-only</code> secret volume called <code>secret-volume</code> at the path <code>/etc/secret-volume</code>. The secret being mounted has already been created for you and is called <code>dotfile-secret</code>.</p>
 <p>Details</p>
@@ -1257,7 +1261,7 @@ Alternatively, run the following command:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"KodeKloud Lightning Lab - 1","level":"7.16","depth":1,"next":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"path":"k8s/KodeKloud Mock Exam - 2.md","ref":"k8s/KodeKloud Mock Exam - 2.md","articles":[]},"previous":{"title":"资料及经验分享","level":"7.15","depth":1,"path":"k8s/资料及经验分享.md","ref":"k8s/资料及经验分享.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Lightning Lab - 1.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"KodeKloud Lightning Lab - 1","level":"7.16","depth":1,"next":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"path":"k8s/KodeKloud Mock Exam - 2.md","ref":"k8s/KodeKloud Mock Exam - 2.md","articles":[]},"previous":{"title":"资料及经验分享","level":"7.15","depth":1,"path":"k8s/资料及经验分享.md","ref":"k8s/资料及经验分享.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Lightning Lab - 1.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

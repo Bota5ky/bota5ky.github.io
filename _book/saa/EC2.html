@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-amazon-ec2-elastic-compute-cloud">1. Amazon EC2 (Elastic Compute Cloud)</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-amazon-ec2-elastic-compute-cloud"><b></b>1. Amazon EC2 (Elastic Compute Cloud)</a></li><li><span class="title-icon "></span><a href="#2-ec2-instance-types---overview"><b></b>2. EC2 Instance Types - Overview</a></li><li><span class="title-icon "></span><a href="#3-introduction-to-security-groups"><b></b>3. Introduction to Security Groups</a></li><li><span class="title-icon "></span><a href="#4-security-groups-good-to-know"><b></b>4. Security Groups Good to know</a></li><li><span class="title-icon "></span><a href="#5-classic-ports-to-know"><b></b>5. Classic Ports to know</a></li><li><span class="title-icon "></span><a href="#6-ssh-summary-table"><b></b>6. SSH Summary Table</a></li><li><span class="title-icon "></span><a href="#7-ec2-instances-purchasing-options"><b></b>7. EC2 Instances Purchasing Options</a></li><li><span class="title-icon "></span><a href="#8-differences-between-options"><b></b>8. Differences between options</a></li><li><span class="title-icon "></span><a href="#9-how-to-terminate-spot-instances"><b></b>9. How to terminate Spot Instances?</a></li><li><span class="title-icon "></span><a href="#10-spot-fleets"><b></b>10. Spot Fleets</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-amazon-ec2-elastic-compute-cloud"><a name="1-amazon-ec2-elastic-compute-cloud" class="anchor-navigation-ex-anchor" href="#1-amazon-ec2-elastic-compute-cloud"><i class="fa fa-link" aria-hidden="true"></i></a>1. Amazon EC2 (Elastic Compute Cloud)</h3>
 <p>It mainly consists in the capability of :</p>
 <ul>
 <li>Renting virtual machines (EC2)</li>
@@ -1055,19 +1059,19 @@
 <li>Distributing load across machines (ELB)</li>
 <li>Scaling the services using an auto-scaling group (ASG)</li>
 </ul>
-<h3 id="2-ec2-instance-types---overview">2. EC2 Instance Types - Overview</h3>
+<h3 id="2-ec2-instance-types---overview"><a name="2-ec2-instance-types---overview" class="anchor-navigation-ex-anchor" href="#2-ec2-instance-types---overview"><i class="fa fa-link" aria-hidden="true"></i></a>2. EC2 Instance Types - Overview</h3>
 <p>m5.2xlarge</p>
 <ul>
 <li>m: instance class</li>
 <li>5: generation (AWS improves them over time)</li>
 <li>2xlarge: size within the instance class</li>
 </ul>
-<h3 id="3-introduction-to-security-groups">3. Introduction to Security Groups</h3>
+<h3 id="3-introduction-to-security-groups"><a name="3-introduction-to-security-groups" class="anchor-navigation-ex-anchor" href="#3-introduction-to-security-groups"><i class="fa fa-link" aria-hidden="true"></i></a>3. Introduction to Security Groups</h3>
 <ul>
 <li>Security groups only contain <strong>allow</strong> rules</li>
 <li>Security groups rules can reference by IP or by security group</li>
 </ul>
-<h3 id="4-security-groups-good-to-know">4. Security Groups Good to know</h3>
+<h3 id="4-security-groups-good-to-know"><a name="4-security-groups-good-to-know" class="anchor-navigation-ex-anchor" href="#4-security-groups-good-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>4. Security Groups Good to know</h3>
 <ul>
 <li>Can be attached to multiple instances</li>
 <li>Locked down to a region / VPC combination</li>
@@ -1078,7 +1082,7 @@
 <li>All inbound traffic is <font color="red">blocked</font> by default</li>
 <li>All outbound traffic is <font color="green">authorised</font> by default</li>
 </ul>
-<h3 id="5-classic-ports-to-know">5. Classic Ports to know</h3>
+<h3 id="5-classic-ports-to-know"><a name="5-classic-ports-to-know" class="anchor-navigation-ex-anchor" href="#5-classic-ports-to-know"><i class="fa fa-link" aria-hidden="true"></i></a>5. Classic Ports to know</h3>
 <ul>
 <li>22 = SSH (Secure Shell) - log into a Linux instance</li>
 <li>21 = FTP (File Transfer Protocol) &#x2013; upload files into a file share</li>
@@ -1087,7 +1091,7 @@
 <li>443 = HTTPS &#x2013; access secured websites</li>
 <li>3389 = RDP (Remote Desktop Protocol) &#x2013; log into a Windows instance</li>
 </ul>
-<h3 id="6-ssh-summary-table">6. SSH Summary Table</h3>
+<h3 id="6-ssh-summary-table"><a name="6-ssh-summary-table" class="anchor-navigation-ex-anchor" href="#6-ssh-summary-table"><i class="fa fa-link" aria-hidden="true"></i></a>6. SSH Summary Table</h3>
 <table>
 <thead>
 <tr>
@@ -1124,7 +1128,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="7-ec2-instances-purchasing-options">7. EC2 Instances Purchasing Options</h3>
+<h3 id="7-ec2-instances-purchasing-options"><a name="7-ec2-instances-purchasing-options" class="anchor-navigation-ex-anchor" href="#7-ec2-instances-purchasing-options"><i class="fa fa-link" aria-hidden="true"></i></a>7. EC2 Instances Purchasing Options</h3>
 <ul>
 <li><strong>On-Demand Instances</strong>: short workload, predictable pricing</li>
 <li><strong>Reserved</strong>: (MINIMUM 1 year)<ul>
@@ -1149,7 +1153,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="8-differences-between-options">8. Differences between options</h3>
+<h3 id="8-differences-between-options"><a name="8-differences-between-options" class="anchor-navigation-ex-anchor" href="#8-differences-between-options"><i class="fa fa-link" aria-hidden="true"></i></a>8. Differences between options</h3>
 <center><img src="diff.png" style="zoom:70%"></center>
 
 <p>*note: </p>
@@ -1211,12 +1215,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="9-how-to-terminate-spot-instances">9. How to terminate Spot Instances?</h3>
+<h3 id="9-how-to-terminate-spot-instances"><a name="9-how-to-terminate-spot-instances" class="anchor-navigation-ex-anchor" href="#9-how-to-terminate-spot-instances"><i class="fa fa-link" aria-hidden="true"></i></a>9. How to terminate Spot Instances?</h3>
 <p><img src="terminate.png" style="zoom:32%"><img src="terminate2.png" style="zoom:32%"></p>
 <p>You can only cancel Spot Instance requests that are open, active, or disabled.
 Cancelling a Spot Request does not terminate instances
 You must first cancel a Spot Request, and then terminate the associated Spot Instances</p>
-<h3 id="10-spot-fleets">10. Spot Fleets</h3>
+<h3 id="10-spot-fleets"><a name="10-spot-fleets" class="anchor-navigation-ex-anchor" href="#10-spot-fleets"><i class="fa fa-link" aria-hidden="true"></i></a>10. Spot Fleets</h3>
 <ul>
 <li>Spot Fleets = set of Spot Instances + (optional) On-Demand Instances</li>
 <li>The Spot Fleet will try to meet the target capacity with price constraints<ul>
@@ -1277,7 +1281,7 @@ You must first cancel a Spot Request, and then terminate the associated Spot Ins
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"EC2 & Security Groups","level":"8.4","depth":1,"next":{"title":"Elastic IPs 及 EC2 相关","level":"8.5","depth":1,"path":"saa/ElasticIPs.md","ref":"saa/ElasticIPs.md","articles":[]},"previous":{"title":"IAM","level":"8.3","depth":1,"path":"saa/IAM.md","ref":"saa/IAM.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/EC2.md","mtime":"2023-07-12T13:26:47.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"EC2 & Security Groups","level":"8.4","depth":1,"next":{"title":"Elastic IPs 及 EC2 相关","level":"8.5","depth":1,"path":"saa/ElasticIPs.md","ref":"saa/ElasticIPs.md","articles":[]},"previous":{"title":"IAM","level":"8.3","depth":1,"path":"saa/IAM.md","ref":"saa/IAM.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/EC2.md","mtime":"2023-07-12T13:26:47.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

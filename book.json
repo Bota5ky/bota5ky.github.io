@@ -1,6 +1,6 @@
 {
-  "title" : "Bota5ky's Blog",
-  "author" : "Bota5ky",
+  "title": "Bota5ky's Blog",
+  "author": "Bota5ky",
   "styles": {
     "website": "styles/website.css"
   },
@@ -11,6 +11,7 @@
     "code",
     "prism",
     "tbfed-pagefooter",
+    "anchor-navigation-ex",
     "disqus",
     "-lunr",
     "-search",
@@ -30,6 +31,9 @@
       "copyright": "Copyright ©Bota5ky",
       "modify_label": "Last Updated: ",
       "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false
     },
     "disqus": {
       "shortName": "bota5ky"

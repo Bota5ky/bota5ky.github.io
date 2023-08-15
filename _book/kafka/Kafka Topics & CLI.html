@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-kafka-cli-kafka-topicssh">1. Kafka CLI: <code>kafka-topics.sh</code></h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-kafka-cli-kafka-topicssh"><b></b>1. Kafka CLI: kafka-topics.sh</a></li><li><span class="title-icon "></span><a href="#2-kafka-cli-kafka-console-producersh"><b></b>2. Kafka CLI: kafka-console-producer.sh</a></li><li><span class="title-icon "></span><a href="#3-kafka-cli-kafka-console-consumersh"><b></b>3. Kafka CLI: kafka-console-consumer.sh</a></li><li><span class="title-icon "></span><a href="#4-cli-consumer-in-groups-with-kafka-console-consumersh"><b></b>4. CLI Consumer in Groups with kafka-console-consumer.sh</a></li><li><span class="title-icon "></span><a href="#5-consumer-group-management-cli-kafka-consumer-groupssh"><b></b>5. Consumer Group Management CLI kafka-consumer-groups.sh</a></li><li><span class="title-icon "></span><a href="#6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><b></b>6. Consumer Groups -Reset Offsets kafka-consumer-groups.sh</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-kafka-cli-kafka-topicssh"><a name="1-kafka-cli-kafka-topicssh" class="anchor-navigation-ex-anchor" href="#1-kafka-cli-kafka-topicssh"><i class="fa fa-link" aria-hidden="true"></i></a>1. Kafka CLI: <code>kafka-topics.sh</code></h3>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-topics.sh&quot; </span>
 <span class="token comment"># by &quot;kafka-topics&quot; or &quot;kafka-topics.bat&quot; based on your system # (or bin/kafka-topics.sh or bin\windows\kafka-topics.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1074,7 +1078,7 @@ kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter v
 kafka-topics.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--delete</span>
 <span class="token comment"># (only works if delete.topic.enable=true)</span>
 </code></pre>
-<h3 id="2-kafka-cli-kafka-console-producersh">2. Kafka CLI: <code>kafka-console-producer.sh</code></h3>
+<h3 id="2-kafka-cli-kafka-console-producersh"><a name="2-kafka-cli-kafka-console-producersh" class="anchor-navigation-ex-anchor" href="#2-kafka-cli-kafka-console-producersh"><i class="fa fa-link" aria-hidden="true"></i></a>2. Kafka CLI: <code>kafka-console-producer.sh</code></h3>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-console-producer.sh&quot; </span>
 <span class="token comment"># by &quot;kafka-console-producer&quot; or &quot;kafka-console-producer.bat&quot; based on your system # (or bin/kafka-console-producer.sh or bin\windows\kafka-console-producer.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1124,7 +1128,7 @@ kafka-console-producer --bootstrap-server localhost:9092 <span class="token para
 <span class="token operator">&gt;</span>example key:example value
 <span class="token operator">&gt;</span>name:Stephane
 </code></pre>
-<h3 id="3-kafka-cli-kafka-console-consumersh">3. Kafka CLI: <code>kafka-console-consumer.sh</code></h3>
+<h3 id="3-kafka-cli-kafka-console-consumersh"><a name="3-kafka-cli-kafka-console-consumersh" class="anchor-navigation-ex-anchor" href="#3-kafka-cli-kafka-console-consumersh"><i class="fa fa-link" aria-hidden="true"></i></a>3. Kafka CLI: <code>kafka-console-consumer.sh</code></h3>
 <pre class="language-"><code class="lang-shell"><span class="token comment"># Replace &quot;kafka-console-consumer.sh&quot; </span>
 <span class="token comment"># by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1143,7 +1147,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
 <span class="token comment"># display key, values and timestamp in consumer</span>
 kafka-console-consumer --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--formatter</span> kafka.tools.DefaultMessageFormatter <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.timestamp</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.key</span><span class="token operator">=</span>true <span class="token parameter variable">--property</span> <span class="token assign-left variable">print.value</span><span class="token operator">=</span>true --from-beginning
 </code></pre>
-<h3 id="4-cli-consumer-in-groups-with-kafka-console-consumersh">4. CLI Consumer in Groups with <code>kafka-console-consumer.sh</code></h3>
+<h3 id="4-cli-consumer-in-groups-with-kafka-console-consumersh"><a name="4-cli-consumer-in-groups-with-kafka-console-consumersh" class="anchor-navigation-ex-anchor" href="#4-cli-consumer-in-groups-with-kafka-console-consumersh"><i class="fa fa-link" aria-hidden="true"></i></a>4. CLI Consumer in Groups with <code>kafka-console-consumer.sh</code></h3>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-console-consumer.sh&quot; </span>
 <span class="token comment"># by &quot;kafka-console-consumer&quot; or &quot;kafka-console-consumer.bat&quot; based on your system # (or bin/kafka-console-consumer.sh or bin\windows\kafka-console-consumer.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1159,7 +1163,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
 <span class="token comment"># start another consumer part of a different group from beginning</span>
 kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--topic</span> first_topic <span class="token parameter variable">--group</span> my-second-application --from-beginning
 </code></pre>
-<h3 id="5-consumer-group-management-cli-kafka-consumer-groupssh">5. Consumer Group Management CLI <code>kafka-consumer-groups.sh</code></h3>
+<h3 id="5-consumer-group-management-cli-kafka-consumer-groupssh"><a name="5-consumer-group-management-cli-kafka-consumer-groupssh" class="anchor-navigation-ex-anchor" href="#5-consumer-group-management-cli-kafka-consumer-groupssh"><i class="fa fa-link" aria-hidden="true"></i></a>5. Consumer Group Management CLI <code>kafka-consumer-groups.sh</code></h3>
 <pre class="language-"><code class="lang-bash"> <span class="token comment"># Replace &quot;kafka-consumer-groups.sh&quot; </span>
 <span class="token comment"># by &quot;kafka-consumer-groups&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1191,7 +1195,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
 <span class="token comment"># describe the group again</span>
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 <span class="token parameter variable">--describe</span> <span class="token parameter variable">--group</span> my-first-application
 </code></pre>
-<h3 id="6-consumer-groups--reset-offsets-kafka-consumer-groupssh">6. Consumer Groups -Reset Offsets <code>kafka-consumer-groups.sh</code></h3>
+<h3 id="6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><a name="6-consumer-groups--reset-offsets-kafka-consumer-groupssh" class="anchor-navigation-ex-anchor" href="#6-consumer-groups--reset-offsets-kafka-consumer-groupssh"><i class="fa fa-link" aria-hidden="true"></i></a>6. Consumer Groups -Reset Offsets <code>kafka-consumer-groups.sh</code></h3>
 <pre class="language-"><code class="lang-bash"><span class="token comment"># Replace &quot;kafka-consumer-groups&quot; </span>
 <span class="token comment"># by &quot;kafka-consumer-groups.sh&quot; or &quot;kafka-consumer-groups.bat&quot; based on your system # (or bin/kafka-consumer-groups.sh or bin\windows\kafka-consumer-groups.bat if you didn&apos;t setup PATH / Environment variables)</span>
 
@@ -1271,7 +1275,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 <span class="token p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Kafka Topics & CLI","level":"4.3","depth":1,"next":{"title":"Java Integration","level":"4.4","depth":1,"path":"kafka/Java Integration.md","ref":"kafka/Java Integration.md","articles":[]},"previous":{"title":"基本概念","level":"4.2","depth":1,"path":"kafka/基本概念.md","ref":"kafka/基本概念.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"kafka/Kafka Topics & CLI.md","mtime":"2023-07-12T13:10:48.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kafka Topics & CLI","level":"4.3","depth":1,"next":{"title":"Java Integration","level":"4.4","depth":1,"path":"kafka/Java Integration.md","ref":"kafka/Java Integration.md","articles":[]},"previous":{"title":"基本概念","level":"4.2","depth":1,"path":"kafka/基本概念.md","ref":"kafka/基本概念.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"kafka/Kafka Topics & CLI.md","mtime":"2023-07-12T13:10:48.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

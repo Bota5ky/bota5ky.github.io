@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-s3-mfa-delete">1. S3 MFA-Delete</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-s3-mfa-delete"><b></b>1. S3 MFA-Delete</a></li><li><span class="title-icon "></span><a href="#2-s3-replication-crr--srr"><b></b>2. S3 Replication (CRR &amp; SRR)</a></li><li><span class="title-icon "></span><a href="#3-s3-replication-&#x2013;-notes"><b></b>3. S3 Replication &#x2013; Notes</a></li><li><span class="title-icon "></span><a href="#4-s3-pre-signed-urls"><b></b>4. S3 Pre-Signed URLs</a></li><li><span class="title-icon "></span><a href="#5-amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><b></b>5. Amazon S3&#x5B58;&#x50A8;&#x7C7B;&#x522B;</a></li><li><span class="title-icon "></span><a href="#6-s3-&#x2013;-moving-between-storage-classes"><b></b>6. S3 &#x2013; Moving between storage classes</a></li><li><span class="title-icon "></span><a href="#7-s3-lifecycle-rules"><b></b>7. S3 Lifecycle Rules</a></li><li><span class="title-icon "></span><a href="#8-s3-analytics-&#x2013;-storage-class-analysis"><b></b>8. S3 Analytics &#x2013; Storage Class Analysis</a></li><li><span class="title-icon "></span><a href="#9-s3-&#x2013;-baseline-performance"><b></b>9. S3 &#x2013; Baseline Performance</a></li><li><span class="title-icon "></span><a href="#10-s3-performance"><b></b>10. S3 Performance</a></li><li><span class="title-icon "></span><a href="#11-athena"><b></b>11. Athena</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-s3-mfa-delete"><a name="1-s3-mfa-delete" class="anchor-navigation-ex-anchor" href="#1-s3-mfa-delete"><i class="fa fa-link" aria-hidden="true"></i></a>1. S3 MFA-Delete</h3>
 <ul>
 <li>MFA (multi factor authentication) forces user to generate a code on a device (usually a mobile phone or hardware) before doing important operations on S3</li>
 <li>To use MFA-Delete, enable Versioning on the S3 bucket</li>
@@ -1065,7 +1069,7 @@
 <li>MFA-Delete currently can only be enabled using the CLI</li>
 <li><strong>*Note:</strong> Bucket Policies are evaluated before &quot;default encryption&quot;</li>
 </ul>
-<h3 id="2-s3-replication-crr--srr">2. S3 Replication (CRR &amp; SRR)</h3>
+<h3 id="2-s3-replication-crr--srr"><a name="2-s3-replication-crr--srr" class="anchor-navigation-ex-anchor" href="#2-s3-replication-crr--srr"><i class="fa fa-link" aria-hidden="true"></i></a>2. S3 Replication (CRR &amp; SRR)</h3>
 <ul>
 <li><strong>Must enable versioning</strong> in source and destination</li>
 <li>Cross Region Replication (CRR)</li>
@@ -1076,7 +1080,7 @@
 <li>CRR - Use cases: compliance, lower latency access, replication across accounts</li>
 <li>SRR &#x2013; Use cases: log aggregation, live replication between production and test accounts</li>
 </ul>
-<h3 id="3-s3-replication-&#x2013;-notes">3. S3 Replication &#x2013; Notes</h3>
+<h3 id="3-s3-replication-&#x2013;-notes"><a name="3-s3-replication-&#x2013;-notes" class="anchor-navigation-ex-anchor" href="#3-s3-replication-&#x2013;-notes"><i class="fa fa-link" aria-hidden="true"></i></a>3. S3 Replication &#x2013; Notes</h3>
 <ul>
 <li>After activating, only new objects are replicated (not retroactive)</li>
 <li>For DELETE operations:<ul>
@@ -1090,7 +1094,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-s3-pre-signed-urls">4. S3 Pre-Signed URLs</h3>
+<h3 id="4-s3-pre-signed-urls"><a name="4-s3-pre-signed-urls" class="anchor-navigation-ex-anchor" href="#4-s3-pre-signed-urls"><i class="fa fa-link" aria-hidden="true"></i></a>4. S3 Pre-Signed URLs</h3>
 <ul>
 <li>Can generate pre-signed URLs using SDK or CLI<ul>
 <li>For downloads (easy, can use the CLI)</li>
@@ -1100,14 +1104,14 @@
 <li>Valid for a default of 3600 seconds, can change timeout with --expires-in [TIME_BY_SECONDS] argument</li>
 <li>Users given a pre-signed URL inherit the permissions of the person who generated the URL for GET / PUT</li>
 </ul>
-<h3 id="5-amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;">5. Amazon S3&#x5B58;&#x50A8;&#x7C7B;&#x522B;</h3>
+<h3 id="5-amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><a name="5-amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;" class="anchor-navigation-ex-anchor" href="#5-amazon-s3&#x5B58;&#x50A8;&#x7C7B;&#x522B;"><i class="fa fa-link" aria-hidden="true"></i></a>5. Amazon S3&#x5B58;&#x50A8;&#x7C7B;&#x522B;</h3>
 <p><a href="https://aws.amazon.com/cn/s3/storage-classes/" target="_blank">S3 Storage Classes Comparison</a></p>
 <center><img src="s3.png" style="zoom:60%"></center>
 
-<h3 id="6-s3-&#x2013;-moving-between-storage-classes">6. S3 &#x2013; Moving between storage classes</h3>
+<h3 id="6-s3-&#x2013;-moving-between-storage-classes"><a name="6-s3-&#x2013;-moving-between-storage-classes" class="anchor-navigation-ex-anchor" href="#6-s3-&#x2013;-moving-between-storage-classes"><i class="fa fa-link" aria-hidden="true"></i></a>6. S3 &#x2013; Moving between storage classes</h3>
 <center><img src="s3moving.png" style="zoom:65%"></center>
 
-<h3 id="7-s3-lifecycle-rules">7. S3 Lifecycle Rules</h3>
+<h3 id="7-s3-lifecycle-rules"><a name="7-s3-lifecycle-rules" class="anchor-navigation-ex-anchor" href="#7-s3-lifecycle-rules"><i class="fa fa-link" aria-hidden="true"></i></a>7. S3 Lifecycle Rules</h3>
 <ul>
 <li><strong>Transition actions</strong>: It defines when objects are transitioned to another storage class.<ul>
 <li>Move objects to Standard IA class 60 days after creation</li>
@@ -1123,7 +1127,7 @@
 <li>Rules can be created for a certain prefix (ex - s3://mybucket/mp3/*)</li>
 <li>Rules can be created for certain objects tags (ex - Department: Finance)</li>
 </ul>
-<h3 id="8-s3-analytics-&#x2013;-storage-class-analysis">8. S3 Analytics &#x2013; Storage Class Analysis</h3>
+<h3 id="8-s3-analytics-&#x2013;-storage-class-analysis"><a name="8-s3-analytics-&#x2013;-storage-class-analysis" class="anchor-navigation-ex-anchor" href="#8-s3-analytics-&#x2013;-storage-class-analysis"><i class="fa fa-link" aria-hidden="true"></i></a>8. S3 Analytics &#x2013; Storage Class Analysis</h3>
 <ul>
 <li>You can setup S3 Analytics to help determine when to transition objects from Standard to Standard_IA</li>
 <li>Does not work for ONEZONE_IA or GLACIER</li>
@@ -1131,12 +1135,12 @@
 <li>Takes about 24h to 48h hours to first start</li>
 <li>Good first step to put together Lifecycle Rules (or improve them)!</li>
 </ul>
-<h3 id="9-s3-&#x2013;-baseline-performance">9. S3 &#x2013; Baseline Performance</h3>
+<h3 id="9-s3-&#x2013;-baseline-performance"><a name="9-s3-&#x2013;-baseline-performance" class="anchor-navigation-ex-anchor" href="#9-s3-&#x2013;-baseline-performance"><i class="fa fa-link" aria-hidden="true"></i></a>9. S3 &#x2013; Baseline Performance</h3>
 <ul>
 <li>Amazon S3 automatically scales to high request rates, latency 100-200 ms</li>
 <li>Your application can achieve at least <strong>3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix in a bucket</strong></li>
 </ul>
-<h3 id="10-s3-performance">10. S3 Performance</h3>
+<h3 id="10-s3-performance"><a name="10-s3-performance" class="anchor-navigation-ex-anchor" href="#10-s3-performance"><i class="fa fa-link" aria-hidden="true"></i></a>10. S3 Performance</h3>
 <ul>
 <li><strong>Multi-Part upload:</strong><ul>
 <li>recommended for files &gt; 100MB, must use for files &gt; 5GB</li>
@@ -1149,7 +1153,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="11-athena">11. Athena</h3>
+<h3 id="11-athena"><a name="11-athena" class="anchor-navigation-ex-anchor" href="#11-athena"><i class="fa fa-link" aria-hidden="true"></i></a>11. Athena</h3>
 <p>one time SQL queries, serverless queries on S3, log analytics </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
 2023-07-12 21:46:36
@@ -1196,7 +1200,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"S3, Glacier & Athena","level":"8.11","depth":1,"next":{"title":"CloudFront, SQS, SNS & Kinesis","level":"8.12","depth":1,"path":"saa/CloudFront, SQS, SNS & Kinesis.md","ref":"saa/CloudFront, SQS, SNS & Kinesis.md","articles":[]},"previous":{"title":"S3, FSx & Storage Gateway","level":"8.10","depth":1,"path":"saa/S3, FSx & Storage Gateway.md","ref":"saa/S3, FSx & Storage Gateway.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/S3, Glacier & Athena.md","mtime":"2023-07-12T13:46:36.444Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"S3, Glacier & Athena","level":"8.11","depth":1,"next":{"title":"CloudFront, SQS, SNS & Kinesis","level":"8.12","depth":1,"path":"saa/CloudFront, SQS, SNS & Kinesis.md","ref":"saa/CloudFront, SQS, SNS & Kinesis.md","articles":[]},"previous":{"title":"S3, FSx & Storage Gateway","level":"8.10","depth":1,"path":"saa/S3, FSx & Storage Gateway.md","ref":"saa/S3, FSx & Storage Gateway.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/S3, Glacier & Athena.md","mtime":"2023-07-12T13:46:36.444Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

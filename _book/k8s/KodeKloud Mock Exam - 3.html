@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="question-1-12">Question 1 (12&apos;)</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#question-1-12"><b></b>Question 1 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-2-12"><b></b>Question 2 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-3-12"><b></b>Question 3 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-4-8"><b></b>Question 4 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-5-14"><b></b>Question 5 (14&apos;)</a></li><li><span class="title-icon "></span><a href="#question-6-12"><b></b>Question 6 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-7-8"><b></b>Question 7 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-8-8"><b></b>Question 8 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-9-14"><b></b>Question 9 (14&apos;)</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="question-1-12"><a name="question-1-12" class="anchor-navigation-ex-anchor" href="#question-1-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 1 (12&apos;)</h3>
 <p>Question</p>
 <p>Create a new service account with the name <code>pvviewer</code>. Grant this Service account access to <code>list</code> all PersistentVolumes in the cluster by creating an appropriate cluster role called <code>pvviewer-role</code> and ClusterRoleBinding called <code>pvviewer-role-binding</code>.
 Next, create a pod called <code>pvviewer</code> with the image: <code>redis</code> and serviceAccount: <code>pvviewer</code> in the default namespace.</p>
@@ -1086,14 +1090,14 @@ Reference: <code>https://kubernetes.io/docs/tasks/configure-pod-container/config
   <span class="token comment"># Add service account name</span>
   <span class="token key atrule">serviceAccountName</span><span class="token punctuation">:</span> pvviewer
 </code></pre>
-<h3 id="question-2-12">Question 2 (12&apos;)</h3>
+<h3 id="question-2-12"><a name="question-2-12" class="anchor-navigation-ex-anchor" href="#question-2-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (12&apos;)</h3>
 <p>Question</p>
 <p>List the <code>InternalIP</code> of all nodes of the cluster. Save the result to a file <code>/root/CKA/node_ips</code>.</p>
 <p>Answer should be in the format: <code>InternalIP of controlplane</code><space><code>InternalIP of node01</code> (in a single line)</space></p>
 <p>Solution</p>
 <p>Explore the jsonpath loop.
 <code>kubectl get nodes -o jsonpath=&apos;{.items[*].status.addresses[?(@.type==&quot;InternalIP&quot;)].address}&apos;</code> &gt; /root/CKA/node_ips</p>
-<h3 id="question-3-12">Question 3 (12&apos;)</h3>
+<h3 id="question-3-12"><a name="question-3-12" class="anchor-navigation-ex-anchor" href="#question-3-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (12&apos;)</h3>
 <p>Question</p>
 <p>Create a pod called <code>multi-pod</code> with two containers.
 Container 1, name: <code>alpha</code>, image: <code>nginx</code>
@@ -1133,7 +1137,7 @@ container 1:
     <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> name
       <span class="token key atrule">value</span><span class="token punctuation">:</span> beta
 </code></pre>
-<h3 id="question-4-8">Question 4 (8&apos;)</h3>
+<h3 id="question-4-8"><a name="question-4-8" class="anchor-navigation-ex-anchor" href="#question-4-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (8&apos;)</h3>
 <p>Question</p>
 <p>Create a Pod called <code>non-root-pod</code> , image: <code>redis:alpine</code>
 runAsUser: 1000
@@ -1160,7 +1164,7 @@ fsGroup: 2000</p>
 </code></pre>
 <p>Verify the user and group IDs by using below command:</p>
 <pre class="language-"><code>kubectl exec -it non-root-pod -- id
-</code></pre><h3 id="question-5-14">Question 5 (14&apos;)</h3>
+</code></pre><h3 id="question-5-14"><a name="question-5-14" class="anchor-navigation-ex-anchor" href="#question-5-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (14&apos;)</h3>
 <p>Question</p>
 <p>We have deployed a new pod called <code>np-test-1</code> and a service called <code>np-test-service</code>. Incoming connections to this service are not working. Troubleshoot and fix it.
 Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows incoming connections to the service over port <code>80</code>.</p>
@@ -1191,7 +1195,7 @@ Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows inc
     <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
       <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
 </code></pre>
-<h3 id="question-6-12">Question 6 (12&apos;)</h3>
+<h3 id="question-6-12"><a name="question-6-12" class="anchor-navigation-ex-anchor" href="#question-6-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (12&apos;)</h3>
 <p>Question</p>
 <p>Taint the worker node <code>node01</code> to be Unschedulable. Once done, create a pod called <code>dev-redis</code>, image <code>redis:alpine</code>, to ensure workloads are not scheduled to this worker node. Finally, create a new pod called <code>prod-redis</code> and image: <code>redis:alpine</code> with toleration to be scheduled on <code>node01</code>.</p>
 <p>key: <code>env_type</code>, value: <code>production</code>, operator: <code>Equal</code> and effect: <code>NoSchedule</code></p>
@@ -1232,7 +1236,7 @@ Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows inc
 <p>To view only <code>prod-redis</code> pod with less details:</p>
 <pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-o</span> wide <span class="token operator">|</span> <span class="token function">grep</span> prod-redis
 </code></pre>
-<h3 id="question-7-8">Question 7 (8&apos;)</h3>
+<h3 id="question-7-8"><a name="question-7-8" class="anchor-navigation-ex-anchor" href="#question-7-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (8&apos;)</h3>
 <p>Question</p>
 <p>Create a pod called <code>hr-pod</code> in <code>hr</code> namespace belonging to the <code>production</code> environment and <code>frontend</code> tier .
 image: <code>redis:alpine</code></p>
@@ -1249,7 +1253,7 @@ image: <code>redis:alpine</code></p>
 <p>and then create a <code>hr-pod</code> with given details:</p>
 <pre class="language-"><code class="lang-shell">kubectl run hr-pod <span class="token parameter variable">--image</span><span class="token operator">=</span>redis:alpine <span class="token parameter variable">--namespace</span><span class="token operator">=</span>hr <span class="token parameter variable">--labels</span><span class="token operator">=</span>environment<span class="token operator">=</span>production,tier<span class="token operator">=</span>frontend
 </code></pre>
-<h3 id="question-8-8">Question 8 (8&apos;)</h3>
+<h3 id="question-8-8"><a name="question-8-8" class="anchor-navigation-ex-anchor" href="#question-8-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 8 (8&apos;)</h3>
 <p>Question</p>
 <p>A kubeconfig file called <code>super.kubeconfig</code> has been created under <code>/root/CKA</code>. There is something wrong with the configuration. Troubleshoot and fix it.</p>
 <p>Details</p>
@@ -1262,7 +1266,7 @@ Open the <code>super.kubeconfig</code> in vi editor.
 Change the 9999 port to 6443 and run the below command to verify:</p>
 <pre class="language-"><code class="lang-shell">kubectl cluster-info <span class="token parameter variable">--kubeconfig</span><span class="token operator">=</span>/root/CKA/super.kubeconfig
 </code></pre>
-<h3 id="question-9-14">Question 9 (14&apos;)</h3>
+<h3 id="question-9-14"><a name="question-9-14" class="anchor-navigation-ex-anchor" href="#question-9-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 9 (14&apos;)</h3>
 <p>Question</p>
 <p>We have created a new deployment called <code>nginx-deploy</code>. scale the deployment to 3 replicas. Has the replica&apos;s increased? Troubleshoot the issue and fix it.</p>
 <p>Details</p>
@@ -1329,7 +1333,7 @@ At last, inspect the deployment by using below command:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"KodeKloud Mock Exam - 3","level":"7.18","depth":1,"next":{"title":"CKA 已通过 2022.12.04","level":"7.19","depth":1,"path":"k8s/CKA已通过2022.12.04.md","ref":"k8s/CKA已通过2022.12.04.md","articles":[]},"previous":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"path":"k8s/KodeKloud Mock Exam - 2.md","ref":"k8s/KodeKloud Mock Exam - 2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Mock Exam - 3.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"KodeKloud Mock Exam - 3","level":"7.18","depth":1,"next":{"title":"CKA 已通过 2022.12.04","level":"7.19","depth":1,"path":"k8s/CKA已通过2022.12.04.md","ref":"k8s/CKA已通过2022.12.04.md","articles":[]},"previous":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"path":"k8s/KodeKloud Mock Exam - 2.md","ref":"k8s/KodeKloud Mock Exam - 2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Mock Exam - 3.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

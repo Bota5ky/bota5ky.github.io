@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-kubeconfig">1. KubeConfig</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-kubeconfig"><b></b>1. KubeConfig</a></li><li><span class="title-icon "></span><a href="#2-rbac"><b></b>2. RBAC</a></li><li><span class="title-icon "></span><a href="#3-service-accounts"><b></b>3. Service Accounts</a></li><li><span class="title-icon "></span><a href="#4-image-security"><b></b>4. Image Security</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-kubeconfig"><a name="1-kubeconfig" class="anchor-navigation-ex-anchor" href="#1-kubeconfig"><i class="fa fa-link" aria-hidden="true"></i></a>1. KubeConfig</h3>
 <p>&#x4F7F;&#x7528;&#x8BBF;&#x95EE;API&#x83B7;&#x53D6;pods&#x4FE1;&#x606F;&#xFF1A;</p>
 <pre class="language-"><code class="lang-bash"><span class="token function">curl</span> https://my-kube-playground:6443/api/v1/pods <span class="token punctuation">\</span>
  <span class="token parameter variable">--key</span> admin.key
@@ -1094,7 +1098,7 @@
 <p>&#x53EF;&#x4EE5; <code>kubectl config view --kubeconfig=my-custom-config</code> &#x6307;&#x5B9A;kubeconfig</p>
 <p>&#x4F7F;&#x7528; <code>kubectl config use-context prod-user@prodection --kubeconfig /root/my-kube-config</code> &#x6307;&#x5B9A;kubeconfig&#xFF0C;&#x66F4;&#x6362;&#x4E0A;&#x4E0B;&#x6587;</p>
 <p>&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;config&#xFF1A;<code>mv .kube/config .kube/config.bak</code> &#x5907;&#x4EFD;&#xFF0C;&#x7136;&#x540E;&#x590D;&#x5236; <code>cp /root/my-kube-config .kube/config</code></p>
-<h3 id="2-rbac">2. RBAC</h3>
+<h3 id="2-rbac"><a name="2-rbac" class="anchor-navigation-ex-anchor" href="#2-rbac"><i class="fa fa-link" aria-hidden="true"></i></a>2. RBAC</h3>
 <p>&#x96C6;&#x7FA4;&#x5C42;&#x9762;&#x8BF7;&#x4F7F;&#x7528; <code>ClusterRole</code> &#x548C; <code>ClusterRoleBindings</code></p>
 <p><code>developer-role.yaml</code></p>
 <pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> rbac.authorization.k8s.io/v1
@@ -1167,7 +1171,7 @@ kubectl edit role developer <span class="token parameter variable">-n</span> blu
   <span class="token punctuation">-</span> create
   <span class="token punctuation">-</span> delete
 </code></pre>
-<h3 id="3-service-accounts">3. Service Accounts</h3>
+<h3 id="3-service-accounts"><a name="3-service-accounts" class="anchor-navigation-ex-anchor" href="#3-service-accounts"><i class="fa fa-link" aria-hidden="true"></i></a>3. Service Accounts</h3>
 <p><code>kubectl create serviceaccount dashboard-sa</code></p>
 <p><code>kubectl get serviceaccount</code></p>
 <p><code>kubectl describe serviceaccount dashboard-sa</code></p>
@@ -1184,7 +1188,7 @@ kubectl edit role developer <span class="token parameter variable">-n</span> blu
 <pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
   <span class="token key atrule">automountServiceAccountToken</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
 </code></pre>
-<h3 id="4-image-security">4. Image Security</h3>
+<h3 id="4-image-security"><a name="4-image-security" class="anchor-navigation-ex-anchor" href="#4-image-security"><i class="fa fa-link" aria-hidden="true"></i></a>4. Image Security</h3>
 <p><code>image: docker.io/library/nginx</code>&#xFF1A;&#x4E0D;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x540D;&#x6216;&#x8D26;&#x6237;&#x540D;&#xFF0C;&#x5219;&#x4F1A;&#x5047;&#x5B9A;&#x4E3A;library&#x3002;Registry&#xFF0C;User/Account&#xFF0C;Image/Repository</p>
 <p><code>docker login private-registry.io</code></p>
 <p><code>docker run private-registry.io/apps/internal-app</code></p>
@@ -1255,7 +1259,7 @@ kubectl edit role developer <span class="token parameter variable">-n</span> blu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RBAC","level":"7.10","depth":1,"next":{"title":"网络策略和存储","level":"7.11","depth":1,"path":"k8s/网络策略和存储.md","ref":"k8s/网络策略和存储.md","articles":[]},"previous":{"title":"备份、认证及 TLS","level":"7.9","depth":1,"path":"k8s/备份、认证及TLS.md","ref":"k8s/备份、认证及TLS.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/RBAC.md","mtime":"2023-07-12T12:26:08.275Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RBAC","level":"7.10","depth":1,"next":{"title":"网络策略和存储","level":"7.11","depth":1,"path":"k8s/网络策略和存储.md","ref":"k8s/网络策略和存储.md","articles":[]},"previous":{"title":"备份、认证及 TLS","level":"7.9","depth":1,"path":"k8s/备份、认证及TLS.md","ref":"k8s/备份、认证及TLS.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/RBAC.md","mtime":"2023-07-12T12:26:08.275Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

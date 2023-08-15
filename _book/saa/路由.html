@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-dns-terminologies">1. DNS Terminologies</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-dns-terminologies"><b></b>1. DNS Terminologies</a></li><li><span class="title-icon "></span><a href="#2-amazon-route-53"><b></b>2. Amazon Route 53</a></li><li><span class="title-icon "></span><a href="#3-route-53-&#x2013;-records"><b></b>3. Route 53 &#x2013; Records</a></li><li><span class="title-icon "></span><a href="#4-route-53-&#x2013;-record-types"><b></b>4. Route 53 &#x2013; Record Types</a></li><li><span class="title-icon "></span><a href="#5-route-53-&#x2013;-records-ttl-time-to-live"><b></b>5. Route 53 &#x2013; Records TTL (Time To Live)</a></li><li><span class="title-icon "></span><a href="#6-cname-vs-alias"><b></b>6. CNAME vs Alias</a></li><li><span class="title-icon "></span><a href="#7-routing-policies---simple"><b></b>7. Routing Policies - Simple</a></li><li><span class="title-icon "></span><a href="#8-routing-policies-&#x2013;-weighted"><b></b>8. Routing Policies &#x2013; Weighted</a></li><li><span class="title-icon "></span><a href="#9-route-53-&#x2013;-health-checks"><b></b>9. Route 53 &#x2013; Health Checks</a></li><li><span class="title-icon "></span><a href="#10-health-checks-&#x2013;-monitor-an-endpoint"><b></b>10. Health Checks &#x2013; Monitor an Endpoint</a></li><li><span class="title-icon "></span><a href="#11-routing-policies-&#x2013;-multi-value"><b></b>11. Routing Policies &#x2013; Multi-Value</a></li><li><span class="title-icon "></span><a href="#12-instantiating-applications-quickly"><b></b>12. Instantiating Applications quickly</a></li><li><span class="title-icon "></span><a href="#13-elastic-beanstalk-&#x2013;-overview"><b></b>13. Elastic Beanstalk &#x2013; Overview</a></li><li><span class="title-icon "></span><a href="#14-elastic-beanstalk-&#x2013;-components"><b></b>14. Elastic Beanstalk &#x2013; Components</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-dns-terminologies"><a name="1-dns-terminologies" class="anchor-navigation-ex-anchor" href="#1-dns-terminologies"><i class="fa fa-link" aria-hidden="true"></i></a>1. DNS Terminologies</h3>
 <ul>
 <li><strong>Domain Registrar</strong>: Amazon Route 53, GoDaddy, &#x2026;</li>
 <li><strong>DNS Records</strong>: A, AAAA, CNAME, NS, &#x2026;</li>
@@ -1058,7 +1062,7 @@
 
 </li>
 </ul>
-<h3 id="2-amazon-route-53">2. Amazon Route 53</h3>
+<h3 id="2-amazon-route-53"><a name="2-amazon-route-53" class="anchor-navigation-ex-anchor" href="#2-amazon-route-53"><i class="fa fa-link" aria-hidden="true"></i></a>2. Amazon Route 53</h3>
 <ul>
 <li>A highly available, scalable, fully managed and <em>Authoritative</em> DNS<ul>
 <li>Authoritative = the customer (you) can update the DNS records</li>
@@ -1070,7 +1074,7 @@
 <li>Why Route 53? 53 is a reference to the traditional DNS port</li>
 <li>$0.50 per month per hosted zone</li>
 </ul>
-<h3 id="3-route-53-&#x2013;-records">3. Route 53 &#x2013; Records</h3>
+<h3 id="3-route-53-&#x2013;-records"><a name="3-route-53-&#x2013;-records" class="anchor-navigation-ex-anchor" href="#3-route-53-&#x2013;-records"><i class="fa fa-link" aria-hidden="true"></i></a>3. Route 53 &#x2013; Records</h3>
 <ul>
 <li><strong>Domain/subdomain Name</strong> &#x2013; e.g., example.com</li>
 <li><strong>Record Type</strong> &#x2013; e.g., A or AAAA</li>
@@ -1078,7 +1082,7 @@
 <li><strong>Routing Policy</strong> &#x2013; how Route 53 responds to queries</li>
 <li><strong>TTL</strong> &#x2013; amount of time the record cached at DNS Resolvers</li>
 </ul>
-<h3 id="4-route-53-&#x2013;-record-types">4. Route 53 &#x2013; Record Types</h3>
+<h3 id="4-route-53-&#x2013;-record-types"><a name="4-route-53-&#x2013;-record-types" class="anchor-navigation-ex-anchor" href="#4-route-53-&#x2013;-record-types"><i class="fa fa-link" aria-hidden="true"></i></a>4. Route 53 &#x2013; Record Types</h3>
 <ul>
 <li><strong>A</strong> &#x2013; maps a hostname to IPv4</li>
 <li><strong>AAAA</strong> &#x2013; maps a hostname to IPv6</li>
@@ -1093,9 +1097,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="5-route-53-&#x2013;-records-ttl-time-to-live">5. Route 53 &#x2013; Records TTL (Time To Live)</h3>
+<h3 id="5-route-53-&#x2013;-records-ttl-time-to-live"><a name="5-route-53-&#x2013;-records-ttl-time-to-live" class="anchor-navigation-ex-anchor" href="#5-route-53-&#x2013;-records-ttl-time-to-live"><i class="fa fa-link" aria-hidden="true"></i></a>5. Route 53 &#x2013; Records TTL (Time To Live)</h3>
 <p>Except for Alias records, TTL is mandatory for each DNS record</p>
-<h3 id="6-cname-vs-alias">6. CNAME vs Alias</h3>
+<h3 id="6-cname-vs-alias"><a name="6-cname-vs-alias" class="anchor-navigation-ex-anchor" href="#6-cname-vs-alias"><i class="fa fa-link" aria-hidden="true"></i></a>6. CNAME vs Alias</h3>
 <p>AWS Resources (Load Balancer, CloudFront...) expose an AWS hostname: <font color="blue">lb1-1234.us-east-2.elb.amazonaws.com</font> and you want <font color="blue">myapp.mydomain.com</font>
 CNAME:</p>
 <ul>
@@ -1112,13 +1116,13 @@ CNAME:</p>
 <li>You can&apos;t set the TTL</li>
 <li>You cannot set an ALIAS record for an EC2 DNS name</li>
 </ul>
-<h3 id="7-routing-policies---simple">7. Routing Policies - Simple</h3>
+<h3 id="7-routing-policies---simple"><a name="7-routing-policies---simple" class="anchor-navigation-ex-anchor" href="#7-routing-policies---simple"><i class="fa fa-link" aria-hidden="true"></i></a>7. Routing Policies - Simple</h3>
 <ul>
 <li>If multiple values are returned, a random one is chosen by the client</li>
 <li>When Alias enabled, specify only one AWS resource</li>
 <li>Can&apos;t be associated with Health Checks</li>
 </ul>
-<h3 id="8-routing-policies-&#x2013;-weighted">8. Routing Policies &#x2013; Weighted</h3>
+<h3 id="8-routing-policies-&#x2013;-weighted"><a name="8-routing-policies-&#x2013;-weighted" class="anchor-navigation-ex-anchor" href="#8-routing-policies-&#x2013;-weighted"><i class="fa fa-link" aria-hidden="true"></i></a>8. Routing Policies &#x2013; Weighted</h3>
 <ul>
 <li>Control the % of the requests that go to each specific resource</li>
 <li>Assign each record a relative weight, Weights don&apos;t need to sum up to 100</li>
@@ -1128,7 +1132,7 @@ CNAME:</p>
 <li>Assign a weight of 0 to a record to stop sending traffic to a resource</li>
 <li>If all records have weight of 0, then all records will be returned equally</li>
 </ul>
-<h3 id="9-route-53-&#x2013;-health-checks">9. Route 53 &#x2013; Health Checks</h3>
+<h3 id="9-route-53-&#x2013;-health-checks"><a name="9-route-53-&#x2013;-health-checks" class="anchor-navigation-ex-anchor" href="#9-route-53-&#x2013;-health-checks"><i class="fa fa-link" aria-hidden="true"></i></a>9. Route 53 &#x2013; Health Checks</h3>
 <p>HTTP Health Checks are only for public resources</p>
 <ul>
 <li>Health Check =&gt; Automated DNS Failover:<ol>
@@ -1139,7 +1143,7 @@ CNAME:</p>
 </li>
 <li>Health Checks are integrated with CW metrics</li>
 </ul>
-<h3 id="10-health-checks-&#x2013;-monitor-an-endpoint">10. Health Checks &#x2013; Monitor an Endpoint</h3>
+<h3 id="10-health-checks-&#x2013;-monitor-an-endpoint"><a name="10-health-checks-&#x2013;-monitor-an-endpoint" class="anchor-navigation-ex-anchor" href="#10-health-checks-&#x2013;-monitor-an-endpoint"><i class="fa fa-link" aria-hidden="true"></i></a>10. Health Checks &#x2013; Monitor an Endpoint</h3>
 <ul>
 <li><strong>About 15 global health checkers will check the endpoint health</strong><ul>
 <li>Healthy/Unhealthy Threshold &#x2013; 3 (default)</li>
@@ -1153,7 +1157,7 @@ CNAME:</p>
 <li>Health Checks can be setup to pass / fail based on the text in the first <strong>5120 bytes</strong> of the response</li>
 <li>Configure you router/firewall to allow incoming requests from Route 53 Health Checkers</li>
 </ul>
-<h3 id="11-routing-policies-&#x2013;-multi-value">11. Routing Policies &#x2013; Multi-Value</h3>
+<h3 id="11-routing-policies-&#x2013;-multi-value"><a name="11-routing-policies-&#x2013;-multi-value" class="anchor-navigation-ex-anchor" href="#11-routing-policies-&#x2013;-multi-value"><i class="fa fa-link" aria-hidden="true"></i></a>11. Routing Policies &#x2013; Multi-Value</h3>
 <ul>
 <li>Use when routing traffic to multiple resources</li>
 <li>Route 53 return multiple values/resources</li>
@@ -1161,7 +1165,7 @@ CNAME:</p>
 <li>Up to 8 healthy records are returned for each Multi-Value query</li>
 <li><strong>Multi-Value is not a substitute for having an ELB</strong></li>
 </ul>
-<h3 id="12-instantiating-applications-quickly">12. Instantiating Applications quickly</h3>
+<h3 id="12-instantiating-applications-quickly"><a name="12-instantiating-applications-quickly" class="anchor-navigation-ex-anchor" href="#12-instantiating-applications-quickly"><i class="fa fa-link" aria-hidden="true"></i></a>12. Instantiating Applications quickly</h3>
 <ul>
 <li>EC2 Instances:<ul>
 <li><strong>Use a Golden AMI</strong>: Install your applications, OS dependencies etc.. beforehand and launch your EC2 instance from the Golden AMI</li>
@@ -1178,7 +1182,7 @@ CNAME:</p>
 </ul>
 </li>
 </ul>
-<h3 id="13-elastic-beanstalk-&#x2013;-overview">13. Elastic Beanstalk &#x2013; Overview</h3>
+<h3 id="13-elastic-beanstalk-&#x2013;-overview"><a name="13-elastic-beanstalk-&#x2013;-overview" class="anchor-navigation-ex-anchor" href="#13-elastic-beanstalk-&#x2013;-overview"><i class="fa fa-link" aria-hidden="true"></i></a>13. Elastic Beanstalk &#x2013; Overview</h3>
 <ul>
 <li>Elastic Beanstalk is a developer centric view of deploying an application on AWS</li>
 <li>It uses all the component&apos;s we&apos;ve seen before: EC2, ASG, ELB, RDS, &#x2026; </li>
@@ -1190,7 +1194,7 @@ CNAME:</p>
 <li>We still have full control over the configuration</li>
 <li>Beanstalk is free but you pay for the underlying instances</li>
 </ul>
-<h3 id="14-elastic-beanstalk-&#x2013;-components">14. Elastic Beanstalk &#x2013; Components</h3>
+<h3 id="14-elastic-beanstalk-&#x2013;-components"><a name="14-elastic-beanstalk-&#x2013;-components" class="anchor-navigation-ex-anchor" href="#14-elastic-beanstalk-&#x2013;-components"><i class="fa fa-link" aria-hidden="true"></i></a>14. Elastic Beanstalk &#x2013; Components</h3>
 <ul>
 <li><strong>Application</strong>: collection of Elastic Beanstalk components (environments, versions, configurations, &#x2026;)</li>
 <li><strong>Application Version</strong>: an iteration of your application code</li>
@@ -1246,7 +1250,7 @@ CNAME:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"8.9","depth":1,"next":{"title":"S3, FSx & Storage Gateway","level":"8.10","depth":1,"path":"saa/S3, FSx & Storage Gateway.md","ref":"saa/S3, FSx & Storage Gateway.md","articles":[]},"previous":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"path":"saa/RDS, Aurora & ElastiCache.md","ref":"saa/RDS, Aurora & ElastiCache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/路由.md","mtime":"2023-07-12T13:48:55.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"路由","level":"8.9","depth":1,"next":{"title":"S3, FSx & Storage Gateway","level":"8.10","depth":1,"path":"saa/S3, FSx & Storage Gateway.md","ref":"saa/S3, FSx & Storage Gateway.md","articles":[]},"previous":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"path":"saa/RDS, Aurora & ElastiCache.md","ref":"saa/RDS, Aurora & ElastiCache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/路由.md","mtime":"2023-07-12T13:48:55.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

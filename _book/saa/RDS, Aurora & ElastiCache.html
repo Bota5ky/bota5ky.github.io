@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-rds-backups">1. RDS Backups</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-rds-backups"><b></b>1. RDS Backups</a></li><li><span class="title-icon "></span><a href="#2-rds-&#x2013;-storage-auto-scaling"><b></b>2. RDS &#x2013; Storage Auto Scaling</a></li><li><span class="title-icon "></span><a href="#3-rds-read-replicas-for-read-scalability"><b></b>3. RDS Read Replicas for read scalability</a></li><li><span class="title-icon "></span><a href="#4-rds-read-replicas-&#x2013;-network-cost"><b></b>4. RDS Read Replicas &#x2013; Network Cost</a></li><li><span class="title-icon "></span><a href="#5-rds-multi-az-disaster-recovery"><b></b>5. RDS Multi AZ (Disaster Recovery)</a></li><li><span class="title-icon "></span><a href="#6-rds-&#x2013;-from-single-az-to-multi-az"><b></b>6. RDS &#x2013; From Single-AZ to Multi-AZ</a></li><li><span class="title-icon "></span><a href="#7-rds-security---encryption"><b></b>7. RDS Security - Encryption</a></li><li><span class="title-icon "></span><a href="#8-rds-security-&#x2013;-iam"><b></b>8. RDS Security &#x2013; IAM</a></li><li><span class="title-icon "></span><a href="#9-rds---iam-authentication"><b></b>9. RDS - IAM Authentication</a></li><li><span class="title-icon "></span><a href="#10-amazon-aurora"><b></b>10. Amazon Aurora</a></li><li><span class="title-icon "></span><a href="#11-aurora-high-availability-and-read-scaling"><b></b>11. Aurora High Availability and Read Scaling</a></li><li><span class="title-icon "></span><a href="#12-aurora-&#x2013;-custom-endpoints"><b></b>12. Aurora &#x2013; Custom Endpoints</a></li><li><span class="title-icon "></span><a href="#13-global-aurora"><b></b>13. Global Aurora</a></li><li><span class="title-icon "></span><a href="#14-elasticache-&#x2013;-redis-vs-memcached"><b></b>14. ElastiCache &#x2013; Redis vs Memcached</a></li><li><span class="title-icon "></span><a href="#15-elasticache-&#x2013;-cache-security"><b></b>15. ElastiCache &#x2013; Cache Security</a></li><li><span class="title-icon "></span><a href="#16-patterns-for-elasticache"><b></b>16. Patterns for ElastiCache</a></li><li><span class="title-icon "></span><a href="#17-elasticache-&#x2013;-redis-use-case"><b></b>17. ElastiCache &#x2013; Redis Use Case</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-rds-backups"><a name="1-rds-backups" class="anchor-navigation-ex-anchor" href="#1-rds-backups"><i class="fa fa-link" aria-hidden="true"></i></a>1. RDS Backups</h3>
 <ul>
 <li>Backups are automatically enabled in RDS</li>
 <li>Automated backups:<ul>
@@ -1063,7 +1067,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-rds-&#x2013;-storage-auto-scaling">2. RDS &#x2013; Storage Auto Scaling</h3>
+<h3 id="2-rds-&#x2013;-storage-auto-scaling"><a name="2-rds-&#x2013;-storage-auto-scaling" class="anchor-navigation-ex-anchor" href="#2-rds-&#x2013;-storage-auto-scaling"><i class="fa fa-link" aria-hidden="true"></i></a>2. RDS &#x2013; Storage Auto Scaling</h3>
 <ul>
 <li>Helps you increase storage on your RDS DB instance dynamically</li>
 <li>When RDS detects you are running out of free database storage, it scales automatically</li>
@@ -1078,7 +1082,7 @@
 <li>Useful for applications with <strong>unpredictable workloads</strong></li>
 <li>Supports all RDS database engines (MariaDB, MySQL, PostgreSQL, SQL Server, Oracle)</li>
 </ul>
-<h3 id="3-rds-read-replicas-for-read-scalability">3. RDS Read Replicas for read scalability</h3>
+<h3 id="3-rds-read-replicas-for-read-scalability"><a name="3-rds-read-replicas-for-read-scalability" class="anchor-navigation-ex-anchor" href="#3-rds-read-replicas-for-read-scalability"><i class="fa fa-link" aria-hidden="true"></i></a>3. RDS Read Replicas for read scalability</h3>
 <ul>
 <li>Up to 5 Read Replicas</li>
 <li>Within AZ, Cross AZ or Cross Region</li>
@@ -1088,18 +1092,18 @@
 
 </li>
 </ul>
-<h3 id="4-rds-read-replicas-&#x2013;-network-cost">4. RDS Read Replicas &#x2013; Network Cost</h3>
+<h3 id="4-rds-read-replicas-&#x2013;-network-cost"><a name="4-rds-read-replicas-&#x2013;-network-cost" class="anchor-navigation-ex-anchor" href="#4-rds-read-replicas-&#x2013;-network-cost"><i class="fa fa-link" aria-hidden="true"></i></a>4. RDS Read Replicas &#x2013; Network Cost</h3>
 <ul>
 <li>In AWS there&apos;s a network cost when data goes from one AZ to another</li>
 <li><strong>For RDS Read Replicas within the same region, you don&apos;t pay that fee</strong></li>
 </ul>
-<h3 id="5-rds-multi-az-disaster-recovery">5. RDS Multi AZ (Disaster Recovery)</h3>
+<h3 id="5-rds-multi-az-disaster-recovery"><a name="5-rds-multi-az-disaster-recovery" class="anchor-navigation-ex-anchor" href="#5-rds-multi-az-disaster-recovery"><i class="fa fa-link" aria-hidden="true"></i></a>5. RDS Multi AZ (Disaster Recovery)</h3>
 <ul>
 <li><strong>SYNC</strong> replication, Increase <strong>availability</strong><center><img src="sync.png" style="zoom:55%"></center>
 
 </li>
 </ul>
-<h3 id="6-rds-&#x2013;-from-single-az-to-multi-az">6. RDS &#x2013; From Single-AZ to Multi-AZ</h3>
+<h3 id="6-rds-&#x2013;-from-single-az-to-multi-az"><a name="6-rds-&#x2013;-from-single-az-to-multi-az" class="anchor-navigation-ex-anchor" href="#6-rds-&#x2013;-from-single-az-to-multi-az"><i class="fa fa-link" aria-hidden="true"></i></a>6. RDS &#x2013; From Single-AZ to Multi-AZ</h3>
 <ul>
 <li>Zero downtime operation (no need to stop the DB)</li>
 <li>Just click on &quot;modify&quot; for the database</li>
@@ -1112,7 +1116,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="7-rds-security---encryption">7. RDS Security - Encryption</h3>
+<h3 id="7-rds-security---encryption"><a name="7-rds-security---encryption" class="anchor-navigation-ex-anchor" href="#7-rds-security---encryption"><i class="fa fa-link" aria-hidden="true"></i></a>7. RDS Security - Encryption</h3>
 <ul>
 <li>At rest encryption<ul>
 <li>Possibility to encrypt the master &amp; read replicas with AWS KMS - AES-256 encryption</li>
@@ -1133,7 +1137,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 </ul>
 </li>
 </ul>
-<h3 id="8-rds-security-&#x2013;-iam">8. RDS Security &#x2013; IAM</h3>
+<h3 id="8-rds-security-&#x2013;-iam"><a name="8-rds-security-&#x2013;-iam" class="anchor-navigation-ex-anchor" href="#8-rds-security-&#x2013;-iam"><i class="fa fa-link" aria-hidden="true"></i></a>8. RDS Security &#x2013; IAM</h3>
 <ul>
 <li>Access Management<ul>
 <li>IAM policies help control who can <strong>manage</strong> AWS RDS (through the RDS API)</li>
@@ -1142,7 +1146,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 </ul>
 </li>
 </ul>
-<h3 id="9-rds---iam-authentication">9. RDS - IAM Authentication</h3>
+<h3 id="9-rds---iam-authentication"><a name="9-rds---iam-authentication" class="anchor-navigation-ex-anchor" href="#9-rds---iam-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>9. RDS - IAM Authentication</h3>
 <ul>
 <li>IAM database authentication works with <strong>MySQL</strong> and <strong>PostgreSQL</strong></li>
 <li>You don&#x2019;t need a password, just an authentication token obtained through IAM &amp; RDS API calls</li>
@@ -1156,7 +1160,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 </ul>
 </li>
 </ul>
-<h3 id="10-amazon-aurora">10. Amazon Aurora</h3>
+<h3 id="10-amazon-aurora"><a name="10-amazon-aurora" class="anchor-navigation-ex-anchor" href="#10-amazon-aurora"><i class="fa fa-link" aria-hidden="true"></i></a>10. Amazon Aurora</h3>
 <ul>
 <li>Aurora is a proprietary technology from AWS (not open sourced)</li>
 <li>Postgres and MySQL are both supported as Aurora DB (that means your drivers will work as if Aurora was a Postgres or MySQL database)</li>
@@ -1166,7 +1170,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 <li>Failover in Aurora is instantaneous. It&#x2019;s HA (High Availability) native.</li>
 <li>Aurora costs more than RDS (20% more) &#x2013; but is more efficient</li>
 </ul>
-<h3 id="11-aurora-high-availability-and-read-scaling">11. Aurora High Availability and Read Scaling</h3>
+<h3 id="11-aurora-high-availability-and-read-scaling"><a name="11-aurora-high-availability-and-read-scaling" class="anchor-navigation-ex-anchor" href="#11-aurora-high-availability-and-read-scaling"><i class="fa fa-link" aria-hidden="true"></i></a>11. Aurora High Availability and Read Scaling</h3>
 <ul>
 <li>6 copies of your data across 3 AZ:<ul>
 <li>4 copies out of 6 needed for writes</li>
@@ -1180,7 +1184,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 <li>Master + up to 15 Aurora Read Replicas serve reads</li>
 <li><strong>Support for Cross Region Replication</strong></li>
 </ul>
-<h3 id="12-aurora-&#x2013;-custom-endpoints">12. Aurora &#x2013; Custom Endpoints</h3>
+<h3 id="12-aurora-&#x2013;-custom-endpoints"><a name="12-aurora-&#x2013;-custom-endpoints" class="anchor-navigation-ex-anchor" href="#12-aurora-&#x2013;-custom-endpoints"><i class="fa fa-link" aria-hidden="true"></i></a>12. Aurora &#x2013; Custom Endpoints</h3>
 <ul>
 <li>Define a subset of Aurora Instances as a Custom Endpoint</li>
 <li>Example: Run analytical queries on specific replicas</li>
@@ -1188,7 +1192,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 
 </li>
 </ul>
-<h3 id="13-global-aurora">13. Global Aurora</h3>
+<h3 id="13-global-aurora"><a name="13-global-aurora" class="anchor-navigation-ex-anchor" href="#13-global-aurora"><i class="fa fa-link" aria-hidden="true"></i></a>13. Global Aurora</h3>
 <ul>
 <li><strong>Aurora Cross Region Read Replicas:</strong><ul>
 <li>Useful for disaster recovery</li>
@@ -1204,7 +1208,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 </ul>
 </li>
 </ul>
-<h3 id="14-elasticache-&#x2013;-redis-vs-memcached">14. ElastiCache &#x2013; Redis vs Memcached</h3>
+<h3 id="14-elasticache-&#x2013;-redis-vs-memcached"><a name="14-elasticache-&#x2013;-redis-vs-memcached" class="anchor-navigation-ex-anchor" href="#14-elasticache-&#x2013;-redis-vs-memcached"><i class="fa fa-link" aria-hidden="true"></i></a>14. ElastiCache &#x2013; Redis vs Memcached</h3>
 <p>Redis&#xFF1A;</p>
 <ul>
 <li><strong>Multi AZ</strong> with Auto-Failover</li>
@@ -1220,7 +1224,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 <li><strong>No backup and restore</strong></li>
 <li>Multi-threaded architecture</li>
 </ul>
-<h3 id="15-elasticache-&#x2013;-cache-security">15. ElastiCache &#x2013; Cache Security</h3>
+<h3 id="15-elasticache-&#x2013;-cache-security"><a name="15-elasticache-&#x2013;-cache-security" class="anchor-navigation-ex-anchor" href="#15-elasticache-&#x2013;-cache-security"><i class="fa fa-link" aria-hidden="true"></i></a>15. ElastiCache &#x2013; Cache Security</h3>
 <ul>
 <li>All caches in ElastiCache:<ul>
 <li><strong><u>Do not support IAM authentication</u></strong></li>
@@ -1238,7 +1242,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 </ul>
 </li>
 </ul>
-<h3 id="16-patterns-for-elasticache">16. Patterns for ElastiCache</h3>
+<h3 id="16-patterns-for-elasticache"><a name="16-patterns-for-elasticache" class="anchor-navigation-ex-anchor" href="#16-patterns-for-elasticache"><i class="fa fa-link" aria-hidden="true"></i></a>16. Patterns for ElastiCache</h3>
 <center><img src="es.png" style="zoom:55%"></center>
 
 <ul>
@@ -1247,7 +1251,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
 <li><strong>Session Store</strong>: store temporary session data in a cache (using TTL features)</li>
 </ul>
 <p><em>Quote: There are only two hard things in Computer Science: cache invalidation &#x7F13;&#x5B58;&#x5931;&#x6548; and naming things</em></p>
-<h3 id="17-elasticache-&#x2013;-redis-use-case">17. ElastiCache &#x2013; Redis Use Case</h3>
+<h3 id="17-elasticache-&#x2013;-redis-use-case"><a name="17-elasticache-&#x2013;-redis-use-case" class="anchor-navigation-ex-anchor" href="#17-elasticache-&#x2013;-redis-use-case"><i class="fa fa-link" aria-hidden="true"></i></a>17. ElastiCache &#x2013; Redis Use Case</h3>
 <ul>
 <li>&#x6E38;&#x620F;&#x6392;&#x884C;&#x699C;&#x7684;&#x590D;&#x6742;&#x8BA1;&#x7B97;</li>
 <li>Redis&#x6392;&#x5E8F;&#x96C6;&#x4FDD;&#x8BC1;&#x4E86;&#x552F;&#x4E00;&#x6027;&#x548C;&#x5143;&#x7D20;&#x987A;&#x5E8F;</li>
@@ -1298,7 +1302,7 @@ GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"next":{"title":"路由","level":"8.9","depth":1,"path":"saa/路由.md","ref":"saa/路由.md","articles":[]},"previous":{"title":"LB & ASG","level":"8.7","depth":1,"path":"saa/LB & ASG.md","ref":"saa/LB & ASG.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/RDS, Aurora & ElastiCache.md","mtime":"2023-07-12T13:39:42.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"next":{"title":"路由","level":"8.9","depth":1,"path":"saa/路由.md","ref":"saa/路由.md","articles":[]},"previous":{"title":"LB & ASG","level":"8.7","depth":1,"path":"saa/LB & ASG.md","ref":"saa/LB & ASG.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/RDS, Aurora & ElastiCache.md","mtime":"2023-07-12T13:39:42.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

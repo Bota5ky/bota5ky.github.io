@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="question-1-10">Question 1 (10&apos;)</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#question-1-10"><b></b>Question 1 (10&apos;)</a></li><li><span class="title-icon "></span><a href="#question-2-10"><b></b>Question 2 (10&apos;)</a></li><li><span class="title-icon "></span><a href="#question-3-8"><b></b>Question 3 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-4-12"><b></b>Question 4 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-5-15"><b></b>Question 5 (15&apos;)</a></li><li><span class="title-icon "></span><a href="#question-6-15"><b></b>Question 6 (15&apos;)</a></li><li><span class="title-icon "></span><a href="#question-7-15"><b></b>Question 7 (15&apos;)</a></li><li><span class="title-icon "></span><a href="#question-8"><b></b>Question 8</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="question-1-10"><a name="question-1-10" class="anchor-navigation-ex-anchor" href="#question-1-10"><i class="fa fa-link" aria-hidden="true"></i></a>Question 1 (10&apos;)</h3>
 <p>Take a backup of the etcd cluster and save it to <code>/opt/etcd-backup.db</code>.</p>
 <p>Details</p>
 <ul>
@@ -1058,7 +1062,7 @@
 <pre class="language-"><code class="lang-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ETCDCTL_API</span><span class="token operator">=</span><span class="token number">3</span>
 etcdctl snapshot save <span class="token parameter variable">--endpoints</span> https://<span class="token punctuation">[</span><span class="token number">127.0</span>.0.1<span class="token punctuation">]</span>:2379 <span class="token parameter variable">--cacert</span> /etc/kubernetes/pki/etcd/ca.crt <span class="token parameter variable">--cert</span> /etc/kubernetes/pki/etcd/server.crt <span class="token parameter variable">--key</span><span class="token operator">=</span>/etc/kubernetes/pki/etcd/server.key  /opt/etcd-backup.db
 </code></pre>
-<h3 id="question-2-10">Question 2 (10&apos;)</h3>
+<h3 id="question-2-10"><a name="question-2-10" class="anchor-navigation-ex-anchor" href="#question-2-10"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (10&apos;)</h3>
 <p>Create a Pod called <code>redis-storage</code> with image: <code>redis:alpine</code> with a Volume of type <code>emptyDir</code> that lasts for the life of the Pod.</p>
 <p>Specs on the below.</p>
 <p>Details</p>
@@ -1092,7 +1096,7 @@ and add volume <code>emptyDir</code> in it.</p>
   <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> temp<span class="token punctuation">-</span>volume
     <span class="token key atrule">emptyDir</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
-<h3 id="question-3-8">Question 3 (8&apos;)</h3>
+<h3 id="question-3-8"><a name="question-3-8" class="anchor-navigation-ex-anchor" href="#question-3-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (8&apos;)</h3>
 <p>Create a new pod called <code>super-user-pod</code> with image <code>busybox:1.28</code>. Allow the pod to be able to set <code>system_time</code>.</p>
 <p>The container should sleep for 4800 seconds.</p>
 <p>Details</p>
@@ -1124,7 +1128,7 @@ and add volume <code>emptyDir</code> in it.</p>
   <span class="token key atrule">dnsPolicy</span><span class="token punctuation">:</span> ClusterFirst
   <span class="token key atrule">restartPolicy</span><span class="token punctuation">:</span> Always
 </code></pre>
-<h3 id="question-4-12">Question 4 (12&apos;)</h3>
+<h3 id="question-4-12"><a name="question-4-12" class="anchor-navigation-ex-anchor" href="#question-4-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (12&apos;)</h3>
 <p>A pod definition file is created at <code>/root/CKA/use-pv.yaml</code>. Make use of this manifest file and mount the persistent volume called <code>pv-1</code>. Ensure the pod is running and the PV is bound.</p>
 <p>mountPath: <code>/data</code>
 persistentVolumeClaim Name: <code>my-pvc</code></p>
@@ -1170,7 +1174,7 @@ persistentVolumeClaim Name: <code>my-pvc</code></p>
         <span class="token key atrule">claimName</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>pvc
 </code></pre>
 <p>Finally, create the pod by running: <code>kubectl create -f /root/CKA/use-pv.yaml</code></p>
-<h3 id="question-5-15">Question 5 (15&apos;)</h3>
+<h3 id="question-5-15"><a name="question-5-15" class="anchor-navigation-ex-anchor" href="#question-5-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (15&apos;)</h3>
 <p>Create a new deployment called <code>nginx-deploy</code>, with image <code>nginx:1.16</code> and <code>1</code> replica. Next upgrade the deployment to version <code>1.17</code> using rolling update.</p>
 <p>Details</p>
 <ul>
@@ -1196,7 +1200,7 @@ persistentVolumeClaim Name: <code>my-pvc</code></p>
 <p>To view the history of deployment <code>nginx-deploy</code>:</p>
 <pre class="language-"><code class="lang-sh">$ kubectl rollout <span class="token function">history</span> deployment nginx-deploy
 </code></pre>
-<h3 id="question-6-15">Question 6 (15&apos;)</h3>
+<h3 id="question-6-15"><a name="question-6-15" class="anchor-navigation-ex-anchor" href="#question-6-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (15&apos;)</h3>
 <p>Create a new user called <code>john</code>. Grant him access to the cluster. John should have permission to <code>create, list, get, update and delete pods</code> in the <code>development</code> namespace . The private key exists in the location: <code>/root/CKA/john.key</code> and csr at <code>/root/CKA/john.csr</code>.</p>
 <p><code>Important Note</code>: As of kubernetes 1.19, the CertificateSigningRequest object expects a <code>signerName</code>.</p>
 <p>Please refer the documentation to see an example. The documentation tab is available at the top right of terminal.</p>
@@ -1230,7 +1234,7 @@ $ kubectl create rolebinding developer-role-binding <span class="token parameter
 <p>To verify the permission from kubectl utility tool:</p>
 <pre class="language-"><code class="lang-sh">$ kubectl auth can-i update pods <span class="token parameter variable">--as</span><span class="token operator">=</span>john <span class="token parameter variable">--namespace</span><span class="token operator">=</span>development
 </code></pre>
-<h3 id="question-7-15">Question 7 (15&apos;)</h3>
+<h3 id="question-7-15"><a name="question-7-15" class="anchor-navigation-ex-anchor" href="#question-7-15"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (15&apos;)</h3>
 <p>Create a nginx pod called <code>nginx-resolver</code> using image <code>nginx</code>, expose it internally with a service called <code>nginx-resolver-service</code>. Test that you are able to look up the service and pod names from within the cluster. Use the image: <code>busybox:1.28</code> for dns lookup. Record results in <code>/root/CKA/nginx.svc</code> and <code>/root/CKA/nginx.pod</code></p>
 <p>Details</p>
 <ul>
@@ -1252,7 +1256,7 @@ kubectl run test-nslookup <span class="token parameter variable">--image</span><
 <pre class="language-"><code class="lang-sh">kubectl get pod nginx-resolver <span class="token parameter variable">-o</span> wide
 kubectl run test-nslookup <span class="token parameter variable">--image</span><span class="token operator">=</span>busybox:1.28 <span class="token parameter variable">--rm</span> <span class="token parameter variable">-it</span> <span class="token parameter variable">--restart</span><span class="token operator">=</span>Never -- <span class="token function">nslookup</span> <span class="token operator">&lt;</span>P-O-D-I-P.default.pod<span class="token operator">&gt;</span> <span class="token operator">&gt;</span> /root/CKA/nginx.pod
 </code></pre>
-<h3 id="question-8">Question 8</h3>
+<h3 id="question-8"><a name="question-8" class="anchor-navigation-ex-anchor" href="#question-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 8</h3>
 <p>Create a static pod on <code>node01</code> called <code>nginx-critical</code> with image <code>nginx</code> and make sure that it is recreated/restarted automatically in case of a failure.</p>
 <p>Use <code>/etc/kubernetes/manifests</code> as the Static Pod path for example.</p>
 <p>Details</p>
@@ -1335,7 +1339,7 @@ root@controlplane:~<span class="token comment"># kubectl get pods</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"next":{"title":"KodeKloud Mock Exam - 3","level":"7.18","depth":1,"path":"k8s/KodeKloud Mock Exam - 3.md","ref":"k8s/KodeKloud Mock Exam - 3.md","articles":[]},"previous":{"title":"KodeKloud Lightning Lab - 1","level":"7.16","depth":1,"path":"k8s/KodeKloud Lightning Lab - 1.md","ref":"k8s/KodeKloud Lightning Lab - 1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Mock Exam - 2.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"KodeKloud Mock Exam - 2","level":"7.17","depth":1,"next":{"title":"KodeKloud Mock Exam - 3","level":"7.18","depth":1,"path":"k8s/KodeKloud Mock Exam - 3.md","ref":"k8s/KodeKloud Mock Exam - 3.md","articles":[]},"previous":{"title":"KodeKloud Lightning Lab - 1","level":"7.16","depth":1,"path":"k8s/KodeKloud Lightning Lab - 1.md","ref":"k8s/KodeKloud Lightning Lab - 1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/KodeKloud Mock Exam - 2.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

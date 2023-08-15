@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-why-use-a-load-balancer">1. Why use a load balancer?</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-why-use-a-load-balancer"><b></b>1. Why use a load balancer?</a></li><li><span class="title-icon "></span><a href="#2-types-of-load-balancer-on-aws"><b></b>2. Types of load balancer on AWS</a></li><li><span class="title-icon "></span><a href="#3-sticky-sessions-session-affinity"><b></b>3. Sticky Sessions (Session Affinity)</a></li><li><span class="title-icon "></span><a href="#4-sticky-sessions-&#x2013;-cookie-names"><b></b>4. Sticky Sessions &#x2013; Cookie Names</a></li><li><span class="title-icon "></span><a href="#5-cross-zone-load-balancing"><b></b>5. Cross-Zone Load Balancing</a></li><li><span class="title-icon "></span><a href="#6-ssl-&#x2013;-server-name-indication-sni"><b></b>6. SSL &#x2013; Server Name Indication (SNI)</a></li><li><span class="title-icon "></span><a href="#7-elastic-load-balancers-&#x2013;-ssl-certificates"><b></b>7. Elastic Load Balancers &#x2013; SSL Certificates</a></li><li><span class="title-icon "></span><a href="#8-asg-brain-dump"><b></b>8. ASG Brain Dump</a></li><li><span class="title-icon "></span><a href="#9-auto-scaling-groups---scaling-cooldowns"><b></b>9. Auto Scaling Groups - Scaling Cooldowns</a></li><li><span class="title-icon "></span><a href="#10-asg-for-solutions-architects"><b></b>10. ASG for Solutions Architects</a></li><li><span class="title-icon "></span><a href="#11-asg-for-solutions-architects---lifecycle-hooks"><b></b>11. ASG for Solutions Architects - Lifecycle Hooks</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-why-use-a-load-balancer"><a name="1-why-use-a-load-balancer" class="anchor-navigation-ex-anchor" href="#1-why-use-a-load-balancer"><i class="fa fa-link" aria-hidden="true"></i></a>1. Why use a load balancer?</h3>
 <ul>
 <li>Spread load across multiple downstream instances</li>
 <li>Expose a single point of access (DNS) to your application</li>
@@ -1058,7 +1062,7 @@
 <li>High availability across zones</li>
 <li>Separate public traffic from private traffic</li>
 </ul>
-<h3 id="2-types-of-load-balancer-on-aws">2. Types of load balancer on AWS</h3>
+<h3 id="2-types-of-load-balancer-on-aws"><a name="2-types-of-load-balancer-on-aws" class="anchor-navigation-ex-anchor" href="#2-types-of-load-balancer-on-aws"><i class="fa fa-link" aria-hidden="true"></i></a>2. Types of load balancer on AWS</h3>
 <ul>
 <li>AWS has <font color="blue">4 kinds of managed Load Balancers</font></li>
 <li><p><strong>Classic Load Balancer</strong> (v1 - old generation) &#x2013; 2009 &#x2013; CLB</p>
@@ -1145,7 +1149,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-sticky-sessions-session-affinity">3. Sticky Sessions (Session Affinity)</h3>
+<h3 id="3-sticky-sessions-session-affinity"><a name="3-sticky-sessions-session-affinity" class="anchor-navigation-ex-anchor" href="#3-sticky-sessions-session-affinity"><i class="fa fa-link" aria-hidden="true"></i></a>3. Sticky Sessions (Session Affinity)</h3>
 <ul>
 <li>It is possible to implement stickiness so that the same client is always redirected to the same instance behind a load balancer</li>
 <li>This works for Classic Load Balancers &amp; Application Load Balancers</li>
@@ -1153,7 +1157,7 @@
 <li>Use case: make sure the user doesn&#x2019;t lose his session data</li>
 <li>Enabling stickiness may bring imbalance to the load over the backend EC2 instances</li>
 </ul>
-<h3 id="4-sticky-sessions-&#x2013;-cookie-names">4. Sticky Sessions &#x2013; Cookie Names</h3>
+<h3 id="4-sticky-sessions-&#x2013;-cookie-names"><a name="4-sticky-sessions-&#x2013;-cookie-names" class="anchor-navigation-ex-anchor" href="#4-sticky-sessions-&#x2013;-cookie-names"><i class="fa fa-link" aria-hidden="true"></i></a>4. Sticky Sessions &#x2013; Cookie Names</h3>
 <ul>
 <li><strong>Application-based Cookies</strong><ul>
 <li>Custom cookie<ul>
@@ -1176,7 +1180,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="5-cross-zone-load-balancing">5. Cross-Zone Load Balancing</h3>
+<h3 id="5-cross-zone-load-balancing"><a name="5-cross-zone-load-balancing" class="anchor-navigation-ex-anchor" href="#5-cross-zone-load-balancing"><i class="fa fa-link" aria-hidden="true"></i></a>5. Cross-Zone Load Balancing</h3>
 <ul>
 <li><strong>Application Load Balancer</strong><ul>
 <li>Always on (can&apos;t be disabled)</li>
@@ -1194,7 +1198,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-ssl-&#x2013;-server-name-indication-sni">6. SSL &#x2013; Server Name Indication (SNI)</h3>
+<h3 id="6-ssl-&#x2013;-server-name-indication-sni"><a name="6-ssl-&#x2013;-server-name-indication-sni" class="anchor-navigation-ex-anchor" href="#6-ssl-&#x2013;-server-name-indication-sni"><i class="fa fa-link" aria-hidden="true"></i></a>6. SSL &#x2013; Server Name Indication (SNI)</h3>
 <p>SSL refers to Secure Sockets Layer, used to encrypt connections
 TLS refers to Transport Layer Security, which is a newer version</p>
 <ul>
@@ -1207,7 +1211,7 @@ TLS refers to Transport Layer Security, which is a newer version</p>
 
 </li>
 </ul>
-<h3 id="7-elastic-load-balancers-&#x2013;-ssl-certificates">7. Elastic Load Balancers &#x2013; SSL Certificates</h3>
+<h3 id="7-elastic-load-balancers-&#x2013;-ssl-certificates"><a name="7-elastic-load-balancers-&#x2013;-ssl-certificates" class="anchor-navigation-ex-anchor" href="#7-elastic-load-balancers-&#x2013;-ssl-certificates"><i class="fa fa-link" aria-hidden="true"></i></a>7. Elastic Load Balancers &#x2013; SSL Certificates</h3>
 <ul>
 <li><strong>Classic Load Balancer (v1)</strong><ul>
 <li>Support only one SSL certificate</li>
@@ -1220,7 +1224,7 @@ TLS refers to Transport Layer Security, which is a newer version</p>
 </ul>
 </li>
 </ul>
-<h3 id="8-asg-brain-dump">8. ASG Brain Dump</h3>
+<h3 id="8-asg-brain-dump"><a name="8-asg-brain-dump" class="anchor-navigation-ex-anchor" href="#8-asg-brain-dump"><i class="fa fa-link" aria-hidden="true"></i></a>8. ASG Brain Dump</h3>
 <ul>
 <li>Scaling policies can be on CPU, Network&#x2026; and can even be on custom metrics or based on a schedule (if you know your visitors patterns)</li>
 <li>ASGs use Launch configurations or Launch Templates (newer)</li>
@@ -1230,20 +1234,20 @@ TLS refers to Transport Layer Security, which is a newer version</p>
 <li>Having instances under an ASG means that if they get terminated for whatever reason, the ASG will automatically <strong>create new ones as a replacement</strong>. Extra safety!</li>
 <li>ASG can terminate instances marked as unhealthy by an LB (and hence replace them)</li>
 </ul>
-<h3 id="9-auto-scaling-groups---scaling-cooldowns">9. Auto Scaling Groups - Scaling Cooldowns</h3>
+<h3 id="9-auto-scaling-groups---scaling-cooldowns"><a name="9-auto-scaling-groups---scaling-cooldowns" class="anchor-navigation-ex-anchor" href="#9-auto-scaling-groups---scaling-cooldowns"><i class="fa fa-link" aria-hidden="true"></i></a>9. Auto Scaling Groups - Scaling Cooldowns</h3>
 <ul>
 <li>After a scaling activity happens, you are in the <strong>cooldown period (default 300 seconds)</strong></li>
 <li>During the cooldown period, the ASG will not launch or terminate additional instances (to allow for metrics to stabilize)</li>
 <li>Advice: Use a ready-to-use AMI to reduce configuration time in order to be serving request fasters and reduce the cooldown period</li>
 </ul>
-<h3 id="10-asg-for-solutions-architects">10. ASG for Solutions Architects</h3>
+<h3 id="10-asg-for-solutions-architects"><a name="10-asg-for-solutions-architects" class="anchor-navigation-ex-anchor" href="#10-asg-for-solutions-architects"><i class="fa fa-link" aria-hidden="true"></i></a>10. ASG for Solutions Architects</h3>
 <ul>
 <li><strong>ASG Default Termination Policy (simplified version):</strong></li>
 <li>Find the AZ which has the most number of instances</li>
 <li>If there are multiple instances in the AZ to choose from, delete the one with the oldest launch configuration</li>
 <li><strong>ASG tries the balance the number of instances across AZ by default</strong></li>
 </ul>
-<h3 id="11-asg-for-solutions-architects---lifecycle-hooks">11. ASG for Solutions Architects - Lifecycle Hooks</h3>
+<h3 id="11-asg-for-solutions-architects---lifecycle-hooks"><a name="11-asg-for-solutions-architects---lifecycle-hooks" class="anchor-navigation-ex-anchor" href="#11-asg-for-solutions-architects---lifecycle-hooks"><i class="fa fa-link" aria-hidden="true"></i></a>11. ASG for Solutions Architects - Lifecycle Hooks</h3>
 <ul>
 <li>By default as soon as an instance is launched in an ASG it&#x2019;s in service.</li>
 <li>You have the ability to perform extra steps before the instance goes in service (Pending state)</li>
@@ -1294,7 +1298,7 @@ TLS refers to Transport Layer Security, which is a newer version</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LB & ASG","level":"8.7","depth":1,"next":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"path":"saa/RDS, Aurora & ElastiCache.md","ref":"saa/RDS, Aurora & ElastiCache.md","articles":[]},"previous":{"title":"EBS, AMI & EFS","level":"8.6","depth":1,"path":"saa/EBS.md","ref":"saa/EBS.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/LB & ASG.md","mtime":"2023-07-12T13:34:51.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LB & ASG","level":"8.7","depth":1,"next":{"title":"RDS, Aurora & ElastiCache","level":"8.8","depth":1,"path":"saa/RDS, Aurora & ElastiCache.md","ref":"saa/RDS, Aurora & ElastiCache.md","articles":[]},"previous":{"title":"EBS, AMI & EFS","level":"8.6","depth":1,"path":"saa/EBS.md","ref":"saa/EBS.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/LB & ASG.md","mtime":"2023-07-12T13:34:51.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -42,6 +42,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
                 
             
@@ -1047,7 +1051,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-iam-users--groups">1. IAM: Users &amp; Groups</h3>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-iam-users--groups"><b></b>1. IAM: Users &amp; Groups</a></li><li><span class="title-icon "></span><a href="#2-iam-permissions"><b></b>2. IAM: Permissions</a></li><li><span class="title-icon "></span><a href="#3-iam-policies-structure"><b></b>3. IAM Policies Structure</a></li><li><span class="title-icon "></span><a href="#4-how-can-users-access-aws-"><b></b>4. How can users access AWS ?</a></li><li><span class="title-icon "></span><a href="#5-iam-security-tools"><b></b>5. IAM Security Tools</a></li><li><span class="title-icon "></span><a href="#6-iam-guidelines--best-practices"><b></b>6. IAM Guidelines &amp; Best Practices</a></li><li><span class="title-icon "></span><a href="#7-shared-responsibility-model-for-iam"><b></b>7. Shared Responsibility Model for IAM</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-iam-users--groups"><a name="1-iam-users--groups" class="anchor-navigation-ex-anchor" href="#1-iam-users--groups"><i class="fa fa-link" aria-hidden="true"></i></a>1. IAM: Users &amp; Groups</h3>
 <p>Identity and Access Management</p>
 <ul>
 <li><strong>Global</strong> service</li>
@@ -1056,13 +1060,13 @@
 <li><strong>Groups</strong> only contain users, not other groups</li>
 <li>Users don&#x2019;t have to belong to a group, and user can belong to multiple groups</li>
 </ul>
-<h3 id="2-iam-permissions">2. IAM: Permissions</h3>
+<h3 id="2-iam-permissions"><a name="2-iam-permissions" class="anchor-navigation-ex-anchor" href="#2-iam-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>2. IAM: Permissions</h3>
 <ul>
 <li><strong>Users or Groups</strong> can be assigned JSON documents called policies</li>
 <li>These policies define the <strong>permissions</strong> of the users</li>
 <li>In AWS you apply the <strong>least privilege principle</strong>: don&apos;t give more permissions than a user needs</li>
 </ul>
-<h3 id="3-iam-policies-structure">3. IAM Policies Structure</h3>
+<h3 id="3-iam-policies-structure"><a name="3-iam-policies-structure" class="anchor-navigation-ex-anchor" href="#3-iam-policies-structure"><i class="fa fa-link" aria-hidden="true"></i></a>3. IAM Policies Structure</h3>
 <center><img src="iam.png" style="zoom:75%"></center>
 
 <p>Version: policy language version, always include <code>&quot;2012-10-17&quot;</code>
@@ -1077,13 +1081,13 @@ Statement: one or more individual statements (required)</p>
 <li>Condition: conditions for when this policy is in effect (optional)</li>
 </ul>
 <p><a href="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/access_iam-tags.html" target="_blank">&#x4F7F;&#x7528;&#x6807;&#x7B7E;&#x63A7;&#x5236;&#x5BF9; IAM &#x7528;&#x6237;&#x548C;&#x89D2;&#x8272;&#x7684;&#x8BBF;&#x95EE;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x8FDB;&#x884C;&#x7684;&#x8BBF;&#x95EE;</a></p>
-<h3 id="4-how-can-users-access-aws-">4. How can users access AWS ?</h3>
+<h3 id="4-how-can-users-access-aws-"><a name="4-how-can-users-access-aws-" class="anchor-navigation-ex-anchor" href="#4-how-can-users-access-aws-"><i class="fa fa-link" aria-hidden="true"></i></a>4. How can users access AWS ?</h3>
 <ul>
 <li><strong>AWS Management Console</strong> (protected by password + MFA)</li>
 <li><strong><a href="https://github.com/aws/aws-cli" target="_blank">AWS Command Line Interface (CLI)</a></strong>: protected by access keys (is built on AWS SDK for Python)</li>
 <li><strong>AWS Software Developer Kit (SDK)</strong> - for code: protected by access keys</li>
 </ul>
-<h3 id="5-iam-security-tools">5. IAM Security Tools</h3>
+<h3 id="5-iam-security-tools"><a name="5-iam-security-tools" class="anchor-navigation-ex-anchor" href="#5-iam-security-tools"><i class="fa fa-link" aria-hidden="true"></i></a>5. IAM Security Tools</h3>
 <p>IAM Credentials Report (account-level):</p>
 <ul>
 <li>a report that lists all your account&apos;s users and the status of their various credentials</li>
@@ -1093,7 +1097,7 @@ Statement: one or more individual statements (required)</p>
 <li>Access advisor shows the service permissions granted to a user and when those services were last accessed</li>
 <li>You can use this information to revise your policies</li>
 </ul>
-<h3 id="6-iam-guidelines--best-practices">6. IAM Guidelines &amp; Best Practices</h3>
+<h3 id="6-iam-guidelines--best-practices"><a name="6-iam-guidelines--best-practices" class="anchor-navigation-ex-anchor" href="#6-iam-guidelines--best-practices"><i class="fa fa-link" aria-hidden="true"></i></a>6. IAM Guidelines &amp; Best Practices</h3>
 <ul>
 <li>Don&#x2019;t use the root account except for AWS account setup</li>
 <li>One physical user = One AWS <strong>user</strong></li>
@@ -1105,7 +1109,7 @@ Statement: one or more individual statements (required)</p>
 <li>Audit permissions of your account with the IAM Credentials Report</li>
 <li><strong>Never share IAM users &amp; Access Keys</strong></li>
 </ul>
-<h3 id="7-shared-responsibility-model-for-iam">7. Shared Responsibility Model for IAM</h3>
+<h3 id="7-shared-responsibility-model-for-iam"><a name="7-shared-responsibility-model-for-iam" class="anchor-navigation-ex-anchor" href="#7-shared-responsibility-model-for-iam"><i class="fa fa-link" aria-hidden="true"></i></a>7. Shared Responsibility Model for IAM</h3>
 <table>
 <thead>
 <tr>
@@ -1165,7 +1169,7 @@ Statement: one or more individual statements (required)</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IAM","level":"8.3","depth":1,"next":{"title":"EC2 & Security Groups","level":"8.4","depth":1,"path":"saa/EC2.md","ref":"saa/EC2.md","articles":[]},"previous":{"title":"SAA-C02 考试概览","level":"8.2","depth":1,"path":"saa/考试概览.md","ref":"saa/考试概览.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/IAM.md","mtime":"2023-07-12T13:24:12.099Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:14:49.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IAM","level":"8.3","depth":1,"next":{"title":"EC2 & Security Groups","level":"8.4","depth":1,"path":"saa/EC2.md","ref":"saa/EC2.md","articles":[]},"previous":{"title":"SAA-C02 考试概览","level":"8.2","depth":1,"path":"saa/考试概览.md","ref":"saa/考试概览.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"saa/IAM.md","mtime":"2023-07-12T13:24:12.099Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-15T14:45:52.841Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
