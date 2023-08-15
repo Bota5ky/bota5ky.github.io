@@ -1,16 +1,15 @@
-# Bota5ky's Blog
+# 关于网站
 
-日常学习做笔记使用，考证相关笔记有：
+日常学习做笔记使用，主要包括
+- 编程语言：Java、C、Go、Python、C#
+- 计算机基础：计算机网络，操作系统
+- 数据库：MySQL、PostgreSQL、T-SQL、Redis
+- 命令行工具：Shell、Git、JSON Path
+- 云原生考证：AWS 架构及数据库认证、Kubernetes 认证
 
-- AWS Certified Solutions Architect - Associate 学习笔记
-- AWS Certified Database - Specialty 学习笔记
-- Certified Kubernetes Administrator 学习笔记
+学习补充中，In progress...
 
-其他还包括，但不限于：
+# 关于作者
 
-- Java、C#、C、Golang
-- Shell 命令及终端操作，git 命令和 JSON Path 的使用
-- Redis、Kafka 入门
-- MySQL、PostgreSQL、SQL Server、SQL CE
-- 计算机网络、操作系统
-- ...
+<a href="https://github.com/Bota5ky"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Octocat" width="200" height="200"></a>
+

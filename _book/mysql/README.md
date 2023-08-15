@@ -1,3 +1,0 @@
-# MySQL 相关学习笔记
-
-In progress...
