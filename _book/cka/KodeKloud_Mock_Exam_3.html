@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>调度 · Bota5ky's Blog</title>
+        <title>KodeKloud Mock Exam - 3 · Bota5ky's Blog</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="设定资源.html" />
+    <link rel="next" href="资料及经验分享.html" />
     
     
-    <link rel="prev" href="命令式和声明式.html" />
+    <link rel="prev" href="KodeKloud_Mock_Exam_2.html" />
     
 
     </head>
@@ -327,9 +327,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../cs/system.md">
+        <li class="chapter " data-level="4.1" data-path="../cs/操作系统.html">
             
-                <span>
+                <a href="../cs/操作系统.html">
             
                     
                     操作系统
@@ -340,9 +340,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../cs/network.md">
+        <li class="chapter " data-level="4.2" data-path="../cs/计算机网络.html">
             
-                <span>
+                <a href="../cs/计算机网络.html">
             
                     
                     计算机网络
@@ -557,7 +557,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.3" data-path="调度.html">
+        <li class="chapter " data-level="9.3" data-path="调度.html">
             
                 <a href="调度.html">
             
@@ -687,12 +687,12 @@
             
         </li>
     
-        <li class="chapter " data-level="9.13" data-path="网络空间.html">
+        <li class="chapter " data-level="9.13" data-path="Namespace.html">
             
-                <a href="网络空间.html">
+                <a href="Namespace.html">
             
                     
-                    网络空间
+                    Namespace
             
                 </a>
             
@@ -739,7 +739,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9.17" data-path="KodeKloud_Mock_Exam_3.html">
+        <li class="chapter active" data-level="9.17" data-path="KodeKloud_Mock_Exam_3.html">
             
                 <a href="KodeKloud_Mock_Exam_3.html">
             
@@ -1076,7 +1076,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >调度</a>
+        <a href=".." >KodeKloud Mock Exam - 3</a>
     </h1>
 </div>
 
@@ -1091,104 +1091,245 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x7ED1;&#x5B9A;-pod"><b></b>1. &#x7ED1;&#x5B9A; Pod</a></li><li><span class="title-icon "></span><a href="#2-labels"><b></b>2. Labels</a></li><li><span class="title-icon "></span><a href="#3-taints---node"><b></b>3. Taints - Node</a></li><li><span class="title-icon "></span><a href="#4-tolerations---pods"><b></b>4. Tolerations - Pods</a></li><li><span class="title-icon "></span><a href="#5-node-selectors"><b></b>5. Node Selectors</a></li><li><span class="title-icon "></span><a href="#6-node-affinity"><b></b>6. Node Affinity</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x7ED1;&#x5B9A;-pod"><a name="1-&#x7ED1;&#x5B9A;-pod" class="anchor-navigation-ex-anchor" href="#1-&#x7ED1;&#x5B9A;-pod"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7ED1;&#x5B9A; Pod</h3>
-<p>&#x672A;&#x547D;&#x540D;&#x9690;&#x85CF;&#x5B57;&#x6BB5;<code>nodeName</code>&#x7684; pod &#x5C06;&#x4F5C;&#x4E3A;&#x5019;&#x9009;&#x8FDB;&#x884C;&#x8C03;&#x5EA6;</p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">nodeName</span><span class="token punctuation">:</span> node02
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#question-1-12"><b></b>Question 1 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-2-12"><b></b>Question 2 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-3-12"><b></b>Question 3 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-4-8"><b></b>Question 4 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-5-14"><b></b>Question 5 (14&apos;)</a></li><li><span class="title-icon "></span><a href="#question-6-12"><b></b>Question 6 (12&apos;)</a></li><li><span class="title-icon "></span><a href="#question-7-8"><b></b>Question 7 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-8-8"><b></b>Question 8 (8&apos;)</a></li><li><span class="title-icon "></span><a href="#question-9-14"><b></b>Question 9 (14&apos;)</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="question-1-12"><a name="question-1-12" class="anchor-navigation-ex-anchor" href="#question-1-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 1 (12&apos;)</h3>
+<p>Question</p>
+<p>Create a new service account with the name <code>pvviewer</code>. Grant this Service account access to <code>list</code> all PersistentVolumes in the cluster by creating an appropriate cluster role called <code>pvviewer-role</code> and ClusterRoleBinding called <code>pvviewer-role-binding</code>.
+Next, create a pod called <code>pvviewer</code> with the image: <code>redis</code> and serviceAccount: <code>pvviewer</code> in the default namespace.</p>
+<p>Details</p>
+<ul>
+<li>ServiceAccount: pvviewer</li>
+<li>ClusterRole: pvviewer-role</li>
+<li>ClusterRoleBinding: pvviewer-role-binding</li>
+<li>Pod: pvviewer</li>
+<li>Pod configured to use ServiceAccount pvviewer ?</li>
+</ul>
+<p>Solution</p>
+<p>Pods authenticate to the API Server using ServiceAccounts. If the serviceAccount name is not specified, the default service account for the namespace is used during a pod creation.
+Reference: <code>https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</code></p>
+<p>Now, create a service account <code>pvviewer</code>:</p>
+<pre class="language-"><code class="lang-sh">kubectl create serviceaccount pvviewer
 </code></pre>
-<p>&#x4F46;&#x5BF9;&#x4E8E;&#x5DF2;&#x521B;&#x5EFA;&#x7684; pod&#xFF0C;<code>pod-definition.yaml</code>&#x4E2D;&#x7684;<code>nodeName</code>&#x5B57;&#x6BB5;&#x4E0D;&#x5141;&#x8BB8;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;Node&#x5206;&#x914D;&#x7ED9; pod &#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5411; pod &#x7ED1;&#x5B9A; API &#x53D1;&#x9001; post &#x8BF7;&#x6C42;&#xFF1A;</p>
-<p><code>Pod-bind-definition.yaml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-<span class="token key atrule">kind</span><span class="token punctuation">:</span> Binding
+<p>To create a clusterrole:</p>
+<pre class="language-"><code class="lang-sh">kubectl create clusterrole pvviewer-role <span class="token parameter variable">--resource</span><span class="token operator">=</span>persistentvolumes <span class="token parameter variable">--verb</span><span class="token operator">=</span>list
+</code></pre>
+<p>To create a clusterrolebinding:</p>
+<pre class="language-"><code class="lang-sh">kubectl create clusterrolebinding pvviewer-role-binding <span class="token parameter variable">--clusterrole</span><span class="token operator">=</span>pvviewer-role <span class="token parameter variable">--serviceaccount</span><span class="token operator">=</span>default:pvviewer
+</code></pre>
+<p>Solution manifest file to create a new pod called <code>pvviewer</code> as follows:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
 <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
-<span class="token key atrule">target</span><span class="token punctuation">:</span>
-  <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
-  <span class="token key atrule">kind</span><span class="token punctuation">:</span> Node
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> node02
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">run</span><span class="token punctuation">:</span> pvviewer
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> pvviewer
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> redis
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> pvviewer
+  <span class="token comment"># Add service account name</span>
+  <span class="token key atrule">serviceAccountName</span><span class="token punctuation">:</span> pvviewer
 </code></pre>
-<p>&#x628A; yaml &#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210; Json &#x683C;&#x5F0F;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">curl</span> <span class="token parameter variable">--header</span> <span class="token string">&quot;Content-Type:application/json&quot;</span> <span class="token parameter variable">--request</span> POST <span class="token parameter variable">--data</span> <span class="token string">&apos;{&quot;apiVersion&quot;:&quot;v1&quot;, &quot;kind&quot;: &quot;Binding&quot;, ...}&apos;</span> http://<span class="token variable">$SERVER</span>/api/v1/namespaces/default/pods/<span class="token variable">$PODNAME</span>/binding
+<h3 id="question-2-12"><a name="question-2-12" class="anchor-navigation-ex-anchor" href="#question-2-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 2 (12&apos;)</h3>
+<p>Question</p>
+<p>List the <code>InternalIP</code> of all nodes of the cluster. Save the result to a file <code>/root/CKA/node_ips</code>.</p>
+<p>Answer should be in the format: <code>InternalIP of controlplane</code><space><code>InternalIP of node01</code> (in a single line)</space></p>
+<p>Solution</p>
+<p>Explore the jsonpath loop.
+<code>kubectl get nodes -o jsonpath=&apos;{.items[*].status.addresses[?(@.type==&quot;InternalIP&quot;)].address}&apos;</code> &gt; /root/CKA/node_ips</p>
+<h3 id="question-3-12"><a name="question-3-12" class="anchor-navigation-ex-anchor" href="#question-3-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 3 (12&apos;)</h3>
+<p>Question</p>
+<p>Create a pod called <code>multi-pod</code> with two containers.
+Container 1, name: <code>alpha</code>, image: <code>nginx</code>
+Container 2: name: <code>beta</code>, image: <code>busybox</code>, command: <code>sleep 4800</code></p>
+<p>Environment Variables:
+container 1:
+<code>name: alpha</code></p>
+<p>Container 2:
+<code>name: beta</code></p>
+<p>Details</p>
+<ul>
+<li>Pod Name: multi-pod</li>
+<li>Container 1: alpha</li>
+<li>Container 2: beta</li>
+<li>Container beta commands set correctly?</li>
+<li>Container 1 Environment Value Set</li>
+<li>Container 2 Environment Value Set</li>
+</ul>
+<p>Solution</p>
+<p>Solution manifest file to create a multi-container pod <code>multi-pod</code> as follows:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> multi<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> alpha
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> name
+      <span class="token key atrule">value</span><span class="token punctuation">:</span> alpha
+  <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> busybox
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> beta
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;sleep&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;4800&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">env</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> name
+      <span class="token key atrule">value</span><span class="token punctuation">:</span> beta
 </code></pre>
-<h3 id="2-labels"><a name="2-labels" class="anchor-navigation-ex-anchor" href="#2-labels"><i class="fa fa-link" aria-hidden="true"></i></a>2. Labels</h3>
-<p><code>kubectl get all</code></p>
-<p><code>kubectl get pods -l env=dev | wc -l</code> : &#x5217;&#x51FA;env=dev&#x7684;pod&#x4E2A;&#x6570;&#xFF08;&#x5305;&#x542B;header&#xFF09;&#xFF0C;<code>-l</code> short for <code>--selector</code></p>
-<p><code>kubectl get pods -l env=dev --no-headers | wc -l</code> : &#x5217;&#x51FA;env=dev&#x7684;pod&#x4E2A;&#x6570;&#xFF08;&#x4E0D;&#x5305;&#x542B;header&#xFF09;</p>
-<p><code>kubectl label node node01 color=blue</code> : &#x6DFB;&#x52A0;Label</p>
-<h3 id="3-taints---node"><a name="3-taints---node" class="anchor-navigation-ex-anchor" href="#3-taints---node"><i class="fa fa-link" aria-hidden="true"></i></a>3. Taints - Node</h3>
-<p><code>kubectl taint nodes node-name key=value:taint-effect</code></p>
-<p>taint-effect : NoSchedule | PreferNoSchedule | NoExecute</p>
-<p>NoExecute : &#x65B0;Pod&#x4E0D;&#x4F1A;&#x90E8;&#x7F72;&#xFF0C;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x8282;&#x70B9;&#x4E5F;&#x4F1A;&#x7EC8;&#x6B62;</p>
-<h3 id="4-tolerations---pods"><a name="4-tolerations---pods" class="anchor-navigation-ex-anchor" href="#4-tolerations---pods"><i class="fa fa-link" aria-hidden="true"></i></a>4. Tolerations - Pods</h3>
-<p><code>pod-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+<h3 id="question-4-8"><a name="question-4-8" class="anchor-navigation-ex-anchor" href="#question-4-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 4 (8&apos;)</h3>
+<p>Question</p>
+<p>Create a Pod called <code>non-root-pod</code> , image: <code>redis:alpine</code>
+runAsUser: 1000
+fsGroup: 2000</p>
+<p>Details</p>
+<ul>
+<li>Pod non-root-pod fsGroup configured</li>
+<li>Pod non-root-pod runAsUser configured</li>
+</ul>
+<p>Solution</p>
+<p>Solution manifest file to create a pod called <code>non-root-pod</code> as follows:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> non<span class="token punctuation">-</span>root<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">securityContext</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runAsUser</span><span class="token punctuation">:</span> <span class="token number">1000</span>
+    <span class="token key atrule">fsGroup</span><span class="token punctuation">:</span> <span class="token number">2000</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> non<span class="token punctuation">-</span>root<span class="token punctuation">-</span>pod
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
+</code></pre>
+<p>Verify the user and group IDs by using below command:</p>
+<pre class="language-"><code>kubectl exec -it non-root-pod -- id
+</code></pre><h3 id="question-5-14"><a name="question-5-14" class="anchor-navigation-ex-anchor" href="#question-5-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 5 (14&apos;)</h3>
+<p>Question</p>
+<p>We have deployed a new pod called <code>np-test-1</code> and a service called <code>np-test-service</code>. Incoming connections to this service are not working. Troubleshoot and fix it.
+Create NetworkPolicy, by the name <code>ingress-to-nptest</code> that allows incoming connections to the service over port <code>80</code>.</p>
+<p>Important: Don&apos;t delete any current objects deployed.</p>
+<p>Details</p>
+<ul>
+<li>Important: Don&apos;t Alter Existing Objects!</li>
+<li>NetworkPolicy: Applied to All sources (Incoming traffic from all pods)?</li>
+<li>NetWorkPolicy: Correct Port?</li>
+<li>NetWorkPolicy: Applied to correct Pod?</li>
+</ul>
+<p>Solution</p>
+<p>Solution manifest file to create a network policy <code>ingress-to-nptest</code> as follows:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> networking.k8s.io/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> NetworkPolicy
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> ingress<span class="token punctuation">-</span>to<span class="token punctuation">-</span>nptest
+  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> default
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">podSelector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">run</span><span class="token punctuation">:</span> np<span class="token punctuation">-</span>test<span class="token punctuation">-</span><span class="token number">1</span>
+  <span class="token key atrule">policyTypes</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Ingress
+  <span class="token key atrule">ingress</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</code></pre>
+<h3 id="question-6-12"><a name="question-6-12" class="anchor-navigation-ex-anchor" href="#question-6-12"><i class="fa fa-link" aria-hidden="true"></i></a>Question 6 (12&apos;)</h3>
+<p>Question</p>
+<p>Taint the worker node <code>node01</code> to be Unschedulable. Once done, create a pod called <code>dev-redis</code>, image <code>redis:alpine</code>, to ensure workloads are not scheduled to this worker node. Finally, create a new pod called <code>prod-redis</code> and image: <code>redis:alpine</code> with toleration to be scheduled on <code>node01</code>.</p>
+<p>key: <code>env_type</code>, value: <code>production</code>, operator: <code>Equal</code> and effect: <code>NoSchedule</code></p>
+<p>Details</p>
+<ul>
+<li>Key = env_type</li>
+<li>Value = production</li>
+<li>Effect = NoSchedule</li>
+<li>pod &apos;dev-redis&apos; (no tolerations) is not scheduled on node01?</li>
+<li>Create a pod &apos;prod-redis&apos; to run on node01</li>
+</ul>
+<p>Solution</p>
+<p>To add taints on the <code>node01</code> worker node:</p>
+<pre class="language-"><code class="lang-sh">kubectl taint <span class="token function">node</span> node01 <span class="token assign-left variable">env_type</span><span class="token operator">=</span>production:NoSchedule
+</code></pre>
+<p>Now, deploy <code>dev-redis</code> pod and to ensure that workloads are not scheduled to this <code>node01</code> worker node.</p>
+<pre class="language-"><code class="lang-sh">kubectl run dev-redis <span class="token parameter variable">--image</span><span class="token operator">=</span>redis:alpine
+</code></pre>
+<p>To view the node name of recently deployed pod:</p>
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-o</span> wide
+</code></pre>
+<p>Solution manifest file to deploy new pod called <code>prod-redis</code> with toleration to be scheduled on <code>node01</code> worker node.</p>
+<pre class="language-"><code class="lang-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> prod<span class="token punctuation">-</span>redis
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> prod<span class="token punctuation">-</span>redis
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> redis<span class="token punctuation">:</span>alpine
   <span class="token key atrule">tolerations</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">key</span><span class="token punctuation">:</span> app
+  <span class="token punctuation">-</span> <span class="token key atrule">effect</span><span class="token punctuation">:</span> NoSchedule
+    <span class="token key atrule">key</span><span class="token punctuation">:</span> env_type
     <span class="token key atrule">operator</span><span class="token punctuation">:</span> Equal
-    <span class="token key atrule">value</span><span class="token punctuation">:</span> blue
-    <span class="token key atrule">effect</span><span class="token punctuation">:</span> NoSchedule
+    <span class="token key atrule">value</span><span class="token punctuation">:</span> production
 </code></pre>
-<p><code>kubectl describe node kubemaster | grep Taint</code> : &#x67E5;&#x770B;master node&#x7684;Taint</p>
-<p><code>kubectl taint node node-name key=value:NoSchedule-</code> : &#x6E05;&#x9664;taint</p>
-<h3 id="5-node-selectors"><a name="5-node-selectors" class="anchor-navigation-ex-anchor" href="#5-node-selectors"><i class="fa fa-link" aria-hidden="true"></i></a>5. Node Selectors</h3>
-<p><code>pod-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">nodeSelector</span><span class="token punctuation">:</span>
-    <span class="token key atrule">size</span><span class="token punctuation">:</span> Large  <span class="token comment">##&#x751F;&#x6548;&#x524D;&#x9700;&#x8981;&#x5148;&#x6807;&#x8BB0; node</span>
+<p>To view only <code>prod-redis</code> pod with less details:</p>
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-o</span> wide <span class="token operator">|</span> <span class="token function">grep</span> prod-redis
 </code></pre>
-<p><code>kubectl label nodes <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>node-name</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label-key</span><span class="token punctuation">&gt;</span></span>=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label-value</span><span class="token punctuation">&gt;</span></span></code> : &#x6807;&#x8BB0;node</p>
-<h3 id="6-node-affinity"><a name="6-node-affinity" class="anchor-navigation-ex-anchor" href="#6-node-affinity"><i class="fa fa-link" aria-hidden="true"></i></a>6. Node Affinity</h3>
-<p><code>pod-definition.yml</code></p>
-<pre class="language-"><code class="lang-yaml"><span class="token key atrule">spec</span><span class="token punctuation">:</span>
-  <span class="token key atrule">affinity</span><span class="token punctuation">:</span>
-    <span class="token key atrule">nodeAffinity</span><span class="token punctuation">:</span>
-      <span class="token key atrule">requiredDuringSchedulingIgnoredDuringExecution</span><span class="token punctuation">:</span>
-        <span class="token key atrule">nodeSelectorTerms</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">matchExpressions</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> <span class="token key atrule">key</span><span class="token punctuation">:</span> size
-            <span class="token key atrule">operator</span><span class="token punctuation">:</span> NotIn <span class="token punctuation">|</span> In <span class="token punctuation">|</span> Exists <span class="token comment">## Exists&#x8FD0;&#x7B97;&#x7B26;&#x751A;&#x81F3;&#x4E0D;&#x9700;&#x8981;&#x4E0B;&#x9762;&#x7684;values</span>
-            <span class="token key atrule">values</span><span class="token punctuation">:</span>
-            <span class="token punctuation">-</span> Large
-            <span class="token punctuation">-</span> Medium
-</code></pre>
-<p>Available &#xFF1A;</p>
+<h3 id="question-7-8"><a name="question-7-8" class="anchor-navigation-ex-anchor" href="#question-7-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 7 (8&apos;)</h3>
+<p>Question</p>
+<p>Create a pod called <code>hr-pod</code> in <code>hr</code> namespace belonging to the <code>production</code> environment and <code>frontend</code> tier .
+image: <code>redis:alpine</code></p>
+<p>Use appropriate labels and create all the required objects if it does not exist in the system already.</p>
+<p>Details</p>
 <ul>
-<li>requiredDuringSchedulingIgnoredDuringExecution</li>
-<li>preferredDuringSchedulingIgnoredDuringExecution</li>
+<li>hr-pod labeled with environment production?</li>
+<li>hr-pod labeled with tier frontend?</li>
 </ul>
-<p>Planned :</p>
+<p>Solution</p>
+<p>Create a namespace if it doesn&apos;t exist:</p>
+<pre class="language-"><code class="lang-shell">kubectl create namespace hr
+</code></pre>
+<p>and then create a <code>hr-pod</code> with given details:</p>
+<pre class="language-"><code class="lang-shell">kubectl run hr-pod <span class="token parameter variable">--image</span><span class="token operator">=</span>redis:alpine <span class="token parameter variable">--namespace</span><span class="token operator">=</span>hr <span class="token parameter variable">--labels</span><span class="token operator">=</span>environment<span class="token operator">=</span>production,tier<span class="token operator">=</span>frontend
+</code></pre>
+<h3 id="question-8-8"><a name="question-8-8" class="anchor-navigation-ex-anchor" href="#question-8-8"><i class="fa fa-link" aria-hidden="true"></i></a>Question 8 (8&apos;)</h3>
+<p>Question</p>
+<p>A kubeconfig file called <code>super.kubeconfig</code> has been created under <code>/root/CKA</code>. There is something wrong with the configuration. Troubleshoot and fix it.</p>
+<p>Details</p>
 <ul>
-<li>requiredDuringSchedulingrequiredDuringExecution</li>
+<li>Fix /root/CKA/super.kubeconfig</li>
 </ul>
-<p>DuringScheduling&#xFF1A;Pod&#x4E0D;&#x5B58;&#x5728;&#x4E14;&#x662F;&#x9996;&#x6B21;&#x521B;&#x5EFA;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">DuringScheduling</th>
-<th style="text-align:center">DuringExecution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Type1</td>
-<td style="text-align:center">Required</td>
-<td style="text-align:center">Ignored</td>
-</tr>
-<tr>
-<td style="text-align:center">Type2</td>
-<td style="text-align:center">Preferred</td>
-<td style="text-align:center">Ignored</td>
-</tr>
-<tr>
-<td style="text-align:center">Type3</td>
-<td style="text-align:center">Required</td>
-<td style="text-align:center">Required</td>
-</tr>
-</tbody>
-</table>
+<p>Solution</p>
+<p>Verify host and port for <code>kube-apiserver</code> are correct.
+Open the <code>super.kubeconfig</code> in vi editor.
+Change the 9999 port to 6443 and run the below command to verify:</p>
+<pre class="language-"><code class="lang-shell">kubectl cluster-info <span class="token parameter variable">--kubeconfig</span><span class="token operator">=</span>/root/CKA/super.kubeconfig
+</code></pre>
+<h3 id="question-9-14"><a name="question-9-14" class="anchor-navigation-ex-anchor" href="#question-9-14"><i class="fa fa-link" aria-hidden="true"></i></a>Question 9 (14&apos;)</h3>
+<p>Question</p>
+<p>We have created a new deployment called <code>nginx-deploy</code>. scale the deployment to 3 replicas. Has the replica&apos;s increased? Troubleshoot the issue and fix it.</p>
+<p>Details</p>
+<ul>
+<li>deployment has 3 replicas</li>
+</ul>
+<p>Solution</p>
+<p>Use the command <code>kubectl scale</code> to increase the replica count to 3.</p>
+<pre class="language-"><code class="lang-sh">kubectl scale deploy nginx-deploy <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">3</span>
+</code></pre>
+<p>The <code>controller-manager</code> is responsible for scaling up pods of a replicaset. If you inspect the control plane components in the <code>kube-system</code> namespace, you will see that the <code>controller-manager</code> is not running.</p>
+<pre class="language-"><code class="lang-sh">kubectl get pods <span class="token parameter variable">-n</span> kube-system
+</code></pre>
+<p>The command running inside the <code>controller-manager</code> pod is incorrect.
+After fix all the values in the file and wait for <code>controller-manager</code> pod to restart.
+Alternatively, you can run <code>sed</code> command to change all values at once:</p>
+<pre class="language-"><code>sed -i &apos;s/kube-contro1ler-manager/kube-controller-manager/g&apos; /etc/kubernetes/manifests/kube-controller-manager.yaml
+</code></pre><p>This will fix the issues in <code>controller-manager</code> yaml file.
+At last, inspect the deployment by using below command:</p>
+<pre class="language-"><code class="lang-sh">kubectl get deploy
+</code></pre>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
-2023-07-12 20:01:47
+2023-07-12 18:45:54
 </span></footer>
                                 
                                 </section>
@@ -1216,12 +1357,12 @@
 
             
                 
-                <a href="命令式和声明式.html" class="navigation navigation-prev " aria-label="Previous page: 命令式和声明式">
+                <a href="KodeKloud_Mock_Exam_2.html" class="navigation navigation-prev " aria-label="Previous page: KodeKloud Mock Exam - 2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="设定资源.html" class="navigation navigation-next " aria-label="Next page: 设定资源">
+                <a href="资料及经验分享.html" class="navigation navigation-next " aria-label="Next page: 资料及经验分享（已通过）">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1232,7 +1373,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"调度","level":"9.3","depth":1,"next":{"title":"设定资源","level":"9.4","depth":1,"path":"k8s/设定资源.md","ref":"k8s/设定资源.md","articles":[]},"previous":{"title":"命令式和声明式","level":"9.2","depth":1,"path":"k8s/命令式和声明式.md","ref":"k8s/命令式和声明式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/调度.md","mtime":"2023-07-12T12:01:47.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:43:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"KodeKloud Mock Exam - 3","level":"9.17","depth":1,"next":{"title":"资料及经验分享（已通过）","level":"9.18","depth":1,"path":"cka/资料及经验分享.md","ref":"cka/资料及经验分享.md","articles":[]},"previous":{"title":"KodeKloud Mock Exam - 2","level":"9.16","depth":1,"path":"cka/KodeKloud_Mock_Exam_2.md","ref":"cka/KodeKloud_Mock_Exam_2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"cka/KodeKloud_Mock_Exam_3.md","mtime":"2023-07-12T10:45:54.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:55:46.165Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

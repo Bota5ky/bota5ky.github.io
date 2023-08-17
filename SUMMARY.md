@@ -23,8 +23,8 @@
 
 ### 计算机基础
 
-- [操作系统](cs/system.md)
-- [计算机网络](cs/network.md)
+- [操作系统](cs/操作系统.md)
+- [计算机网络](cs/计算机网络.md)
 
 ### 数据库
 
@@ -49,24 +49,24 @@
 ### 云原生考证
 #### Certified Kubernetes Administrator
 
-* [常用名词及 ETCD 等组件](k8s/常用名词及ETCD等组件.md)
-* [命令式和声明式](k8s/命令式和声明式.md)
-* [调度](k8s/调度.md)
-* [设定资源](k8s/设定资源.md)
-* [守护进程、静态 Pod、多调度器 ](k8s/守护进程_静态Pod_多调度器.md)
-* [监控、滚动升级、回滚及参数配置](k8s/监控_滚动升级_回滚及参数配置.md)
-* [Secrets](k8s/Secrets.md)
-* [升级和版本](k8s/升级和版本.md)
-* [备份、认证及 TLS](k8s/备份_认证及TLS.md)
-* [RBAC](k8s/RBAC.md)
-* [网络策略和存储](k8s/网络策略和存储.md)
-* [硬盘和路由](k8s/硬盘和路由.md)
-* [网络空间](k8s/网络空间.md)
-* [Networking](k8s/Networking.md)
-* [KodeKloud Lightning Lab - 1](k8s/KodeKloud_Lightning_Lab_1.md)
-* [KodeKloud Mock Exam - 2](k8s/KodeKloud_Mock_Exam_2.md)
-* [KodeKloud Mock Exam - 3](k8s/KodeKloud_Mock_Exam_3.md)
-* [资料及经验分享（已通过）](k8s/资料及经验分享.md)
+* [常用名词及 ETCD 等组件](cka/常用名词及ETCD等组件.md)
+* [命令式和声明式](cka/命令式和声明式.md)
+* [调度](cka/调度.md)
+* [设定资源](cka/设定资源.md)
+* [守护进程、静态 Pod、多调度器 ](cka/守护进程_静态Pod_多调度器.md)
+* [监控、滚动升级、回滚及参数配置](cka/监控_滚动升级_回滚及参数配置.md)
+* [Secrets](cka/Secrets.md)
+* [升级和版本](cka/升级和版本.md)
+* [备份、认证及 TLS](cka/备份_认证及TLS.md)
+* [RBAC](cka/RBAC.md)
+* [网络策略和存储](cka/网络策略和存储.md)
+* [硬盘和路由](cka/硬盘和路由.md)
+* [Namespace](cka/Namespace.md)
+* [Networking](cka/Networking.md)
+* [KodeKloud Lightning Lab - 1](cka/KodeKloud_Lightning_Lab_1.md)
+* [KodeKloud Mock Exam - 2](cka/KodeKloud_Mock_Exam_2.md)
+* [KodeKloud Mock Exam - 3](cka/KodeKloud_Mock_Exam_3.md)
+* [资料及经验分享（已通过）](cka/资料及经验分享.md)
 
 #### AWS Certified Solutions Architect - Associate
 

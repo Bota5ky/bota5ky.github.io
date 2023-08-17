@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Networking · Bota5ky's Blog</title>
+        <title>升级和版本 · Bota5ky's Blog</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="KodeKloud_Lightning_Lab_1.html" />
+    <link rel="next" href="备份_认证及TLS.html" />
     
     
-    <link rel="prev" href="网络空间.html" />
+    <link rel="prev" href="Secrets.html" />
     
 
     </head>
@@ -327,9 +327,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../cs/system.md">
+        <li class="chapter " data-level="4.1" data-path="../cs/操作系统.html">
             
-                <span>
+                <a href="../cs/操作系统.html">
             
                     
                     操作系统
@@ -340,9 +340,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../cs/network.md">
+        <li class="chapter " data-level="4.2" data-path="../cs/计算机网络.html">
             
-                <span>
+                <a href="../cs/计算机网络.html">
             
                     
                     计算机网络
@@ -622,7 +622,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9.8" data-path="升级和版本.html">
+        <li class="chapter active" data-level="9.8" data-path="升级和版本.html">
             
                 <a href="升级和版本.html">
             
@@ -687,12 +687,12 @@
             
         </li>
     
-        <li class="chapter " data-level="9.13" data-path="网络空间.html">
+        <li class="chapter " data-level="9.13" data-path="Namespace.html">
             
-                <a href="网络空间.html">
+                <a href="Namespace.html">
             
                     
-                    网络空间
+                    Namespace
             
                 </a>
             
@@ -700,7 +700,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.14" data-path="Networking.html">
+        <li class="chapter " data-level="9.14" data-path="Networking.html">
             
                 <a href="Networking.html">
             
@@ -1076,7 +1076,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Networking</a>
+        <a href=".." >升级和版本</a>
     </h1>
 </div>
 
@@ -1091,193 +1091,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-docker-networking"><b></b>1. Docker Networking</a></li><li><span class="title-icon "></span><a href="#2-cni---container-networking-interface"><b></b>2. CNI - Container Networking Interface</a></li><li><span class="title-icon "></span><a href="#3-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><b></b>3. &#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li><li><span class="title-icon "></span><a href="#4-cluster-networking"><b></b>4. Cluster Networking</a></li><li><span class="title-icon "></span><a href="#5-pod-networking"><b></b>5. Pod Networking</a></li><li><span class="title-icon "></span><a href="#6-cni-in-kubernetes"><b></b>6. CNI in kubernetes</a></li><li><span class="title-icon "></span><a href="#7-cni-weave"><b></b>7. CNI weave</a></li><li><span class="title-icon "></span><a href="#8-service-networking"><b></b>8. Service Networking</a></li><li><span class="title-icon "></span><a href="#9-dns-in-kubernetes"><b></b>9. DNS in kubernetes</a></li><li><span class="title-icon "></span><a href="#10-coredns-in-kubernetes"><b></b>10. CoreDNS in Kubernetes</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-docker-networking"><a name="1-docker-networking" class="anchor-navigation-ex-anchor" href="#1-docker-networking"><i class="fa fa-link" aria-hidden="true"></i></a>1. Docker Networking</h3>
-<center><img src="networking.png" style="zoom:45%"></center>
-
-<p>&#x5F53;&#x60A8;&#x8FD0;&#x884C;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x60A8;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7EDC;&#x9009;&#x9879;&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#xFF1A;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-upgrades"><b></b>1. Upgrades</a></li><li><span class="title-icon "></span><a href="#2-releases"><b></b>2. Releases</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-upgrades"><a name="1-upgrades" class="anchor-navigation-ex-anchor" href="#1-upgrades"><i class="fa fa-link" aria-hidden="true"></i></a>1. Upgrades</h3>
+<p>&#x9ED8;&#x8BA4; pod &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;5&#x5206;&#x949F;&#xFF1A;<code>kube-controller-manager --pod-eviction-timeout=5m0s</code></p>
+<p>&#x7CFB;&#x7EDF;&#x5347;&#x7EA7;&#x65F6;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#xFF1A;<code>kubectl drain node-1</code>&#xFF0C;&#x8282;&#x70B9;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x4E0D;&#x53EF;&#x8C03;&#x5EA6;&#xFF0C;&#x4F1A;&#x6E05;&#x9664; pod&#xFF0C;&#x4F46;&#x5F53; pod &#x4E0D;&#x5C5E;&#x4E8E; replicaSet &#x65F6;&#xFF0C;drain &#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x4E0A; <code>--force</code>&#xFF0C;&#x8FD9;&#x4E2A; pod &#x5C31;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x5728;&#x5176;&#x4ED6;node &#x4E0A;&#x88AB;&#x521B;&#x5EFA;</p>
+<p>&#x5347;&#x7EA7;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF1A;<code>kubectl uncordon node-1</code></p>
+<p><code>kubectl cordon node-2</code>&#x4E0D;&#x4F1A;&#x6E05;&#x9664;pod</p>
+<p>&#x4F7F;&#x7528; <code>kubectl get nodes</code> &#x53EF;&#x4EE5;&#x5728; VERSION &#x5217;&#x67E5;&#x770B;&#x7248;&#x672C;</p>
+<p><code>v1.11.3</code></p>
 <ul>
-<li><p>container&#x65E0;&#x6CD5;&#x5230;&#x8FBE;&#x5916;&#x90E8;&#xFF0C;&#x5916;&#x90E8;&#x4E5F;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;container <code>docker run --network none nginx</code></p>
+<li><p>MAJOR</p>
 </li>
-<li><p>&#x5BB9;&#x5668;&#x94FE;&#x63A5;&#x5230;host&#xFF0C;host&#x548C;&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x7F51;&#x7EDC;&#x9694;&#x79BB;&#x65E0;&#x9700;&#x63A5;&#x53E3;&#x8F6C;&#x53D1;&#xFF0C;&#x4F46;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x65E0;&#x6CD5;&#x540C;&#x65F6;&#x4FA6;&#x542C;&#x540C;&#x4E00;&#x7AEF;&#x53E3; <code>docker run --network host nginx</code></p>
+<li><p>MINOR : Features, Functionalities</p>
 </li>
-<li><p>&#x7B2C;&#x4E09;&#x79CD;&#x7F51;&#x7EDC;&#x9009;&#x9879;&#x662F;bridge&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#xFF0C;Docker&#x4E3B;&#x673A;&#x548C;&#x5BB9;&#x5668;&#x5C06;&#x8FDE;&#x63A5;&#x5230;&#x8BE5;&#x7F51;&#x7EDC;&#x3002;</p>
-</li>
-</ul>
-<p>Docker&#x5728;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C;&#x4E8E;&#x6211;&#x4EEC;&#x5728;network ns&#x4E2D;&#x8BB2;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x5373;&#x8FD0;&#x884C;&#x7C7B;&#x578B;&#x8BBE;&#x7F6E;&#x4E3A;bridge&#x7684;IP link add &#x547D;&#x4EE4;&#xFF0C;<code>ip link add docker0 type bridge</code>&#x3002;</p>
-<p>&#x5F53;Docker&#x5B89;&#x88C5;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x79F0;&#x4E3A; <code>bridge</code> &#x7684;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#xFF0C;&#x53EF;&#x7531; <code>docker network ls</code> &#x67E5;&#x770B;&#x3002;&#x4F46;&#x5728;host&#x4E0A;&#x7531; <code>ip link</code> &#x67E5;&#x770B;&#xFF0C;&#x663E;&#x793A;&#x4E3A; <code>docker0</code>&#x3002;</p>
-<p>&#x6839;&#x636E;<code>ip link</code> &#x67E5;&#x770B; <code>docker0</code>&#x63A5;&#x53E3;&#x72B6;&#x6001;&#x4E3A; <code>DOWN</code>&#xFF0C;&#x63A5;&#x53E3;&#x6216;&#x7F51;&#x7EDC;&#x5F53;&#x524D;&#x5DF2;&#x5173;&#x95ED;&#x3002;</p>
-<p>&#x8FD8;&#x8BB0;&#x5F97;&#x6211;&#x4EEC;&#x8BF4;&#x8FC7;&#xFF0C;bridge&#x7F51;&#x7EDC;&#x5C31;&#x50CF;&#x662F;host&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4F46;&#x5B83;&#x4E5F;&#x662F;host&#x5185;&#x90E8;ns&#x6216;&#x8005;container&#x7684;&#x4EA4;&#x6362;&#x673A;&#x3002;&#x6839;&#x636E;<code>ip addr</code>&#x53EF;&#x4EE5;&#x67E5;&#x770B;<code>docker0</code>&#x88AB;&#x5206;&#x914D;&#x7684;IP&#x5730;&#x5740;&#x3002;</p>
-<p>&#x6BCF;&#x5F53;&#x521B;&#x5EFA;container&#x65F6;&#xFF0C;Docker&#x90FD;&#x4F1A;&#x4E3A;&#x5176;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ns&#xFF0C;&#x8FD0;&#x884C; <code>ip netns</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5217;&#x51FA;ns&#xFF08;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#xFF09;&#x3002;</p>
-<p><code>docker inspect ns-name</code>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E0E;&#x6BCF;&#x4E2A;&#x5BB9;&#x5668;&#x5173;&#x8054;&#x7684;ns&#x3002;</p>
-<p>docker&#x6216;&#x8005;&#x8BF4; ns &#x8FDE;&#x63A5;&#x5230; bridge &#x4E0A;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x4E4B;&#x524D;&#x8BF4;&#x7684;&#x4E00;&#x6837;&#x3002;&#x5982;&#x679C;&#x5728;docker host&#x4E0A;&#x8FD0;&#x884C; <code>ip link</code>&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x770B;&#x5230;&#x63A5;&#x53E3;&#x7684;&#x4E00;&#x7AEF;&#x8FDE;&#x63A5;&#x5230;&#x672C;&#x5730; bridge <code>master docker0</code></p>
-<p>&#x7528; <code>ip -n b3165c10a92b link</code> &#x8FDE;&#x63A5;&#x5230;container&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x7528; <code>ip -n b3165c10a92b addr</code> &#x67E5;&#x770B;&#x5BF9;&#x5E94;IP&#x5730;&#x5740;</p>
-<p>&#x63A5;&#x53E3;&#x901A;&#x5E38;&#x6210;&#x5BF9;&#x5339;&#x914D;&#xFF0C;container&#x5076;&#x6570;&#xFF0C;bridge&#x63A5;&#x53E3;&#x4E3A;&#x5947;&#x6570;</p>
-<p>&#x5C06;docker&#x4E0A;&#x7684;8080&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x5230;container&#x7684;80&#x4E0A;&#xFF1A;<code>docker run -p 8080:80 nginx</code>&#xFF0C;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E5F;&#x4E00;&#x6837; <code>iptables -t nat -A DOCKER --dport 80 --to-destination 172.17.0.3:80 -j DNAT</code>&#xFF0C;&#x67E5;&#x770B;&#x7684;&#x547D;&#x4EE4; <code>iptables -nvL -t nat</code></p>
-<h3 id="2-cni---container-networking-interface"><a name="2-cni---container-networking-interface" class="anchor-navigation-ex-anchor" href="#2-cni---container-networking-interface"><i class="fa fa-link" aria-hidden="true"></i></a>2. CNI - Container Networking Interface</h3>
-<p>VETH : virtual Ethernet devices</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Network Namespaces</th>
-<th>docker</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1. Create Network Namespace</td>
-<td>1. Create Network Namespace</td>
-</tr>
-<tr>
-<td style="text-align:left">2. Create Bridge Network/Interface</td>
-<td>2. Create Bridge Network/Interface</td>
-</tr>
-<tr>
-<td style="text-align:left">3. Create VETH Pairs (Pipe, Virtual Cable)</td>
-<td>3. Create VETH Pairs (Pipe, Virtual Cable)</td>
-</tr>
-<tr>
-<td style="text-align:left">4. Attach VETH to Namespace</td>
-<td>4. Attach VETH to Namespace</td>
-</tr>
-<tr>
-<td style="text-align:left">5. Attach Other VETH to Bridge</td>
-<td>5. Attach Other VETH to Bridge</td>
-</tr>
-<tr>
-<td style="text-align:left">6. Assign IP Address</td>
-<td>6. Assign IP Address</td>
-</tr>
-<tr>
-<td style="text-align:left">7. Bring the interfaces up</td>
-<td>7. Bring the interfaces up</td>
-</tr>
-<tr>
-<td style="text-align:left">8. Enable NAT - IP Masquerade</td>
-<td>8. Enable NAT - IP Masquerade</td>
-</tr>
-</tbody>
-</table>
-<p>&#x7EDF;&#x4E00;&#x7684;&#x6B65;&#x9AA4;2~8&#x6B65;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;bridge&#x547D;&#x4EE4;&#x8FD0;&#x884C;&#xFF0C;&#x6307;&#x5B9A;&#x5C06;&#x5BB9;&#x5668;&#x6DFB;&#x52A0;&#x5230;ns&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">bridge <span class="token function">add</span> 2e34dcf34 /var/run/netns/2e34dcf34
-bridge <span class="token function">add</span> <span class="token operator">&lt;</span>container id<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>namespace<span class="token operator">&gt;</span>
-</code></pre>
-<p>CNI (Container Networking Interface) :</p>
-<ul>
-<li>container runtime<ul>
-<li>&#x5BB9;&#x5668;&#x8FD0;&#x884C;&#x65F6;&#x5FC5;&#x987B;&#x521B;&#x5EFA;&#x7F51;&#x7EDC;&#x547D;&#x540D;&#x7A7A;&#x95F4;</li>
-<li>&#x6807;&#x8BC6;&#x5BB9;&#x5668;&#x5FC5;&#x987B;&#x8FDE;&#x63A5;&#x5230;&#x7684;&#x7F51;&#x7EDC;</li>
-<li>&#x6DFB;&#x52A0;&#x5BB9;&#x5668;&#x65F6;&#x8C03;&#x7528;&#x7F51;&#x7EDC;&#x63D2;&#x4EF6;&#xFF08;&#x7F51;&#x6865;&#xFF09;&#x7684;&#x5BB9;&#x5668;&#x8FD0;&#x884C;&#x65F6;</li>
-<li>&#x5220;&#x9664;&#x5BB9;&#x5668;&#x65F6;&#x8C03;&#x7528;&#x7F51;&#x7EDC;&#x63D2;&#x4EF6;&#xFF08;&#x7F51;&#x6865;&#xFF09;&#x7684;&#x5BB9;&#x5668;&#x8FD0;&#x884C;&#x65F6;</li>
-<li>&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x7684;JSON&#x683C;&#x5F0F;</li>
-</ul>
-</li>
-<li>&#x63D2;&#x4EF6;&#x65B9;&#x9762;<ul>
-<li>&#x5FC5;&#x987B;&#x652F;&#x6301;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;ADD/DEL/CHECK</li>
-<li>&#x5FC5;&#x987B;&#x652F;&#x6301;&#x53C2;&#x6570;container id&#x3001;network ns&#x7B49;</li>
-<li>&#x5FC5;&#x987B;&#x7BA1;&#x7406;POD&#x7684;IP&#x5730;&#x5740;&#x5206;&#x914D;</li>
-<li>&#x5FC5;&#x987B;&#x4EE5;&#x7279;&#x5B9A;&#x683C;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</li>
-</ul>
+<li><p>PATCH : Bug Fixes</p>
 </li>
 </ul>
-<p>CNI&#x5DF2;&#x7ECF;&#x9644;&#x5E26;&#x4E86;&#x4E00;&#x7EC4;&#x652F;&#x6301;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5982;bridge&#x3001;vlan&#x3001;ipvlan&#x3001;macvlan&#x3001;windows&#xFF0C;&#x4EE5;&#x53CA;IPAM&#x63D2;&#x4EF6;&#xFF0C;&#x5982;DHCP&#x3001;host-local&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7B2C;&#x4E09;&#x65B9;&#x7EC4;&#x7EC7;&#x63D0;&#x4F9B;&#x7684;&#x63D2;&#x4EF6;&#x3002;</p>
-<p>&#x4F46;Docker&#x6709;&#x4E00;&#x5957;&#x81EA;&#x5DF1;&#x7684;&#x6807;&#x51C6;&#xFF0C;&#x79F0;&#x4E3A;CNM&#xFF08;Container Network Model&#xFF09;&#xFF0C;&#x4E0D;&#x9002;&#x914D;CNI&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x8FD0;&#x884C; <code>docker run --network=cni-bridge nginx</code>&#xFF0C;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;Docker&#x65E0;&#x6CD5;&#x5E94;&#x7528;CNI&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;&#x7684;Docker&#x5BB9;&#x5668; <code>docker run --network=none nginx</code>&#xFF0C;&#x7136;&#x540E;&#x624B;&#x52A8;&#x8C03;&#x7528;bridge&#x63D2;&#x4EF6;&#xFF0C;k8s&#x5C31;&#x662F;&#x8FD9;&#x4E48;&#x505A;&#x7684; <code>bridge add 2e34dcf34 /var/run/netns/2e34dcf34</code></p>
-<p><a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports" target="_blank">https://kubernetes.io/docs/setup/independent/install-kubeadm/#check-required-ports</a></p>
-<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x652F;&#x6301;&#x7684;CNI&#x63D2;&#x4EF6;&#xFF1A;<code>/opt/cni/bin</code></p>
-<p>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;CNI&#x63D2;&#x4EF6;&#xFF1A;<code>ls /etc/cni/net.d/</code></p>
-<p>&#x67E5;&#x770B;kubelet&#x7684;container runtime&#xFF1A;<code>ps -aux | grep kubelet | grep --color container-runtime</code></p>
-<h3 id="3-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a name="3-&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#3-&#x5E38;&#x7528;&#x547D;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5E38;&#x7528;&#x547D;&#x4EE4;</h3>
-<p><code>ifconfig -a</code>&#xFF1A;&#x663E;&#x793A;&#x6240;&#x6709;&#x63A5;&#x53E3;&#xFF0C;&#x5305;&#x62EC;&#x73AF;&#x56DE;&#x63A5;&#x53E3;&#x3001;&#x96C6;&#x7FA4;&#x4F7F;&#x7528;&#x7684;&#x5B9E;&#x9645;&#x7269;&#x7406;&#x63A5;&#x53E3;&#x7B49;</p>
-<p><code>cat /etc/network/interfaces</code>&#xFF1A;&#x663E;&#x793A;&#x6240;&#x6709;&#x7269;&#x7406;&#x63A5;&#x53E3;&#xFF0C;&#x73AF;&#x56DE;&#x63A5;&#x53E3;&#x3001;&#x7269;&#x7406;&#x63A5;&#x53E3;</p>
-<p><code>ip link</code>&#xFF1A;&#x663E;&#x793A;&#x6B64;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x7269;&#x7406;&#x94FE;&#x8DEF;&#xFF0C;<code>ip link show eth0</code> = <code>ifconfig eth0</code></p>
-<p><code>ip route show default</code>&#xFF1A;&#x67E5;&#x770B;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;&#xFF0C;&#x6216;&#x8005; <code>ip r</code></p>
-<p><code>netstat -natulp | grep scheduler</code>&#xFF1A;-p programs&#xFF0C;-l listening&#xFF0C;-t tcp</p>
-<h3 id="4-cluster-networking"><a name="4-cluster-networking" class="anchor-navigation-ex-anchor" href="#4-cluster-networking"><i class="fa fa-link" aria-hidden="true"></i></a>4. Cluster Networking</h3>
-<center><img src="cluster.png" style="zoom:38%"></center>
-
-<p>kubernetes&#x96C6;&#x7FA4;&#x7531;master node&#x548C;worker node&#x7EC4;&#x6210;&#x3002;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5230;&#x7F51;&#x7EDC;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x5FC5;&#x987B;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;IP&#x5730;&#x5740;&#xFF0C;host&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x552F;&#x4E00;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x4EE5;&#x53CA;&#x552F;&#x4E00;&#x7684;mac&#x5730;&#x5740;&#x3002;&#x5982;&#x679C;&#x901A;&#x8FC7;&#x73B0;&#x5728;VM&#x514B;&#x9686;&#x6765;&#x521B;&#x5EFA;VM&#xFF0C;&#x5219;&#x5E94;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x8FD9;&#x4E00;&#x70B9;&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x7AEF;&#x53E3;&#x4E5F;&#x9700;&#x8981;&#x6253;&#x5F00;&#xFF0C;&#x8FD9;&#x4E9B;&#x7531;&#x63A7;&#x5236;&#x5E73;&#x9762;&#x4E2D;&#x7684;&#x5404;&#x79CD;&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x3002;</p>
-<center><img src="ports.png" style="zoom:32%"></center>
-
-<p>&#x53C2;&#x8003;&#x6587;&#x6863;&#xFF1A;<a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports" target="_blank">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports</a></p>
-<p>&#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x60A8;&#x5728;&#x9632;&#x706B;&#x5899;&#x4E2D;&#x4E3A;&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x7F51;&#x7EDC;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x5728;GCP&#x3001;Azure&#x6216;AWS&#x7B49;&#x4E91;&#x73AF;&#x5883;&#x4E2D;&#x8BBE;&#x7F6E;ip&#x8868;&#x89C4;&#x5219;&#x6216;&#x7F51;&#x7EDC;&#x5B89;&#x5168;&#x7EC4;&#x65F6;&#xFF0C;&#x8BF7;&#x8003;&#x8651;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x3002;</p>
-<h3 id="5-pod-networking"><a name="5-pod-networking" class="anchor-navigation-ex-anchor" href="#5-pod-networking"><i class="fa fa-link" aria-hidden="true"></i></a>5. Pod Networking</h3>
-<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;k8s&#x8FD8;&#x6CA1;&#x6709;&#x4E3A;&#x6B64;&#x63D0;&#x4F9B;&#x5185;&#x7F6E;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x5B83;&#x5E0C;&#x671B;&#x60A8;&#x5B9E;&#x65BD;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x96BE;&#x9898;&#x3002;</p>
-<p>&#x4F46;&#x662F;k8s&#x5DF2;&#x7ECF;&#x660E;&#x786E;&#x5217;&#x51FA;&#x4E86;&#x5BF9;pod networking&#x7684;&#x8981;&#x6C42;&#xFF1A;</p>
+<p>ETCD&#x3001;CoreDNS &#x7684;&#x7248;&#x672C;&#x72EC;&#x7ACB;&#xFF0C;kube-apiserver &#x7684;&#x7248;&#x672C;&#x4E00;&#x822C;&#x6BD4;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x66F4;&#x9AD8;&#xFF0C;kubectl &#x7684;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x4F1A;&#x9AD8;&#x6216;&#x8005;&#x4F4E;1&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5176;&#x4ED6; Controller-manager&#x3001;kube-scheduler&#x3001;kubelet&#x3001;kube-proxy &#x7248;&#x672C;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</p>
+<p>Kubernetes &#x53EA;&#x652F;&#x6301;&#x6700;&#x8FD1;&#x7684;3&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x7684; k8s &#x7248;&#x672C;&#x4E0D;&#x518D;&#x652F;&#x6301;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E00;&#x6B21;&#x53EA;&#x5347;&#x7EA7;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p>
+<p>&#x4F7F;&#x7528; kubeadm &#x5347;&#x7EA7;&#xFF1A;</p>
 <ul>
-<li>&#x6BCF;&#x4E2A;POD&#x90FD;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;IP&#x5730;&#x5740;</li>
-<li>&#x6BCF;&#x4E2A;POD&#x90FD;&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x4E0E;&#x540C;&#x4E00;&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x5176;&#x4ED6;POD&#x901A;&#x4FE1;</li>
-<li>&#x6BCF;&#x4E2A;POD&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x5728;&#x6CA1;&#x6709;NAT&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4E0E;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x6BCF;&#x4E2A;&#x5176;&#x4ED6;POD&#x901A;&#x4FE1;</li>
+<li><p><code>kubeadm upgrade plan</code> &#x67E5;&#x770B;&#x6700;&#x8FD1;&#x7A33;&#x5B9A;&#x53EF;&#x7528;&#x7684;&#x7248;&#x672C;</p>
+</li>
+<li><p><code>kubeadm upgrade apply</code></p>
+</li>
 </ul>
-<p>&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>&#x5148;&#x5347;&#x7EA7; master node&#xFF0C;&#x518D;&#x5347;&#x7EA7; work node</p>
+<h3 id="2-releases"><a name="2-releases" class="anchor-navigation-ex-anchor" href="#2-releases"><i class="fa fa-link" aria-hidden="true"></i></a>2. Releases</h3>
 <ul>
-<li>&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;bridge&#x7F51;&#x7EDC; <code>ip link add v-net-0 type bridge</code></li>
-<li>&#x7136;&#x540E; <code>ip link set dev v-net-0 up</code></li>
-<li>&#x8BBE;&#x7F6E;bridge&#x7684;IP&#x5730;&#x5740; <code>ip addr add 10.244.1.0/24 dev v-net-0</code></li>
-<li>&#x5411;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;&#x6DFB;&#x52A0;IP&#x5730;&#x5740; <code>ip route add 10.244.1.0/24 via 192.168.15.5</code></li>
+<li>&#x5347;&#x7EA7;master node&#xFF1A;</li>
 </ul>
-<p>&#x4F46;&#x4E0E;&#x5176;&#x5728;&#x6BCF;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#xFF0C;&#x4E0D;&#x5982;&#x5728;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x3002;&#x5982;&#x679C;&#x60A8;&#x7684;&#x7F51;&#x7EDC;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x7F51;&#x5173;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x6240;&#x6709;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x8BE5;&#x7F51;&#x5173;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x60A8;&#x5C31;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x7BA1;&#x7406;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x8DEF;&#x7531;&#x8868;&#x4E2D;&#x6240;&#x6709;&#x7F51;&#x7EDC;&#x7684;&#x8DEF;&#x7531;&#x3002;</p>
-<p>&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x5BB9;&#x5668;&#x8FD0;&#x884C;&#x8BE5;&#x811A;&#x672C;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x6211;&#x4EEC;&#x5728; k8s &#x4E0A;&#x521B;&#x5EFA;&#x7AEF;&#x53E3;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x811A;&#x672C;&#x5462;&#xFF1F;&#x8FD9;&#x5C31;&#x662F; CNI &#x5145;&#x5F53;&#x4E2D;&#x95F4;&#x4EBA;&#x7684;&#x539F;&#x56E0;&#x3002;CNI &#x544A;&#x8BC9; k8s&#xFF0C;&#x8FD9;&#x662F;&#x60A8;&#x5728;&#x521B;&#x5EFA;&#x5BB9;&#x5668;&#x540E;&#x5E94;&#x8BE5;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x811A;&#x672C;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>&#x6839;&#x636E; CNI &#x6807;&#x51C6;&#xFF0C;&#x811A;&#x672C;&#x5E94;&#x8BE5;&#x6709; <code>ADD</code> &#x548C; <code>DEL</code> &#x90E8;&#x5206;&#x3002;</p>
-<p>&#x6267;&#x884C;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p><code>apt-get upgrade -y kubeadm=1.12.0-00</code></p>
+<p><code>kubeadm upgrade apply v1.12.0</code></p>
+<p><code>kubectl get nodes</code> &#x4E0A;&#x663E;&#x793A;&#x7684;&#x662F;apiserver&#x7248;&#x672C;</p>
+<p>&#x5982;&#x679C;master node&#x4E0A;&#x6709;kubelet&#xFF0C;&#x5219;<code>apt-get upgrade -y kubelet=1.12.0-00</code>&#xFF0C;&#x7136;&#x540E;<code>systemctl restart kubelet</code></p>
 <ul>
-<li><code>kubelet</code> &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x67E5;&#x770B;&#x4E4B;&#x524D;&#x7684;&#x914D;&#x7F6E; <code>--cni-conf-dir=/etc/cni/net.d</code> &#x5E76;&#x8BC6;&#x522B;&#x811A;&#x672C;&#x540D;&#x79F0;</li>
-<li>&#x7136;&#x540E;&#x5728;&#x76EE;&#x5F55; <code>--cni-bin-dir=/etc/cni/bin</code> &#x4E2D;&#x5BFB;&#x627E;&#x811A;&#x672C;</li>
-<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>./net-script.sh add <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>container</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>namespace</span><span class="token punctuation">&gt;</span></span></code> &#x6267;&#x884C;&#x811A;&#x672C;</li>
+<li>&#x5347;&#x7EA7;work node&#xFF1A;</li>
 </ul>
-<h3 id="6-cni-in-kubernetes"><a name="6-cni-in-kubernetes" class="anchor-navigation-ex-anchor" href="#6-cni-in-kubernetes"><i class="fa fa-link" aria-hidden="true"></i></a>6. CNI in kubernetes</h3>
-<p><code>ps -aux | grep kubelet</code>&#xFF1A;&#x67E5;&#x770B;&#x8BBE;&#x7F6E;&#x4E3A;CNI&#x7684;&#x7F51;&#x7EDC;&#x63D2;&#x4EF6;&#x548C;&#x4E00;&#x4E9B;&#x4E0E;CNI&#x76F8;&#x5173;&#x7684;&#x5176;&#x4ED6;&#x9009;&#x9879;&#xFF0C;&#x5982;CNI bin&#x76EE;&#x5F55;&#x548C;CNI config&#x76EE;&#x5F55;</p>
-<p><code>ls /opt/cni/bin</code>&#xFF1A;bin&#x76EE;&#x5F55;&#x5305;&#x542B;&#x6240;&#x6709;&#x652F;&#x6301;&#x7684;CNI&#x63D2;&#x4EF6;&#x4F5C;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x5982;bridge&#x3001;DHCP&#x3001;flannel&#x7B49;</p>
-<p><code>ls /etc/cni/net.d</code>&#xFF1A;conf&#x6587;&#x4EF6;&#x662F;kubelet&#x67E5;&#x627E;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x5730;&#x65B9;</p>
-<h3 id="7-cni-weave"><a name="7-cni-weave" class="anchor-navigation-ex-anchor" href="#7-cni-weave"><i class="fa fa-link" aria-hidden="true"></i></a>7. CNI weave</h3>
-<p>weave CNI&#x63D2;&#x4EF6;&#x90E8;&#x7F72;&#x5728;&#x96C6;&#x7FA4;&#x4E0A;&#xFF0C;&#x4F1A;&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x90E8;&#x7F72;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x6216;&#x670D;&#x52A1;</p>
-<p>&#x4E00;&#x4E2A;pod&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5230;&#x591A;&#x4E2A;bridge</p>
-<p>&#x5B89;&#x88C5;&#xFF1A;<code>kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &apos;\n&apos;)&amp;env.IPALLOC_RANGE=10.50.0.0/16&quot;</code>&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;IP&#x8303;&#x56F4;&#x4EE5;&#x9632;&#x6B62;&#x548C;host&#x7CFB;&#x7EDF;IP&#x91CD;&#x53E0;</p>
-<h3 id="8-service-networking"><a name="8-service-networking" class="anchor-navigation-ex-anchor" href="#8-service-networking"><i class="fa fa-link" aria-hidden="true"></i></a>8. Service Networking</h3>
-<p>Service&#x627F;&#x8F7D;&#x5728;&#x6574;&#x4E2A;cluster&#x4E0A;&#xFF0C;&#x6574;&#x4E2A;cluster&#x7684;pod&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;Service&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x5230;&#x7279;&#x5B9A;&#x8282;&#x70B9;&#xFF0C;&#x4F46;&#x53EA;&#x80FD;&#x4ECE;&#x96C6;&#x7FA4;&#x5185;&#x90E8;&#x8BBF;&#x95EE;&#x8BE5;&#x670D;&#x52A1;&#x3002;</p>
-<p>NodePort&#x53EF;&#x4EE5;&#x4E0D;&#x4EC5;&#x8BA9;cluster&#x5185;&#x90E8;&#x7684;&#x8282;&#x70B9;&#x8BBF;&#x95EE;&#xFF0C;&#x5B83;&#x8FD8;&#x4F1A;&#x518D;cluster&#x4E2D;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x7AEF;&#x53E3;&#x4E0A;&#x516C;&#x5F00;application&#x3002;</p>
-<p>&#x67E5;&#x770B;IPtable&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#xFF1A;<code>iptables -L -t nat | grep db-service</code></p>
-<p>&#x6216;&#x8005;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#xFF1A;<code>cat /var/log/kube-proxy.log</code>&#xFF0C;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x53EF;&#x80FD;&#x56E0;&#x5B89;&#x88C5;&#x800C;&#x5F02;</p>
-<p>&#x67E5;&#x770B;services&#x7684;IP&#x8303;&#x56F4;&#xFF1A;<code>cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep cluster-ip-range</code></p>
-<p>&#x67E5;&#x770B;pod&#x7684;IP&#x8303;&#x56F4;&#x548C;&#x4F7F;&#x7528;&#x7684;proxy&#x7C7B;&#x578B;&#xFF1A;<code>kubectl logs <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>weave-pod-name</span><span class="token punctuation">&gt;</span></span> weave -n kube-system</code></p>
-<h3 id="9-dns-in-kubernetes"><a name="9-dns-in-kubernetes" class="anchor-navigation-ex-anchor" href="#9-dns-in-kubernetes"><i class="fa fa-link" aria-hidden="true"></i></a>9. DNS in kubernetes</h3>
-<table>
-<thead>
-<tr>
-<th>Hostname</th>
-<th>Namespace</th>
-<th>Type</th>
-<th>Root</th>
-<th>IP Address</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>web-service</td>
-<td>apps</td>
-<td>svc</td>
-<td>cluster.local</td>
-<td>10.107.37.188</td>
-</tr>
-<tr>
-<td>10-244-2-5</td>
-<td>apps</td>
-<td>pod</td>
-<td>cluster.local</td>
-<td>10.244.2.5</td>
-</tr>
-</tbody>
-</table>
-<p><code>curl http://10-244-2-5.apps.pod.cluster.local</code></p>
-<h3 id="10-coredns-in-kubernetes"><a name="10-coredns-in-kubernetes" class="anchor-navigation-ex-anchor" href="#10-coredns-in-kubernetes"><i class="fa fa-link" aria-hidden="true"></i></a>10. CoreDNS in Kubernetes</h3>
-<p>&#x5EFA;&#x7ACB;DNS&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p><code>kubectl drain node-1</code> &#x628A;&#x8282;&#x70B9;&#x4E0A;&#x7684;pod&#x8F6C;&#x79FB;&#x5230;&#x5176;&#x4ED6;&#x8282;&#x70B9;</p>
+<p><code>apt-get upgrade -y kubeadm=1.12.0-00</code></p>
+<p><code>apt-get upgrade -y kubelet=1.12.0-00</code></p>
+<p><code>kubeadm upgrade node config --kubelet-version v1.12.0</code></p>
+<p><code>systemctl restart kubelet</code></p>
+<p><code>kubectl uncordon node-1</code></p>
+<p>&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#xFF1A;<code>cat /etc/*release*</code></p>
 <ul>
-<li>&#x8BBE;&#x7F6E;&#x6BCF;&#x4E2A;pod&#x4E0A;&#x7684; <code>/etc/hosts</code></li>
-<li>&#x8BBE;&#x7F6E;CoreDNS <code>/etc/resolv.conf</code>&#xFF0C;pod&#x540D;&#x5B57;&#x4E3A;&#x7528;&#x77ED;&#x6A2A;&#x7EBF;&#x8FDE;&#x63A5;&#x7684;IP</li>
+<li>Ubuntu &#x5347;&#x7EA7; master node &#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7; node &#x7528; <code>upgrade apply &#x7248;&#x672C;</code></li>
 </ul>
-<p>&#x5728;v1.12&#x7248;&#x672C;&#x4E4B;&#x524D;k8s&#x5B9E;&#x65BD;&#x7684;DNS&#x4E3A;kube-dns&#xFF0C;&#x4E4B;&#x540E;&#x4E3A;CoreDNS&#x3002;</p>
-<p>CoreDNS&#x670D;&#x52A1;&#x5668;&#x4F5C;&#x4E3A;POD&#x90E8;&#x7F72;&#x5728;kubernetes&#x96C6;&#x7FA4;&#x7684;kube-system namespace&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x88AB;&#x90E8;&#x7F72;&#x4E3A;&#x4E24;&#x4E2A;pod&#x4EE5;&#x5B9E;&#x73B0;&#x5197;&#x4F59;&#xFF0C;&#x4F5C;&#x4E3A;replicaSet&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
-<p>&#x67E5;&#x770B;CoreDNS&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;<code>kubectl -n kube-system describe deployments.apps coredns | grep -A2 Args | grep Corefile</code> </p>
+<p>On the controlplane node, run the command run the following commands: </p>
+<p><code>apt update</code> : This will update the package lists from the software repository.</p>
+<p><code>apt install kubeadm=1.20.0-00</code> : This will install the kubeadm version 1.20</p>
+<p><code>kubeadm upgrade apply v1.20.0</code> : This will upgrade kubernetes controlplane. Note that this can take a few minutes.</p>
+<p><code>apt install kubelet=1.20.0-00</code> : This will update the kubelet with the version 1.20.</p>
+<p>You may need to restart kubelet after it has been upgraded. Run: <code>systemctl daemon-reload</code>, <code>systemctl restart kubelet</code></p>
+<ul>
+<li>Ubuntu &#x5347;&#x7EA7; work node &#x6D41;&#x7A0B;&#xFF1A;&#x5347;&#x7EA7; node &#x7528; <code>upgrade node</code></li>
+</ul>
+<p>If you are on the master node, run <code>ssh node01</code> to go to node01</p>
+<p><code>apt update</code> : This will update the package lists from the software repository.</p>
+<p><code>apt install kubeadm=1.20.0-00</code> : This will install the kubeadm version 1.20</p>
+<p><code>kubeadm upgrade node</code> : This will upgrade the node01 configuration. &#x4E0D;&#x7528;&#x5199;node-name</p>
+<p><code>apt install kubelet=1.20.0-00</code> : This will update the kubelet with the version 1.20.</p>
+<p>You may need to restart kubelet after it has been upgraded. Run: <code>systemctl daemon-reload</code>, <code>systemctl restart kubelet</code></p>
+<p>Type <code>exit</code> or enter <code>CTL + d</code> to go back to the controlplane node.</p>
+<p>uncordon work node &#x9700;&#x8981;&#x5207;&#x6362;&#x5230; master node</p>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/" target="_blank">https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a> </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
-2023-07-12 20:40:59
+2023-07-12 20:20:27
 </span></footer>
                                 
                                 </section>
@@ -1305,12 +1184,12 @@ bridge <span class="token function">add</span> <span class="token operator">&lt;
 
             
                 
-                <a href="网络空间.html" class="navigation navigation-prev " aria-label="Previous page: 网络空间">
+                <a href="Secrets.html" class="navigation navigation-prev " aria-label="Previous page: Secrets">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="KodeKloud_Lightning_Lab_1.html" class="navigation navigation-next " aria-label="Next page: KodeKloud Lightning Lab - 1">
+                <a href="备份_认证及TLS.html" class="navigation navigation-next " aria-label="Next page: 备份、认证及 TLS">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1321,7 +1200,7 @@ bridge <span class="token function">add</span> <span class="token operator">&lt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Networking","level":"9.14","depth":1,"next":{"title":"KodeKloud Lightning Lab - 1","level":"9.15","depth":1,"path":"k8s/KodeKloud_Lightning_Lab_1.md","ref":"k8s/KodeKloud_Lightning_Lab_1.md","articles":[]},"previous":{"title":"网络空间","level":"9.13","depth":1,"path":"k8s/网络空间.md","ref":"k8s/网络空间.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/Networking.md","mtime":"2023-07-12T12:40:59.226Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:43:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"升级和版本","level":"9.8","depth":1,"next":{"title":"备份、认证及 TLS","level":"9.9","depth":1,"path":"cka/备份_认证及TLS.md","ref":"cka/备份_认证及TLS.md","articles":[]},"previous":{"title":"Secrets","level":"9.7","depth":1,"path":"cka/Secrets.md","ref":"cka/Secrets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"cka/升级和版本.md","mtime":"2023-07-12T12:20:27.940Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:55:46.165Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

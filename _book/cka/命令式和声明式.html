@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>网络空间 · Bota5ky's Blog</title>
+        <title>命令式和声明式 · Bota5ky's Blog</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Networking.html" />
+    <link rel="next" href="调度.html" />
     
     
-    <link rel="prev" href="硬盘和路由.html" />
+    <link rel="prev" href="常用名词及ETCD等组件.html" />
     
 
     </head>
@@ -327,9 +327,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../cs/system.md">
+        <li class="chapter " data-level="4.1" data-path="../cs/操作系统.html">
             
-                <span>
+                <a href="../cs/操作系统.html">
             
                     
                     操作系统
@@ -340,9 +340,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../cs/network.md">
+        <li class="chapter " data-level="4.2" data-path="../cs/计算机网络.html">
             
-                <span>
+                <a href="../cs/计算机网络.html">
             
                     
                     计算机网络
@@ -544,7 +544,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9.2" data-path="命令式和声明式.html">
+        <li class="chapter active" data-level="9.2" data-path="命令式和声明式.html">
             
                 <a href="命令式和声明式.html">
             
@@ -687,12 +687,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.13" data-path="网络空间.html">
+        <li class="chapter " data-level="9.13" data-path="Namespace.html">
             
-                <a href="网络空间.html">
+                <a href="Namespace.html">
             
                     
-                    网络空间
+                    Namespace
             
                 </a>
             
@@ -1076,7 +1076,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >网络空间</a>
+        <a href=".." >命令式和声明式</a>
     </h1>
 </div>
 
@@ -1091,94 +1091,83 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-network-namespace"><b></b>1. Network Namespace</a></li><li><span class="title-icon "></span><a href="#2-create-network-ns"><b></b>2. Create Network NS</a></li><li><span class="title-icon "></span><a href="#3-exec-in-network-ns"><b></b>3. Exec in Network NS</a></li><li><span class="title-icon "></span><a href="#4-&#x5EFA;&#x7ACB;ns&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;"><b></b>4. &#x5EFA;&#x7ACB;NS&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;</a></li><li><span class="title-icon "></span><a href="#5-linux-bridge"><b></b>5. Linux Bridge</a></li><li><span class="title-icon "></span><a href="#6-&#x5982;&#x4F55;&#x914D;&#x7F6E;-bridge-&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE;-lan-&#x7F51;&#x7EDC;&#xFF1F;"><b></b>6. &#x5982;&#x4F55;&#x914D;&#x7F6E; bridge &#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE; LAN &#x7F51;&#x7EDC;&#xFF1F;</a></li><li><span class="title-icon "></span><a href="#7-&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;"><b></b>7. &#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-network-namespace"><a name="1-network-namespace" class="anchor-navigation-ex-anchor" href="#1-network-namespace"><i class="fa fa-link" aria-hidden="true"></i></a>1. Network Namespace</h3>
-<center><img src="ns.png" style="zoom:35%"></center>
-
-<p>Docker &#x7B49;&#x5BB9;&#x5668;&#x4F7F;&#x7528; namespace &#x6765;&#x5B9E;&#x73B0;&#x7F51;&#x7EDC;&#x9694;&#x79BB;&#xFF0C;&#x5BB9;&#x5668;&#x662F;&#x4F7F;&#x7528; namespace &#x4E0E;&#x5E95;&#x5C42;&#x4E3B;&#x673A;&#x5206;&#x79BB;&#x7684;&#x3002;&#x5982;&#x679C;&#x628A; host &#x5F53;&#x6210;&#x623F;&#x5B50;&#xFF0C;&#x90A3;&#x4E48; namespace &#x5C31;&#x662F;&#x623F;&#x5B50;&#x91CC;&#x4F60;&#x5206;&#x914D;&#x7ED9;&#x6BCF;&#x4E2A;&#x5B69;&#x5B50;&#x7684;&#x623F;&#x95F4;&#x3002;</p>
-<p>&#x5C31;&#x5BB9;&#x5668;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x53EA;&#x770B;&#x5230;&#x7531;&#x5B83;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x8BA4;&#x4E3A;&#x5B83;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5E95;&#x5C42; host &#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#xFF0C;&#x5305;&#x62EC;&#x5728;&#x5BB9;&#x5668;&#x5185;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x3002;</p>
-<p>host &#x6709;&#x81EA;&#x5DF1;&#x7684;&#x8DEF;&#x7531;&#x8868;&#x548C; ARP &#x8868;&#xFF08;IP -&gt; MAC&#xFF09;&#x3002;&#x521B;&#x5EFA;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E3A;&#x5176;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; namespace&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x5B83;&#x5C31;&#x65E0;&#x6CD5;&#x67E5;&#x770B;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x4EFB;&#x4F55;&#x7F51;&#x7EDC;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x5176; namespace &#x5185;&#xFF0C;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x865A;&#x62DF;&#x63A5;&#x53E3;&#x3001;&#x8DEF;&#x7531;&#x548C; ARP &#x8868;&#x3002;</p>
-<h3 id="2-create-network-ns"><a name="2-create-network-ns" class="anchor-navigation-ex-anchor" href="#2-create-network-ns"><i class="fa fa-link" aria-hidden="true"></i></a>2. Create Network NS</h3>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> netns <span class="token function">add</span> red
-<span class="token function">ip</span> netns
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><b></b>1. &#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#2-kubectl-apply-&#x539F;&#x7406;"><b></b>2. kubectl apply &#x539F;&#x7406;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><a name="1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#1-&#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x547D;&#x4EE4;&#x5F0F;&#x548C;&#x58F0;&#x660E;&#x5F0F;</h3>
+<p>&#x547D;&#x4EE4;&#x5F0F; Imperative&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">80</span> <span class="token parameter variable">--labels</span><span class="token operator">=</span><span class="token string">&quot;tier=db,env=prod&quot;</span> <span class="token parameter variable">--expose</span><span class="token operator">=</span>true  <span class="token comment">##container&#x7684;port</span>
+kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx
+kubectl expose deployment nginx <span class="token parameter variable">--port</span> <span class="token number">80</span> <span class="token comment">## cluster&#x7684;port</span>
+kubectl edit deployment nginx <span class="token comment">##&#x4EC5;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+kubectl scale deployment nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">5</span>
+kubectl <span class="token builtin class-name">set</span> image deployment nginx <span class="token assign-left variable">nginx</span><span class="token operator">=</span>nginx:1.18
+kubectl create <span class="token parameter variable">-f</span> nginx.yaml
+kubectl replace <span class="token parameter variable">-f</span> nginx.yaml <span class="token comment">##&#x66F4;&#x65B0;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540E;&#x8FD0;&#x884C;</span>
+kubectl replace <span class="token parameter variable">--force</span> <span class="token parameter variable">-f</span> nginx.yaml <span class="token comment">##&#x5220;&#x9664;&#x540E;&#x518D;&#x521B;&#x5EFA;</span>
+kubectl delete <span class="token parameter variable">-f</span> nginx.yaml
 </code></pre>
-<h3 id="3-exec-in-network-ns"><a name="3-exec-in-network-ns" class="anchor-navigation-ex-anchor" href="#3-exec-in-network-ns"><i class="fa fa-link" aria-hidden="true"></i></a>3. Exec in Network NS</h3>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> <span class="token function">link</span>
-<span class="token function">ip</span> netns <span class="token builtin class-name">exec</span> red <span class="token function">ip</span> <span class="token function">link</span>  <span class="token comment">## &#x5728;ns&#x4E2D;&#x67E5;&#x770B; ip link&#xFF0C;&#x5728;&#x524D;&#x9762;&#x52A0; ip netns exec</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red <span class="token function">link</span> <span class="token comment">## &#x6216;&#x8005;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x67E5;&#x770B;LOOPBACK&#x63A5;&#x53E3;&#xFF0C;&#x770B;&#x4E0D;&#x5230;eth0&#x63A5;&#x53E3;</span>
+<p>&#x58F0;&#x660E;&#x5F0F; Declarative&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">kubectl apply <span class="token parameter variable">-f</span> nginx.yaml
+kubectl apply <span class="token parameter variable">-f</span> /path <span class="token comment">##&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x521B;&#x5EFA;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;</span>
 </code></pre>
-<pre class="language-"><code class="lang-bash">arp <span class="token comment">## &#x5728;host&#x4E0A;&#x6267;&#x884C;&#x80FD;&#x770B;&#x5230;&#x6761;&#x76EE;</span>
-<span class="token function">ip</span> nets <span class="token builtin class-name">exec</span> red arp <span class="token comment">## &#x5728;&#x65B0;&#x5EFA;&#x7684;container&#x5185;&#x770B;&#x4E0D;&#x5230;&#x6761;&#x76EE;&#xFF0C;&#x7528;route&#x547D;&#x4EE4;&#x4E5F;&#x662F;&#x540C;&#x6837;</span>
+<p><strong>&#x521B;&#x5EFA; NGINX Pod</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx
 </code></pre>
-<h3 id="4-&#x5EFA;&#x7ACB;ns&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;"><a name="4-&#x5EFA;&#x7ACB;ns&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;" class="anchor-navigation-ex-anchor" href="#4-&#x5EFA;&#x7ACB;ns&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5EFA;&#x7ACB;NS&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x8FDE;&#x63A5;</h3>
-<center><img src="conn.png" style="zoom:35%"></center>
-
-<pre class="language-"><code class="lang-bash"><span class="token comment">## 1. &#x521B;&#x5EFA;veth&#x5E76;&#x8FDE;&#x63A5;</span>
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token function">add</span> veth-red <span class="token builtin class-name">type</span> veth peer name veth-blue
-<span class="token comment">## 2. &#x628A;&#x6BCF;&#x4E2A;veth&#x9644;&#x52A0;&#x5230;ns</span>
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-red netns red
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-blue netns blue
-<span class="token comment">## 3. &#x4E3A;&#x6BCF;&#x4E2A;ns&#x5206;&#x914D;IP&#x5730;&#x5740;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red addr <span class="token function">add</span> <span class="token number">192.168</span>.15.1 dev veth-red <span class="token comment"># dev &#x8868;&#x793A; device</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> blue addr <span class="token function">add</span> <span class="token number">192.168</span>.15.2 dev veth-blue
-<span class="token comment">## 4. &#x542F;&#x52A8;&#x6BCF;&#x4E2A;ns&#x4E2D;&#x7684;&#x76F8;&#x5E94;&#x8BBE;&#x5907;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-red up
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> blue <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-blue up
+<p><strong>&#x751F;&#x6210; POD &#x6E05;&#x5355; YAML &#x6587;&#x4EF6;<code>-o yaml</code>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x5219;&#x7528;<code>--dry-run</code></strong></p>
+<pre class="language-"><code class="lang-bash">kubectl run nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
-<p>&#x63A5;&#x53E3;&#x7B49;&#x90FD;&#x5EFA;&#x7ACB;&#x5B8C;&#x6210;&#x540E; <code>ip netns exec red ping 192.168.15.2</code> &#x624D;&#x80FD;ping&#x901A;</p>
-<p><code>arp</code> &#x547D;&#x4EE4;&#x624D;&#x4F1A;&#x663E;&#x793A;mac&#x5730;&#x5740;&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">arp
-<span class="token function">ip</span> netns <span class="token builtin class-name">exec</span> red arp
-<span class="token function">ip</span> netns <span class="token builtin class-name">exec</span> blue arp
+<p><strong>&#x521B;&#x5EFA;&#x90E8;&#x7F72;</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx
 </code></pre>
-<p>host&#x4E0A;&#x7684;ARP&#x8868;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x7684;&#x65B0;ns&#xFF0C;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x5728;&#x5176;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
-<p>ARP&#x8868;&#xFF1A;&#x5730;&#x5740;&#x89E3;&#x6790;&#x534F;&#x8BAE;&#xFF08;ARP&#xFF09;&#x662F;&#x5728;&#x53EA;&#x77E5;&#x9053;&#x4E3B;&#x673A;&#x7684;IP&#x5730;&#x5740;&#x65F6;&#x67E5;&#x627E;&#x4E3B;&#x673A;&#x7684;&#x94FE;&#x8DEF;&#x5C42;&#xFF08;MAC&#xFF09;&#x5730;&#x5740;&#x7684;&#x65B9;&#x6CD5;&#x3002;ARP&#x8868;&#x7528;&#x4E8E;&#x7EF4;&#x62A4;&#x6BCF;&#x4E2A;MAC&#x5730;&#x5740;&#x4E0E;&#x5176;&#x5BF9;&#x5E94;IP&#x5730;&#x5740;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x6027;&#x3002;</p>
-<h3 id="5-linux-bridge"><a name="5-linux-bridge" class="anchor-navigation-ex-anchor" href="#5-linux-bridge"><i class="fa fa-link" aria-hidden="true"></i></a>5. Linux Bridge</h3>
-<p>&#x5F53; host &#x5185;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x7684; ns &#x5F88;&#x591A;&#x65F6;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6709;&#xFF1A;Linux bridge&#x3001;Open vSwitch &#x7B49;</p>
-<center><img src="bridge.png" style="zoom:35%"></center>
-
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> <span class="token function">link</span> <span class="token function">add</span> v-net-0 <span class="token builtin class-name">type</span> bridge <span class="token comment">## &#x5BF9;host&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;</span>
+<p><strong>&#x751F;&#x6210;&#x90E8;&#x7F72; YAML &#x6587;&#x4EF6;<code>-o yaml</code>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5B9E;&#x9645;&#x521B;&#x5EFA;&#x5219;&#x7528;<code>--dry-run</code></strong></p>
+<pre class="language-"><code class="lang-bash">kubectl create deployment <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
 </code></pre>
-<p>&#x6DFB;&#x52A0;&#x540E; <code>v-net-0</code> &#x4F1A;&#x51FA;&#x73B0;&#x5728; <code>ip link</code> &#x7684;&#x547D;&#x4EE4;&#x7ED3;&#x679C;&#x4E2D;</p>
-<pre class="language-"><code class="lang-bash"><span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> dev v-net-0 up
+<p><strong>&#x4F7F;&#x7528; 4 &#x4E2A;&#x526F;&#x672C;&#x751F;&#x6210;&#x90E8;&#x7F72;</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl create deployment nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">4</span>
 </code></pre>
-<p>&#x628A;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x5230;bridge <code>v-net-0</code></p>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># 1. &#x5220;&#x9664;&#x4E4B;&#x524D;&#x7684;ns&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x53E6;&#x4E00;&#x7AEF;&#x7684;&#x63A5;&#x53E3;&#x4F1A;&#x81EA;&#x52A8;&#x5220;&#x9664;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red <span class="token function">link</span> del veth-red
-<span class="token comment"># 2. &#x521B;&#x5EFA;veth&#x5E76;&#x8FDE;&#x63A5;</span>
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token function">add</span> veth-red <span class="token builtin class-name">type</span> veth peer name veth-red-br
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token function">add</span> veth-blue <span class="token builtin class-name">type</span> veth peer name veth-blue-br
-<span class="token comment"># 3. &#x628A;&#x4E24;&#x7AEF;veth&#x8FDE;&#x63A5;&#x5230;&#x76F8;&#x5E94;&#x7684;ns&#x548C;bridge</span>
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-red netns red <span class="token comment"># &#x628A;&#x63A5;&#x53E3;veth-red&#x8FDE;&#x63A5;&#x5230;red namespace</span>
-<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-red-br master v-net-0 <span class="token comment"># &#x628A;&#x63A5;&#x53E3;veth-red-br&#x8FDE;&#x63A5;&#x5230;bridge&#xFF0C;&#x4E3B;&#x8BBE;&#x5907;&#x5B9A;&#x4E3A;v-net-0</span>
-<span class="token comment"># 4. &#x5206;&#x914D;IP&#x5730;&#x5740;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red addr <span class="token function">add</span> <span class="token number">192.168</span>.15.1 dev veth-red <span class="token comment"># &#x5206;&#x914D;&#x5730;&#x5740;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> blue addr <span class="token function">add</span> <span class="token number">192.168</span>.15.2 dev veth-blue <span class="token comment"># &#x5206;&#x914D;&#x5730;&#x5740;</span>
-<span class="token comment"># 5. &#x542F;&#x52A8;&#x8BBE;&#x5907;</span>
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> red <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-red up
-<span class="token function">ip</span> <span class="token parameter variable">-n</span> blue <span class="token function">link</span> <span class="token builtin class-name">set</span> veth-blue up
+<p>&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;<code>kubectl scale</code>&#x547D;&#x4EE4;&#x6269;&#x5C55;&#x90E8;&#x7F72;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">kubectl scale deployment nginx <span class="token parameter variable">--replicas</span><span class="token operator">=</span><span class="token number">4</span>
 </code></pre>
-<p>&#x6B64;&#x65F6;&#x5728;host&#x4E0A;&#x4ECD;ping&#x4E0D;&#x901A;&#x5176;&#x4ED6;ns&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5C5E;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;host&#x4E0A;&#x7684;ARP&#x8868;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x7684;&#x65B0;ns&#xFF0C;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x5728;&#x5176;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
-<p>&#x800C;<strong>bridge&#x4EA4;&#x6362;&#x673A;&#x5B9E;&#x9645;&#x662F;host&#x4E0A;&#x7684;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;</strong>&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x5728;host&#x548C;ns&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x4E3A;bridge&#x5206;&#x914D;&#x4E00;&#x4E2A;host&#x5C42;&#x9762;&#x7684;IP&#x5730;&#x5740;&#xFF0C; <code>ip addr add 192.168.15.5/24 dev v-net-0</code>&#xFF0C;&#x6B64;&#x65F6;host&#x624D;&#x53EF;&#x4EE5;ping&#x901A;ns</p>
-<h3 id="6-&#x5982;&#x4F55;&#x914D;&#x7F6E;-bridge-&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE;-lan-&#x7F51;&#x7EDC;&#xFF1F;"><a name="6-&#x5982;&#x4F55;&#x914D;&#x7F6E;-bridge-&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE;-lan-&#x7F51;&#x7EDC;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#6-&#x5982;&#x4F55;&#x914D;&#x7F6E;-bridge-&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE;-lan-&#x7F51;&#x7EDC;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x5982;&#x4F55;&#x914D;&#x7F6E; bridge &#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x63A5;&#x53E3;&#x5230;&#x8FBE; LAN &#x7F51;&#x7EDC;&#xFF1F;</h3>
-<center><img src="netns.png" style="zoom:35%"></center>
-
-<p>&#x672C;&#x5730;host&#x5176;&#x5B9E;&#x662F;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;Gateway&#xFF0C;host&#x6B64;&#x65F6;&#x6709;&#x4E24;&#x4E2A;IP&#x5730;&#x5740;&#xFF0C;&#x4E00;&#x4E2A;&#x5728;bridge&#x7F51;&#x7EDC;&#x4E0A; <code>192.168.15.5</code>&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x5728;&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x4E0A;<code>192.168.1.2</code></p>
-<p>&#x5185;&#x90E8;ns&#x60F3;&#x8981;&#x8BBF;&#x95EE;&#x5230;host&#x7684;eth0 <code>ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5</code> </p>
-<p>&#x6B64;&#x65F6; ping <code>192.168.1.3</code> &#x4E0D;&#x4F1A;&#x7B49;&#x5230;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x7684;&#x6D88;&#x606F;&#xFF0C;<code>ip netns exec blue ping 192.168.1.3</code>&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x4EFB;&#x4F55;response&#xFF0C;&#x539F;&#x56E0;&#x7C7B;&#x4F3C;&#x4E8E;&#x5BB6;&#x5EAD;&#x7F51;&#x7EDC;&#x5177;&#x6709;&#x6211;&#x4EEC;&#x7684;&#x5185;&#x90E8;&#x79C1;&#x6709;IP&#x5730;&#x5740;&#xFF0C;&#x800C;&#x76EE;&#x6807;&#x7F51;&#x7EDC;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;&#x5730;&#x5740;&#xFF0C;&#x56E0;&#x6B64;&#x4ED6;&#x4EEC;&#x65E0;&#x6CD5;&#x8FD4;&#x56DE;&#x83B7;&#x53D6;&#x8FD9;&#x4E9B;&#x5730;&#x5740;&#x3002;</p>
-<p>&#x9700;&#x8981;&#x5728;&#x4F5C;&#x4E3A;&#x7F51;&#x5173;&#x7684;&#x4E3B;&#x673A;&#x4E0A;&#x542F;&#x7528;NAT&#xFF08;Network Address Translation&#xFF09;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x540D;&#x79F0;&#x548C;&#x5730;&#x5740;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;LAN&#xFF1A;</p>
-<pre class="language-"><code class="lang-bash">iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-s</span> <span class="token number">192.168</span>.15.0/24 <span class="token parameter variable">-j</span> MASQUERADE
+<p><strong>&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5C06; YAML &#x5B9A;&#x4E49;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x5E76;&#x4FEE;&#x6539;</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl create deployment nginx <span class="token parameter variable">--image</span><span class="token operator">=</span>nginx --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml <span class="token operator">&gt;</span> nginx-deployment.yaml
 </code></pre>
-<p>&#x5728;postrouting&#x94FE;&#x4E2D;&#x7684;&#x7F51;&#x7EDC;IP&#x8868;&#x4E2D;&#x6DFB;&#x52A0;&#x65B0;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x4F2A;&#x88C5;&#x6216;&#x66FF;&#x6362;&#x6765;&#x81EA;&#x6E90;&#x7F51;&#x7EDC;192.168.15.0/24&#x7684;&#x6570;&#x636E;&#x5305;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x4EFB;&#x4F55;&#x5728;&#x7F51;&#x7EDC;&#x5916;&#x90E8;&#x63A5;&#x6536;&#x5230;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5305;&#x7684;&#x4EBA;&#x90FD;&#x5C06;&#x8BA4;&#x4E3A;&#x5B83;&#x4EEC;&#x6765;&#x81EA;&#x4E3B;&#x673A;&#x3002;</p>
-<p>&#x6B64;&#x65F6;&#xFF0C;ping&#x5DF2;&#x901A; <code>ip netns exec blue ping 192.168.1.3</code>&#xFF0C;&#x4F46; ping &#x5916;&#x90E8;Internet&#x7F51;&#x7EDC;8.8.8.8&#x4ECD;&#x4E0D;&#x901A;&#xFF08;LAN&#x8FDE;&#x63A5;&#x5230;&#x5916;&#x90E8;Internet&#xFF09;&#xFF0C;&#x56E0;&#x4E3A; ns &#x76EE;&#x524D;&#x53EF;&#x4EE5;&#x5230;&#x8FBE; host &#x53EF;&#x4EE5;&#x5230;&#x8FBE;&#x7684;&#x4EFB;&#x4F55;&#x7F51;&#x7EDC;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x8BF4;&#xFF0C;&#x8981;&#x8BBF;&#x95EE;&#x4EFB;&#x4F55;&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#xFF0C;&#x8BF7;&#x4E0E;&#x6211;&#x4EEC;&#x7684;&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x901A;&#x4FE1; <code>ip netns exec blue ip route add default via 192.168.15.5</code></p>
-<h3 id="7-&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;"><a name="7-&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#7-&#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x5916;&#x90E8;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x5185;&#x90E8;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x7684;ns&#x7AEF;&#x53E3;&#x7684;2&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</h3>
+<p>&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x521B;&#x5EFA;&#x90E8;&#x7F72;&#x4E4B;&#x524D;&#x4F7F;&#x7528;&#x526F;&#x672C;&#x6216;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x66F4;&#x65B0; YAML &#x6587;&#x4EF6;&#x3002;</p>
+<p><strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; redis-service &#x7684; ClusterIP &#x7C7B;&#x578B;&#x7684; Service &#x4EE5;&#x5728;&#x7AEF;&#x53E3; 6379 &#x4E0A;&#x516C;&#x5F00; pod redis</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl expose pod redis <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">6379</span> <span class="token parameter variable">--name</span> redis-service --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
+</code></pre>
+<p>&#xFF08;&#x8FD9;&#x5C06;&#x81EA;&#x52A8;&#x4F7F;&#x7528; pod &#x7684;&#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
+<p>&#x6216;&#x8005;</p>
+<pre class="language-"><code class="lang-bash">kubectl create <span class="token function">service</span> clusterip redis <span class="token parameter variable">--tcp</span><span class="token operator">=</span><span class="token number">6379</span>:6379 --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
+</code></pre>
+<p>&#xFF08;&#x8FD9;&#x4E0D;&#x4F1A;&#x5C06; pods &#x6807;&#x7B7E;&#x7528;&#x4F5C;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x9009;&#x62E9;&#x5668;&#x5047;&#x5B9A;&#x4E3A;<strong>app=redis&#x3002;</strong><a href="https://github.com/kubernetes/kubernetes/issues/46191" target="_blank">&#x60A8;&#x4E0D;&#x80FD;&#x5C06;&#x9009;&#x62E9;&#x5668;&#x4F5C;&#x4E3A;&#x9009;&#x9879;&#x4F20;&#x9012;&#x3002;</a>&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x7684; pod &#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x6807;&#x7B7E;&#x96C6;&#xFF0C;&#x5B83;&#x5C31;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#x3002;&#x6240;&#x4EE5;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x5E76;&#x5728;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x4E4B;&#x524D;&#x4FEE;&#x6539;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
+<p><strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; nginx &#x7684; NodePort &#x7C7B;&#x578B;&#x7684; Service &#x4EE5;&#x5728;&#x8282;&#x70B9;&#x4E0A;&#x7684; 30080 &#x7AEF;&#x53E3;&#x4E0A;&#x516C;&#x5F00; pod nginx &#x7684; 80 &#x7AEF;&#x53E3;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-bash">kubectl expose pod nginx <span class="token parameter variable">--type</span><span class="token operator">=</span>NodePort <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">80</span> <span class="token parameter variable">--name</span><span class="token operator">=</span>nginx-service --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
+</code></pre>
+<p>&#xFF08;&#x8FD9;&#x5C06;&#x81EA;&#x52A8;&#x4F7F;&#x7528; pod &#x7684;&#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF0C;<a href="https://github.com/kubernetes/kubernetes/issues/25478" target="_blank">&#x4F46;&#x60A8;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7AEF;&#x53E3;</a>&#x3002;&#x60A8;&#x5FC5;&#x987B;&#x751F;&#x6210;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4F7F;&#x7528; pod &#x521B;&#x5EFA;&#x670D;&#x52A1;&#x3002;&#xFF09;</p>
+<p>&#x6216;&#x8005;</p>
+<pre class="language-"><code class="lang-bash">kubectl create <span class="token function">service</span> nodeport nginx <span class="token parameter variable">--tcp</span><span class="token operator">=</span><span class="token number">80</span>:80 --node-port<span class="token operator">=</span><span class="token number">30080</span> --dry-run<span class="token operator">=</span>client <span class="token parameter variable">-o</span> yaml
+</code></pre>
+<p>&#xFF08;&#x8FD9;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528; pods &#x6807;&#x7B7E;&#x4F5C;&#x4E3A;&#x9009;&#x62E9;&#x5668;&#xFF09;</p>
+<p>&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x6311;&#x6218;&#x3002;&#x867D;&#x7136;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x4F46;&#x53E6;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#x3002;&#x6211;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>kubectl expose</code>&#x547D;&#x4EE4;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x547D;&#x4EE4;&#x751F;&#x6210;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x4E4B;&#x524D;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x8282;&#x70B9;&#x7AEF;&#x53E3;&#x3002;</p>
+<h4 id="&#x53C2;&#x8003;&#xFF1A;"><a name="&#x53C2;&#x8003;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x53C2;&#x8003;&#xFF1A;</strong></h4>
+<p><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands" target="_blank">https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands</a></p>
+<p><a href="https://kubernetes.io/docs/reference/kubectl/conventions/" target="_blank">https://kubernetes.io/docs/reference/kubectl/conventions/</a></p>
+<h3 id="2-kubectl-apply-&#x539F;&#x7406;"><a name="2-kubectl-apply-&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#2-kubectl-apply-&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2. kubectl apply &#x539F;&#x7406;</h3>
 <ul>
-<li><p>&#x7ED9;host&#x6DFB;&#x52A0;IP&#x8DEF;&#x7531;&#x6761;&#x76EE;&#xFF0C;&#x5C31;&#x50CF;&#x4E0A;&#x9762;&#x7684;&#x8FC7;&#x7A0B;&#x4E00;&#x6837;</p>
+<li><p>&#x672C;&#x5730;&#x7684;yaml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F1A;&#x8F6C;&#x6362;&#x6210; json &#x683C;&#x5F0F;&#x7684;&#x6587;&#x4EF6;</p>
 </li>
-<li><p>&#x4F7F;&#x7528;IP&#x8868;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x8F6C;&#x53D1;&#x89C4;&#x5219;&#xFF0C;&#x89C4;&#x5B9A;&#x4EFB;&#x4F55;&#x5230;&#x8FBE;&#x672C;&#x5730;&#x4E3B;&#x673A;&#x4E0A;&#x7AEF;&#x53E3;80&#x7684;&#x6D41;&#x91CF;&#x90FD;&#x5C06;&#x88AB;&#x8F6C;&#x53D1;&#x5230;&#x5206;&#x914D;&#x7ED9;blue ns&#x7684;IP&#x4E0A;&#x7684;&#x7AEF;&#x53E3;80&#xFF1A;<code>iptables -t nat -A PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j DNAT</code></p>
+<li><p><code>kubectl apply</code> &#x4F1A;&#x5BF9;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3001;&#x6700;&#x540E;&#x4E00;&#x6B21; apply &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;Json&#xFF09;&#x548C;&#x5B9E;&#x65F6;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x5F53;&#x672C;&#x5730;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x540E;&#x4E5F;&#x4F1A;&#x540C;&#x65F6;&#x66F4;&#x65B0;&#x5176;&#x4ED6;2&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+</li>
+<li><p>&#x5408;&#x5E76;&#x66F4;&#x6539;&#xFF1A;<a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#merging-changes-to-primitive-fields" target="_blank">https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#merging-changes-to-primitive-fields</a></p>
+</li>
+<li><p>Json &#x5185;&#x5BB9;&#x5B9E;&#x9645;&#x4FDD;&#x5B58;&#x5728;&#x5B9E;&#x65F6;&#x5BF9;&#x8C61;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+    <span class="token key atrule">kubectl.kubernetes.io/last-applied-configuration</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>Json Content<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x5B9E;&#x9645;&#x8BF7;&#x4E0D;&#x8981;&#x8FD9;&#x6837;&#x914D;&#x7F6E; </p>
 </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
-2023-07-12 20:38:10
+2023-07-12 19:57:27
 </span></footer>
                                 
                                 </section>
@@ -1206,12 +1195,12 @@
 
             
                 
-                <a href="硬盘和路由.html" class="navigation navigation-prev " aria-label="Previous page: 硬盘和路由">
+                <a href="常用名词及ETCD等组件.html" class="navigation navigation-prev " aria-label="Previous page: 常用名词及 ETCD 等组件">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Networking.html" class="navigation navigation-next " aria-label="Next page: Networking">
+                <a href="调度.html" class="navigation navigation-next " aria-label="Next page: 调度">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1222,7 +1211,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"网络空间","level":"9.13","depth":1,"next":{"title":"Networking","level":"9.14","depth":1,"path":"k8s/Networking.md","ref":"k8s/Networking.md","articles":[]},"previous":{"title":"硬盘和路由","level":"9.12","depth":1,"path":"k8s/硬盘和路由.md","ref":"k8s/硬盘和路由.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"k8s/网络空间.md","mtime":"2023-07-12T12:38:10.500Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:43:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"命令式和声明式","level":"9.2","depth":1,"next":{"title":"调度","level":"9.3","depth":1,"path":"cka/调度.md","ref":"cka/调度.md","articles":[]},"previous":{"title":"常用名词及 ETCD 等组件","level":"9.1","depth":1,"path":"cka/常用名词及ETCD等组件.md","ref":"cka/常用名词及ETCD等组件.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","chapter-fold","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"cka/命令式和声明式.md","mtime":"2023-07-12T11:57:27.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-17T15:55:46.165Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
