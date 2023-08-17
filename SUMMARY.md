@@ -89,7 +89,7 @@
 #### AWS Certified Database – Specialty
 
 * [基本概念及 Security](dbs/基本概念及Security.md)
-* [数据库](dbs/各类数据库.md)
+* [各类数据库](dbs/各类数据库.md)
 * [网络概念](dbs/网络概念.md)
 * [备考经验（已通过）](dbs/备考经验.md)
 
