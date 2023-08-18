@@ -13,12 +13,14 @@
     "tbfed-pagefooter",
     "anchor-navigation-ex",
     "disqus",
+    "custom-favicon",
     "-lunr",
     "-search",
     "-highlight",
     "-sharing"
   ],
   "pluginsConfig": {
+    "favicon": "savage.ico",
     "prism": {
       "css": [
         "prismjs/themes/prism-tomorrow.css"
