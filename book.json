@@ -21,9 +21,9 @@
   ],
   "pluginsConfig": {
     "favicon": {
-      "shortcut": "savage.ico",
-      "bookmark": "savage.ico",
-      "appleTouch": "savage.ico"
+      "shortcut": "favicon.svg",
+      "bookmark": "favicon.svg",
+      "appleTouch": "favicon.svg"
     },
     "prism": {
       "css": [
