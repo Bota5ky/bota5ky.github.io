@@ -1,8 +1,4 @@
-[Java 面试八股文之数据库篇（一）](https://mp.weixin.qq.com/s?__biz=MzU2NzAzMjQyOA==&mid=2247484198&idx=1&sn=c3c4dc133cceb410af6c7aa87daf5693)
-
-[Java 面试八股文之数据库篇（二）](https://mp.weixin.qq.com/s?__biz=MzU2NzAzMjQyOA==&mid=2247484249&idx=1&sn=29ec3a6d6aea84fb15da9922e7f665bc)
-
-[Java 面试八股文之数据库篇（三）](https://mp.weixin.qq.com/s?__biz=MzU2NzAzMjQyOA==&mid=2247484284&idx=1&sn=ea4a2b07a7b4524292208798d912dbe7)
+[Java 面试八股文之数据库篇](https://mp.weixin.qq.com/s?__biz=MzU2NzAzMjQyOA==&mid=2247484198&idx=1&sn=c3c4dc133cceb410af6c7aa87daf5693)
 
 ### 1. Explain 语句结果中各个字段分别表示什么？
 
