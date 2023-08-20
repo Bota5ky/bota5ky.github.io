@@ -43,7 +43,7 @@ SET GLOBAL sql_mode = "ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION
 
 InnoDB 通过 Buffer Pool，LogBuffer，Redo Log，Undo Log 来实现事务，以一个 update 语句为例：
 
-- InnoDB 在收到一个update语句后，会先根据条件找到数据所在的页，并将该页缓存在 Buffer Pool 中
+- InnoDB 在收到一个 update 语句后，会先根据条件找到数据所在的页，并将该页缓存在 Buffer Pool 中
 - 执行 update 语句，修改 Buffer Pool 中的数据，也就是内存中的数据
 - 针对 update 语句生成一个 RedoLog 对象，并存入 LogBuffer 中
 - 针对 update 语句生成 undolog 日志，用于事务回滚
@@ -60,7 +60,7 @@ InnoDB 通过 Buffer Pool，LogBuffer，Redo Log，Undo Log 来实现事务，�
 还可以分为：
 
 - 共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写一个事给某行数据加了写锁，其他事务不能读，也不能写
-- 排它锁: 也就是写锁
+- 排它锁：也就是写锁
 
 还可以分为：
 

@@ -48,8 +48,7 @@ BeanFactory 是 Spring 中非常核心的组件，表示 Bean 工厂可以生成
 - 工厂模式：BeanFactory、FactoryBean、ProxyFactory
 - 原型模式：原型 Bean、PrototypeTargetSource、PrototypeAspectInstanceFactory
 - 单例模式：单例 Bean、SingletonTargetSource、DefaultBeanNameGenerator、SimpleAutowireCandidateResolver、AnnotationAwareOrderComparator
-
-- 构造器模式：BeanDefinitionBuilder——BeanDefinition 构造器、BeanFactoryAspectJAdvisorsBuilder - 解析并构造@AspectJ 注解的 Bean 中所定义的 Advisor、StringBuilder
+- 构造器模式：BeanDefinitionBuilder——BeanDefinition 构造器、BeanFactoryAspectJAdvisorsBuilder - 解析并构造 @AspectJ 注解的 Bean 中所定义的 Advisor、StringBuilder
 - 适配器模式：ApplicationListenerMethodAdapter——将@EventListener 注解的方法适配成 ApplicationListener、AdvisorAdapter 把 Advisor 适配成 MethodInterceptor
 - 访问者模式：PropertyAccessor——属性访问器，用来访问和设置某个对象的某个属性、MessageSourceAccessor——国际化资源访问器
 - 装饰器模式：BeanWrapper——比单纯的Bean对象功能更加强大、HttpRequestWrapper
@@ -69,6 +68,32 @@ Spring 本身并没有针对 Bean 做线程安全的处理，所以
 
 另外，Bean 是不是线程安全，跟 Bean 的作用域没有关系，Bean 的作用域只是表示 Bean 的生命周期范围，对于任何生命周期的 Bean 都是一个对象，这个对象是不是线程安全的，还是得看这个 Bean 对象本身。
 
-### 10. Spring Cloud 常用组件
+### 9. Spring中的Bean创建的生命周期有哪些步骤
+
+Spring 中一个 Bean 的创建大概分为以下几个步骤：
+
+- 推断构造方法
+- 实例化
+- 填充属性，也就是依赖注入
+- 处理 Aware 回调
+- 初始化前，处理 @PostConstruct 注解
+- 初始化，处理 InitializingBean 接口
+- 初始化后，进行 AOP
+
+### 10. Spring 中的事务是如何实现的
+
+- Spring事务底层是基于数据库事务和 AOP 机制的
+- 首先对于使用了 @Transactional 注解的 Bean，Spring 会创建一个代理对象作为 Bean
+- 当调用代理对象的方法时，会先判断该方法上是否加了 @Transactional 注解
+- 如果加了，那么则利用事务管理器创建一个数据库连接
+- 并且修改数据库连接的 autocommit 属性为 false，禁止此连接的自动提交，这是实现 Spring 事务非常重要的一步
+- 然后执行当前方法，方法中会执行 sql
+- 执行完当前方法后，如果没有出现异常就直接提交事务
+- 如果出现了异常，并且这个异常是需要回滚的就会回滚事务，否则仍然提交事务
+- Spring 事务的隔离级别对应的就是数据库的隔离级别
+- Spring 事务的传播机制是 Spring 事务自己实现的，也是 Spring 事务中最复杂的
+- Spring 事务的传播机制是基于数据库连接来做的，一个数据车连接一个事务，如果传播机制图置为需要新开一个事务，那么实际上就是先建立一个数据车连接，在此新数据库连接上执行 sql
+
+### 11. Spring Cloud 常用组件
 
 Eureka：注册中心；Nacos：注册中心、配置中心；Consul：注册中心、配置中心；Spring Cloud Config：配置中心；Feign/OpenFeign：RPC 调用；Kong：服务网关；Zuul：服务网关；Spring Cloud Gateway：服务网关；Ribbon：负载均衡；Spring Cloud Sleuth：链路追踪；Zipkin：链路追踪；Seata：分布式事务；Dubbo：RPC 调用；Sentinel：服务熔断；Hystrix：服务熔断
