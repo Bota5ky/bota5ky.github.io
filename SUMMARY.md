@@ -34,7 +34,7 @@
 
 ### Redis
 
-* [基础概念](redis/基础 .md)
+* [基础概念](redis/基础概念.md)
 * [事务及 Java 集成](redis/事务及Java集成.md)
 * [RDB & AOF 持久化](redis/RDB_AOF持久化.md)
 * [订阅发布及主从复制](redis/订阅发布及主从复制.md)
