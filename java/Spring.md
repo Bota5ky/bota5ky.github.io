@@ -94,6 +94,3 @@ Spring 中一个 Bean 的创建大概分为以下几个步骤：
 - Spring 事务的传播机制是 Spring 事务自己实现的，也是 Spring 事务中最复杂的
 - Spring 事务的传播机制是基于数据库连接来做的，一个数据车连接一个事务，如果传播机制图置为需要新开一个事务，那么实际上就是先建立一个数据车连接，在此新数据库连接上执行 sql
 
-### 11. Spring Cloud 常用组件
-
-Eureka：注册中心；Nacos：注册中心、配置中心；Consul：注册中心、配置中心；Spring Cloud Config：配置中心；Feign/OpenFeign：RPC 调用；Kong：服务网关；Zuul：服务网关；Spring Cloud Gateway：服务网关；Ribbon：负载均衡；Spring Cloud Sleuth：链路追踪；Zipkin：链路追踪；Seata：分布式事务；Dubbo：RPC 调用；Sentinel：服务熔断；Hystrix：服务熔断
