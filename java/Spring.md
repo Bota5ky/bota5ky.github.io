@@ -104,7 +104,7 @@ https://www.cnblogs.com/zyly/p/13194186.html
 - 设置 resourceLoader、primarySources
 - 判断服务类型：Servlet、Reactive、None
 - ~~加载启动注册初始化器 bootstrapRegistryInitializers，默认为空~~
-- 加载应用上下文初始器 ApplicationContextInitializer：从`META-INF/spring.factories`创建 SpringFactoriesLoader，然后创建工厂类实例，后续用来加载外部 bean，加载 FactoryPostProcessor
+- 加载应用上下文初始器 ApplicationContextInitializer：`META-INF/spring.factories`
 - 加载应用事件监听器 ApplicationListener
 - 推断应用引导类
 
@@ -121,10 +121,10 @@ https://www.cnblogs.com/zyly/p/13194186.html
 - 根据服务类型创建 ApplicationContext，包含：Bean 工厂和用来解析一些常见注解的配置类后处理器
 - 对容器中的部分属性进行初始化
 - 执行之前加载的上下文初始器 ApplicationContextInitializer：实现容器 ID、警告日志处理、日志监听
-- 发布context准备完成事件
+- 发布 context 准备完成事件
 - 为容器注册启动参数、Banner、Bean 引用策略、懒加载策略等
 - 加载资源到 BeanDefinitionMap
-- 发布context加载完成事件
+- 发布 context 加载完成事件
 
 **4. 填充容器**
 
