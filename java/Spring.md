@@ -24,7 +24,7 @@ BeanFactory 是 Spring 中非常核心的组件，表示 Bean 工厂可以生成
 - 利用 BeanDefinition 创建 Bean 就是 Bean 的创建生命周期，这期间包括了合并 BeanDefinition、推断构造方法、实例化、属性填充、初始化前、初始化、初始化后等步骤，其中 AOP 就是发生在**初始化后**这一步骤中
 - 单例 Bean 创建完了之后，Spring 会发布一个容器启动事件
 - Spring 启动结束
-- 在源妈中会更复杂，比次如源码中会提供一些模板方法，让子类来实现，比如源码中还涉及到一些 BeanfactoryPostProcesser 和 BeanPostProcessor 的注册，Spring 的扫描就是通过 BeanFactoryPostProcessor 来实现的，依赖注入就是通过 BeanPostProcessor 来实现的
+- 在源码中会更复杂，比次如源码中会提供一些模板方法，让子类来实现，比如源码中还涉及到一些 BeanfactoryPostProcesser 和 BeanPostProcessor 的注册，Spring 的扫描就是通过 BeanFactoryPostProcessor 来实现的，依赖注入就是通过 BeanPostProcessor 来实现的
 - 在 Spring 启动过程中还会去处理 @Import 等注解
 
 ### 5. Spring 事务传播机制
@@ -55,8 +55,7 @@ BeanFactory 是 Spring 中非常核心的组件，表示 Bean 工厂可以生成
 - 代理模式：方式生成了代理对象的地方就用到了代理模式、AOP、@Configuration、@Lazy
 - 观察者模式：ApplicationListener——事件监听机制、AdvisedSupportListener——ProxyFactory 可以提交此监听器，用来监听 ProxyFactory 创建代理对象完成事件、添加 Advisor 事件等
 - 策略模式：InstantiationStrategy——Spring需要根据BeanDefinition来实例化Bean，但是员体可以选择不同的策略来进行实例化、BeanNameGenerator——beanName 生成器
-- 模板方法模式：AbstractApplicationContext：postProcessBeanFactory()——子类可以继续处理 BeanFactory
-  、onRefresh()——子类可以做一些额外的初始化
+- 模板方法模式：AbstractApplicationContext：postProcessBeanFactory()——子类可以继续处理 BeanFactory、onRefresh()——子类可以做一些额外的初始化
 - 责任链模式：DefaultAdvisorChainFactory——负责构造一条 AdvisorChain，代理对象执行某个方法时会依次经过 AdvisorChain 中的每个 Advisor、QualifierAnnotationAutowireCandidateResolver——判断某个Bean能不能用来进行依赖注入勉强可认为也是责任链
 
 ### 8. Spring 中 Bean 是线程安全的吗？
@@ -69,6 +68,8 @@ Spring 本身并没有针对 Bean 做线程安全的处理，所以
 另外，Bean 是不是线程安全，跟 Bean 的作用域没有关系，Bean 的作用域只是表示 Bean 的生命周期范围，对于任何生命周期的 Bean 都是一个对象，这个对象是不是线程安全的，还是得看这个 Bean 对象本身。
 
 ### 9. Spring中的Bean创建的生命周期有哪些步骤
+
+https://juejin.cn/post/6844904065457979405
 
 Spring 中一个 Bean 的创建大概分为以下几个步骤：
 
@@ -94,3 +95,37 @@ Spring 中一个 Bean 的创建大概分为以下几个步骤：
 - Spring 事务的传播机制是 Spring 事务自己实现的，也是 Spring 事务中最复杂的
 - Spring 事务的传播机制是基于数据库连接来做的，一个数据车连接一个事务，如果传播机制图置为需要新开一个事务，那么实际上就是先建立一个数据车连接，在此新数据库连接上执行 sql
 
+### 11. Spring 启动流程
+
+https://www.cnblogs.com/zyly/p/13194186.html
+
+**1. new SpringApplication()**
+
+- 设置 resourceLoader、primarySources
+- 判断服务类型：Servlet、Reactive、None
+- ~~加载启动注册初始化器 bootstrapRegistryInitializers，默认为空~~
+- 加载应用上下文初始器 ApplicationContextInitializer：从`META-INF/spring.factories`创建 SpringFactoriesLoader，然后创建工厂类实例，后续用来加载外部 bean，加载 FactoryPostProcessor
+- 加载应用事件监听器 ApplicationListener
+- 推断应用引导类
+
+**2. SpringApplication.run()**
+
+- 计时，设置无需图形显示
+- ~~创建 bootstrapContext，逐一调用 bootstrapRegistryInitializers 的 initialize 方法~~
+- 获取 SpringApplicationRunListeners，发布启动事件
+- 加载启动参数、环境变量、系统属性、外部配置资源，发布环境准备完成事件，加载 EnvironmentPostProcessor，二次更新保证匹配
+- 打印 banner
+
+**3. 创建容器 ApplicationContext**
+
+- 根据服务类型创建 ApplicationContext，包含：Bean 工厂和用来解析一些常见注解的配置类后处理器
+- 对容器中的部分属性进行初始化
+- 执行之前加载的上下文初始器 ApplicationContextInitializer：实现容器 ID、警告日志处理、日志监听
+- 发布context准备完成事件
+- 为容器注册启动参数、Banner、Bean 引用策略、懒加载策略等
+- 加载资源到 BeanDefinitionMap
+- 发布context加载完成事件
+
+**4. 填充容器**
+
+https://www.bilibili.com/video/BV1hv4y1z7PQ/
