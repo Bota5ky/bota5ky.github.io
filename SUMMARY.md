@@ -39,6 +39,7 @@
 * [事务及 Java 集成](redis/事务及Java集成.md)
 * [RDB & AOF 持久化](redis/RDB_AOF持久化.md)
 * [订阅发布及主从复制](redis/订阅发布及主从复制.md)
+* [Raft 算法](redis/Raft算法.md)
 
 ### Kafka
 
@@ -46,6 +47,11 @@
 * [基本概念](kafka/基本概念.md)
 * [Kafka Topics & CLI](kafka/Kafka_Topics_CLI.md)
 * [Java Integration](kafka/Java_Integration.md)
+
+### 架构设计
+
+* [设计模式](architect/设计模式.md)
+* [架构](architect/架构.md)
 
 ### 云原生考证
 #### Certified Kubernetes Administrator
