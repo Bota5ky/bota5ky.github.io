@@ -61,3 +61,51 @@ type RequestVoteResponse struct {
 - 状态机指令，比如赋值操作
 - leader 的任期号
 - 日志索引
+
+Leader **并行**发送 AppendEntries RPC 给 follower，让它们复制该条目。当该条目被超过半数的 follower 复制后，leader 就可以在本地执行该指令并把结果返回客户端。我们把本地执行指令，也就是leader应用日志与状态机这一步，称作**提交**。
+
+如何保证所有节点的日志都是完整且顺序一致的呢？
+
+- follower 缓慢：如果有 follower 因为某些原因**没有给 leader 响应**，那么 leader 会不断地**重发**追加条目请求 （AppendEntries RPC），<u>哪怕 leader 已经回复了客户端</u>。
+- follower 宕机：如果有 follower 崩溃后恢复，这时 Raft 追加条目的**一致性检查**生效，保证follower能按顺序恢复崩溃后的缺失的日志。
+
+Raft 的一致性检查：leader 在每一个发往 follower 的追加条目 RPC 中，会放入前一个日志条目的索引位置和任期号，如果 follower 在它的日志中找不到前一个日志，那么它就会拒绝此日志，leader 收到 follower 的拒绝后，会发送前一个日志条目，从而逐渐向前定位到 follower 第一个缺失的日志。（Raft 设计者认为这种优化是没有必要的，因为失败不经常发生并且也不可能有很多不致的日志条目）
+
+- leader 宕机：如果 leader 崩溃，那么崩溃的 leader 可能已经复制了日志到部分 follower 但还没有提交，而被选出的新 leader 又可能不具备这些日志这样就有部分 follower 中的日志和新 leader 的日志不相同。
+
+  Raft 在这种情况下，leader 通过强制 follower 复制它的日志来解决不一致的问题，这意味着 <u>follower 中跟leader 冲突的日志条目会被新 leader 的日志条目覆盖</u>（因为没有提交，所以不违背外部一致性）。
+
+<center><img src="raft.png" style="zoom:60%"></center>
+
+这样的日志复制机制，就可以保证一致性特性：
+
+- 只要过半的服务器能正常运行，Raft 就能够接受、复制并应用新的日志条目；
+- 在正常情况下，新的日志条目可以在一个 RPC 来回中被复制给集群中的过半机器；
+- 单个运行慢的 follower 不会影响整体的性能
+
+如果 leaderCommit > commitlndex，那么把 commitlndex 设为 min(leaderCommit, index of last new entry)
+
+```c
+//追加日志RPC Request
+type AppendEntriesRequest struct {
+  term          int     //自己当前的任期号
+  leaderld      int     //leader(也就是自己)的ID
+  prevLogindex  int     //前一个日志的日志号
+  prevLogTerm   int     //前一个日志的任期号
+  entries       []byte  //当前日志内容
+  leaderCommit  int     //leader的已提交日志号
+}
+```
+
+```c
+//追加日志RPC Response
+type AppendEntriesResponse struct {
+  term      int   //自己当前任期号
+  success   bool  //如果follower包括前一个日志，则返回true
+}
+```
+
+prevLoglndex 和 prevLogTerm 是来进行一致性检查的，只有这两个都与 follower 中的相同，follower 才会认为日志是一致的。
+
+### 4. 安全性
+
