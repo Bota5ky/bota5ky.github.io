@@ -11,7 +11,11 @@
 * [多线程](java/多线程.md)
 * [设计模式](java/设计模式.md)
 * [反射](java/反射.md)
-* [Spring](java/Spring.md)
+
+### 框架
+
+- [Spring](framework/Spring.md)
+- [Netty](framework/Netty.md)
 
 ### 命令行工具
 * [Git](cli/Git.md)
@@ -51,7 +55,6 @@
 ### 架构设计
 
 * [设计模式](architect/设计模式.md)
-* [架构](architect/架构.md)
 
 ### 云原生考证
 #### Certified Kubernetes Administrator
