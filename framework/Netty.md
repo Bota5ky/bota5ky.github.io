@@ -86,7 +86,7 @@ EventLoopGroup 是 Netty Reactor 线程模型的具体实现方式，Netty 通�
 - 服务端启动初始化时，有 Boss EventLoopGroup 和 Worker EventLoopGroup 两个组件
 - 其中 Boss 负责监听网络连接事件，当有新的网络连接事件到达时，则将 Channel 注册到 Worker EventLoopGroup
 - Worker EventLoopGroup 会被分配一个 EventLoop，负责处理该 Channel 的读写事件
-- 每个 EventLoop 都是单线程的，通过 selector 进行事件循环，当客户端发起io读写事件时，服务端 EventLoop 会进行数据的读取
+- 每个 EventLoop 都是单线程的，通过 selector 进行事件循环，当客户端发起 io 读写事件时，服务端 EventLoop 会进行数据的读取
   ，然后通过 pipeline 触发各种监听器，进行数据的加工处理
 - 客户端数据会被传递到 ChannelPipeline 的第一个 ChannelInboundHandler 当中，数据处理完成后将加工完成的数据传递给下一个 ChannelInboundHandler
 - 当数据写回客户端时，会将处理结果在 ChannelPipeline 的 ChannelOutboundHandler 中传播，最后到达客户端
