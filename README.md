@@ -1,13 +1,13 @@
 # 关于网站
 
 日常学习做笔记使用，主要包括
-- 编程语言：Java、C、Go、Python、C#
+- 编程语言：Java、Go、Python、C、C#
 - 计算机基础：计算机网络，操作系统
 - 数据库：MySQL、PostgreSQL、T-SQL、Redis
 - 命令行工具：Shell、Git、JSON Path
 - 云原生考证：AWS 架构及数据库认证、Kubernetes 认证
 
-学习补充中，整理中In progress...
+学习补充中，整理中 In progress...
 
 # 关于作者
 

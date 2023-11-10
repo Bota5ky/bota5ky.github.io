@@ -1,22 +1,34 @@
 # Summary
 - [Introduction](README.md)
-- [推荐阅读](推荐阅读.md)
-- [Java](java/集合.md)
-  - [Lock](java/锁.md)
-  - [多线程](java/多线程.md)
-- [Framework](framework/Spring.md)
-  - [Netty](framework/Netty.md)
-- [Pattern Design](architect/设计模式.md)
-- [Command Line Interface](cli/终端快捷键.md)
-  - [Git](cli/Git.md)
-  - [SSH 配置及连接](cli/SSH.md)
-  - [JSON Path](cli/JSON_Path.md)
-  - [PowerShell](cli/PowerShell.md)
-  - [正则表达式](cli/Regex.md)
-- [Computer Science](cs/操作系统.md)
-  - [计算机网络](cs/计算机网络.md)
-  - [算法](cs/算法.md)
-- [Database](database.md)
+- [推荐阅读](recommended.md)
+
+### Languages & Frameworks
+
+- [Java Lock](java/lock.md)
+- [Java 多线程](java/thread.md)
+- [Spring](framework/spring.md)
+- [Netty](framework/netty.md)
+
+### Architecture
+
+- [Design Pattern](architecture/design_pattern.md)
+
+### Linux related
+
+- [Terminal快捷键](linux/shortcuts.md)
+- [Linux命令](linux/command.md)
+- [JsonPath](linux/jsonpath.md)
+- [正则表达式](linux/regex.md)
+- [操作系统](linux/system.md)
+- [Network](linux/network.md)
+- [Algorithm](linux/algorithm.md)
+
+### Database
+
+- [数据库迁移](database.md)
+
+### Middleware
+
 - [Redis](redis/基础概念.md)
   - [事务及 Java 集成](redis/事务及Java集成.md)
   - [RDB & AOF 持久化](redis/RDB_AOF持久化.md)
@@ -26,6 +38,9 @@
   - [基本概念](kafka/基本概念.md)
   - [Kafka Topics & CLI](kafka/Kafka_Topics_CLI.md)
   - [Java Integration](kafka/Java_Integration.md)
+
+### Cloud native
+
 - [Kubernetes](k8s/常用名词及ETCD等组件.md)
   - [命令式和声明式](k8s/命令式和声明式.md)
   - [调度](k8s/调度.md)
