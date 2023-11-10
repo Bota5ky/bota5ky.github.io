@@ -1,0 +1,1347 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>RDS, Aurora & ElastiCache · Bota5ky's Blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Bota5ky">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="路由.html" />
+    
+    
+    <link rel="prev" href="LB_ASG.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.svg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.svg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../favicon.svg'>
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../推荐阅读.html">
+            
+                <a href="../推荐阅读.html">
+            
+                    
+                    推荐阅读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../java/集合.html">
+            
+                <a href="../java/集合.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../java/锁.html">
+            
+                <a href="../java/锁.html">
+            
+                    
+                    Lock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../java/多线程.html">
+            
+                <a href="../java/多线程.html">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../framework/Spring.html">
+            
+                <a href="../framework/Spring.html">
+            
+                    
+                    Framework
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../framework/Netty.html">
+            
+                <a href="../framework/Netty.html">
+            
+                    
+                    Netty
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../architect/设计模式.html">
+            
+                <a href="../architect/设计模式.html">
+            
+                    
+                    Pattern Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../cli/终端快捷键.html">
+            
+                <a href="../cli/终端快捷键.html">
+            
+                    
+                    Command Line Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../cli/Git.html">
+            
+                <a href="../cli/Git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../cli/SSH.html">
+            
+                <a href="../cli/SSH.html">
+            
+                    
+                    SSH 配置及连接
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../cli/JSON_Path.html">
+            
+                <a href="../cli/JSON_Path.html">
+            
+                    
+                    JSON Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../cli/PowerShell.html">
+            
+                <a href="../cli/PowerShell.html">
+            
+                    
+                    PowerShell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../cli/Regex.html">
+            
+                <a href="../cli/Regex.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../cs/操作系统.html">
+            
+                <a href="../cs/操作系统.html">
+            
+                    
+                    Computer Science
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../cs/计算机网络.html">
+            
+                <a href="../cs/计算机网络.html">
+            
+                    
+                    计算机网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../cs/算法.html">
+            
+                <a href="../cs/算法.html">
+            
+                    
+                    算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../database.html">
+            
+                <a href="../database.html">
+            
+                    
+                    Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../redis/基础概念.html">
+            
+                <a href="../redis/基础概念.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../redis/事务及Java集成.html">
+            
+                <a href="../redis/事务及Java集成.html">
+            
+                    
+                    事务及 Java 集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../redis/RDB_AOF持久化.html">
+            
+                <a href="../redis/RDB_AOF持久化.html">
+            
+                    
+                    RDB & AOF 持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../redis/订阅发布及主从复制.html">
+            
+                <a href="../redis/订阅发布及主从复制.html">
+            
+                    
+                    订阅发布及主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../redis/Raft算法.html">
+            
+                <a href="../redis/Raft算法.html">
+            
+                    
+                    Raft 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../kafka/介绍和简单部署.html">
+            
+                <a href="../kafka/介绍和简单部署.html">
+            
+                    
+                    Kafka
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../kafka/基本概念.html">
+            
+                <a href="../kafka/基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../kafka/Kafka_Topics_CLI.html">
+            
+                <a href="../kafka/Kafka_Topics_CLI.html">
+            
+                    
+                    Kafka Topics & CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../kafka/Java_Integration.html">
+            
+                <a href="../kafka/Java_Integration.html">
+            
+                    
+                    Java Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../k8s/常用名词及ETCD等组件.html">
+            
+                <a href="../k8s/常用名词及ETCD等组件.html">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../k8s/命令式和声明式.html">
+            
+                <a href="../k8s/命令式和声明式.html">
+            
+                    
+                    命令式和声明式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../k8s/调度.html">
+            
+                <a href="../k8s/调度.html">
+            
+                    
+                    调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../k8s/设定资源.html">
+            
+                <a href="../k8s/设定资源.html">
+            
+                    
+                    设定资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../k8s/守护进程_静态Pod_多调度器.html">
+            
+                <a href="../k8s/守护进程_静态Pod_多调度器.html">
+            
+                    
+                    守护进程、静态 Pod、多调度器 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../k8s/监控_滚动升级_回滚及参数配置.html">
+            
+                <a href="../k8s/监控_滚动升级_回滚及参数配置.html">
+            
+                    
+                    监控、滚动升级、回滚及参数配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../k8s/Secrets.html">
+            
+                <a href="../k8s/Secrets.html">
+            
+                    
+                    Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../k8s/升级和版本.html">
+            
+                <a href="../k8s/升级和版本.html">
+            
+                    
+                    升级和版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../k8s/备份_认证及TLS.html">
+            
+                <a href="../k8s/备份_认证及TLS.html">
+            
+                    
+                    备份、认证及 TLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../k8s/RBAC.html">
+            
+                <a href="../k8s/RBAC.html">
+            
+                    
+                    RBAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.10" data-path="../k8s/网络策略和存储.html">
+            
+                <a href="../k8s/网络策略和存储.html">
+            
+                    
+                    网络策略和存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.11" data-path="../k8s/硬盘和路由.html">
+            
+                <a href="../k8s/硬盘和路由.html">
+            
+                    
+                    硬盘和路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.12" data-path="../k8s/Namespace.html">
+            
+                <a href="../k8s/Namespace.html">
+            
+                    
+                    Namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.13" data-path="../k8s/Networking.html">
+            
+                <a href="../k8s/Networking.html">
+            
+                    
+                    Networking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.14" data-path="../k8s/KodeKloud_Lightning_Lab_1.html">
+            
+                <a href="../k8s/KodeKloud_Lightning_Lab_1.html">
+            
+                    
+                    KodeKloud Lightning Lab - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.15" data-path="../k8s/KodeKloud_Mock_Exam_2.html">
+            
+                <a href="../k8s/KodeKloud_Mock_Exam_2.html">
+            
+                    
+                    KodeKloud Mock Exam - 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.16" data-path="../k8s/KodeKloud_Mock_Exam_3.html">
+            
+                <a href="../k8s/KodeKloud_Mock_Exam_3.html">
+            
+                    
+                    KodeKloud Mock Exam - 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.17" data-path="../k8s/资料及经验分享.html">
+            
+                <a href="../k8s/资料及经验分享.html">
+            
+                    
+                    资料及经验分享（已通过）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="考试概览.html">
+            
+                <a href="考试概览.html">
+            
+                    
+                    Cloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="基本概念.html">
+            
+                <a href="基本概念.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="IAM.html">
+            
+                <a href="IAM.html">
+            
+                    
+                    IAM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="EC2.html">
+            
+                <a href="EC2.html">
+            
+                    
+                    EC2 & Security Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="ElasticIPs.html">
+            
+                <a href="ElasticIPs.html">
+            
+                    
+                    Elastic IPs 及 EC2 相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="EBS.html">
+            
+                <a href="EBS.html">
+            
+                    
+                    EBS, AMI & EFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="LB_ASG.html">
+            
+                <a href="LB_ASG.html">
+            
+                    
+                    LB & ASG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.7" data-path="RDS_Aurora_ElastiCache.html">
+            
+                <a href="RDS_Aurora_ElastiCache.html">
+            
+                    
+                    RDS, Aurora & ElastiCache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.8" data-path="路由.html">
+            
+                <a href="路由.html">
+            
+                    
+                    路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.9" data-path="S3_FSx_StorageGateway.html">
+            
+                <a href="S3_FSx_StorageGateway.html">
+            
+                    
+                    S3, FSx & Storage Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.10" data-path="S3_Glacier_Athena.html">
+            
+                <a href="S3_Glacier_Athena.html">
+            
+                    
+                    S3, Glacier & Athena
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.11" data-path="CloudFront_SQS_SNS_Kinesis.html">
+            
+                <a href="CloudFront_SQS_SNS_Kinesis.html">
+            
+                    
+                    CloudFront, SQS, SNS & Kinesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.12" data-path="DynamoDB_QuickSight_Redshift及安全相关.html">
+            
+                <a href="DynamoDB_QuickSight_Redshift及安全相关.html">
+            
+                    
+                    DynamoDB, QuickSight, Redshift 及安全相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.13" data-path="ECS.html">
+            
+                <a href="ECS.html">
+            
+                    
+                    ECS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.14" data-path="考前速记.html">
+            
+                <a href="考前速记.html">
+            
+                    
+                    考前速记（已通过 ）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.15" data-path="基本概念及Security.html">
+            
+                <a href="基本概念及Security.html">
+            
+                    
+                    基本概念及 Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.16" data-path="各类数据库.html">
+            
+                <a href="各类数据库.html">
+            
+                    
+                    各类数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.17" data-path="网络概念.html">
+            
+                <a href="网络概念.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.18" data-path="备考经验.html">
+            
+                <a href="备考经验.html">
+            
+                    
+                    备考经验（已通过）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >RDS, Aurora & ElastiCache</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1-rds-backups"><b></b>1. RDS Backups</a></li><li><span class="title-icon "></span><a href="#2-rds-&#x2013;-storage-auto-scaling"><b></b>2. RDS &#x2013; Storage Auto Scaling</a></li><li><span class="title-icon "></span><a href="#3-rds-read-replicas-for-read-scalability"><b></b>3. RDS Read Replicas for read scalability</a></li><li><span class="title-icon "></span><a href="#4-rds-read-replicas-&#x2013;-network-cost"><b></b>4. RDS Read Replicas &#x2013; Network Cost</a></li><li><span class="title-icon "></span><a href="#5-rds-multi-az-disaster-recovery"><b></b>5. RDS Multi AZ (Disaster Recovery)</a></li><li><span class="title-icon "></span><a href="#6-rds-&#x2013;-from-single-az-to-multi-az"><b></b>6. RDS &#x2013; From Single-AZ to Multi-AZ</a></li><li><span class="title-icon "></span><a href="#7-rds-security---encryption"><b></b>7. RDS Security - Encryption</a></li><li><span class="title-icon "></span><a href="#8-rds-security-&#x2013;-iam"><b></b>8. RDS Security &#x2013; IAM</a></li><li><span class="title-icon "></span><a href="#9-rds---iam-authentication"><b></b>9. RDS - IAM Authentication</a></li><li><span class="title-icon "></span><a href="#10-amazon-aurora"><b></b>10. Amazon Aurora</a></li><li><span class="title-icon "></span><a href="#11-aurora-high-availability-and-read-scaling"><b></b>11. Aurora High Availability and Read Scaling</a></li><li><span class="title-icon "></span><a href="#12-aurora-&#x2013;-custom-endpoints"><b></b>12. Aurora &#x2013; Custom Endpoints</a></li><li><span class="title-icon "></span><a href="#13-global-aurora"><b></b>13. Global Aurora</a></li><li><span class="title-icon "></span><a href="#14-elasticache-&#x2013;-redis-vs-memcached"><b></b>14. ElastiCache &#x2013; Redis vs Memcached</a></li><li><span class="title-icon "></span><a href="#15-elasticache-&#x2013;-cache-security"><b></b>15. ElastiCache &#x2013; Cache Security</a></li><li><span class="title-icon "></span><a href="#16-patterns-for-elasticache"><b></b>16. Patterns for ElastiCache</a></li><li><span class="title-icon "></span><a href="#17-elasticache-&#x2013;-redis-use-case"><b></b>17. ElastiCache &#x2013; Redis Use Case</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1-rds-backups"><a name="1-rds-backups" class="anchor-navigation-ex-anchor" href="#1-rds-backups"><i class="fa fa-link" aria-hidden="true"></i></a>1. RDS Backups</h3>
+<ul>
+<li>Backups are automatically enabled in RDS</li>
+<li>Automated backups:<ul>
+<li>Daily full backup of the database (during the maintenance window)</li>
+<li>Transaction logs are backed-up by RDS every 5 minutes</li>
+<li>=&gt; ability to restore to any point in time (from oldest backup to 5 minutes ago)</li>
+<li>7 days retention (can be increased to 35 days)</li>
+</ul>
+</li>
+<li>DB Snapshots:<ul>
+<li>Manually triggered by the user</li>
+<li>Retention of backup for as long as you want</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-rds-&#x2013;-storage-auto-scaling"><a name="2-rds-&#x2013;-storage-auto-scaling" class="anchor-navigation-ex-anchor" href="#2-rds-&#x2013;-storage-auto-scaling"><i class="fa fa-link" aria-hidden="true"></i></a>2. RDS &#x2013; Storage Auto Scaling</h3>
+<ul>
+<li>Helps you increase storage on your RDS DB instance dynamically</li>
+<li>When RDS detects you are running out of free database storage, it scales automatically</li>
+<li>Avoid manually scaling your database storage</li>
+<li>You have to set <strong>Maximum Storage Threshold</strong> (maximum limit for DB storage)</li>
+<li>Automatically modify storage if:<ul>
+<li>Free storage is less than 10% of allocated storage</li>
+<li>Low-storage lasts at least 5 minutes</li>
+<li>6 hours have passed since last modification</li>
+</ul>
+</li>
+<li>Useful for applications with <strong>unpredictable workloads</strong></li>
+<li>Supports all RDS database engines (MariaDB, MySQL, PostgreSQL, SQL Server, Oracle)</li>
+</ul>
+<h3 id="3-rds-read-replicas-for-read-scalability"><a name="3-rds-read-replicas-for-read-scalability" class="anchor-navigation-ex-anchor" href="#3-rds-read-replicas-for-read-scalability"><i class="fa fa-link" aria-hidden="true"></i></a>3. RDS Read Replicas for read scalability</h3>
+<ul>
+<li>Up to 5 Read Replicas</li>
+<li>Within AZ, Cross AZ or Cross Region</li>
+<li>Replication is <strong>ASYNC</strong>, so reads are eventually consistent</li>
+<li>Replicas can be promoted to their own DB</li>
+<li>Applications must update the connection string to leverage read replicas<center><img src="async.png" style="zoom:55%"></center>
+
+</li>
+</ul>
+<h3 id="4-rds-read-replicas-&#x2013;-network-cost"><a name="4-rds-read-replicas-&#x2013;-network-cost" class="anchor-navigation-ex-anchor" href="#4-rds-read-replicas-&#x2013;-network-cost"><i class="fa fa-link" aria-hidden="true"></i></a>4. RDS Read Replicas &#x2013; Network Cost</h3>
+<ul>
+<li>In AWS there&apos;s a network cost when data goes from one AZ to another</li>
+<li><strong>For RDS Read Replicas within the same region, you don&apos;t pay that fee</strong></li>
+</ul>
+<h3 id="5-rds-multi-az-disaster-recovery"><a name="5-rds-multi-az-disaster-recovery" class="anchor-navigation-ex-anchor" href="#5-rds-multi-az-disaster-recovery"><i class="fa fa-link" aria-hidden="true"></i></a>5. RDS Multi AZ (Disaster Recovery)</h3>
+<ul>
+<li><strong>SYNC</strong> replication, Increase <strong>availability</strong><center><img src="sync.png" style="zoom:55%"></center>
+
+</li>
+</ul>
+<h3 id="6-rds-&#x2013;-from-single-az-to-multi-az"><a name="6-rds-&#x2013;-from-single-az-to-multi-az" class="anchor-navigation-ex-anchor" href="#6-rds-&#x2013;-from-single-az-to-multi-az"><i class="fa fa-link" aria-hidden="true"></i></a>6. RDS &#x2013; From Single-AZ to Multi-AZ</h3>
+<ul>
+<li>Zero downtime operation (no need to stop the DB)</li>
+<li>Just click on &quot;modify&quot; for the database</li>
+<li>The following happens internally:<ul>
+<li>A snapshot is taken</li>
+<li>A new DB is restored from the snapshot in a new AZ</li>
+<li>Synchronization is established between the two databases<center><img src="replica.png" style="zoom:58%"></center>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-rds-security---encryption"><a name="7-rds-security---encryption" class="anchor-navigation-ex-anchor" href="#7-rds-security---encryption"><i class="fa fa-link" aria-hidden="true"></i></a>7. RDS Security - Encryption</h3>
+<ul>
+<li>At rest encryption<ul>
+<li>Possibility to encrypt the master &amp; read replicas with AWS KMS - AES-256 encryption</li>
+<li>Encryption has to be defined at launch time</li>
+<li><strong>If the master is not encrypted, the read replicas <u>cannot</u> be encrypted</strong></li>
+<li>Transparent Data Encryption (TDE) available for Oracle and SQL Server</li>
+</ul>
+</li>
+<li>In-flight encryption<ul>
+<li>SSL certificates to encrypt data to RDS in flight</li>
+<li>Provide SSL options with trust certificate when connecting to database</li>
+<li>To <u>enforce</u> SSL:<ul>
+<li><strong>PostgreSQL</strong>: rds.force_ssl=1 in the AWS RDS Console (Parameter Groups)</li>
+<li><strong>MySQL</strong>: Within the DB: 
+GRANT USAGE ON <em>.</em> TO &apos;mysqluser&apos;@&apos;%&apos; <strong>REQUIRE SSL</strong>;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-rds-security-&#x2013;-iam"><a name="8-rds-security-&#x2013;-iam" class="anchor-navigation-ex-anchor" href="#8-rds-security-&#x2013;-iam"><i class="fa fa-link" aria-hidden="true"></i></a>8. RDS Security &#x2013; IAM</h3>
+<ul>
+<li>Access Management<ul>
+<li>IAM policies help control who can <strong>manage</strong> AWS RDS (through the RDS API)</li>
+<li>Traditional Username and Password can be used to <strong>login into</strong> the database</li>
+<li>IAM-based authentication can be used to login into RDS MySQL &amp; PostgreSQL</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-rds---iam-authentication"><a name="9-rds---iam-authentication" class="anchor-navigation-ex-anchor" href="#9-rds---iam-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>9. RDS - IAM Authentication</h3>
+<ul>
+<li>IAM database authentication works with <strong>MySQL</strong> and <strong>PostgreSQL</strong></li>
+<li>You don&#x2019;t need a password, just an authentication token obtained through IAM &amp; RDS API calls</li>
+<li>Auth token has a lifetime of 15 minutes</li>
+<li>Benefits:<ul>
+<li>Network in/out must be encrypted using SSL</li>
+<li>IAM to centrally manage users instead of DB</li>
+<li>Can leverage IAM Roles and EC2 Instance profiles for easy integration<center><img src="ssl.png" style="zoom:70%"></center>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-amazon-aurora"><a name="10-amazon-aurora" class="anchor-navigation-ex-anchor" href="#10-amazon-aurora"><i class="fa fa-link" aria-hidden="true"></i></a>10. Amazon Aurora</h3>
+<ul>
+<li>Aurora is a proprietary technology from AWS (not open sourced)</li>
+<li>Postgres and MySQL are both supported as Aurora DB (that means your drivers will work as if Aurora was a Postgres or MySQL database)</li>
+<li>Aurora is &#x201C;AWS cloud optimized&#x201D; and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS</li>
+<li>Aurora storage automatically grows in increments of 10GB, up to 128 TB.</li>
+<li>Aurora can have 15 replicas while MySQL has 5, and the replication process is faster (sub 10 ms replica lag)</li>
+<li>Failover in Aurora is instantaneous. It&#x2019;s HA (High Availability) native.</li>
+<li>Aurora costs more than RDS (20% more) &#x2013; but is more efficient</li>
+</ul>
+<h3 id="11-aurora-high-availability-and-read-scaling"><a name="11-aurora-high-availability-and-read-scaling" class="anchor-navigation-ex-anchor" href="#11-aurora-high-availability-and-read-scaling"><i class="fa fa-link" aria-hidden="true"></i></a>11. Aurora High Availability and Read Scaling</h3>
+<ul>
+<li>6 copies of your data across 3 AZ:<ul>
+<li>4 copies out of 6 needed for writes</li>
+<li>3 copies out of 6 need for reads</li>
+<li>Self healing with peer-to-peer replication</li>
+<li>Storage is striped across 100s of volumes</li>
+</ul>
+</li>
+<li>One Aurora Instance takes writes (master)</li>
+<li>Automated failover for master in less than 30 seconds</li>
+<li>Master + up to 15 Aurora Read Replicas serve reads</li>
+<li><strong>Support for Cross Region Replication</strong></li>
+</ul>
+<h3 id="12-aurora-&#x2013;-custom-endpoints"><a name="12-aurora-&#x2013;-custom-endpoints" class="anchor-navigation-ex-anchor" href="#12-aurora-&#x2013;-custom-endpoints"><i class="fa fa-link" aria-hidden="true"></i></a>12. Aurora &#x2013; Custom Endpoints</h3>
+<ul>
+<li>Define a subset of Aurora Instances as a Custom Endpoint</li>
+<li>Example: Run analytical queries on specific replicas</li>
+<li>The Reader Endpoint is generally not used after defining Custom Endpoints<center><img src="endpoints.png" style="zoom:60%"></center>
+
+</li>
+</ul>
+<h3 id="13-global-aurora"><a name="13-global-aurora" class="anchor-navigation-ex-anchor" href="#13-global-aurora"><i class="fa fa-link" aria-hidden="true"></i></a>13. Global Aurora</h3>
+<ul>
+<li><strong>Aurora Cross Region Read Replicas:</strong><ul>
+<li>Useful for disaster recovery</li>
+<li>Simple to put in place</li>
+</ul>
+</li>
+<li><strong>Aurora Global Database (recommended):</strong><ul>
+<li>1 Primary Region (read / write)</li>
+<li>Up to 5 secondary (read-only) regions, replication lag is less than 1 second</li>
+<li>Up to 16 Read Replicas per secondary region</li>
+<li>Helps for decreasing latency</li>
+<li>Promoting another region (for disaster recovery) has an RTO of &lt; 1 minute</li>
+</ul>
+</li>
+</ul>
+<h3 id="14-elasticache-&#x2013;-redis-vs-memcached"><a name="14-elasticache-&#x2013;-redis-vs-memcached" class="anchor-navigation-ex-anchor" href="#14-elasticache-&#x2013;-redis-vs-memcached"><i class="fa fa-link" aria-hidden="true"></i></a>14. ElastiCache &#x2013; Redis vs Memcached</h3>
+<p>Redis&#xFF1A;</p>
+<ul>
+<li><strong>Multi AZ</strong> with Auto-Failover</li>
+<li><strong>Read Replicas</strong> to scale reads and have <strong>high availability</strong></li>
+<li>Data Durability using AOF persistence</li>
+<li><strong>Backup and restore features</strong></li>
+</ul>
+<p>Memcached&#xFF1A;</p>
+<ul>
+<li>Multi-node for partitioning of data (sharding)</li>
+<li><strong>No high availability (replication)</strong></li>
+<li><strong>Non persistent</strong></li>
+<li><strong>No backup and restore</strong></li>
+<li>Multi-threaded architecture</li>
+</ul>
+<h3 id="15-elasticache-&#x2013;-cache-security"><a name="15-elasticache-&#x2013;-cache-security" class="anchor-navigation-ex-anchor" href="#15-elasticache-&#x2013;-cache-security"><i class="fa fa-link" aria-hidden="true"></i></a>15. ElastiCache &#x2013; Cache Security</h3>
+<ul>
+<li>All caches in ElastiCache:<ul>
+<li><strong><u>Do not support IAM authentication</u></strong></li>
+<li>IAM policies on ElastiCache are only used for AWS API-level security</li>
+</ul>
+</li>
+<li><strong>Redis AUTH</strong><ul>
+<li>You can set a &quot;password/token&quot; when you create a Redis cluster</li>
+<li>This is an extra level of security for your cache (on top of security groups)</li>
+<li>Support SSL in flight encryption</li>
+</ul>
+</li>
+<li>Memcached<ul>
+<li>Supports SASL-based authentication (advanced)</li>
+</ul>
+</li>
+</ul>
+<h3 id="16-patterns-for-elasticache"><a name="16-patterns-for-elasticache" class="anchor-navigation-ex-anchor" href="#16-patterns-for-elasticache"><i class="fa fa-link" aria-hidden="true"></i></a>16. Patterns for ElastiCache</h3>
+<center><img src="es.png" style="zoom:55%"></center>
+
+<ul>
+<li><strong>Lazy Loading</strong>: all the read data is cached, data can become stale in cache</li>
+<li><strong>Write Through</strong>: Adds or update data in the cache when written to a DB (no stale data)</li>
+<li><strong>Session Store</strong>: store temporary session data in a cache (using TTL features)</li>
+</ul>
+<p><em>Quote: There are only two hard things in Computer Science: cache invalidation &#x7F13;&#x5B58;&#x5931;&#x6548; and naming things</em></p>
+<h3 id="17-elasticache-&#x2013;-redis-use-case"><a name="17-elasticache-&#x2013;-redis-use-case" class="anchor-navigation-ex-anchor" href="#17-elasticache-&#x2013;-redis-use-case"><i class="fa fa-link" aria-hidden="true"></i></a>17. ElastiCache &#x2013; Redis Use Case</h3>
+<ul>
+<li>&#x6E38;&#x620F;&#x6392;&#x884C;&#x699C;&#x7684;&#x590D;&#x6742;&#x8BA1;&#x7B97;</li>
+<li>Redis&#x6392;&#x5E8F;&#x96C6;&#x4FDD;&#x8BC1;&#x4E86;&#x552F;&#x4E00;&#x6027;&#x548C;&#x5143;&#x7D20;&#x987A;&#x5E8F;</li>
+<li>&#x6BCF;&#x6B21;&#x6DFB;&#x52A0;&#x65B0;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5B9E;&#x65F6;&#x6392;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x6DFB;&#x52A0;&#x5230;&#x6B63;&#x786E;&#x7684;&#x987A;&#x5E8F; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9;Bota5ky all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Last Updated: 
+2023-09-17 16:50:13
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="LB_ASG.html" class="navigation navigation-prev " aria-label="Previous page: LB & ASG">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="路由.html" class="navigation navigation-next " aria-label="Next page: 路由">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"RDS, Aurora & ElastiCache","level":"1.12.7","depth":2,"next":{"title":"路由","level":"1.12.8","depth":2,"path":"cloud/路由.md","ref":"cloud/路由.md","articles":[]},"previous":{"title":"LB & ASG","level":"1.12.6","depth":2,"path":"cloud/LB_ASG.md","ref":"cloud/LB_ASG.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","expandable-chapters-small","search-pro","code","prism","tbfed-pagefooter","anchor-navigation-ex","disqus","favicon","-lunr","-search","-highlight","-sharing"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright ©Bota5ky","modify_label":"Last Updated: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"ignore":["mermaid"]},"disqus":{"useIdentifier":false,"shortName":"bota5ky"},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"favicon.svg","bookmark":"favicon.svg","appleTouch":"favicon.svg"},"expandable-chapters-small":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Bota5ky","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bota5ky's Blog","gitbook":"*"},"file":{"path":"cloud/RDS_Aurora_ElastiCache.md","mtime":"2023-09-17T08:50:13.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-10T14:49:41.867Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+

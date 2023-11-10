@@ -6,7 +6,7 @@
   },
   "plugins": [
     "mermaid-gb3",
-    "chapter-fold",
+    "expandable-chapters-small",
     "search-pro",
     "code",
     "prism",

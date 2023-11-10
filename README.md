@@ -7,7 +7,7 @@
 - 命令行工具：Shell、Git、JSON Path
 - 云原生考证：AWS 架构及数据库认证、Kubernetes 认证
 
-学习补充中，In progress...
+学习补充中，整理中In progress...
 
 # 关于作者
 
