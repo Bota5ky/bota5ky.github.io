@@ -95,37 +95,69 @@ Spring 中一个 Bean 的创建大概分为以下几个步骤：
 - Spring 事务的传播机制是 Spring 事务自己实现的，也是 Spring 事务中最复杂的
 - Spring 事务的传播机制是基于数据库连接来做的，一个数据车连接一个事务，如果传播机制图置为需要新开一个事务，那么实际上就是先建立一个数据车连接，在此新数据库连接上执行 sql
 
-### 11. Spring 启动流程
+### 11. SpringBoot 启动原理
 
-https://www.cnblogs.com/zyly/p/13194186.html
+参考自：https://www.cnblogs.com/zyly/p/13194186.html，https://www.bilibili.com/video/BV1hv4y1z7PQ/
 
-**1. new SpringApplication()**
+**1. 服务构建 new SpringApplication()**
 
-- 设置 resourceLoader、primarySources
-- 判断服务类型：Servlet、Reactive、None
-- ~~加载启动注册初始化器 bootstrapRegistryInitializers，默认为空~~
-- 加载应用上下文初始器 ApplicationContextInitializer：`META-INF/spring.factories`
-- 加载应用事件监听器 ApplicationListener
-- 推断应用引导类
+- 传入资源加载器 resourceLoader、主方法类 primarySources
+- 逐一判断对应的服务类是否存在，来确定 Web 服务类型：Servlet、Reactive、None
+- 加载初始化类，读取所有`META-INF/spring.factories`文件中的“注册初始化”、“上下文初始化”、“监听器”这三类配置，spring-boot和 spring-boot-autoconfigure 这两个工程中配置了 7 个“上下文初始化”和 8 个“监听器”
+  - 注册初始化 BootstrapRegistryInitializer，默认为空
+  - 设置上下文初始化 ApplicationContextInitializer
+  - 设置监听器 ApplicationListener
+- 通过“运行栈” stackTrace 推断出 main 方法所在的类
 
-**2. SpringApplication.run()**
+**2. 环境准备 SpringApplication.run()**
 
-- 计时，设置无需图形显示
-- ~~创建 bootstrapContext，逐一调用 bootstrapRegistryInitializers 的 initialize 方法~~
-- 获取 SpringApplicationRunListeners，发布启动事件
-- 加载启动参数、环境变量、系统属性、外部配置资源，发布环境准备完成事件，加载 EnvironmentPostProcessor，二次更新保证匹配
-- 打印 banner
+- 新建 BootstrapContext “启动上下文”，逐一调用上面加载的“启动注册初始化器” BootstrapRegistryInitializer 中的 initialize 方法
+- 将“java.awt.headless”这个设置改为 true，表示缺少显示器、键盘等输入设备也可以正常启动
+- 通过 prepareEnvironment 方法“组装启动参数”
+  - 构造一个“可配置环境” ConfigurableEnvironment，根据不同的 Web 服务器类型会构造不同的环境
+  - 加载系统环境变量、JVM 系统属性等到 propertySources 中
+  - 通过 ConfigurableEnvironment 将传入的环境参数 args 进行设置
+  - 在 propertySources 集合首位添加 configurationProperties 空配置
+  - 发布“环境准备完成”事件
+  - 刚加载的 8 个 Listener 会监听到这个事件，其中的部分监听器会进行相应（串行）处理，例如EnvironmentPostProcessorApplicationListener 会去加载 spring.factories 配置文件中“环境配置后处理器
+    “ EnvironmentPostProcessor
+  - 考虑到刚创建的“可配置环境”在一系列过程中可能会有变化做的补偿，通过二次更新保证匹配
+- 将”spring.beaninfo.ignore“设为 true，表示不加载 Bean 的元数据信息，打印 banner
 
-**3. 创建容器 ApplicationContext**
+**3. 容器创建 ApplicationContext**
 
-- 根据服务类型创建 ApplicationContext，包含：Bean 工厂和用来解析一些常见注解的配置类后处理器
-- 对容器中的部分属性进行初始化
-- 执行之前加载的上下文初始器 ApplicationContextInitializer：实现容器 ID、警告日志处理、日志监听
-- 发布 context 准备完成事件
-- 为容器注册启动参数、Banner、Bean 引用策略、懒加载策略等
-- 加载资源到 BeanDefinitionMap
-- 发布 context 加载完成事件
+- createApplicationContext()，根据服务类型创建”容器“ConfigurableApplicationContext，对应 SERVLET 服务在过程会构造以下内容：
+  - Bean 工厂
+  - 用来解析@Component、@ComponentScan 等注解的“配置类后处理器 ConfigurationClassPostProcessor
+  - 用来解析@Autowired、@Value、@Inject 等注解的“自动注解 Bean 后处理器 AutowiredAnnotationBeanPostProcessor 等在内的属性对象
+
+- 通过 prepareContext 方法对容器中的部分属性进行初始化
+  - 用 postProcessApplicationContext 方法设置”Bean名称生成器 beanNameGenerator“、”资源加载器 resourceLoader"、”类型转换器 ConversionService“等
+  - 执行之前加载的 ApplicationContextInitializer，容器 ID、警告日志处理、日志监听都是在这里实现的
+  - 发布“容器准备完成”事件
+  - 为容器注册“启动参数”、“Banner”、“Bean 引用策略”和“懒加载策略”等等
+  - 通过 Bean 定义加载器将“启动类”在内的资源加载到 BeanDefinitionMap 中
+  - 发布“资源加载完成”事件
+
 
 **4. 填充容器**
 
-https://www.bilibili.com/video/BV1hv4y1z7PQ/
+- 这个过程也被称为“自动装配”，包含“Bean 生命周期”管理和 Tomcat 启动
+  - prepareRefresh：准备 servlet 相关的环境
+  - obtainFreshBeanFactory：Springboot 无实际逻辑，Spring 会重新构造 beanfactory，加载 BeanDefinition
+  - prepareBeanFactory：
+- 发布“启动完成”事件，回调自定义实现的 Runner 接口，来处理一些执行后定制化需求
+
+### 12. 如何理解 SpringBoot 的 Starter 机制
+
+- 提供预配置的依赖：Spring Boot Starters 是一组预配置的依赖项集合，用于启用特定类型的功能。例如，你可以使用 spring-boot-starter-web 启用 Web 应用程序相关的功能，包括内嵌的 Web 服务器、Spring MVC、Jackson 等。这样，你只需引入这个Starter，而无单独处理每个依赖项的版本和配置。
+
+- 简化依赖管理：Spring Boot Starters 简化了项目的依赖管理。通过引入适当的 Starter 你不需要手动指定每个相关的依赖项，Spring Boot 会自动处理它们的版本兼容性和配置。这有助于避免版本冲突和配置错误。
+
+- 自动配置：Spring Boot Starters 还包含了与功能相关的自动配置类。这些自动配置类根据应用程序的依赖和配置，自动配置了必要的组件和设置。这使得你可以快速地启用和使用功能，而无需手动配置每个组件。
+  
+- 遵循约定：Spring Boot Starters 遵循约定大于配置的原则，它们约定了如何将依敕和配置组合在一起，使得应用程序开发更加一致和高效。
+
+- 自定义扩展：尽管 Spring Boot Starters 提供了默认的依赖和配置，你仍然可以根需要进行自定义扩展。你可以在自己的项目中覆盖默认的配置，添加额外的依赖项，或者通过属性配置文件来修改 Starter 的行为。
+
+总之，Spring Boot Starter 机制是 Spring Boot 框架的一项重要功能，它通过提供预配置的依赖和自动配置，大大简化了项目的依赖管理和配置过程，使开发人员能够更专注于业务逻辑的实现。
