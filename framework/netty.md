@@ -106,4 +106,4 @@ ByteBuf 工具类——网络通信中的数据载体
 - Netty 对 BvteBuf 做了优化——缓存池化、减少数据拷贝的 CompositeByteBuf 等
 - netty-resover 模块提供有关基础设施的解析工具——IP Address、Hostname、DNS 等
 
-Protocol Support 协议支持层模块...
+Protocol Support 协议支持层模块...（未完待续 https://www.bilibili.com/video/BV1e24y1z7eJ?p=3）
