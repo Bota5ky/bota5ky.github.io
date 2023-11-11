@@ -1,15 +1,9 @@
-# 关于网站
+### Hi there 👋 I'm Bota5ky
 
-日常学习做笔记使用，主要包括
-- 编程语言：Java、Go、Python、C、C#
-- 计算机基础：计算机网络，操作系统
-- 数据库：MySQL、PostgreSQL、T-SQL、Redis
-- 命令行工具：Shell、Git、JSON Path
-- 云原生考证：AWS 架构及数据库认证、Kubernetes 认证
+- Here is my Github: [Bota5ky](https://github.com/Bota5ky)
+- 本站为日常学习记录笔记使用：主要包括 Java 后端相关的技术栈
+- 刚入门学习的一些技术栈可能会比较浅显、偏八股，后续会逐渐深入并整理
 
-学习补充中，整理中 In progress...
+Leetcode 刷题 record：
 
-# 关于作者
-
-<a href="https://github.com/Bota5ky"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Octocat" width="200" height="200"></a>
-
+[![Leetcode Stats](https://leetcard.jacoblin.cool/Bota5ky?theme=nord&font=Noto%20Sans%20Math&ext=heatmap&site=cn)](https://leetcode.cn/u/bota5ky/)

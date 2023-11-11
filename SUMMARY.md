@@ -6,6 +6,7 @@
 
 - [Java Lock](java/lock.md)
 - [Java 多线程](java/thread.md)
+- [JVM](java/jvm.md)
 - [Spring](framework/spring.md)
 - [Netty](framework/netty.md)
 
