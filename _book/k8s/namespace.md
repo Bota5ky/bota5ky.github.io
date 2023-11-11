@@ -28,7 +28,7 @@ arp ## 在host上执行能看到条目
 ip nets exec red arp ## 在新建的container内看不到条目，用route命令也是同样
 ```
 
-### 4. 建立NS之间的网络接口连接
+### 4. 建立 NS 之间的网络接口连接
 
 <center><img src="conn.png" style="zoom:35%"/></center>
 
