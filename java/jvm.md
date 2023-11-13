@@ -26,11 +26,11 @@ CMS 的垃圾收集算法采用标记-清除算法，并且也会“stop-the-wor
 参数：
 
 - `-XX:+UseConcMarkSweepGC`手动指定使用 CMS 收集器执行内存回收任务
-  - 开启该参数后会自动将-XX:+UseParNewGC打开。即：ParNew（Young区用）+CMS（old区用）+Serial old 的组合。
+  - 开启该参数后会自动将`-XX:+UseParNewGC`打开。即：ParNew（Young区用）+CMS（old区用）+Serial old 的组合。
 - `-XX:CMSInitiatingOccupanyFraction`设置堆内存使用率的阙值，一旦达到该阙值，便开始进行回收。
     - JDK5 及以前版本的默认值为 68,即当老年代的空间使用率达到 68% 时，会执行一次 CMS 回收。JDK6 及以上版本默认值为 92%
     - 如果内存增长缓慢，则可以设置一个稍大的值，大的阙值可以有效降低CMS的触发频率，减少老年代回收的次数可以较为明显地改善应用程序性能。反之，如果应用程序内存使用率增长很快，则应该降低这个阙值，以避免频繁触发老年代串行收集器。因此通过该选项便可以有效降低Full GC 的执行次数。
-- `-XX:+UseCMSCompactAtFulICollection`用于指定在执行完 Full GC 后对内存空间进行压缩整理，以此避免内存碎片的产生。不过由于内存压缩整理过程无法并发执行，所带来的问题就是停顿时间变得更长了。
+- `-XX:+UseCMSCompactAtFullCollection`用于指定在执行完 Full GC 后对内存空间进行压缩整理，以此避免内存碎片的产生。不过由于内存压缩整理过程无法并发执行，所带来的问题就是停顿时间变得更长了。
 - `-XX:CMSFulGCsBeforeCompaction`设置在执行多少次 Full GC 后对内存空间进行压缩整理。
 
 ### 2. G1 (Garbage First)
@@ -89,7 +89,7 @@ G1 GC 的垃圾回收过程主要包括如下三个环节：
 |                    -XX:+PrintGCTimeStamps                    |                     输出GC发生时的时间截                     |
 |                    -XX:+PrintGCDateStamps                    | 输出GC发生时的时间戳（以日期的形式，如2013-05-04T21:53:59.234+0800) |
 |                      -XX:+PrintHeapAtGC                      |                每一次GC前和GC后，都打印堆信息                |
-| -Xloggc:<file><br />-XX:+UseGCLogFileRotation<br />-XX:NumberOfGCLogFiles=5 |    表示把GC日志写入到一个文件中去，而不是打印到标准输出中    |
+| -Xloggc:<文件名><br />-XX:+UseGCLogFileRotation<br />-XX:NumberOfGCLogFiles=5 |    表示把GC日志写入到一个文件中去，而不是打印到标准输出中    |
 |                           -Xss512K                           |                     设置每个线程的栈大小                     |
 |     -XX:MetaspaceSize=64m<br />-XX:MaxMetaspaceSize=60m      |                        设置元空间大小                        |
 | -XX:+HeapDumpOnOutOfMemoryError<br />-XX:heapDumpPath=heap/heapdump.hprof |                         生成dump文件                         |
@@ -101,8 +101,8 @@ G1 GC 的垃圾回收过程主要包括如下三个环节：
 
 手动生成 dump 文件：
 
-- jmap -dump:format=b,file= <filename.hprof> <pid>
-- jmap -dump:live,format=b,file= <filename.hprof> <pid>
+- jmap -dump:format=b,file= <filename.hprof> <进程pid>
+- jmap -dump:live,format=b,file= <filename.hprof> <进程pid>
 
 ### 6. OOM 案例
 
@@ -136,13 +136,13 @@ JVM 监控及诊断工具
 - 命令行：
   - jps -l
 
-  - jstat -gc <pid> <interval> <print times>
+  - jstat -gc <进程pid> <时间间隔> <打印次数>
 
-  - jinfo -flag <cared parameter> <pid>
+  - jinfo -flag <查询的参数> <进程pid>
 
   - jmap
 
-  - jstack <pid> > <log file>
+  - jstack <进程pid> > <日志文件地址>
 
 - GUI：Visual VM、eclipse MAT、Arthas
 
@@ -193,7 +193,7 @@ public void function(){
 
 - ps aux l grep java 查看到当前 java 进程使用 cpu、内存、磁盘的情况获取使用量异常的进程
 - top -Hp <进程pid> 检查当前使用异常线程的 pid
-- 把线程 pid 变为 16 进制如 31695 -> 7bcf 然后得到 0x7bcf6，jstack <进程pid> | grep -A20 0x7bcf 得到相关进程的代码
+- 把线程 pid 变为 16 进制如 31695 -> 0x7c8f，jstack <进程pid> | grep -A20 0x7c8f 得到相关进程的代码
 
 ### 8. 垃圾回收
 
@@ -291,3 +291,10 @@ System.out.println(a.intern() == f);	      //false
 //equals()方法作对比都是true
 ```
 
+### 14. Java 对象的内存布局
+
+- **对象头（Object Header）**：包括了关于堆对象的布局、类型、GC状态、同步状态和标识哈希码的基本信息。Java对象和vm内部对象都有一个共同的对象头格式。
+  - Markword：用于存储对象自身的运行时数据，如哈希码（HashCode）、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等等。
+  - 类型指针：是对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。
+- **实例数据（Instance Data）**：主要是存放类的数据信息，父类的信息，对象字段属性信息。
+- **对齐填充（Padding）**：为了字节对齐，填充的数据，不是必须的。
