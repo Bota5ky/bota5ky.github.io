@@ -157,7 +157,7 @@ Spring 中一个 Bean 的创建大概分为以下几个步骤：
   - 通过 Bean 扫描器将所有扫描出来的”Bean 定义“（包括加了 @Bean、@Import 等注解的类和方法）都放到 BeanDefinitionMap 中
 - registerBeanPostProcessors：检索所有 Bean 后置处理器，根据指定 order 进行排序，放入后置处理器池 beanPostProcessors 中，每一个后置处理器都会在 bean 初始化之前和之后分别执行对应的逻辑
 - 会通过 initMessageSource 和 initApplicationEventMulticaster 方法，从单例池中获取两个非常实用的 Bean放在 ApplicationContext 中，一个是用于国际化，名为“messageSource”的 Bean，另一个是用于自定义广播事件，名为“applicationEventMulticaster”的 Bean，有了它就可以通过 publishEvent 方法进行事件的发布了
-- 通过 onRefresh 构造并后动 Web 服务器，先查找实现了 ServletWebServerFactory 这个接口的应用服务器Bean，接下来通过 getWebServer 方法构造一个 Tomcat 对象并启动
+- 通过 onRefresh 构造并后动 Web 服务器，先查找实现了 ServletWebServerFactory 这个接口的应用服务器 Bean，接下来通过 getWebServer 方法构造一个 Tomcat 对象并启动
 - 通过 registerListeners 方法，在 bean 中查找所有的“监听器 Bean”，将它们注册到第八步构造的“消息广播器” applicationEventMulticaster 中
 - 通过 finishBeanFactorylnitialization 来生产我们所有的 Bean，整体分为“构造对象、填充属性、机始化实例、注册销毁”四个步骤
 - 通过 finishRefresh 方法构造并注册”生命周期管理器 lifecycleProcessor，同时会调用所有实现了“生命周期接口”Lifecycle 的 Bean 中的 start 方法，当然在容器关闭时也会自动调用对应的 stop 方法，发布“容器刷新完成”事件

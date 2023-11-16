@@ -159,8 +159,8 @@ JVM 监控及诊断工具
 - 第1步：熟悉业务场景
 - 第2步（发现问题）：性能监控：GC 频繁、cpu load 过高、OOM、内存泄漏、死锁、程序响应时间较长
 - 第3步（排查问题）：性能分析：
-  - 打印GC日志，通过GCviewer或者http://gceasy.io来分析日志信息
-  - 灵活运用命令行工具，jstack，jmap，jinfo等
+  - 打印 GC 日志，通过 GCviewer 或者 http://gceasy.io 来分析日志信息
+  - 灵活运用命令行工具，jstack，jmap，jinfo 等
   - dump 出堆文件，使用内存分析工具分析文件
   - 使用阿里 Arthas，或 jconsole，JVisualVM 来实时查看 JVM
   - jstack 查看堆栈信息
