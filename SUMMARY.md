@@ -39,6 +39,9 @@
   - [基本概念](kafka/基本概念.md)
   - [Kafka Topics & CLI](kafka/Kafka_Topics_CLI.md)
   - [Java Integration](kafka/Java_Integration.md)
+- [Elasticsearch](es/query.md)
+  - [映射关系](es/mapping.md)
+
 
 ### Cloud native
 

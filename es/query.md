@@ -9,12 +9,12 @@ ES 里的 Index 可以看做一个库，而 Types 相当于表，Documents 则�
 **创建索引**
 
 ```http
-PUT hittp://127.0.0.1:9200/shopping
+PUT http://127.0.0.1:9200/shopping
 
 {
-	"acknowledged": true,
-	"shards_acknowledged": true,
-	"index":"shopping
+	"acknowledged":true,
+	"shards_acknowledged":true,
+	"index":"shopping"
 }
 ```
 
@@ -23,13 +23,13 @@ PUT hittp://127.0.0.1:9200/shopping
 **获取所有索引**
 
 ```http
-GET hittp://127.0.0.1:9200/_cat/indices?v
+GET http://127.0.0.1:9200/_cat/indices?v
 ```
 
 **删除索引**
 
 ```http
-DELETE hittp://127.0.0.1:9200/shopping
+DELETE http://127.0.0.1:9200/shopping
 
 {
 	"acknowledged": true
@@ -39,7 +39,7 @@ DELETE hittp://127.0.0.1:9200/shopping
 **创建文档**
 
 ```http
-POST hittp://127.0.0.1:9200/shopping/_doc
+POST http://127.0.0.1:9200/shopping/_doc
 {
 	"title":"小米手机",
 	"category":"小米",
@@ -51,7 +51,7 @@ POST hittp://127.0.0.1:9200/shopping/_doc
 **创建自定义 id 文档**
 
 ```http
-POST hittp://127.0.0.1:9200/shopping/_doc/1001
+POST http://127.0.0.1:9200/shopping/_doc/1001
 {
 	"title":"小米手机",
 	"category":"小米",
@@ -65,13 +65,13 @@ POST hittp://127.0.0.1:9200/shopping/_doc/1001
 **查询文档**
 
 ```http
-GET hittp://127.0.0.1:9200/shopping/_doc/1001
+GET http://127.0.0.1:9200/shopping/_doc/1001
 ```
 
 **查询所有文档**
 
 ```http
-GET hittp://127.0.0.1:9200/shopping/_search
+GET http://127.0.0.1:9200/shopping/_search
 {
 	"query":{
 		"match_all":{
@@ -85,7 +85,7 @@ GET hittp://127.0.0.1:9200/shopping/_search
 **覆盖更新**
 
 ```http
-PUT hittp://127.0.0.1:9200/shopping/_doc/1001
+PUT http://127.0.0.1:9200/shopping/_doc/1001
 {
 	"title":"小米手机",
 	"category":"小米",
@@ -97,7 +97,7 @@ PUT hittp://127.0.0.1:9200/shopping/_doc/1001
 **局部更新**
 
 ```http
-POST hittp://127.0.0.1:9200/shopping/_update/1001
+POST http://127.0.0.1:9200/shopping/_update/1001
 {
 	"doc": {
 		"title":"华为手机"
@@ -108,19 +108,19 @@ POST hittp://127.0.0.1:9200/shopping/_update/1001
 **删除文档**
 
 ```http
-DELETE hittp://127.0.0.1:9200/shopping/_doc/1001
+DELETE http://127.0.0.1:9200/shopping/_doc/1001
 ```
 
 **条件查询**
 
 ```http
-GET hittp://127.0.0.1:9200/shopping/_search?q=category:小米
+GET http://127.0.0.1:9200/shopping/_search?q=category:小米
 ```
 
 使用请求体的形式
 
 ```http
-GET hittp://127.0.0.1:9200/shopping/_search
+GET http://127.0.0.1:9200/shopping/_search
 {
 	"query":{
 		"match":{
@@ -155,23 +155,75 @@ size 表示每页多少条，_source 指定显示的字段。
 
 ```json
 {
-	"query":{
-		"bool":{
-			"must":[
-				{
-					"match":{
-						"category":"小米"
-					}
-				},
+  "query": {
+    "bool": {
+      "should":[
         {
-					"match":{
-						"price":1999.00
-					}
-				}
-			]
+          "match":{
+            "category":"小米"
+          }
+        },
+        {
+          "match":{
+            "price":1999
+          }
+        }
+      ],
+      "filter":{
+          "range":{
+              "price":{
+                  "gt":5000
+              }
+          }
+      }
+    }
+  },
+  "highlight":{
+      "fields":{
+          "category":{}
+      }
+  }
+}
+```
+
+OR匹配就把`must`换成`should`，完全匹配就把`match`换成`match_phrase`。
+
+**聚合查询**
+
+```json
+{
+    "aggs":{
+        "price_group":{
+            "terms":{
+                "field":"price"
+            }
+        }
+    }
+    "size":0
+}
+```
+
+`size`为 0 代表不用显示原始数据，只需要统计结果。求平均值就把`terms`改成`avg`。
+
+**建立映射关系**
+
+```http
+PUT http://127.0.0.1:9200/user/_mapping/
+{
+	"properties":{
+		"name":{
+			"type":"text",
+			"index":true
+		},
+		"sex":{
+			"type":"keyword",  //不可分词，作为关键词
+			"index":true
+		},
+		"tel":{
+			"type":"keyword",
+			"index":false      //不可索引，不支持查询
 		}
 	}
 }
 ```
 
-或匹配就把`must`换成`should`
