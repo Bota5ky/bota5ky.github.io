@@ -7,6 +7,7 @@ helm upgrade <release_name> <repo_name>/apache --namespace=web
 helm rollback apache 1 --namespace=web
 helm uninstall <release_name>
 helm list #缩写helm ls
+helm status mydb
 ```
 
 work with chart repository:
@@ -21,8 +22,8 @@ helm repo update #升级Charts
 ### 2. 自定义值
 
 ```bash
-helm install mydb bitnami/mysql --set auth.rootPassword=test1234
-helm install mydb bitnami/mysql --values values.yaml
+helm install mydb bitnami/mysql --set auth.rootPassword=test1234 #权限最高，会覆盖values.yaml
+helm install mydb bitnami/mysql --values values.yaml --dry-run #不会在k8s中创建
 helm install mydb bitnami/mysql --reuse-values
 #验证密码
 echo Password: $(kubectl get secret --namespace default mydb-mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode)
