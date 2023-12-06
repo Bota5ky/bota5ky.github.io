@@ -1,3 +1,5 @@
+官方文档：https://helm.sh/zh/docs
+
 ### 1. 基础命令
 
 ```bash
@@ -57,9 +59,54 @@ auth:
 helm uninstall mydb --keep-history
 ```
 
-### 3. Charts
+### 3. Chart
 
 ```bash
-
+helm create firstchart
 ```
 
+chart 文件目录结构：
+
+```
+firstchart/
+  Chart.yaml          # 包含了chart信息的YAML文件
+  values.yaml         # chart 默认的配置值
+  charts/             # 包含chart依赖的其他chart
+  templates/          # 模板目录， 当和values 结合时，可生成有效的Kubernetes manifest文件
+    NOTES.txt # 可选: 包含简要使用说明的纯文本文件
+    _helpers.tpl
+    deployment.yaml
+    hpa.yaml
+    ingress.yaml
+    service.yaml
+    serviceaccount.yaml
+    tests/
+
+  LICENSE             # 可选: 包含chart许可证的纯文本文件
+  README.md           # 可选: 可读的README文件
+  values.schema.json  # 可选: 一个使用JSON结构的values.yaml文件
+  crds/               # 自定义资源的定义
+```
+
+使用自定义 chart install
+
+```bash
+helm install firstapp firstchart
+```
+
+默认情况下，service 会暴露 pod 的 clusterIP，只能在 cluster 内部访问。
+
+暴露容器端口 80 到本地 8080：
+
+```bash
+export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=firstchart,app.kubernetes.io/instance=firstapp" -o jsonpath="{.items[0].metadata.name}")
+
+export CONTAINER_PORT=$(kubectl get pods --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+
+kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+```
+
+### 4. Templates
