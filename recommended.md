@@ -10,3 +10,13 @@
 
 - [高性能队列——Disruptor](https://tech.meituan.com/2016/11/18/disruptor.html)
 
+
+
+引用 Chart 内的值需要首字母大写。
+
+```yaml
+{{.Chart.AppVersion}}
+{{.Release.IsUpgrade}}
+{{.Template.Name}}
+```
+
