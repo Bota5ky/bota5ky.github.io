@@ -18,5 +18,7 @@
 {{.Chart.AppVersion}}
 {{.Release.IsUpgrade}}
 {{.Template.Name}}
+{{.Values.my.custom.data | default "testdefault" | upper | quote}} #设置默认值，加双引号
 ```
 
+nindent：nested indent 嵌套缩进
