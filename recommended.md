@@ -166,6 +166,35 @@ helm verify chartsrepo/firstchart-0.1.0.tgz --keyring ~/.gnupg/secring.gpg #使�
 helm install --verify --keyring ~/.gnupg/secring.gpg releasename localrepo/firstchart
 ```
 
+### Starter
+
+```bash
+helm env HELM_DATA_HOME
+```
+
+新建文件夹`/Users/xxx/Library/helm/starters`
+
+替换原先的 chart name 为占位符`<CHARTNAME>`
+
+```bash
+helm create --starter springwebappmysql demoapp
+```
+
+### Plugins
+
+```bash
+helm plugin list
+helm plugin install https://github.com/salesforce/helm-starter.git #--verison xxx
+#url也可以替换成本地目录或文件
+helm starter --help #显示插件使用帮助
+helm plugin update starter
+helm plugin remove starter
+```
+
+
+
+
+
 
 
 
