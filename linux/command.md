@@ -231,6 +231,12 @@ git grep "delete from"                                    # 文件中搜索文�
 git grep -e '#define' --and -e SORT_DIRENT
 git gc
 git fsck
+# 清理文件历史提交记录
+git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch <file>' --tag-name-filter cat -- --all
+rm -Rf .git/refs/original
+rm -Rf .git/logs/
+git gc
+git prune
 ```
 
 ### 5. PowerShell
